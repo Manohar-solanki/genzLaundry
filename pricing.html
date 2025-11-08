@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Transparent pricing for laundry and dry cleaning services in Jaipur. Fair rates with no hidden charges.">
-  <meta name="keywords" content="laundry prices, dry cleaning cost, wash and fold pricing, Jaipur">
-  <title>>GenZLaundry - Pricing</title>
+  <meta name="description" content="Comprehensive laundry and dry cleaning services in Jaipur. Wash & fold, dry cleaning, ironing, and specialty care for all your garment needs.">
+  <meta name="keywords" content="laundry services, dry cleaning, wash and fold, ironing, specialty care, Jaipur">
+  <title>>GenZLaundry - Our Services</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,8 +25,8 @@
         <nav id="main-nav">
           <ul>
             <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-            <li><a href="pricing.html" data-i18n="nav.pricing" class="active">Pricing</a></li>
+            <li><a href="services.html" data-i18n="nav.services" class="active">Services</a></li>
+            <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
             <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
             <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
             <li><a href="about.html" data-i18n="nav.about">About</a></li>
@@ -157,17 +157,16 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 data-i18n="pricing.title">Transparent Pricing</h1>
-        <p class="hero-subtitle" data-i18n="pricing.subtitle">Fair rates with no hidden charges</p>
-        <p class="pricing-disclaimer" style="margin-top: 1rem;" data-i18n="pricing.disclaimer">Final quote confirmed at pickup. Prices may vary based on fabric type and care requirements.</p>
+        <h1 data-i18n="services.title">Our Services</h1>
+        <p class="hero-subtitle" data-i18n="services.subtitle">Comprehensive garment care solutions</p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="pricing-grid" id="pricing-cards">
-        <!-- Pricing cards will be populated by JavaScript -->
+      <div class="services-grid" id="services-detail">
+        <!-- Services will be populated by JavaScript -->
       </div>
     </div>
   </section>
@@ -205,9 +204,9 @@
         <div class="footer-section">
           <h4 data-i18n="common.contactUs">Contact Us</h4>
           <ul>
-            <li><a href="tel:+91XXXXXXXXXX" data-i18n="common.phone">Phone</a>: +91 XXXXXXXXXX</li>
-            <li><a href="https://wa.me/91XXXXXXXXXX" target="_blank" data-i18n="common.whatsapp">WhatsApp</a></li>
-            <li><a href="mailto:info@laundrydone.com" data-i18n="common.email">Email</a>: info@laundrydone.com</li>
+            <li><a href="tel:+918233853727" data-i18n="common.phone">Phone</a>: +91 8233853727</li>
+            <li><a href="https://wa.me/918233853727" target="_blank" data-i18n="common.whatsapp">WhatsApp</a></li>
+            <li><a href="mailto:newgenzlaundry@gmail.com" data-i18n="common.email">Email</a>: newgenzlaundry@gmail.com</li>
           </ul>
         </div>
       </div>
@@ -223,62 +222,43 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      function loadPricing() {
+      function loadServices() {
         if (typeof i18n === 'undefined') return;
         
-        const container = document.getElementById('pricing-cards');
+        const container = document.getElementById('services-detail');
         if (!container) return;
         
         const lang = i18n.getLanguage();
-        const pricing = i18n.content[lang]?.pricing || {};
+        const categories = i18n.content[lang]?.services?.categories || {};
         
-        const cards = [
-          {
-            key: 'washFold',
-            data: pricing.washFold,
-            items: ['perKg', 'minOrder', 'bulk']
-          },
-          {
-            key: 'dryCleaning',
-            data: pricing.dryCleaning,
-            items: ['suit', 'shirt', 'dress', 'saree', 'other']
-          },
-          {
-            key: 'ironing',
-            data: pricing.ironing,
-            items: ['shirt', 'trouser', 'saree', 'dress', 'other']
-          },
-          {
-            key: 'specialty',
-            data: pricing.specialty,
-            items: pricing.specialty?.examples || []
-          }
+        const services = [
+          { key: 'washFold', icon: '🧺' },
+          { key: 'dryCleaning', icon: '👔' },
+          { key: 'ironing', icon: '✨' },
+          { key: 'specialty', icon: '🎨' }
         ];
         
-        container.innerHTML = cards.map(card => {
-          if (!card.data) return '';
-          
-          const isSpecialty = card.key === 'specialty';
-          const priceDisplay = isSpecialty ? '' : (card.data.perKg || card.data.suit || '');
+        container.innerHTML = services.map(service => {
+          const data = categories[service.key];
+          if (!data) return '';
           
           return `
-            <div class="pricing-card ${card.key === 'washFold' ? 'featured' : ''}">
-              <h3 class="pricing-title">${card.data.title}</h3>
-              ${priceDisplay ? `<div class="pricing-price">${priceDisplay}</div>` : ''}
-              <ul class="pricing-list">
-                ${isSpecialty 
-                  ? `<li>${card.data.note}</li>${card.items.map(item => `<li>${item}</li>`).join('')}`
-                  : card.items.map(item => `<li>${card.data[item]}</li>`).join('')
-                }
+            <div class="service-card">
+              <div class="service-icon">${service.icon}</div>
+              <h3>${data.title}</h3>
+              <p style="margin-bottom: 1.5rem;">${data.description}</p>
+              <ul style="text-align: left; list-style: none; margin-bottom: 1rem;">
+                ${data.features.map(feature => `<li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border-light);">✓ ${feature}</li>`).join('')}
               </ul>
+              <p style="font-weight: 600; color: var(--color-primary); margin-top: 1rem;">${data.priceNote}</p>
             </div>
           `;
         }).join('');
       }
       
-      setTimeout(loadPricing, 200);
+      setTimeout(loadServices, 200);
       if (typeof i18n !== 'undefined') {
-        i18n.onLanguageChange(loadPricing);
+        i18n.onLanguageChange(loadServices);
       }
     });
 
