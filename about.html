@@ -39,7 +39,120 @@
       </div>
     </div>
   </header>
+<!-- Floating Contact Buttons -->
+<div class="floating-buttons">
+  <a href="tel:+918233853727" class="btn-floating btn-call" title="Call Us">
+    <i class="fas fa-phone"></i>
+    <span class="btn-tooltip">Call Us Now</span>
+  </a>
+  <a href="https://wa.me/8233853727" target="_blank" class="btn-floating btn-whatsapp" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="btn-tooltip">Chat on WhatsApp</span>
+  </a>
+</div>
 
+<style>
+.floating-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.btn-floating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.btn-floating:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-call {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.btn-tooltip {
+  position: absolute;
+  right: 70px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.btn-floating:hover .btn-tooltip {
+  opacity: 1;
+}
+
+.btn-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .floating-buttons {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .btn-floating {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-buttons {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .btn-floating {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .btn-tooltip {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+</style>
+
+<!-- Make sure Font Awesome is included in your head section -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <section class="hero">
     <div class="container">
       <div class="hero-content">
@@ -104,8 +217,8 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h4 data-i18n="meta.siteName">GenZLaundry</h4>
-          <p data-i18n="footer.description">Premium laundry and dry cleaning service in Jodhpur. Professional garment care delivered to your doorstep.</p>
+          <h4 data-i18n="meta.siteName">LaundryDone</h4>
+          <p data-i18n="footer.description">Premium laundry and dry cleaning service in Jaipur. Professional garment care delivered to your doorstep.</p>
         </div>
         
         <div class="footer-section">
@@ -238,9 +351,157 @@
         menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
       }
     });
+    
   </script>
+  <!-- Add this script at the end of your body tag -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Create floating buttons container
+  const floatingButtons = document.createElement('div');
+  floatingButtons.className = 'floating-buttons';
+  
+  // Create call button
+  const callButton = document.createElement('a');
+  callButton.href = 'tel:+918233853727';
+  callButton.className = 'btn-floating btn-call';
+  callButton.title = 'Call Us';
+  callButton.innerHTML = `
+    <i class="fas fa-phone"></i>
+    <span class="btn-tooltip">Call Us Now</span>
+  `;
+  
+  // Create WhatsApp button
+  const whatsappButton = document.createElement('a');
+  whatsappButton.href = 'https://wa.me/8233853727';
+  whatsappButton.target = '_blank';
+  whatsappButton.className = 'btn-floating btn-whatsapp';
+  whatsappButton.title = 'Chat on WhatsApp';
+  whatsappButton.innerHTML = `
+    <i class="fab fa-whatsapp"></i>
+    <span class="btn-tooltip">Chat on WhatsApp</span>
+  `;
+  
+  // Add buttons to container
+  floatingButtons.appendChild(callButton);
+  floatingButtons.appendChild(whatsappButton);
+  
+  // Add container to body
+  document.body.appendChild(floatingButtons);
+  
+  // Add CSS styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .floating-buttons {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+    
+    .btn-floating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .btn-floating:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-call {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+    }
+    
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+    
+    .btn-tooltip {
+      position: absolute;
+      right: 70px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    
+    .btn-floating:hover .btn-tooltip {
+      opacity: 1;
+    }
+    
+    .btn-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -5px;
+      transform: translateY(-50%);
+      border-width: 5px 0 5px 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+    }
+    
+    @media (max-width: 768px) {
+      .floating-buttons {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .btn-floating {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .floating-buttons {
+        bottom: 15px;
+        right: 15px;
+      }
+      
+      .btn-floating {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+      
+      .btn-tooltip {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+    }
+  `;
+  
+  document.head.appendChild(style);
+});
+
+// Check if Font Awesome is already loaded, if not, load it
+if (!document.querySelector('link[href*="font-awesome"]') && !document.querySelector('link[href*="fontawesome"]')) {
+  const faLink = document.createElement('link');
+  faLink.rel = 'stylesheet';
+  faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+  document.head.appendChild(faLink);
+}
+</script>
 </body>
 </html>
-
 
 
