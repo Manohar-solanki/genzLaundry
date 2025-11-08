@@ -76,19 +76,19 @@
     "testimonialsTitle": "Trusted by Our Customers",
     "testimonials": [
       {
-        "name": "Priya Sharma",
+        "name": "Kavita",
         "location": "Jodhpur",
         "text": "Excellent service! My zari sarees came back looking brand new. Highly recommended.",
         "rating": 5
       },
       {
-        "name": "Rajesh Kumar",
+        "name": "Mahendra Solanki",
         "location": "Jodhpur",
         "text": "Doorstep service is a game-changer. Professional, timely, and affordable.",
         "rating": 5
       },
       {
-        "name": "Anjali Mehta",
+        "name": "Gayatri",
         "location": "Jodhpur",
         "text": "The eco-friendly cleaning gives me peace of mind. Quality is consistently excellent.",
         "rating": 5
@@ -358,6 +358,7 @@
     "copyright": "© 2024 LaundryDone. All rights reserved."
   }
 }
+
 
 
 
