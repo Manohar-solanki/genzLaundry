@@ -1,6 +1,6 @@
 /**
  * Form Handling Module
- * Handles form validation and submission
+ * Handles form validation and submission via WhatsApp
  */
 
 class FormHandler {
@@ -9,7 +9,6 @@ class FormHandler {
   }
 
   init() {
-    // Wait for DOM to be ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.setupForms());
     } else {
@@ -18,7 +17,6 @@ class FormHandler {
   }
 
   setupForms() {
-    // Find booking form
     const bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
       this.setupBookingForm(bookingForm);
@@ -31,7 +29,6 @@ class FormHandler {
       this.handleBookingSubmit(form);
     });
 
-    // Real-time validation
     const inputs = form.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
       input.addEventListener('blur', () => {
@@ -39,7 +36,6 @@ class FormHandler {
       });
 
       input.addEventListener('input', () => {
-        // Clear error on input
         const errorElement = input.parentElement.querySelector('.form-error');
         if (errorElement) {
           errorElement.classList.remove('show');
@@ -54,13 +50,11 @@ class FormHandler {
     let isValid = true;
     let errorMessage = '';
 
-    // Remove previous error
     const errorElement = field.parentElement.querySelector('.form-error');
     if (errorElement) {
       errorElement.classList.remove('show');
     }
 
-    // Required field validation
     if (field.hasAttribute('required') && !value) {
       isValid = false;
       if (typeof i18n !== 'undefined') {
@@ -70,7 +64,6 @@ class FormHandler {
       }
     }
 
-    // Phone validation
     if (fieldName === 'phone' && value) {
       const phoneRegex = /^[6-9]\d{9}$/;
       if (!phoneRegex.test(value)) {
@@ -83,7 +76,6 @@ class FormHandler {
       }
     }
 
-    // Email validation
     if (fieldName === 'email' && value) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(value)) {
@@ -92,7 +84,6 @@ class FormHandler {
       }
     }
 
-    // Show error if invalid
     if (!isValid) {
       this.showFieldError(field, errorMessage);
     }
@@ -101,19 +92,15 @@ class FormHandler {
   }
 
   showFieldError(field, message) {
-    // Remove existing error
     const existingError = field.parentElement.querySelector('.form-error');
     if (existingError) {
       existingError.remove();
     }
 
-    // Create error element
     const errorElement = document.createElement('div');
     errorElement.className = 'form-error show';
     errorElement.textContent = message;
     field.parentElement.appendChild(errorElement);
-
-    // Add error class to field
     field.style.borderColor = 'var(--color-error)';
   }
 
@@ -130,78 +117,72 @@ class FormHandler {
     return isValid;
   }
 
-  async handleBookingSubmit(form) {
-    // Validate form
+  // Helper: Clear all form errors (for reset)
+  clearFormErrors(form) {
+    form.querySelectorAll('.form-error').forEach(el => el.remove());
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+      input.style.borderColor = '';
+    });
+  }
+
+  handleBookingSubmit(form) {
     if (!this.validateForm(form)) {
       return;
     }
 
-    // Get form data
     const formData = new FormData(form);
     const data = {};
     formData.forEach((value, key) => {
       data[key] = value;
     });
 
-    // Show loading state
     const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
     submitButton.disabled = true;
     if (typeof i18n !== 'undefined') {
       submitButton.textContent = i18n.t('booking.form.submitting');
     } else {
-      submitButton.textContent = 'Submitting...';
+      submitButton.textContent = 'Sending...';
     }
 
-    try {
-      // Get form action (should be set to Formspree or similar)
-      const action = form.getAttribute('action') || form.getAttribute('data-action');
-      
-      if (!action || action === '' || action.includes('YOUR_FORM_ID')) {
-        // Fallback: Show success message directly (for demo/testing)
-        // In production, configure Formspree or your form handler
-        console.warn('No form action specified. Showing success message. Please configure form action in booking.html');
-        
-        // Simulate successful submission
-        setTimeout(() => {
-          this.showSuccessMessage(form, data);
-          form.reset();
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-        }, 1000);
-        return;
-      } else {
-        // Submit to actual endpoint
-        const response = await fetch(action, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
+    // WhatsApp configuration
+    const WHATSAPP_NUMBER = '918233853727'; // Your number with country code (no +)
+    
+    // Build pre-filled message
+  // Build pre-filled message with WhatsApp formatting
+let message = '*New Laundry Booking Request*\n\n';
+if (data.name) message += `*Name:* ${data.name}\n`;
+if (data.phone) message += `*Phone:* ${data.phone}\n`;
+if (data.email) message += `*Email:* ${data.email}\n`;
+if (data.service) message += `*Service:* ${data.service}\n`;
+if (data.address) message += `*Address:* ${data.address}\n`;
+if (data.message) message += `*Message:* ${data.message}\n`;
 
-        if (response.ok) {
-          this.showSuccessMessage(form, data);
-          form.reset();
-        } else {
-          throw new Error('Form submission failed');
-        }
-      }
+    // Open WhatsApp with pre-filled message
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    
+    try {
+      // Open in new tab (user must send manually)
+      window.open(whatsappUrl, '_blank');
+      
+      // Show success message
+      setTimeout(() => {
+        this.showSuccessMessage(form, data);
+        form.reset();
+        this.clearFormErrors(form); // Clear visual errors
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }, 800);
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('WhatsApp error:', error);
       this.showErrorMessage(form);
-    } finally {
       submitButton.disabled = false;
       submitButton.textContent = originalText;
     }
   }
 
   showSuccessMessage(form, data) {
-    // Hide form
     form.style.display = 'none';
-
-    // Create success message
     const successDiv = document.createElement('div');
     successDiv.className = 'form-success';
     
@@ -220,32 +201,39 @@ class FormHandler {
             <li>${content.step3}</li>
           </ul>
           <p style="margin-top: 1.5rem; font-weight: 600;">
-            ${content.contact} <a href="tel:+91XXXXXXXXXX" class="contact-link">+91 XXXXXXXXXX</a>
+            ${content.contact} 
+            <a href="tel:+918233853727" class="contact-link">+91 8233853727</a>
+            or 
+            <a href="https://wa.me/918233853727" class="contact-link" target="_blank">Chat on WhatsApp</a>
           </p>
         </div>
       `;
     } else {
       successDiv.innerHTML = `
-        <h3>Booking Request Submitted!</h3>
-        <p>Thank you for choosing LaundryDone. We've received your booking request and will contact you shortly.</p>
+        <h3>Booking Request Sent!</h3>
+        <p>Thank you! We've received your request and will contact you shortly via WhatsApp.</p>
+        <p style="margin-top: 1rem;">
+          <a href="https://wa.me/918233853727" class="btn-whatsapp" target="_blank">
+            Chat with us on WhatsApp
+          </a>
+        </p>
       `;
     }
 
-    // Insert success message before form
     form.parentElement.insertBefore(successDiv, form);
-
-    // Scroll to success message
     successDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   showErrorMessage(form) {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'form-error show';
-    errorDiv.style.marginBottom = '1rem';
-    errorDiv.style.padding = '1rem';
-    errorDiv.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
-    errorDiv.style.border = '2px solid var(--color-error)';
-    errorDiv.style.borderRadius = 'var(--border-radius)';
+    errorDiv.style.cssText = `
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(244, 67, 54, 0.1);
+      border: 2px solid var(--color-error);
+      border-radius: var(--border-radius);
+    `;
 
     const currentLang = typeof i18n !== 'undefined' ? i18n.getLanguage() : 'en';
     const content = typeof i18n !== 'undefined' ? i18n.content[currentLang]?.booking?.error : null;
@@ -253,16 +241,31 @@ class FormHandler {
     if (content) {
       errorDiv.innerHTML = `<strong>${content.title}</strong><br>${content.message}`;
     } else {
-      errorDiv.innerHTML = '<strong>Error</strong><br>There was an error submitting your booking request. Please try again or call us directly.';
+      errorDiv.innerHTML = `
+        <strong>Submission Failed</strong><br>
+        Please try again or contact us directly:<br>
+        <a href="tel:+918233853727">+91 8233853727</a> or 
+        <a href="https://wa.me/918233853727" target="_blank">WhatsApp</a>
+      `;
     }
 
     form.insertBefore(errorDiv, form.firstChild);
-
-    // Scroll to error
     errorDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Auto-remove error after 10 seconds
+    setTimeout(() => {
+      if (errorDiv.parentNode) errorDiv.remove();
+    }, 10000);
   }
 }
 
 // Initialize form handler
 new FormHandler();
 
+// Floating buttons on scroll
+window.addEventListener('scroll', function() {
+  const buttons = document.querySelector('.floating-buttons');
+  if (buttons) {
+    buttons.classList.toggle('show', window.scrollY > 300);
+  }
+});
