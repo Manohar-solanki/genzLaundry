@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteName": "LaundryDone",
+    "siteName": "GenZLaundry",
     "description": "Premium laundry and dry cleaning service in Jodhpur. Professional garment care with eco-friendly cleaning. Book your pickup today.",
     "keywords": "laundry service Jodhpur, dry cleaning, wash and fold, ironing service"
   },
@@ -250,7 +250,7 @@
     },
     "success": {
       "title": "Booking Request Submitted!",
-      "message": "Thank you for choosing LaundryDone. We've received your booking request and will contact you shortly to confirm the pickup time.",
+      "message": "Thank you for choosing GenZLaundry. We've received your booking request and will contact you shortly to confirm the pickup time.",
       "nextSteps": "What happens next?",
       "step1": "We'll call you within 2 hours to confirm your booking",
       "step2": "Our team will arrive at your doorstep at the scheduled time",
@@ -308,11 +308,11 @@
     ]
   },
   "about": {
-    "title": "About LaundryDone",
+    "title": "About GenZLaundry",
     "subtitle": "Your trusted partner in garment care",
     "mission": {
       "title": "Our Mission",
-      "description": "LaundryDone was founded with a simple mission: to provide premium, reliable laundry services that save you time while caring for your garments with the utmost attention. We combine traditional care values with modern convenience."
+      "description": "GenZLaundry was founded with a simple mission: to provide premium, reliable laundry services that save you time while caring for your garments with the utmost attention. We combine traditional care values with modern convenience."
     },
     "values": {
       "title": "Our Values",
@@ -355,9 +355,10 @@
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "copyright": "© 2024 LaundryDone. All rights reserved."
+    "copyright": "© 2024 GenZLaundry. All rights reserved."
   }
 }
+
 
 
 
