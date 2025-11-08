@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transparent pricing for laundry and dry cleaning services in Jaipur. Fair rates with no hidden charges.">
+  <meta name="keywords" content="laundry prices, dry cleaning cost, wash and fold pricing, Jaipur">
+  <title>LaundryDone - Pricing</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🧺</span>
+          <span data-i18n="meta.siteName">LaundryDone</span>
+        </a>
+        
+        <nav id="main-nav">
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="pricing.html" data-i18n="nav.pricing" class="active">Pricing</a></li>
+            <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="booking.html" class="btn btn-primary btn-sm" data-i18n="common.bookPickup">Book Pickup</a></li>
+          </ul>
+        </nav>
+        
+        <div class="language-toggle"></div>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="pricing.title">Transparent Pricing</h1>
+        <p class="hero-subtitle" data-i18n="pricing.subtitle">Fair rates with no hidden charges</p>
+        <p class="pricing-disclaimer" style="margin-top: 1rem;" data-i18n="pricing.disclaimer">Final quote confirmed at pickup. Prices may vary based on fabric type and care requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="pricing-grid" id="pricing-cards">
+        <!-- Pricing cards will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background-color: var(--color-bg-alt);">
+    <div class="container">
+      <div class="text-center">
+        <h2 data-i18n="home.ctaTitle">Ready to Get Started?</h2>
+        <p class="section-subtitle" data-i18n="home.ctaDescription">Book your pickup today and experience premium laundry service.</p>
+        <div style="margin-top: 2rem;">
+          <a href="booking.html" class="btn btn-primary btn-lg" data-i18n="common.bookPickup">Book Pickup</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4 data-i18n="meta.siteName">LaundryDone</h4>
+          <p data-i18n="footer.description">Premium laundry and dry cleaning service in Jaipur. Professional garment care delivered to your doorstep.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+          <ul>
+            <li><a href="services.html" data-i18n="footer.services">Services</a></li>
+            <li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li>
+            <li><a href="about.html" data-i18n="footer.about">About</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 data-i18n="common.contactUs">Contact Us</h4>
+          <ul>
+            <li><a href="tel:+91XXXXXXXXXX" data-i18n="common.phone">Phone</a>: +91 XXXXXXXXXX</li>
+            <li><a href="https://wa.me/91XXXXXXXXXX" target="_blank" data-i18n="common.whatsapp">WhatsApp</a></li>
+            <li><a href="mailto:info@laundrydone.com" data-i18n="common.email">Email</a>: info@laundrydone.com</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">© 2024 LaundryDone. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/language-toggle.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      function loadPricing() {
+        if (typeof i18n === 'undefined') return;
+        
+        const container = document.getElementById('pricing-cards');
+        if (!container) return;
+        
+        const lang = i18n.getLanguage();
+        const pricing = i18n.content[lang]?.pricing || {};
+        
+        const cards = [
+          {
+            key: 'washFold',
+            data: pricing.washFold,
+            items: ['perKg', 'minOrder', 'bulk']
+          },
+          {
+            key: 'dryCleaning',
+            data: pricing.dryCleaning,
+            items: ['suit', 'shirt', 'dress', 'saree', 'other']
+          },
+          {
+            key: 'ironing',
+            data: pricing.ironing,
+            items: ['shirt', 'trouser', 'saree', 'dress', 'other']
+          },
+          {
+            key: 'specialty',
+            data: pricing.specialty,
+            items: pricing.specialty?.examples || []
+          }
+        ];
+        
+        container.innerHTML = cards.map(card => {
+          if (!card.data) return '';
+          
+          const isSpecialty = card.key === 'specialty';
+          const priceDisplay = isSpecialty ? '' : (card.data.perKg || card.data.suit || '');
+          
+          return `
+            <div class="pricing-card ${card.key === 'washFold' ? 'featured' : ''}">
+              <h3 class="pricing-title">${card.data.title}</h3>
+              ${priceDisplay ? `<div class="pricing-price">${priceDisplay}</div>` : ''}
+              <ul class="pricing-list">
+                ${isSpecialty 
+                  ? `<li>${card.data.note}</li>${card.items.map(item => `<li>${item}</li>`).join('')}`
+                  : card.items.map(item => `<li>${card.data[item]}</li>`).join('')
+                }
+              </ul>
+            </div>
+          `;
+        }).join('');
+      }
+      
+      setTimeout(loadPricing, 200);
+      if (typeof i18n !== 'undefined') {
+        i18n.onLanguageChange(loadPricing);
+      }
+    });
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.getElementById('main-nav');
+      if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
+      }
+    });
+  </script>
+</body>
+</html>
+
+

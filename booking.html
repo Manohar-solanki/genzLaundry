@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book your laundry service pickup. Fill in the details and we'll get in touch to confirm your booking.">
+  <meta name="keywords" content="book laundry, laundry pickup, schedule pickup">
+  <title>LaundryDone - Book Your Service</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🧺</span>
+          <span data-i18n="meta.siteName">LaundryDone</span>
+        </a>
+        
+        <nav id="main-nav">
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+            <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="booking.html" class="btn btn-primary btn-sm" data-i18n="common.bookPickup" style="pointer-events: none;">Book Pickup</a></li>
+          </ul>
+        </nav>
+        
+        <div class="language-toggle"></div>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="booking.title">Book Your Service</h1>
+        <p class="hero-subtitle" data-i18n="booking.subtitle">Fill in the details and we'll get in touch</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 700px; margin: 0 auto;">
+        <form id="booking-form" class="booking-form" method="POST" data-action="">
+          <div class="form-group">
+            <label for="name" class="form-label">
+              <span data-i18n="booking.form.name">Full Name</span>
+              <span class="required">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              class="form-input" 
+              required
+              data-i18n-placeholder="booking.form.namePlaceholder"
+              placeholder="Enter your full name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="form-label">
+              <span data-i18n="booking.form.phone">Phone Number</span>
+              <span class="required">*</span>
+            </label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              class="form-input" 
+              required
+              pattern="[6-9][0-9]{9}"
+              maxlength="10"
+              data-i18n-placeholder="booking.form.phonePlaceholder"
+              placeholder="Enter your 10-digit mobile number"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">
+              <span data-i18n="booking.form.email">Email (Optional)</span>
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input"
+              data-i18n-placeholder="booking.form.emailPlaceholder"
+              placeholder="Enter your email"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="address" class="form-label">
+              <span data-i18n="booking.form.address">Pickup Address</span>
+              <span class="required">*</span>
+            </label>
+            <textarea 
+              id="address" 
+              name="address" 
+              class="form-textarea" 
+              required
+              rows="3"
+              data-i18n-placeholder="booking.form.addressPlaceholder"
+              placeholder="Enter your complete address"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="service" class="form-label">
+              <span data-i18n="booking.form.service">Service Required</span>
+              <span class="required">*</span>
+            </label>
+            <select id="service" name="service" class="form-select" required>
+              <option value="" data-i18n="booking.form.servicePlaceholder">Select a service</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="preferredTime" class="form-label">
+              <span data-i18n="booking.form.preferredTime">Preferred Pickup Time</span>
+            </label>
+            <select id="preferredTime" name="preferredTime" class="form-select">
+              <option value="" data-i18n="booking.form.preferredTimePlaceholder">Select preferred time</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="instructions" class="form-label">
+              <span data-i18n="booking.form.instructions">Special Instructions (Optional)</span>
+            </label>
+            <textarea 
+              id="instructions" 
+              name="instructions" 
+              class="form-textarea" 
+              rows="4"
+              data-i18n-placeholder="booking.form.instructionsPlaceholder"
+              placeholder="Any special care instructions or notes"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" data-i18n="booking.form.submit">Submit Booking Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4 data-i18n="meta.siteName">LaundryDone</h4>
+          <p data-i18n="footer.description">Premium laundry and dry cleaning service in Jaipur. Professional garment care delivered to your doorstep.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+          <ul>
+            <li><a href="services.html" data-i18n="footer.services">Services</a></li>
+            <li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li>
+            <li><a href="about.html" data-i18n="footer.about">About</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 data-i18n="common.contactUs">Contact Us</h4>
+          <ul>
+            <li><a href="tel:+91XXXXXXXXXX" data-i18n="common.phone">Phone</a>: +91 XXXXXXXXXX</li>
+            <li><a href="https://wa.me/91XXXXXXXXXX" target="_blank" data-i18n="common.whatsapp">WhatsApp</a></li>
+            <li><a href="mailto:info@laundrydone.com" data-i18n="common.email">Email</a>: info@laundrydone.com</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">© 2024 LaundryDone. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/language-toggle.js"></script>
+  <script src="js/forms.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      function loadFormOptions() {
+        if (typeof i18n === 'undefined') return;
+        
+        const lang = i18n.getLanguage();
+        
+        // Load service options
+        const serviceSelect = document.getElementById('service');
+        if (serviceSelect && serviceSelect.children.length === 1) {
+          const services = i18n.content[lang]?.services?.categories || {};
+          Object.keys(services).forEach(key => {
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = services[key].title;
+            serviceSelect.appendChild(option);
+          });
+        }
+        
+        // Load time options
+        const timeSelect = document.getElementById('preferredTime');
+        if (timeSelect && timeSelect.children.length === 1) {
+          const times = [
+            lang === 'hi' ? 'सुबह 9 बजे - 12 बजे' : 'Morning (9 AM - 12 PM)',
+            lang === 'hi' ? 'दोपहर 12 बजे - 4 बजे' : 'Afternoon (12 PM - 4 PM)',
+            lang === 'hi' ? 'शाम 4 बजे - 8 बजे' : 'Evening (4 PM - 8 PM)'
+          ];
+          times.forEach(time => {
+            const option = document.createElement('option');
+            option.value = time;
+            option.textContent = time;
+            timeSelect.appendChild(option);
+          });
+        }
+      }
+      
+      setTimeout(loadFormOptions, 200);
+      if (typeof i18n !== 'undefined') {
+        i18n.onLanguageChange(() => {
+          // Reload options on language change
+          const serviceSelect = document.getElementById('service');
+          const timeSelect = document.getElementById('preferredTime');
+          if (serviceSelect) {
+            while (serviceSelect.children.length > 1) {
+              serviceSelect.removeChild(serviceSelect.lastChild);
+            }
+          }
+          if (timeSelect) {
+            while (timeSelect.children.length > 1) {
+              timeSelect.removeChild(timeSelect.lastChild);
+            }
+          }
+          loadFormOptions();
+        });
+      }
+    });
+
+    // Update placeholders on language change
+    if (typeof i18n !== 'undefined') {
+      i18n.onLanguageChange(() => {
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(input => {
+          const key = input.getAttribute('data-i18n-placeholder');
+          input.placeholder = i18n.t(key);
+        });
+      });
+    }
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.getElementById('main-nav');
+      if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
+      }
+    });
+  </script>
+</body>
+</html>
+

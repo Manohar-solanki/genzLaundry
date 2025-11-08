@@ -1,0 +1,14 @@
+{
+  "name": "laundrydone",
+  "version": "1.0.0",
+  "description": "Premium bilingual laundry service website - English & Hindi",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["laundry", "dry-cleaning", "bilingual", "hindi", "english"],
+  "author": "",
+  "license": "MIT"
+}
+
+
