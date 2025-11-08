@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "LaundryDone",
-    "description": "Premium laundry and dry cleaning service in Jaipur. Professional garment care with eco-friendly cleaning. Book your pickup today.",
-    "keywords": "laundry service Jaipur, dry cleaning, wash and fold, ironing service"
+    "description": "Premium laundry and dry cleaning service in Jodhpur. Professional garment care with eco-friendly cleaning. Book your pickup today.",
+    "keywords": "laundry service Jodhpur, dry cleaning, wash and fold, ironing service"
   },
   "common": {
     "language": "Language",
@@ -29,7 +29,7 @@
   },
   "home": {
     "heroTitle": "Premium Laundry & Dry Cleaning",
-    "heroSubtitle": "Professional garment care delivered to your doorstep. Trusted by families across Jaipur.",
+    "heroSubtitle": "Professional garment care delivered to your doorstep. Trusted by families across Jodhpur.",
     "heroDescription": "Experience the convenience of premium laundry services with eco-friendly cleaning, insured handling, and doorstep delivery.",
     "trustBadges": {
       "ecoFriendly": "Eco-Friendly Cleaning",
@@ -77,24 +77,24 @@
     "testimonials": [
       {
         "name": "Priya Sharma",
-        "location": "Jaipur",
+        "location": "Jodhpur",
         "text": "Excellent service! My zari sarees came back looking brand new. Highly recommended.",
         "rating": 5
       },
       {
         "name": "Rajesh Kumar",
-        "location": "Jaipur",
+        "location": "Jodhpur",
         "text": "Doorstep service is a game-changer. Professional, timely, and affordable.",
         "rating": 5
       },
       {
         "name": "Anjali Mehta",
-        "location": "Jaipur",
+        "location": "Jodhpur",
         "text": "The eco-friendly cleaning gives me peace of mind. Quality is consistently excellent.",
         "rating": 5
       }
     ],
-    "serviceArea": "Serving Jaipur and surrounding areas",
+    "serviceArea": "Serving Jodhpur and surrounding areas",
     "ctaTitle": "Ready to Get Started?",
     "ctaDescription": "Book your pickup today and experience premium laundry service."
   },
@@ -279,7 +279,7 @@
       },
       {
         "question": "What areas do you serve?",
-        "answer": "We currently serve Jaipur and surrounding areas. Contact us to confirm if we service your location."
+        "answer": "We currently serve Jodhpur and surrounding areas. Contact us to confirm if we service your location."
       },
       {
         "question": "How long does it take to get my clothes back?",
@@ -346,7 +346,7 @@
     "mapTitle": "Service Area"
   },
   "footer": {
-    "description": "Premium laundry and dry cleaning service in Jaipur. Professional garment care delivered to your doorstep.",
+    "description": "Premium laundry and dry cleaning service in Jodhpur. Professional garment care delivered to your doorstep.",
     "quickLinks": "Quick Links",
     "services": "Services",
     "pricing": "Pricing",
@@ -358,5 +358,6 @@
     "copyright": "© 2024 LaundryDone. All rights reserved."
   }
 }
+
 
 
