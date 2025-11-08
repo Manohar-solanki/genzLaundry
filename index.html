@@ -3,103 +3,195 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about LaundryDone - your trusted partner in garment care. Quality, sustainability, and convenience.">
-  <meta name="keywords" content="about LaundryDone, laundry service about, dry cleaning company">
-  <title>GenZLaundry - About Us</title>
+  <meta name="description" content="Premium laundry and dry cleaning service in Jaipur. Professional garment care with eco-friendly cleaning. Book your pickup today.">
+  <meta name="keywords" content="laundry service Jaipur, dry cleaning, wash and fold, ironing service">
+  <meta name="author" content="LaundryDone">
+  <title>>GenZLaundry - Premium Laundry & Dry Cleaning Service</title>
   
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- Skip to content link -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  
+  <!-- Header -->
   <header>
     <div class="container">
       <div class="header-content">
         <a href="index.html" class="logo">
           <span class="logo-icon">🧺</span>
-          <span data-i18n="meta.siteName">GenZLaundry</span>
+          <span data-i18n="meta.siteName">>GenZLaundry</span>
         </a>
         
         <nav id="main-nav">
           <ul>
-            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="index.html" data-i18n="nav.home" class="active">Home</a></li>
             <li><a href="services.html" data-i18n="nav.services">Services</a></li>
             <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
             <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
             <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
-            <li><a href="about.html" data-i18n="nav.about" class="active">About</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
             <li><a href="booking.html" class="btn btn-primary btn-sm" data-i18n="common.bookPickup">Book Pickup</a></li>
           </ul>
         </nav>
         
         <div class="language-toggle"></div>
+        
         <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
       </div>
     </div>
   </header>
 
+  <!-- Hero Section -->
+  <main id="main-content">
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1 data-i18n="about.title">About GenZLaundry</h1>
-        <p class="hero-subtitle" data-i18n="about.subtitle">Your trusted partner in garment care</p>
+        <h1 data-i18n="home.heroTitle">Premium Laundry & Dry Cleaning</h1>
+        <p class="hero-subtitle" data-i18n="home.heroSubtitle">Professional garment care delivered to your doorstep. Trusted by families across Jaipur.</p>
+        <p class="hero-description" data-i18n="home.heroDescription">Experience the convenience of premium laundry services with eco-friendly cleaning, insured handling, and doorstep delivery.</p>
+        
+        <div class="hero-cta">
+          <a href="booking.html" class="btn btn-primary btn-lg" data-i18n="common.bookPickup">Book Pickup</a>
+          <a href="tel:+91XXXXXXXXXX" class="btn btn-secondary btn-lg" data-i18n="common.callNow">Call Now</a>
+        </div>
+        
+        <div class="trust-badges">
+          <div class="badge">
+            <span class="badge-icon">🌱</span>
+            <span class="badge-text" data-i18n="home.trustBadges.ecoFriendly">Eco-Friendly Cleaning</span>
+          </div>
+          <div class="badge">
+            <span class="badge-icon">🛡️</span>
+            <span class="badge-text" data-i18n="home.trustBadges.insured">Insured Handling</span>
+          </div>
+          <div class="badge">
+            <span class="badge-icon">🚚</span>
+            <span class="badge-text" data-i18n="home.trustBadges.doorstep">Doorstep Service</span>
+          </div>
+          <div class="badge">
+            <span class="badge-icon">✨</span>
+            <span class="badge-text" data-i18n="home.trustBadges.quality">Quality Guaranteed</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Services Section -->
   <section class="section">
     <div class="container">
-      <div style="max-width: 800px; margin: 0 auto;">
-        <div id="mission-section" style="margin-bottom: 3rem;">
-          <!-- Mission content will be populated by JavaScript -->
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="home.servicesTitle">Our Services</h2>
+        <p class="section-subtitle" data-i18n="home.servicesSubtitle">Comprehensive care for all your garment needs</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🧺</div>
+          <h3 data-i18n="home.services.washFold.title">Wash & Fold</h3>
+          <p data-i18n="home.services.washFold.description">Fresh, neatly folded laundry delivered to your home. Perfect for everyday clothing.</p>
         </div>
         
-        <div class="section-header">
-          <h2 class="section-title" data-i18n="about.values.title">Our Values</h2>
+        <div class="service-card">
+          <div class="service-icon">👔</div>
+          <h3 data-i18n="home.services.dryCleaning.title">Dry Cleaning</h3>
+          <p data-i18n="home.services.dryCleaning.description">Expert care for delicate fabrics, suits, and formal wear. Preserves fabric quality and color.</p>
         </div>
         
-        <div class="services-grid" id="values-section">
-          <!-- Values will be populated by JavaScript -->
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3 data-i18n="home.services.ironing.title">Professional Ironing</h3>
+          <p data-i18n="home.services.ironing.description">Crisp, wrinkle-free garments with professional pressing techniques.</p>
         </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 data-i18n="home.services.specialty.title">Specialty Care</h3>
+          <p data-i18n="home.services.specialty.description">Expert handling for ethnic wear, zari work, bedding, and delicate items.</p>
+        </div>
+      </div>
+      
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href="services.html" class="btn btn-outline btn-lg" data-i18n="common.learnMore">Learn More</a>
       </div>
     </div>
   </section>
 
+  <!-- How It Works Section -->
   <section class="section" style="background-color: var(--color-bg-alt);">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title" data-i18n="about.contact.title">Get in Touch</h2>
-        <p class="section-subtitle" data-i18n="about.contact.description">Have questions? We're here to help.</p>
+        <h2 class="section-title" data-i18n="home.howItWorksTitle">How It Works</h2>
+        <p class="section-subtitle" data-i18n="home.howItWorksSubtitle">Simple, convenient, and reliable</p>
       </div>
       
-      <div style="max-width: 600px; margin: 2rem auto;">
-        <div class="contact-info" id="contact-info">
-          <!-- Contact info will be populated by JavaScript -->
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-icon">📞</div>
+          <h3 data-i18n="home.steps.step1.title">Request Service</h3>
+          <p data-i18n="home.steps.step1.description">Book online or call us. Tell us your address and preferred pickup time.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-icon">🚚</div>
+          <h3 data-i18n="home.steps.step2.title">We Pick Up</h3>
+          <p data-i18n="home.steps.step2.description">Our team collects your garments at your convenience.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-icon">✨</div>
+          <h3 data-i18n="home.steps.step3.title">We Deliver</h3>
+          <p data-i18n="home.steps.step3.description">Fresh, clean clothes delivered back to your doorstep.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title text-center" data-i18n="about.mapTitle">Service Area</h2>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.96606889407!2d75.82678731504407!3d26.91245468313713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db3d8d8b3b4b9%3A0x5b4f4b4b4b4b4b4b!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
-          width="100%" 
-          height="400" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Service Area Map"
-        ></iframe>
+      
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href="how-it-works.html" class="btn btn-outline btn-lg" data-i18n="common.learnMore">Learn More</a>
       </div>
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="home.testimonialsTitle">Trusted by Our Customers</h2>
+      </div>
+      
+      <div class="testimonials" id="testimonials">
+        <!-- Testimonials will be populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); color: white;">
+    <div class="container">
+      <div class="section-header" style="color: white;">
+        <h2 class="section-title" style="color: white;" data-i18n="home.ctaTitle">Ready to Get Started?</h2>
+        <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);" data-i18n="home.ctaDescription">Book your pickup today and experience premium laundry service.</p>
+      </div>
+      
+      <div class="text-center">
+        <a href="booking.html" class="btn btn-secondary btn-lg" style="background-color: white; color: var(--color-primary);" data-i18n="common.bookPickup">Book Pickup</a>
+      </div>
+      
+      <p class="text-center" style="margin-top: 2rem; color: rgba(255, 255, 255, 0.8);" data-i18n="home.serviceArea">Serving Jaipur and surrounding areas</p>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -121,7 +213,7 @@
         <div class="footer-section">
           <h4 data-i18n="common.contactUs">Contact Us</h4>
           <ul>
-            <li><a href="tel:+91XXXXXXXXXX" data-i18n="common.phone">Phone</a>: +91 8233853727</li>
+            <li><a href="tel:+918233853727" data-i18n="common.phone">Phone</a>: +91 8233853727</li>
             <li><a href="https://wa.me/918233853727" target="_blank" data-i18n="common.whatsapp">WhatsApp</a></li>
             <li><a href="mailto:newgenzlaundry@gmail.com" data-i18n="common.email">Email</a>: newgenzlaundry@gmail.com</li>
           </ul>
@@ -129,104 +221,44 @@
       </div>
       
       <div class="footer-bottom">
-        <p data-i18n="footer.copyright">© 2025 LaundryDone. All rights reserved.</p>
+        <p data-i18n="footer.copyright">© 2025 GenZLaundry. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="js/i18n.js"></script>
   <script src="js/language-toggle.js"></script>
+  <script src="js/forms.js"></script>
   
   <script>
+    // Load testimonials dynamically
     document.addEventListener('DOMContentLoaded', () => {
-      function loadAboutContent() {
+      function loadTestimonials() {
         if (typeof i18n === 'undefined') return;
         
+        const testimonialsContainer = document.getElementById('testimonials');
+        if (!testimonialsContainer) return;
+        
         const lang = i18n.getLanguage();
-        const about = i18n.content[lang]?.about || {};
+        const testimonials = i18n.content[lang]?.home?.testimonials || [];
         
-        // Load mission
-        const missionSection = document.getElementById('mission-section');
-        if (missionSection && about.mission) {
-          missionSection.innerHTML = `
-            <h2>${about.mission.title}</h2>
-            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-text-light);">${about.mission.description}</p>
-          `;
-        }
-        
-        // Load values
-        const valuesSection = document.getElementById('values-section');
-        if (valuesSection && about.values) {
-          const icons = {
-            quality: '✨',
-            sustainability: '🌱',
-            convenience: '🚚',
-            trust: '🛡️'
-          };
-          
-          valuesSection.innerHTML = Object.keys(about.values).filter(key => key !== 'title').map(key => {
-            const value = about.values[key];
-            return `
-              <div class="service-card">
-                <div class="service-icon">${icons[key] || '✓'}</div>
-                <h3>${value.title}</h3>
-                <p>${value.description}</p>
-              </div>
-            `;
-          }).join('');
-        }
-        
-        // Load contact info
-        const contactInfo = document.getElementById('contact-info');
-        if (contactInfo && about.contact) {
-          contactInfo.innerHTML = `
-            <div class="contact-item">
-              <span class="contact-icon">📞</span>
-              <div>
-                <strong>${about.contact.phoneLabel}</strong>
-                <br>
-                <a href="tel:+91XXXXXXXXXX" class="contact-link">+91 XXXXXXXXXX</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">💬</span>
-              <div>
-                <strong>${about.contact.whatsappLabel}</strong>
-                <br>
-                <a href="https://wa.me/918233853727" class="contact-link" target="_blank">WhatsApp Us</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">✉️</span>
-              <div>
-                <strong>${about.contact.emailLabel}</strong>
-                <br>
-                <a href="mailto:info@laundrydone.com" class="contact-link">info@laundrydone.com</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">📍</span>
-              <div>
-                <strong>${about.contact.addressLabel}</strong>
-                <br>
-                <span>Jodhpur, Rajasthan</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">🕒</span>
-              <div>
-                <strong>${about.contact.hours}</strong>
-                <br>
-                <span style="white-space: pre-line;">${about.contact.hoursValue}</span>
-              </div>
-            </div>
-          `;
-        }
+        testimonialsContainer.innerHTML = testimonials.map(testimonial => `
+          <div class="testimonial">
+            <p class="testimonial-text">"${testimonial.text}"</p>
+            <div class="testimonial-author">${testimonial.name}</div>
+            <div class="testimonial-location">${testimonial.location}</div>
+            <div class="testimonial-rating">${'⭐'.repeat(testimonial.rating)}</div>
+          </div>
+        `).join('');
       }
       
-      setTimeout(loadAboutContent, 200);
+      // Load initially
+      setTimeout(loadTestimonials, 200);
+      
+      // Reload on language change
       if (typeof i18n !== 'undefined') {
-        i18n.onLanguageChange(loadAboutContent);
+        i18n.onLanguageChange(loadTestimonials);
       }
     });
 
@@ -234,12 +266,14 @@
     document.addEventListener('DOMContentLoaded', () => {
       const menuToggle = document.querySelector('.mobile-menu-toggle');
       const nav = document.getElementById('main-nav');
+      
       if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
+        menuToggle.addEventListener('click', () => {
+          nav.classList.toggle('active');
+        });
       }
     });
   </script>
 </body>
 </html>
-
 
