@@ -6,7 +6,7 @@
 
 **Professional garment care delivered to your doorstep in Jodhpur** 🏠✨
 
-[![Website](https://img.shields.io/badge/Website-Live-success?style=flat-square)](http://localhost:8000)
+[![Website](https://img.shields.io/badge/Website-Live-success?style=flat-square)](https://genzlaundry.netlify.app/)
 [![Mobile Friendly](https://img.shields.io/badge/Mobile-Friendly-blue?style=flat-square)](http://localhost:8000)
 [![Languages](https://img.shields.io/badge/Languages-Hindi%20%7C%20English-orange?style=flat-square)](http://localhost:8000)
 
@@ -327,5 +327,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 *© 2025 GenZ Laundry. All rights reserved.*
+
 
 </div>
