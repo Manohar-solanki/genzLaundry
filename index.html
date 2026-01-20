@@ -167,6 +167,319 @@
         </div>
     </section>
 
+    <!-- Price Calculator Section -->
+    <section class="price-calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="gradient-text" data-i18n="calculator.title">Price Calculator</h2>
+                <p data-i18n="calculator.subtitle">💰 Get instant price estimates for your laundry needs</p>
+            </div>
+            
+            <div class="calculator-container glass">
+                <div class="calculator-form">
+                    <h3 data-i18n="calculator.formTitle">Calculate Your Order Cost</h3>
+                    
+                    <div class="calc-grid">
+                        <div class="calc-item">
+                            <label data-i18n="calculator.shirts">👔 Shirts</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" data-action="decrease" data-item="shirts">-</button>
+                                <input type="number" id="shirts" value="0" min="0" readonly>
+                                <button type="button" class="qty-btn" data-action="increase" data-item="shirts">+</button>
+                            </div>
+                            <span class="item-price">₹15 each</span>
+                        </div>
+                        
+                        <div class="calc-item">
+                            <label data-i18n="calculator.pants">👖 Pants/Trousers</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" data-action="decrease" data-item="pants">-</button>
+                                <input type="number" id="pants" value="0" min="0" readonly>
+                                <button type="button" class="qty-btn" data-action="increase" data-item="pants">+</button>
+                            </div>
+                            <span class="item-price">₹20 each</span>
+                        </div>
+                        
+                        <div class="calc-item">
+                            <label data-i18n="calculator.suits">🤵 Suits (Dry Clean)</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" data-action="decrease" data-item="suits">-</button>
+                                <input type="number" id="suits" value="0" min="0" readonly>
+                                <button type="button" class="qty-btn" data-action="increase" data-item="suits">+</button>
+                            </div>
+                            <span class="item-price">₹80 each</span>
+                        </div>
+                        
+                        <div class="calc-item">
+                            <label data-i18n="calculator.sarees">👘 Sarees</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" data-action="decrease" data-item="sarees">-</button>
+                                <input type="number" id="sarees" value="0" min="0" readonly>
+                                <button type="button" class="qty-btn" data-action="increase" data-item="sarees">+</button>
+                            </div>
+                            <span class="item-price">₹60 each</span>
+                        </div>
+                        
+                        <div class="calc-item">
+                            <label data-i18n="calculator.bedsheets">🛏️ Bed Sheets</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" data-action="decrease" data-item="bedsheets">-</button>
+                                <input type="number" id="bedsheets" value="0" min="0" readonly>
+                                <button type="button" class="qty-btn" data-action="increase" data-item="bedsheets">+</button>
+                            </div>
+                            <span class="item-price">₹25 each</span>
+                        </div>
+                        
+                        <div class="calc-item">
+                            <label data-i18n="calculator.blankets">🛌 Blankets</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" data-action="decrease" data-item="blankets">-</button>
+                                <input type="number" id="blankets" value="0" min="0" readonly>
+                                <button type="button" class="qty-btn" data-action="increase" data-item="blankets">+</button>
+                            </div>
+                            <span class="item-price">₹40 each</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-total">
+                        <div class="total-breakdown">
+                            <div class="subtotal">
+                                <span data-i18n="calculator.subtotal">Subtotal:</span>
+                                <span id="subtotal">₹0</span>
+                            </div>
+                            <div class="delivery-fee">
+                                <span data-i18n="calculator.delivery">Delivery Fee:</span>
+                                <span id="delivery-fee">₹30</span>
+                            </div>
+                            <div class="total">
+                                <span data-i18n="calculator.total">Total:</span>
+                                <span id="total-amount">₹30</span>
+                            </div>
+                        </div>
+                        <p class="free-delivery" data-i18n="calculator.freeDelivery">
+                            🚚 Free delivery on orders above ₹300
+                        </p>
+                        <button class="btn btn-primary btn-full" onclick="bookWithCalculatedItems()">
+                            <i class="fas fa-calendar-check"></i>
+                            <span data-i18n="calculator.bookNow">Book These Items</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="gradient-text" data-i18n="reviews.title">What Our Customers Say</h2>
+                <p data-i18n="reviews.subtitle">⭐ Real reviews from satisfied customers across Jodhpur</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card glass">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Priya Sharma</h4>
+                                <p>Shastri Nagar, Jodhpur</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excellent service! My silk sarees were cleaned perfectly. The pickup and delivery was right on time. Highly recommended for delicate fabrics."</p>
+                    <div class="review-date">2 days ago</div>
+                </div>
+                
+                <div class="review-card glass">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Rajesh Kumar</h4>
+                                <p>Ratanada, Jodhpur</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Best laundry service in Jodhpur! Professional dry cleaning for my suits. The staff is courteous and the quality is outstanding."</p>
+                    <div class="review-date">1 week ago</div>
+                </div>
+                
+                <div class="review-card glass">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Meera Joshi</h4>
+                                <p>Paota, Jodhpur</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Amazing service! They cleaned my wedding lehenga beautifully. Very careful with delicate work and reasonable prices."</p>
+                    <div class="review-date">2 weeks ago</div>
+                </div>
+            </div>
+            
+            <div class="review-summary">
+                <div class="summary-stats">
+                    <div class="stat">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">Average Rating</span>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfaction Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="gradient-text" data-i18n="faq.title">Frequently Asked Questions</h2>
+                <p data-i18n="faq.subtitle">❓ Quick answers to common questions</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q1.question">
+                        <span>What areas do you serve in Jodhpur?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.q1.answer">We provide pickup and delivery services across all major areas of Jodhpur including Shastri Nagar, Ratanada, Paota, Chopasni, Sardarpura, and surrounding localities.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q2.question">
+                        <span>How long does it take to clean clothes?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.q2.answer">Regular wash & fold takes 24-48 hours. Dry cleaning typically takes 2-3 days. Express service available for urgent orders with additional charges.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q3.question">
+                        <span>Do you handle delicate fabrics like silk and wool?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.q3.answer">Yes! We specialize in delicate fabrics including silk, wool, cashmere, and ethnic wear. Our expert team uses appropriate cleaning methods for each fabric type.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q4.question">
+                        <span>What if my clothes get damaged?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.q4.answer">All garments are fully insured during our care. In the rare event of damage, we provide fair compensation based on the garment's value.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q5.question">
+                        <span>Do you offer same-day service?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.q5.answer">Same-day service is available for urgent orders with 50% additional charges. Please call us before 10 AM for same-day pickup and delivery.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq.q6.question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-i18n="faq.q6.answer">We accept cash on delivery, UPI payments (PhonePe, Google Pay, Paytm), and bank transfers. Payment is collected at the time of delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="gradient-text" data-i18n="gallery.title">Our Work Gallery</h2>
+                <p data-i18n="gallery.subtitle">📸 See the quality of our professional cleaning services</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-card glass">
+                        <div class="gallery-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h4>Before & After</h4>
+                        <p>Stain removal expertise</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-card glass">
+                        <div class="gallery-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Formal Wear</h4>
+                        <p>Professional dry cleaning</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-card glass">
+                        <div class="gallery-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h4>Wedding Attire</h4>
+                        <p>Delicate fabric care</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-card glass">
+                        <div class="gallery-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h4>Home Textiles</h4>
+                        <p>Fresh & clean bedding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works -->
     <section class="how-it-works">
         <div class="container">

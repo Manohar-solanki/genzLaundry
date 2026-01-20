@@ -211,6 +211,66 @@ class I18nSystem {
                     bookNow: "Book Now",
                     callNow: "Call Now",
                     whatsapp: "WhatsApp"
+                },
+
+                // Price Calculator
+                calculator: {
+                    title: "Price Calculator",
+                    subtitle: "💰 Get instant price estimates for your laundry needs",
+                    formTitle: "Calculate Your Order Cost",
+                    shirts: "👔 Shirts",
+                    pants: "👖 Pants/Trousers",
+                    suits: "🤵 Suits (Dry Clean)",
+                    sarees: "👘 Sarees",
+                    bedsheets: "🛏️ Bed Sheets",
+                    blankets: "🛌 Blankets",
+                    subtotal: "Subtotal:",
+                    delivery: "Delivery Fee:",
+                    total: "Total:",
+                    freeDelivery: "🚚 Free delivery on orders above ₹300",
+                    bookNow: "Book These Items"
+                },
+
+                // Reviews
+                reviews: {
+                    title: "What Our Customers Say",
+                    subtitle: "⭐ Real reviews from satisfied customers across Jodhpur"
+                },
+
+                // FAQ
+                faq: {
+                    title: "Frequently Asked Questions",
+                    subtitle: "❓ Quick answers to common questions",
+                    q1: {
+                        question: "What areas do you serve in Jodhpur?",
+                        answer: "We provide pickup and delivery services across all major areas of Jodhpur including Shastri Nagar, Ratanada, Paota, Chopasni, Sardarpura, and surrounding localities."
+                    },
+                    q2: {
+                        question: "How long does it take to clean clothes?",
+                        answer: "Regular wash & fold takes 24-48 hours. Dry cleaning typically takes 2-3 days. Express service available for urgent orders with additional charges."
+                    },
+                    q3: {
+                        question: "Do you handle delicate fabrics like silk and wool?",
+                        answer: "Yes! We specialize in delicate fabrics including silk, wool, cashmere, and ethnic wear. Our expert team uses appropriate cleaning methods for each fabric type."
+                    },
+                    q4: {
+                        question: "What if my clothes get damaged?",
+                        answer: "All garments are fully insured during our care. In the rare event of damage, we provide fair compensation based on the garment's value."
+                    },
+                    q5: {
+                        question: "Do you offer same-day service?",
+                        answer: "Same-day service is available for urgent orders with 50% additional charges. Please call us before 10 AM for same-day pickup and delivery."
+                    },
+                    q6: {
+                        question: "What payment methods do you accept?",
+                        answer: "We accept cash on delivery, UPI payments (PhonePe, Google Pay, Paytm), and bank transfers. Payment is collected at the time of delivery."
+                    }
+                },
+
+                // Gallery
+                gallery: {
+                    title: "Our Work Gallery",
+                    subtitle: "📸 See the quality of our professional cleaning services"
                 }
             },
 
@@ -390,6 +450,66 @@ class I18nSystem {
                     bookNow: "अभी बुक करें",
                     callNow: "अभी कॉल करें",
                     whatsapp: "व्हाट्सऐप"
+                },
+
+                // Price Calculator
+                calculator: {
+                    title: "मूल्य कैलकुलेटर",
+                    subtitle: "💰 अपनी लॉन्ड्री आवश्यकताओं के लिए तुरंत मूल्य अनुमान प्राप्त करें",
+                    formTitle: "अपने ऑर्डर की लागत की गणना करें",
+                    shirts: "👔 शर्ट",
+                    pants: "👖 पैंट/ट्राउजर",
+                    suits: "🤵 सूट (ड्राई क्लीन)",
+                    sarees: "👘 साड़ियां",
+                    bedsheets: "🛏️ बेड शीट",
+                    blankets: "🛌 कंबल",
+                    subtotal: "उप-योग:",
+                    delivery: "डिलीवरी शुल्क:",
+                    total: "कुल:",
+                    freeDelivery: "🚚 ₹300 से अधिक के ऑर्डर पर मुफ्त डिलीवरी",
+                    bookNow: "इन वस्तुओं को बुक करें"
+                },
+
+                // Reviews
+                reviews: {
+                    title: "हमारे ग्राहक क्या कहते हैं",
+                    subtitle: "⭐ जोधपुर भर के संतुष्ट ग्राहकों की वास्तविक समीक्षाएं"
+                },
+
+                // FAQ
+                faq: {
+                    title: "अक्सर पूछे जाने वाले प्रश्न",
+                    subtitle: "❓ सामान्य प्रश्नों के त्वरित उत्तर",
+                    q1: {
+                        question: "आप जोधपुर में कौन से क्षेत्रों में सेवा देते हैं?",
+                        answer: "हम जोधपुर के सभी प्रमुख क्षेत्रों में पिकअप और डिलीवरी सेवाएं प्रदान करते हैं जिनमें शास्त्री नगर, रतनाडा, पाओटा, चोपासनी, सरदारपुरा और आसपास के इलाके शामिल हैं।"
+                    },
+                    q2: {
+                        question: "कपड़े साफ करने में कितना समय लगता है?",
+                        answer: "नियमित धुलाई और तह में 24-48 घंटे लगते हैं। ड्राई क्लीनिंग में आमतौर पर 2-3 दिन लगते हैं। अतिरिक्त शुल्क के साथ तत्काल ऑर्डर के लिए एक्सप्रेस सेवा उपलब्ध है।"
+                    },
+                    q3: {
+                        question: "क्या आप रेशम और ऊन जैसे नाजुक कपड़ों को संभालते हैं?",
+                        answer: "हां! हम रेशम, ऊन, कश्मीरी और जातीय पोशाक सहित नाजुक कपड़ों में विशेषज्ञ हैं। हमारी विशेषज्ञ टीम प्रत्येक कपड़े के प्रकार के लिए उपयुक्त सफाई विधियों का उपयोग करती है।"
+                    },
+                    q4: {
+                        question: "यदि मेरे कपड़े क्षतिग्रस्त हो जाएं तो क्या होगा?",
+                        answer: "हमारी देखभाल के दौरान सभी कपड़े पूरी तरह से बीमाकृत हैं। क्षति की दुर्लभ घटना में, हम कपड़े के मूल्य के आधार पर उचित मुआवजा प्रदान करते हैं।"
+                    },
+                    q5: {
+                        question: "क्या आप उसी दिन सेवा प्रदान करते हैं?",
+                        answer: "50% अतिरिक्त शुल्क के साथ तत्काल ऑर्डर के लिए उसी दिन सेवा उपलब्ध है। कृपया उसी दिन पिकअप और डिलीवरी के लिए सुबह 10 बजे से पहले हमें कॉल करें।"
+                    },
+                    q6: {
+                        question: "आप कौन से भुगतान तरीके स्वीकार करते हैं?",
+                        answer: "हम कैश ऑन डिलीवरी, UPI भुगतान (PhonePe, Google Pay, Paytm), और बैंक ट्रांसफर स्वीकार करते हैं। भुगतान डिलीवरी के समय एकत्र किया जाता है।"
+                    }
+                },
+
+                // Gallery
+                gallery: {
+                    title: "हमारी कार्य गैलरी",
+                    subtitle: "📸 हमारी पेशेवर सफाई सेवाओं की गुणवत्ता देखें"
                 }
             }
         };
@@ -472,49 +592,17 @@ class I18nSystem {
     }
 
     setupLanguageDetection() {
-        // Show language preference popup for first-time visitors
+        // Auto-detect and set language without popup
+        // Only show popup if user manually wants to change language later
         if (!localStorage.getItem('genZ-language-set')) {
-            this.showLanguagePreference();
+            // Set default language based on detection without popup
+            localStorage.setItem('genZ-language-set', 'true');
+            // Language is already set in constructor based on detection
         }
     }
 
-    showLanguagePreference() {
-        const popup = document.createElement('div');
-        popup.className = 'language-popup';
-        popup.innerHTML = `
-            <div class="language-popup-content">
-                <h3>भाषा चुनें / Choose Language</h3>
-                <p>कृपया अपनी पसंदीदा भाषा चुनें<br>Please select your preferred language</p>
-                <div class="language-options">
-                    <button class="lang-option" data-lang="hi">
-                        🇮🇳 हिंदी
-                    </button>
-                    <button class="lang-option" data-lang="en">
-                        🇺🇸 English
-                    </button>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(popup);
-
-        popup.querySelectorAll('.lang-option').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const lang = e.target.dataset.lang;
-                this.setLanguage(lang);
-                localStorage.setItem('genZ-language-set', 'true');
-                popup.remove();
-            });
-        });
-
-        // Auto-close after 10 seconds with default language
-        setTimeout(() => {
-            if (document.body.contains(popup)) {
-                localStorage.setItem('genZ-language-set', 'true');
-                popup.remove();
-            }
-        }, 10000);
-    }
+    // Remove the popup function - no longer needed
+    // Language detection happens automatically in constructor
 
     onLanguageChange(callback) {
         this.callbacks.push(callback);

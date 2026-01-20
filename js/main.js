@@ -5,6 +5,13 @@ const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
 });
 
 // Close mobile menu when clicking on a link
@@ -12,7 +19,17 @@ document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
+        document.body.style.overflow = '';
     });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 });
 
 // Smooth scrolling for navigation links
@@ -445,3 +462,605 @@ document.addEventListener('keydown', (e) => {
 });
 
 console.log('GenZ Laundry website loaded successfully!');
+// Price Calculator Functionality
+class PriceCalculator {
+    constructor() {
+        this.prices = {
+            shirts: 15,
+            pants: 20,
+            suits: 80,
+            sarees: 60,
+            bedsheets: 25,
+            blankets: 40
+        };
+        this.deliveryFee = 30;
+        this.freeDeliveryThreshold = 300;
+        this.init();
+    }
+
+    init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.setupEventListeners();
+            this.updateTotal();
+        });
+    }
+
+    setupEventListeners() {
+        document.querySelectorAll('.qty-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const action = e.target.dataset.action;
+                const item = e.target.dataset.item;
+                const input = document.getElementById(item);
+                let value = parseInt(input.value) || 0;
+
+                if (action === 'increase') {
+                    value++;
+                } else if (action === 'decrease' && value > 0) {
+                    value--;
+                }
+
+                input.value = value;
+                this.updateTotal();
+                this.animateButton(e.target);
+            });
+        });
+    }
+
+    animateButton(button) {
+        button.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            button.style.transform = 'scale(1)';
+        }, 150);
+    }
+
+    updateTotal() {
+        let subtotal = 0;
+        
+        Object.keys(this.prices).forEach(item => {
+            const quantity = parseInt(document.getElementById(item)?.value) || 0;
+            subtotal += quantity * this.prices[item];
+        });
+
+        const deliveryFee = subtotal >= this.freeDeliveryThreshold ? 0 : this.deliveryFee;
+        const total = subtotal + deliveryFee;
+
+        document.getElementById('subtotal').textContent = `₹${subtotal}`;
+        document.getElementById('delivery-fee').textContent = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`;
+        document.getElementById('total-amount').textContent = `₹${total}`;
+
+        // Update delivery message
+        const deliveryMsg = document.querySelector('.free-delivery');
+        if (subtotal >= this.freeDeliveryThreshold) {
+            deliveryMsg.style.color = '#28a745';
+            deliveryMsg.innerHTML = '🎉 Congratulations! Free delivery applied';
+        } else {
+            deliveryMsg.style.color = '#667eea';
+            deliveryMsg.innerHTML = `🚚 Add ₹${this.freeDeliveryThreshold - subtotal} more for free delivery`;
+        }
+    }
+
+    getCalculatedItems() {
+        const items = [];
+        Object.keys(this.prices).forEach(item => {
+            const quantity = parseInt(document.getElementById(item)?.value) || 0;
+            if (quantity > 0) {
+                items.push(`${quantity} x ${item.charAt(0).toUpperCase() + item.slice(1)}`);
+            }
+        });
+        return items;
+    }
+}
+
+// Initialize Price Calculator
+const calculator = new PriceCalculator();
+
+// Book with calculated items function
+window.bookWithCalculatedItems = function() {
+    const items = calculator.getCalculatedItems();
+    if (items.length === 0) {
+        alert('Please select at least one item to book.');
+        return;
+    }
+
+    const total = document.getElementById('total-amount').textContent;
+    const itemsList = items.join(', ');
+    
+    const message = `Hi! I'd like to book a pickup with the following items:
+
+${itemsList}
+
+Estimated Total: ${total}
+
+Please confirm pickup time and final pricing. Thank you!`;
+
+    const whatsappUrl = `https://wa.me/918233853727?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+};
+
+// FAQ Functionality
+class FAQManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.setupFAQ();
+        });
+    }
+
+    setupFAQ() {
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    }
+}
+
+// Initialize FAQ
+new FAQManager();
+
+// Live Chat Widget
+class ChatWidget {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.createChatWidget();
+        });
+    }
+
+    createChatWidget() {
+        const chatWidget = document.createElement('div');
+        chatWidget.className = 'chat-widget';
+        chatWidget.innerHTML = `
+            <div class="chat-bubble" onclick="openWhatsAppChat()">
+                <i class="fab fa-whatsapp"></i>
+                <span>Need Help?</span>
+            </div>
+        `;
+        document.body.appendChild(chatWidget);
+
+        // Add animation
+        setTimeout(() => {
+            chatWidget.style.animation = 'slideInRight 0.5s ease-out';
+        }, 2000);
+    }
+}
+
+// Initialize Chat Widget
+new ChatWidget();
+
+// WhatsApp Chat Function
+window.openWhatsAppChat = function() {
+    const message = "Hi! I have a question about your laundry services. Can you help me?";
+    const whatsappUrl = `https://wa.me/918233853727?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+};
+
+// Enhanced Review Animation
+class ReviewAnimator {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.animateReviews();
+        });
+    }
+
+    animateReviews() {
+        const reviewCards = document.querySelectorAll('.review-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 200);
+                }
+            });
+        });
+
+        reviewCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px) scale(0.95)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            observer.observe(card);
+        });
+    }
+}
+
+// Initialize Review Animator
+new ReviewAnimator();
+
+// Gallery Hover Effects
+class GalleryManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.setupGalleryEffects();
+        });
+    }
+
+    setupGalleryEffects() {
+        document.querySelectorAll('.gallery-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                this.createSparkles(card);
+            });
+        });
+    }
+
+    createSparkles(element) {
+        for (let i = 0; i < 3; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'absolute';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.fontSize = '1rem';
+            sparkle.style.zIndex = '1000';
+            
+            const rect = element.getBoundingClientRect();
+            sparkle.style.left = (rect.left + Math.random() * rect.width) + 'px';
+            sparkle.style.top = (rect.top + Math.random() * rect.height) + 'px';
+            
+            document.body.appendChild(sparkle);
+            
+            sparkle.animate([
+                { transform: 'translateY(0) scale(1)', opacity: 1 },
+                { transform: 'translateY(-30px) scale(0)', opacity: 0 }
+            ], {
+                duration: 1000,
+                easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+            }).onfinish = () => sparkle.remove();
+        }
+    }
+}
+
+// Initialize Gallery Manager
+new GalleryManager();
+
+// Notification System
+class NotificationManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.createNotificationContainer();
+    }
+
+    createNotificationContainer() {
+        const container = document.createElement('div');
+        container.id = 'notification-container';
+        container.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        `;
+        document.body.appendChild(container);
+    }
+
+    show(message, type = 'info', duration = 3000) {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-${this.getIcon(type)}"></i>
+                <span>${message}</span>
+                <button class="notification-close">&times;</button>
+            </div>
+        `;
+        
+        notification.style.cssText = `
+            background: ${this.getColor(type)};
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            max-width: 300px;
+        `;
+
+        document.getElementById('notification-container').appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+
+        // Auto remove
+        setTimeout(() => {
+            this.remove(notification);
+        }, duration);
+
+        // Close button
+        notification.querySelector('.notification-close').addEventListener('click', () => {
+            this.remove(notification);
+        });
+    }
+
+    remove(notification) {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }
+
+    getIcon(type) {
+        const icons = {
+            success: 'check-circle',
+            error: 'exclamation-circle',
+            warning: 'exclamation-triangle',
+            info: 'info-circle'
+        };
+        return icons[type] || 'info-circle';
+    }
+
+    getColor(type) {
+        const colors = {
+            success: '#28a745',
+            error: '#dc3545',
+            warning: '#ffc107',
+            info: '#17a2b8'
+        };
+        return colors[type] || '#17a2b8';
+    }
+}
+
+// Initialize Notification Manager
+const notifications = new NotificationManager();
+
+// Show welcome notification after page load
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        notifications.show('Welcome to GenZ Laundry! 🧺', 'success', 4000);
+    }, 2000);
+});
+
+console.log('🚀 All enhanced features loaded successfully!');
+
+// Mobile-specific optimizations
+class MobileOptimizer {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.detectMobile();
+        this.optimizeForMobile();
+        this.handleOrientationChange();
+        this.improveScrolling();
+        this.optimizeTouch();
+    }
+
+    detectMobile() {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isSmallScreen = window.innerWidth <= 768;
+        
+        if (isMobile || isSmallScreen) {
+            document.body.classList.add('mobile-device');
+        }
+    }
+
+    optimizeForMobile() {
+        if (window.innerWidth <= 768) {
+            // Reduce animation complexity on mobile
+            document.documentElement.style.setProperty('--animation-duration', '0.3s');
+            
+            // Optimize images loading
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+            
+            // Optimize iframe loading
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                iframe.loading = 'lazy';
+            });
+        }
+    }
+
+    handleOrientationChange() {
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                // Recalculate viewport height
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+                
+                // Close mobile menu on orientation change
+                const navMenu = document.querySelector('.nav-menu');
+                const hamburger = document.querySelector('.hamburger');
+                if (navMenu && hamburger) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }, 100);
+        });
+    }
+
+    improveScrolling() {
+        // Smooth scrolling for mobile
+        let isScrolling = false;
+        
+        window.addEventListener('scroll', () => {
+            if (!isScrolling) {
+                window.requestAnimationFrame(() => {
+                    // Update header on scroll
+                    const header = document.querySelector('.header');
+                    if (header) {
+                        if (window.scrollY > 50) {
+                            header.classList.add('scrolled');
+                        } else {
+                            header.classList.remove('scrolled');
+                        }
+                    }
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
+    }
+
+    optimizeTouch() {
+        // Improve touch responsiveness
+        document.addEventListener('touchstart', () => {}, { passive: true });
+        
+        // Add touch feedback to buttons
+        const touchElements = document.querySelectorAll('.btn, .service-card, .review-card, .gallery-card, .faq-question');
+        
+        touchElements.forEach(element => {
+            element.addEventListener('touchstart', () => {
+                element.style.transform = 'scale(0.98)';
+            }, { passive: true });
+            
+            element.addEventListener('touchend', () => {
+                setTimeout(() => {
+                    element.style.transform = '';
+                }, 150);
+            }, { passive: true });
+        });
+    }
+}
+
+// Initialize mobile optimizer
+new MobileOptimizer();
+
+// Viewport height fix for mobile browsers
+const setVH = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+};
+
+setVH();
+window.addEventListener('resize', setVH);
+
+// Prevent zoom on double tap for iOS
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (event) => {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
+// Improve form experience on mobile
+const optimizeForms = () => {
+    const inputs = document.querySelectorAll('input, textarea, select');
+    
+    inputs.forEach(input => {
+        // Prevent zoom on focus for iOS
+        input.addEventListener('focus', () => {
+            if (window.innerWidth <= 768) {
+                const viewport = document.querySelector('meta[name=viewport]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+                }
+            }
+        });
+        
+        input.addEventListener('blur', () => {
+            if (window.innerWidth <= 768) {
+                const viewport = document.querySelector('meta[name=viewport]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+                }
+            }
+        });
+    });
+};
+
+// Initialize form optimizations
+document.addEventListener('DOMContentLoaded', optimizeForms);
+
+// Performance monitoring for mobile
+const monitorPerformance = () => {
+    if ('performance' in window) {
+        window.addEventListener('load', () => {
+            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+            if (loadTime > 3000 && window.innerWidth <= 768) {
+                console.log('Mobile performance could be improved. Load time:', loadTime + 'ms');
+                
+                // Show performance notification if needed
+                if (loadTime > 5000) {
+                    setTimeout(() => {
+                        if (typeof notifications !== 'undefined') {
+                            notifications.show('Slow connection detected. Some features may load gradually.', 'info', 5000);
+                        }
+                    }, 2000);
+                }
+            }
+        });
+    }
+};
+
+monitorPerformance();
+
+// Enhanced accessibility for mobile
+const improveAccessibility = () => {
+    // Add skip link for mobile
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.textContent = 'Skip to main content';
+    skipLink.className = 'skip-link';
+    skipLink.style.cssText = `
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: #667eea;
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 10000;
+        transition: top 0.3s;
+    `;
+    
+    skipLink.addEventListener('focus', () => {
+        skipLink.style.top = '6px';
+    });
+    
+    skipLink.addEventListener('blur', () => {
+        skipLink.style.top = '-40px';
+    });
+    
+    document.body.insertBefore(skipLink, document.body.firstChild);
+    
+    // Add main content landmark
+    const heroSection = document.querySelector('#home');
+    if (heroSection) {
+        heroSection.id = 'main-content';
+        heroSection.setAttribute('tabindex', '-1');
+    }
+};
+
+improveAccessibility();
+
+console.log('🚀 Mobile optimizations loaded successfully!');
