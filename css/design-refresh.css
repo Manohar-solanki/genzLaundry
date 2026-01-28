@@ -4,9 +4,9 @@
    ============================================ */
 
 :root {
-  --gzl-primary: #07a448;
-  --gzl-primary-light: #0fdb86;
-  --gzl-primary-dark: #0da250;
+  --gzl-primary: #0D9488;
+  --gzl-primary-light: #14B8A6;
+  --gzl-primary-dark: #0F766E;
   --gzl-accent: #F59E0B;
   --gzl-accent-dark: #D97706;
   --gzl-bg: #FAFAF9;
@@ -89,13 +89,25 @@ body::before {
   }
 }
 
-.nav-brand { color: var(--gzl-text) !important; }
+.nav-brand { 
+  color: var(--gzl-text) !important; 
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .nav-brand:hover { color: var(--gzl-primary) !important; }
 .nav-brand i {
   background: var(--gzl-gradient) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
+}
+
+.nav-logo {
+  height: 50px;
+  width: auto;
+  max-width: 50px;
+  object-fit: contain;
 }
 
 .nav-link:hover, .nav-link.active { color: var(--gzl-primary) !important; }
@@ -523,6 +535,65 @@ body::before {
 .gallery-icon {
   background: var(--gzl-gradient) !important;
   box-shadow: 0 8px 24px rgba(13, 148, 136, 0.25) !important;
+}
+
+/* Instagram Contact Item */
+.instagram-item i {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-size: 2.5rem !important;
+  animation: instaGlow 3s ease-in-out infinite;
+}
+
+@keyframes instaGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px rgba(245, 148, 11, 0.4));
+  }
+  50% { 
+    filter: drop-shadow(0 0 16px rgba(245, 148, 11, 0.8));
+  }
+}
+
+.instagram-item a {
+  color: #E4405F !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+.instagram-item a:hover {
+  color: #fd1d1d !important;
+  transform: translateX(4px) !important;
+}
+
+/* Footer Instagram Link */
+.footer-instagram {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  color: #E4405F !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.footer-instagram i {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-size: 1.3rem !important;
+}
+
+.footer-instagram:hover {
+  color: #fd1d1d !important;
+  transform: scale(1.08) !important;
+}
+
+.footer-instagram:hover i {
+  filter: drop-shadow(0 0 6px rgba(232, 64, 95, 0.6)) !important;
 }
 
 .contact-item i {
