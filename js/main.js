@@ -462,119 +462,321 @@ document.addEventListener('keydown', (e) => {
 });
 
 console.log('GenZ Laundry website loaded successfully!');
-// Price Calculator Functionality
+
+// Price Calculator – category-wise data
+const PRICE_CALCULATOR_DATA = {
+    deliveryFee: 30,
+    freeDeliveryThreshold: 300,
+    categories: [
+        {
+            id: 'tops-basics',
+            name: 'Tops & Basics',
+            icon: '👕',
+            items: [
+                { id: 'tshirt', name: 'T-shirt', price: 20 },
+                { id: 'shirt', name: 'Shirt', price: 20 },
+                { id: 'kurti', name: 'Kurti', price: 20 },
+                { id: 'underwear', name: 'Underwear', price: 20 },
+                { id: 'banyan', name: 'Banyan', price: 20 }
+            ]
+        },
+        {
+            id: 'warm-wear',
+            name: 'Warm Wear',
+            icon: '🧥',
+            items: [
+                { id: 'sweater', name: 'Sweater', price: 50 },
+                { id: 'hoodie', name: 'Hoodie', price: 50 },
+                { id: 'sweatshirt', name: 'Sweatshirt', price: 50 }
+            ]
+        },
+        {
+            id: 'bottoms',
+            name: 'Bottoms',
+            icon: '👖',
+            items: [
+                { id: 'jeans', name: 'Jeans', price: 20 },
+                { id: 'pant_trouser', name: 'Pant / Trouser', price: 20 },
+                { id: 'track_pant', name: 'Track Pant', price: 20 },
+                { id: 'joggers', name: 'Joggers', price: 20 },
+                { id: 'leggings', name: 'Leggings', price: 20 },
+                { id: 'jeggings', name: 'Jeggings', price: 20 },
+                { id: 'shorts', name: 'Shorts', price: 20 },
+                { id: 'skirt', name: 'Skirt', price: 20 },
+                { id: 'pyjama', name: 'Pyjama', price: 20 }
+            ]
+        },
+        {
+            id: 'ethnic',
+            name: 'Ethnic',
+            icon: '👘',
+            items: [
+                { id: 'salwar', name: 'Salwar', price: 50 },
+                { id: 'dupatta', name: 'Dupatta', price: 20 }
+            ]
+        },
+        {
+            id: 'outerwear',
+            name: 'Outerwear',
+            icon: '🧥',
+            items: [
+                { id: 'jacket_light', name: 'Jacket (Light)', price: 50 },
+                { id: 'jacket_heavy', name: 'Jacket (Heavy)', price: 80 },
+                { id: 'coat_pant', name: 'Coat Pant', price: 400 },
+                { id: 'shawl', name: 'Shawl', price: 100 }
+            ]
+        },
+        {
+            id: 'bedding-accessories',
+            name: 'Bedding & Accessories',
+            icon: '🛏️',
+            items: [
+                { id: 'sock', name: 'Sock', price: 15 },
+                { id: 'blanket', name: 'Blanket', price: 200 },
+                { id: 'blanket_double_bed', name: 'Blanket (Double Bed)', price: 300 }
+            ]
+        }
+    ]
+};
+
 class PriceCalculator {
     constructor() {
-        this.prices = {
-            shirts: 15,
-            pants: 20,
-            suits: 80,
-            sarees: 60,
-            bedsheets: 25,
-            blankets: 40
-        };
-        this.deliveryFee = 30;
-        this.freeDeliveryThreshold = 300;
+        this.data = PRICE_CALCULATOR_DATA;
+        this.prices = {};
+        this.data.categories.forEach(cat => {
+            cat.items.forEach(it => { this.prices[it.id] = it.price; });
+        });
         this.init();
     }
 
     init() {
         document.addEventListener('DOMContentLoaded', () => {
+            this.render();
             this.setupEventListeners();
+            this.setupCategoryToggles();
+            this.setupSearch();
+            this.setupReset();
+            this.setupCopy();
             this.updateTotal();
+            this.updateItemCount();
         });
     }
 
-    setupEventListeners() {
-        document.querySelectorAll('.qty-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const action = e.target.dataset.action;
-                const item = e.target.dataset.item;
-                const input = document.getElementById(item);
-                let value = parseInt(input.value) || 0;
+    render() {
+        const root = document.getElementById('calculator-root');
+        if (!root) return;
 
-                if (action === 'increase') {
-                    value++;
-                } else if (action === 'decrease' && value > 0) {
-                    value--;
-                }
+        const formTitle = root.dataset.formTitle || 'Calculate Your Order Cost';
+        const subtotalLabel = root.dataset.subtotal || 'Subtotal:';
+        const totalLabel = root.dataset.total || 'Total:';
+        const bookLabel = root.dataset.bookLabel || 'Book These Items';
 
-                input.value = value;
-                this.updateTotal();
-                this.animateButton(e.target);
+        let html = `
+            <h3 class="calculator-form-title">${formTitle}</h3>
+            <div class="calc-toolbar">
+                <div class="calc-search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="calc-search" id="calc-search" placeholder="Search items..." aria-label="Search items">
+                </div>
+                <div class="calc-actions">
+                    <button type="button" class="calc-btn-aux" id="calc-reset" title="Clear all">
+                        <i class="fas fa-undo-alt"></i> Reset
+                    </button>
+                    <span class="calc-item-count" id="calc-item-count" title="Total pieces">0</span>
+                </div>
+            </div>
+            <div class="calc-category-tabs" role="tablist">
+                ${this.data.categories.map((cat, i) => `
+                    <button type="button" class="calc-tab ${i === 0 ? 'active' : ''}" data-category="${cat.id}" role="tab" aria-selected="${i === 0}">
+                        <span class="calc-tab-icon">${cat.icon}</span>
+                        <span class="calc-tab-name">${cat.name}</span>
+                    </button>
+                `).join('')}
+            </div>
+            <div class="calc-panels">
+                ${this.data.categories.map((cat, i) => `
+                    <div class="calc-panel ${i === 0 ? 'active' : ''}" id="panel-${cat.id}" role="tabpanel" ${i !== 0 ? 'hidden' : ''}>
+                        <div class="calc-panel-header">
+                            <span class="calc-panel-icon">${cat.icon}</span>
+                            <h4 class="calc-panel-title">${cat.name}</h4>
+                        </div>
+                        <div class="calc-grid">
+                            ${cat.items.map(it => `
+                                <div class="calc-item" data-item="${it.id}" data-item-name="${(it.name || '').toLowerCase()}">
+                                    <label for="qty-${it.id}">${it.name}</label>
+                                    <div class="quantity-control">
+                                        <button type="button" class="qty-btn" data-action="decrease" data-item="${it.id}" aria-label="Decrease ${it.name}">−</button>
+                                        <input type="number" id="qty-${it.id}" value="0" min="0" readonly aria-label="Quantity ${it.name}">
+                                        <button type="button" class="qty-btn" data-action="increase" data-item="${it.id}" aria-label="Increase ${it.name}">+</button>
+                                    </div>
+                                    <span class="item-price">₹${it.price} <small>each</small></span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="calc-total">
+                <div class="total-breakdown">
+                    <div class="subtotal"><span>${subtotalLabel}</span><span id="subtotal">₹0</span></div>
+                    <div class="total"><span>${totalLabel}</span><span id="total-amount">₹0</span></div>
+                </div>
+                <div class="calc-copy-wrap">
+                    <button type="button" class="calc-btn-copy" id="calc-copy" title="Copy estimate to clipboard">
+                        <i class="fas fa-copy"></i> Copy estimate
+                    </button>
+                </div>
+                <button type="button" class="btn btn-primary btn-full btn-book-calc" id="btn-book-calc">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>${bookLabel}</span>
+                </button>
+            </div>
+            <div class="calc-toast" id="calc-toast" aria-live="polite">✓ Copied to clipboard!</div>
+        `;
+        root.innerHTML = html;
+    }
+
+    setupCategoryToggles() {
+        const tabs = document.querySelectorAll('.calc-tab');
+        const panels = document.querySelectorAll('.calc-panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const id = tab.dataset.category;
+                tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                panels.forEach(p => {
+                    const on = p.id === `panel-${id}`;
+                    p.classList.toggle('active', on);
+                    p.hidden = !on;
+                });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
             });
         });
     }
 
-    animateButton(button) {
-        button.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            button.style.transform = 'scale(1)';
-        }, 150);
+    setupSearch() {
+        const search = document.getElementById('calc-search');
+        if (!search) return;
+        search.addEventListener('input', () => {
+            const q = (search.value || '').trim().toLowerCase();
+            document.querySelectorAll('.calc-item').forEach(el => {
+                const name = (el.dataset.itemName || '').toLowerCase();
+                const match = !q || name.includes(q);
+                el.style.display = match ? '' : 'none';
+            });
+        });
+    }
+
+    setupReset() {
+        const btn = document.getElementById('calc-reset');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+            Object.keys(this.prices).forEach(id => {
+                const input = document.getElementById(`qty-${id}`);
+                if (input) input.value = '0';
+            });
+            this.updateTotal();
+            this.updateItemCount();
+            const search = document.getElementById('calc-search');
+            if (search) { search.value = ''; search.dispatchEvent(new Event('input')); }
+        });
+    }
+
+    setupCopy() {
+        const btn = document.getElementById('calc-copy');
+        const toast = document.getElementById('calc-toast');
+        if (!btn || !toast) return;
+        btn.addEventListener('click', () => {
+            const items = this.getCalculatedItems();
+            const sub = document.getElementById('subtotal')?.textContent || '₹0';
+            const tot = document.getElementById('total-amount')?.textContent || '₹0';
+            const lines = ['GenZ Laundry – Price estimate', ''];
+            if (items.length) lines.push('Items:', ...items.map(i => '  • ' + i), '');
+            lines.push('Total: ' + tot);
+            const text = lines.join('\n');
+            navigator.clipboard.writeText(text).then(() => {
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            }).catch(() => {});
+        });
+    }
+
+    updateItemCount() {
+        let n = 0;
+        Object.keys(this.prices).forEach(id => {
+            const input = document.getElementById(`qty-${id}`);
+            n += parseInt(input?.value, 10) || 0;
+        });
+        const el = document.getElementById('calc-item-count');
+        if (el) el.textContent = n;
+    }
+
+    setupEventListeners() {
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.qty-btn');
+            if (!btn) return;
+            const action = btn.dataset.action;
+            const itemId = btn.dataset.item;
+            const input = document.getElementById(`qty-${itemId}`);
+            if (!input) return;
+            let value = parseInt(input.value, 10) || 0;
+            if (action === 'increase') value++;
+            else if (action === 'decrease' && value > 0) value--;
+            input.value = value;
+            this.updateTotal();
+            this.updateItemCount();
+            this.animateButton(btn);
+        });
+
+        const bookBtn = document.getElementById('btn-book-calc');
+        if (bookBtn) bookBtn.addEventListener('click', () => window.bookWithCalculatedItems && window.bookWithCalculatedItems());
+    }
+
+    animateButton(el) {
+        if (!el) return;
+        el.style.transform = 'scale(0.9)';
+        setTimeout(() => { el.style.transform = ''; }, 150);
     }
 
     updateTotal() {
         let subtotal = 0;
-        
-        Object.keys(this.prices).forEach(item => {
-            const quantity = parseInt(document.getElementById(item)?.value) || 0;
-            subtotal += quantity * this.prices[item];
+        Object.keys(this.prices).forEach(id => {
+            const input = document.getElementById(`qty-${id}`);
+            const qty = parseInt(input?.value, 10) || 0;
+            subtotal += qty * this.prices[id];
         });
+        const total = subtotal;
 
-        const deliveryFee = subtotal >= this.freeDeliveryThreshold ? 0 : this.deliveryFee;
-        const total = subtotal + deliveryFee;
-
-        document.getElementById('subtotal').textContent = `₹${subtotal}`;
-        document.getElementById('delivery-fee').textContent = deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`;
-        document.getElementById('total-amount').textContent = `₹${total}`;
-
-        // Update delivery message
-        const deliveryMsg = document.querySelector('.free-delivery');
-        if (subtotal >= this.freeDeliveryThreshold) {
-            deliveryMsg.style.color = '#28a745';
-            deliveryMsg.innerHTML = '🎉 Congratulations! Free delivery applied';
-        } else {
-            deliveryMsg.style.color = '#667eea';
-            deliveryMsg.innerHTML = `🚚 Add ₹${this.freeDeliveryThreshold - subtotal} more for free delivery`;
-        }
+        const subEl = document.getElementById('subtotal');
+        const totEl = document.getElementById('total-amount');
+        if (subEl) subEl.textContent = `₹${subtotal}`;
+        if (totEl) totEl.textContent = `₹${total}`;
     }
 
     getCalculatedItems() {
         const items = [];
-        Object.keys(this.prices).forEach(item => {
-            const quantity = parseInt(document.getElementById(item)?.value) || 0;
-            if (quantity > 0) {
-                items.push(`${quantity} x ${item.charAt(0).toUpperCase() + item.slice(1)}`);
-            }
+        this.data.categories.forEach(cat => {
+            cat.items.forEach(it => {
+                const input = document.getElementById(`qty-${it.id}`);
+                const qty = parseInt(input?.value, 10) || 0;
+                if (qty > 0) items.push(`${qty} x ${it.name}`);
+            });
         });
         return items;
     }
 }
 
-// Initialize Price Calculator
 const calculator = new PriceCalculator();
 
-// Book with calculated items function
 window.bookWithCalculatedItems = function() {
     const items = calculator.getCalculatedItems();
-    if (items.length === 0) {
+    if (!items.length) {
         alert('Please select at least one item to book.');
         return;
     }
-
-    const total = document.getElementById('total-amount').textContent;
-    const itemsList = items.join(', ');
-    
-    const message = `Hi! I'd like to book a pickup with the following items:
-
-${itemsList}
-
-Estimated Total: ${total}
-
-Please confirm pickup time and final pricing. Thank you!`;
-
-    const whatsappUrl = `https://wa.me/918233853727?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const total = document.getElementById('total-amount')?.textContent || '₹0';
+    const message = `Hi! I'd like to book a pickup with the following items:\n\n${items.join('\n')}\n\nEstimated Total: ${total}\n\nPlease confirm pickup time and final pricing. Thank you!`;
+    window.open(`https://wa.me/918233853727?text=${encodeURIComponent(message)}`, '_blank');
 };
 
 // FAQ Functionality
