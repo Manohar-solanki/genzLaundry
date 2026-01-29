@@ -136,6 +136,40 @@ document.addEventListener('DOMContentLoaded', () => {
 // Enhanced form handling with bilingual support
 const bookingForm = document.getElementById('bookingForm');
 
+// Add success animation method
+bookingForm.showSuccessAnimation = function() {
+    // Create confetti effect
+    for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+            const confetti = document.createElement('div');
+            confetti.style.cssText = `
+                position: fixed;
+                width: 10px;
+                height: 10px;
+                background: ${['#0D9488', '#F59E0B', '#14B8A6', '#D97706'][Math.floor(Math.random() * 4)]};
+                left: ${Math.random() * 100}%;
+                top: -10px;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 10000;
+                animation: confettiFall ${2 + Math.random() * 2}s linear forwards;
+            `;
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), 4000);
+        }, i * 50);
+    }
+    
+    // Show success message
+    if (typeof notifications !== 'undefined') {
+        const currentLang = i18n.getCurrentLanguage();
+        const successMsg = currentLang === 'hi' 
+            ? 'धन्यवाद! आपकी बुकिंग की पुष्टि के लिए आपको WhatsApp पर भेजा जाएगा।'
+            : 'Thank you! You will be redirected to WhatsApp to confirm your booking.';
+        notifications.show(successMsg, 'success', 4000);
+    }
+};
+
 bookingForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -215,14 +249,20 @@ Service: ${serviceName}
 
 Please confirm the pickup time. Thank you!`;
     
-    const whatsappUrl = `https://wa.me/918233853727?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    // Create success animation
+    this.showSuccessAnimation();
     
-    // Show success message
-    alert(messages[currentLang].success);
+    const whatsappUrl = `https://wa.me/918233853727?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp after animation
+    setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+    }, 1500);
     
     // Reset form
-    this.reset();
+    setTimeout(() => {
+        this.reset();
+    }, 2000);
 });
 
 // Enhanced animations with more attractive effects
@@ -293,40 +333,72 @@ const animateCounters = () => {
     });
 };
 
-// Add particle effect on hover for service cards
+// Enhanced particle effect on hover for service cards with more variety
 document.querySelectorAll('.service-card').forEach(card => {
+    let particleTimeout;
+    
     card.addEventListener('mouseenter', (e) => {
-        createParticles(e.target);
+        createEnhancedParticles(e.target);
+        // Continuous particles while hovering
+        particleTimeout = setInterval(() => {
+            createEnhancedParticles(e.target);
+        }, 300);
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        clearInterval(particleTimeout);
     });
 });
 
-function createParticles(element) {
-    for (let i = 0; i < 5; i++) {
+function createEnhancedParticles(element) {
+    const colors = ['#0D9488', '#F59E0B', '#14B8A6', '#D97706'];
+    const particleCount = 8;
+    
+    for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
-        particle.style.position = 'absolute';
-        particle.style.width = '4px';
-        particle.style.height = '4px';
-        particle.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        const size = Math.random() * 6 + 3;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const angle = (Math.PI * 2 * i) / particleCount;
+        const distance = 30 + Math.random() * 20;
+        
+        particle.style.position = 'fixed';
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.background = color;
         particle.style.borderRadius = '50%';
         particle.style.pointerEvents = 'none';
         particle.style.zIndex = '1000';
+        particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
         
         const rect = element.getBoundingClientRect();
-        particle.style.left = (rect.left + Math.random() * rect.width) + 'px';
-        particle.style.top = (rect.top + Math.random() * rect.height) + 'px';
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        particle.style.left = centerX + 'px';
+        particle.style.top = centerY + 'px';
         
         document.body.appendChild(particle);
         
-        // Animate particle
+        // Animate particle with more dynamic movement
+        const endX = centerX + Math.cos(angle) * distance;
+        const endY = centerY + Math.sin(angle) * distance;
+        
         particle.animate([
-            { transform: 'translateY(0) scale(1)', opacity: 1 },
-            { transform: 'translateY(-50px) scale(0)', opacity: 0 }
+            { 
+                transform: 'translate(0, 0) scale(1)', 
+                opacity: 1 
+            },
+            { 
+                transform: `translate(${endX - centerX}px, ${endY - centerY}px) scale(0)`, 
+                opacity: 0 
+            }
         ], {
-            duration: 1000,
+            duration: 800 + Math.random() * 400,
             easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
         }).onfinish = () => particle.remove();
     }
 }
+
 
 // Add smooth reveal animation for sections
 const sectionObserver = new IntersectionObserver((entries) => {
@@ -360,49 +432,135 @@ if (statsSection) {
     statsObserver.observe(statsSection);
 }
 
-// Enhanced header background on scroll
+// Enhanced header background on scroll with smooth transitions
+let lastScroll = 0;
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
-    const scrolled = window.scrollY > 50;
+    const currentScroll = window.scrollY;
+    const scrolled = currentScroll > 50;
     
     if (scrolled) {
         header.style.background = 'rgba(255, 255, 255, 0.98)';
         header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
-        header.style.borderBottom = '1px solid rgba(102, 126, 234, 0.3)';
+        header.style.borderBottom = '1px solid rgba(13, 148, 136, 0.3)';
+        header.style.backdropFilter = 'blur(20px)';
     } else {
         header.style.background = 'rgba(255, 255, 255, 0.95)';
         header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        header.style.borderBottom = '1px solid rgba(102, 126, 234, 0.2)';
+        header.style.borderBottom = '1px solid rgba(13, 148, 136, 0.2)';
     }
+    
+    // Hide/show header on scroll
+    if (currentScroll > lastScroll && currentScroll > 200) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
+    }
+    
+    lastScroll = currentScroll;
 });
 
-// Preloader (optional)
+// Enhanced preloader with smooth fade-in
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+    
+    // Animate hero elements on load
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroButtons = document.querySelector('.hero-buttons');
+    const heroCard = document.querySelector('.hero-card');
+    
+    if (heroTitle) {
+        heroTitle.style.animation = 'slideInLeft 1s ease-out';
+    }
+    if (heroSubtitle) {
+        heroSubtitle.style.animation = 'slideInLeft 1s ease-out 0.2s both';
+    }
+    if (heroButtons) {
+        heroButtons.style.animation = 'slideInLeft 1s ease-out 0.4s both';
+    }
+    if (heroCard) {
+        heroCard.style.animation = 'slideInRight 1s ease-out 0.3s both, floatUp 3s ease-in-out infinite 1.3s';
+    }
+    
+    // Stagger service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 1000 + (index * 100));
+    });
 });
 
-// Service card hover effects
+// Enhanced service card hover effects with more personality
 document.querySelectorAll('.service-card').forEach(card => {
+    let glowInterval;
+    
     card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
+        card.style.transform = 'translateY(-15px) scale(1.03)';
+        card.style.boxShadow = '0 25px 50px rgba(102, 126, 234, 0.25)';
+        
+        // Animate icon
+        const icon = card.querySelector('.service-icon');
+        if (icon) {
+            icon.style.animation = 'iconBounce 0.6s ease';
+        }
+        
+        // Pulsing glow effect
+        let glowIntensity = 0.25;
+        glowInterval = setInterval(() => {
+            glowIntensity = glowIntensity === 0.25 ? 0.35 : 0.25;
+            card.style.boxShadow = `0 25px 50px rgba(102, 126, 234, ${glowIntensity})`;
+        }, 500);
+        
+        // Animate list items
+        const listItems = card.querySelectorAll('li');
+        listItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.transform = 'translateX(8px)';
+                item.style.transition = 'transform 0.3s ease';
+            }, index * 50);
+        });
     });
     
     card.addEventListener('mouseleave', () => {
+        clearInterval(glowInterval);
+        
         if (card.classList.contains('featured')) {
             card.style.transform = 'scale(1.05)';
         } else {
             card.style.transform = 'translateY(0) scale(1)';
         }
+        card.style.boxShadow = '';
+        
+        // Reset list items
+        const listItems = card.querySelectorAll('li');
+        listItems.forEach(item => {
+            item.style.transform = '';
+        });
     });
 });
 
-// Pricing card hover effects
+// Enhanced pricing card hover effects
 document.querySelectorAll('.pricing-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
         if (card.classList.contains('popular')) {
-            card.style.transform = 'scale(1.05) translateY(-10px)';
+            card.style.transform = 'scale(1.08) translateY(-15px)';
+            card.style.boxShadow = '0 20px 50px rgba(245, 158, 11, 0.3)';
         } else {
-            card.style.transform = 'translateY(-10px)';
+            card.style.transform = 'translateY(-15px) scale(1.02)';
+            card.style.boxShadow = '0 20px 50px rgba(102, 126, 234, 0.2)';
+        }
+        
+        // Animate price
+        const price = card.querySelector('.price');
+        if (price) {
+            price.style.animation = 'pulse 0.5s ease';
+            price.style.color = '#F59E0B';
         }
     });
     
@@ -410,22 +568,68 @@ document.querySelectorAll('.pricing-card').forEach(card => {
         if (card.classList.contains('popular')) {
             card.style.transform = 'scale(1.05)';
         } else {
-            card.style.transform = 'translateY(0)';
+            card.style.transform = 'translateY(0) scale(1)';
+        }
+        card.style.boxShadow = '';
+        
+        const price = card.querySelector('.price');
+        if (price) {
+            price.style.animation = '';
+            price.style.color = '';
         }
     });
 });
 
-// Add loading animation to buttons
+// Enhanced button interactions with loading states
 document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
         if (this.type === 'submit') {
-            this.style.opacity = '0.7';
+            // Create loading spinner
+            const originalContent = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            this.style.opacity = '0.8';
             this.style.pointerEvents = 'none';
+            this.style.transform = 'scale(0.95)';
             
+            // Simulate processing (replace with actual form submission)
             setTimeout(() => {
+                this.innerHTML = originalContent;
                 this.style.opacity = '1';
                 this.style.pointerEvents = 'auto';
+                this.style.transform = '';
+                
+                // Success animation
+                this.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                setTimeout(() => {
+                    this.style.background = '';
+                }, 2000);
             }, 2000);
+        } else {
+            // Ripple effect for non-submit buttons
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                left: ${x}px;
+                top: ${y}px;
+                transform: scale(0);
+                animation: rippleExpand 0.6s ease-out;
+                pointer-events: none;
+            `;
+            
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
         }
     });
 });
@@ -779,7 +983,7 @@ window.bookWithCalculatedItems = function() {
     window.open(`https://wa.me/918233853727?text=${encodeURIComponent(message)}`, '_blank');
 };
 
-// FAQ Functionality
+// Enhanced FAQ Functionality with smooth animations
 class FAQManager {
     constructor() {
         this.init();
@@ -792,19 +996,73 @@ class FAQManager {
     }
 
     setupFAQ() {
-        document.querySelectorAll('.faq-question').forEach(question => {
+        document.querySelectorAll('.faq-question').forEach((question, index) => {
             question.addEventListener('click', () => {
                 const faqItem = question.parentElement;
                 const isActive = faqItem.classList.contains('active');
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
 
-                // Close all other FAQ items
+                // Close all other FAQ items with animation
                 document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        const otherAnswer = item.querySelector('.faq-answer');
+                        const otherIcon = item.querySelector('.faq-question i');
+                        
+                        otherAnswer.style.maxHeight = '0';
+                        otherAnswer.style.padding = '0 2rem';
+                        otherIcon.style.transform = 'rotate(0deg)';
+                        
+                        setTimeout(() => {
+                            item.classList.remove('active');
+                        }, 300);
+                    }
                 });
 
-                // Toggle current item
+                // Toggle current item with smooth animation
                 if (!isActive) {
                     faqItem.classList.add('active');
+                    
+                    // Animate icon
+                    if (icon) {
+                        icon.style.transform = 'rotate(45deg)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    }
+                    
+                    // Animate answer
+                    setTimeout(() => {
+                        if (answer) {
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            answer.style.padding = '0 2rem 1.5rem';
+                        }
+                    }, 10);
+                    
+                    // Add highlight effect
+                    faqItem.style.background = 'rgba(13, 148, 136, 0.05)';
+                    setTimeout(() => {
+                        faqItem.style.background = '';
+                    }, 500);
+                } else {
+                    if (icon) {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                    if (answer) {
+                        answer.style.maxHeight = '0';
+                        answer.style.padding = '0 2rem';
+                    }
+                }
+            });
+            
+            // Add hover effect
+            question.addEventListener('mouseenter', () => {
+                if (!question.parentElement.classList.contains('active')) {
+                    question.style.color = '#0D9488';
+                }
+            });
+            
+            question.addEventListener('mouseleave', () => {
+                if (!question.parentElement.classList.contains('active')) {
+                    question.style.color = '';
                 }
             });
         });

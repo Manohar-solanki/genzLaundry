@@ -99,6 +99,28 @@
         </div>
     </section>
 
+    <!-- Price Calculator Section -->
+    <section class="price-calculator" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="gradient-text" data-i18n="calculator.title">Price Calculator</h2>
+                <p data-i18n="calculator.subtitle">💰 Get instant price estimates for your laundry — browse by category</p>
+            </div>
+            
+            <div class="calculator-container glass">
+                <div class="calculator-form">
+                    <div id="calculator-root" class="calculator-root"
+                         data-form-title="Calculate Your Order Cost"
+                         data-subtotal="Subtotal:"
+                         data-total="Total:"
+                         data-book-label="Book These Items">
+                        <!-- Category-wise items & totals rendered by main.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
@@ -163,28 +185,6 @@
                         <li>Blankets & comforters</li>
                         <li>Carpets & rugs</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Price Calculator Section -->
-    <section class="price-calculator" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="gradient-text" data-i18n="calculator.title">Price Calculator</h2>
-                <p data-i18n="calculator.subtitle">💰 Get instant price estimates for your laundry — browse by category</p>
-            </div>
-            
-            <div class="calculator-container glass">
-                <div class="calculator-form">
-                    <div id="calculator-root" class="calculator-root"
-                         data-form-title="Calculate Your Order Cost"
-                         data-subtotal="Subtotal:"
-                         data-total="Total:"
-                         data-book-label="Book These Items">
-                        <!-- Category-wise items & totals rendered by main.js -->
-                    </div>
                 </div>
             </div>
         </div>
@@ -724,5 +724,6 @@
     <!-- Custom JavaScript -->
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/dynamic-enhancements.js"></script>
     </body>
 </html>

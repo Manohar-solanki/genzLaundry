@@ -68,6 +68,29 @@ body::before {
     100% { background-position: 0% 50%; }
 }
 
+/* Professional subtle animations */
+@keyframes subtleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtleScale {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Floating Animation */
 @keyframes floatUp {
     0%, 100% { transform: translateY(0px); }
@@ -77,6 +100,34 @@ body::before {
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
+}
+
+@keyframes iconBounce {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    25% { 
+        transform: translateY(-8px) rotate(-5deg); 
+    }
+    75% { 
+        transform: translateY(-8px) rotate(5deg); 
+    }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.shimmer-effect {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
 }
 
 @keyframes slideInUp {
@@ -221,8 +272,8 @@ p {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
-    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(13, 148, 136, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -1368,6 +1419,29 @@ p {
     }
 }
 
+@keyframes rippleExpand {
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes floatGlow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+    }
+    50% {
+        box-shadow: 0 15px 40px rgba(13, 148, 136, 0.5);
+    }
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
 .text-reveal {
     overflow: hidden;
 }
@@ -1463,6 +1537,55 @@ p {
 ::-moz-selection {
     background: rgba(102, 126, 234, 0.3);
     color: white;
+}
+
+/* Dynamic Enhancements */
+.service-card, .review-card, .gallery-card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    animation: iconPulse 0.6s ease;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15) rotate(5deg); }
+}
+
+/* Enhanced hover states */
+.service-card:hover {
+    z-index: 10;
+}
+
+.review-card:hover {
+    z-index: 10;
+}
+
+/* Smooth transitions for all interactive elements */
+.btn, .service-card, .review-card, .gallery-card, .faq-item {
+    will-change: transform;
+}
+
+/* Prevent layout shift */
+.service-icon, .gallery-icon {
+    will-change: transform;
+}
+
+/* Custom cursor styles - only when custom cursor is active */
+@media (min-width: 769px) {
+    body.custom-cursor-active * {
+        cursor: none !important;
+    }
+    
+    body.custom-cursor-active a, 
+    body.custom-cursor-active button, 
+    body.custom-cursor-active .service-card, 
+    body.custom-cursor-active .review-card, 
+    body.custom-cursor-active .gallery-card {
+        cursor: none !important;
+    }
 }
 /* Language Toggle Styles */
 .language-toggle {
@@ -2201,11 +2324,14 @@ p {
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease;
+    opacity: 0;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px;
+    opacity: 1;
     padding: 0 2rem 1.5rem;
 }
 
