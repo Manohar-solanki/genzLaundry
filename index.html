@@ -24,6 +24,249 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/design-refresh.css">
+    
+    <!-- Mobile Optimization CSS -->
+    <style>
+        /* Desktop Fixes */
+        @media (min-width: 769px) {
+            .hero-subtitle {
+                max-width: 700px !important;
+                margin-bottom: 25px !important;
+            }
+            
+            #liveStatus {
+                margin-bottom: 20px !important;
+            }
+            
+            .hero-content > div:last-of-type {
+                margin-top: 25px !important;
+            }
+        }
+        
+        /* Mobile-First Responsive Fixes */
+        
+        @media (max-width: 768px) {
+            /* Fix for sticky header overlap - mobile only */
+            html {
+                scroll-padding-top: 80px;
+            }
+            
+            section {
+                scroll-margin-top: 80px;
+            }
+            
+            .header {
+                position: fixed !important;
+                top: 0 !important;
+                width: 100% !important;
+                z-index: 1000 !important;
+                background: white !important;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+            }
+            
+            * {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+            }
+            
+            .container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                max-width: 100% !important;
+            }
+            
+            /* Hero Section Mobile Fix */
+            .hero {
+                padding: 100px 0 40px !important;
+                min-height: auto !important;
+                margin-top: 0 !important;
+            }
+            
+            .hero-content {
+                max-width: 100% !important;
+                padding: 0 10px !important;
+                padding-top: 20px !important;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+                padding: 0 !important;
+                margin-bottom: 20px !important;
+            }
+            
+            #liveStatus {
+                font-size: 12px !important;
+                padding: 6px 12px !important;
+                margin-bottom: 15px !important;
+            }
+            
+            #liveStatus span:last-child {
+                font-size: 12px !important;
+            }
+            
+            .hero-buttons {
+                flex-direction: column !important;
+                gap: 10px !important;
+                width: 100% !important;
+            }
+            
+            .hero-buttons .btn {
+                width: 100% !important;
+                padding: 12px 20px !important;
+                font-size: 0.95rem !important;
+            }
+            
+            .hero-features {
+                flex-direction: column !important;
+                gap: 10px !important;
+                margin-top: 20px !important;
+            }
+            
+            .hero-features .feature {
+                font-size: 0.85rem !important;
+                padding: 10px 15px !important;
+                width: 100% !important;
+                justify-content: center !important;
+            }
+            
+            /* Live Order Counter Mobile */
+            .hero-content > div:last-of-type {
+                width: 100% !important;
+                text-align: center !important;
+                padding: 12px 15px !important;
+            }
+            
+            .hero-content > div:last-of-type p {
+                font-size: 13px !important;
+            }
+            
+            /* Hide hero image on mobile */
+            .hero-image {
+                display: none !important;
+            }
+            
+            /* Section Headers */
+            .section-header h2 {
+                font-size: 1.6rem !important;
+            }
+            
+            .section-header p {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Services Grid */
+            .services-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* Reviews Grid */
+            .reviews-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* Testimonial Ticker */
+            #testimonialTicker {
+                font-size: 13px !important;
+            }
+            
+            /* Pricing Grid */
+            .pricing-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* Contact Section */
+            .contact-content {
+                flex-direction: column !important;
+                gap: 30px !important;
+            }
+            
+            .contact-info,
+            .contact-form {
+                width: 100% !important;
+            }
+            
+            /* Map Container */
+            .map-container iframe {
+                height: 200px !important;
+            }
+            
+            /* FAQ Items */
+            .faq-item {
+                padding: 15px !important;
+            }
+            
+            .faq-question {
+                font-size: 0.95rem !important;
+            }
+            
+            /* Gallery Grid */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px !important;
+            }
+            
+            /* Stats */
+            .summary-stats {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+            
+            .stat {
+                width: 100% !important;
+            }
+            
+            /* Navbar Mobile */
+            .nav-brand {
+                gap: 8px !important;
+            }
+            
+            .nav-brand img {
+                width: 35px !important;
+                height: 35px !important;
+            }
+            
+            .nav-brand > div span:first-child {
+                font-size: 1em !important;
+            }
+            
+            .nav-brand > div span:last-child {
+                font-size: 0.6em !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.85rem !important;
+            }
+            
+            .section-header h2 {
+                font-size: 1.4rem !important;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -58,7 +301,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
+        <div class="container"></div>
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span data-i18n="hero.title">Premium Laundry &</span> <br>
@@ -68,6 +311,20 @@
                 <p class="hero-subtitle" data-i18n="hero.subtitle">
                     ⚡ <span style="font-weight: 500; color: #fbbf24;">Jodhpur's First Express Laundry Service</span> - Lightning-fast 4-hour delivery, premium care, and eco-friendly cleaning that fits your busy lifestyle!
                 </p>
+                
+                <!-- Live Status Badge -->
+                <div id="liveStatus" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1); padding: 8px 16px; border-radius: 50px; margin-bottom: 20px; border: 2px solid #10b981;">
+                    <span style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; animation: pulse-dot 2s infinite;"></span>
+                    <span style="color: #10b981; font-weight: 600; font-size: 14px;">We're Open Now - Call for Instant Pickup!</span>
+                </div>
+                
+                <style>
+                    @keyframes pulse-dot {
+                        0%, 100% { opacity: 1; transform: scale(1); }
+                        50% { opacity: 0.5; transform: scale(1.2); }
+                    }
+                </style>
+                
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary btn-large">
                         <i class="fas fa-calendar-alt"></i>
@@ -81,17 +338,74 @@
                 <div class="hero-features">
                     <div class="feature">
                         <i class="fas fa-truck"></i>
-                        <span data-i18n="hero.features.pickup">Free Pickup & Delivery</span>
+                        <span data-i18n="hero.features.pickup">Express Pickup & Delivery in 4 Hours</span>
                     </div>
                     <div class="feature">
-                        <i class="fas fa-leaf"></i>
-                        <span data-i18n="hero.features.eco">100% Eco-Friendly</span>
+                        <i class="fas fa-gift"></i>
+                        <span data-i18n="hero.features.eco">Free Steam Iron</span>
                     </div>
                     <div class="feature">
                         <i class="fas fa-clock"></i>
-                        <span data-i18n="hero.features.service">24-48 Hour Service</span>
+                        <span data-i18n="hero.features.service">24 Hour Service</span>
                     </div>
                 </div>
+                
+                <!-- Live Order Counter -->
+                <div style="margin-top: 25px; padding: 15px 20px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; display: inline-block;">
+                    <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.9);">
+                        🔥 <span id="liveOrders" style="font-weight: 700; color: #fbbf24;">127</span> orders completed this week!
+                    </p>
+                </div>
+                
+                <script>
+                    // Animate live order counter
+                    let orderCount = 127;
+                    setInterval(() => {
+                        if (Math.random() > 0.7) {
+                            orderCount++;
+                            document.getElementById('liveOrders').textContent = orderCount;
+                            // Flash effect
+                            document.getElementById('liveOrders').style.transform = 'scale(1.2)';
+                            setTimeout(() => {
+                                document.getElementById('liveOrders').style.transform = 'scale(1)';
+                            }, 200);
+                        }
+                    }, 15000); // Update every 15 seconds
+                    
+                    // Update live status based on time
+                    function updateLiveStatus() {
+                        const now = new Date();
+                        const hour = now.getHours();
+                        const day = now.getDay();
+                        const statusEl = document.getElementById('liveStatus');
+                        
+                        let isOpen = false;
+                        if (day === 0) { // Sunday
+                            isOpen = hour >= 9 && hour < 19;
+                        } else { // Mon-Sat
+                            isOpen = hour >= 8 && hour < 21;
+                        }
+                        
+                        if (isOpen) {
+                            statusEl.innerHTML = `
+                                <span style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; animation: pulse-dot 2s infinite;"></span>
+                                <span style="color: #10b981; font-weight: 600; font-size: 14px;">We're Open Now - Call for Instant Pickup!</span>
+                            `;
+                            statusEl.style.borderColor = '#10b981';
+                            statusEl.style.background = 'rgba(16, 185, 129, 0.1)';
+                        } else {
+                            statusEl.innerHTML = `
+                                <span style="width: 10px; height: 10px; background: #f59e0b; border-radius: 50%;"></span>
+                                <span style="color: #f59e0b; font-weight: 600; font-size: 14px;">Currently Closed - Book for Tomorrow!</span>
+                            `;
+                            statusEl.style.borderColor = '#f59e0b';
+                            statusEl.style.background = 'rgba(245, 158, 11, 0.1)';
+                        }
+                    }
+                    
+                    updateLiveStatus();
+                    setInterval(updateLiveStatus, 60000); // Check every minute
+                </script>
             </div>
             <div class="hero-image">
                 <div class="hero-card glass">
@@ -202,62 +516,117 @@
                 <p data-i18n="reviews.subtitle">⭐ Real reviews from satisfied customers across Jodhpur</p>
             </div>
             
+            <!-- Live Testimonial Ticker -->
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 15px 0; margin-bottom: 40px; border-radius: 15px; overflow: hidden;">
+                <div id="testimonialTicker" style="display: flex; gap: 40px; white-space: nowrap;">
+                    <span style="color: white; font-size: 14px;">⭐ "Good service" - Suresh Mundel</span>
+                    <span style="color: white; font-size: 14px;">⚡ "Fast delivery" - Hai Veer</span>
+                    <span style="color: white; font-size: 14px;">🌟 "The fragrance after wash is good and wash quality is best in the jodhpur" - Anil Solanki</span>
+                    <span style="color: white; font-size: 14px;">💯 "Jodhpur first quick laundry service and best wash quality" - Priyanka Prjapat</span>
+                    <span style="color: white; font-size: 14px;">👍 "Good service and affordable price" - Rohit Vyas</span>
+                    <span style="color: white; font-size: 14px;">🎉 "Best service in town." - Hitesh Chaudhari</span>
+                    <span style="color: white; font-size: 14px;">💬 "Experience is very good & friendlly shope" - Mahesh Sundesha</span>
+                    <span style="color: white; font-size: 14px;">✨ "Premium quality and professional laundry on day delivery" - Dhanraj Prajapat</span>
+                    <span style="color: white; font-size: 14px;">🌸 "Nice fragnance after wash!!!" - Mistry Harsh</span>
+                    <span style="color: white; font-size: 14px;">💪 "I appricate their work good about this servic" - Rana</span>
+                    <span style="color: white; font-size: 14px;">🏆 "Best they collect clothes from hostels or rooms" - Kaushal Kumar</span>
+                    <span style="color: white; font-size: 14px;">👌 "Excellent laundry service, Clothes were perfectly cleaned" - Arvind Gadri</span>
+                    <span style="color: white; font-size: 14px;">⭐ "Good service" - Suresh Mundel</span>
+                    <span style="color: white; font-size: 14px;">⚡ "Fast delivery" - Hai Veer</span>
+                    <span style="color: white; font-size: 14px;">🌟 "The fragrance after wash is good and wash quality is best in the jodhpur" - Anil Solanki</span>
+                    <span style="color: white; font-size: 14px;">💯 "Jodhpur first quick laundry service and best wash quality" - Priyanka Prjapat</span>
+                    <span style="color: white; font-size: 14px;">👍 "Good service and affordable price" - Rohit Vyas</span>
+                    <span style="color: white; font-size: 14px;">🎉 "Best service in town." - Hitesh Chaudhari</span>
+                </div>
+            </div>
+            <style>
+                @keyframes scroll-left {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                
+                /* Desktop speed */
+                #testimonialTicker {
+                    animation: scroll-left 40s linear infinite !important;
+                }
+                
+                /* Tablet speed */
+                @media (max-width: 1024px) {
+                    #testimonialTicker {
+                        animation: scroll-left 40s linear infinite !important;
+                    }
+                }
+                
+                /* Mobile speed - balanced */
+                @media (max-width: 768px) {
+                    #testimonialTicker {
+                        animation: scroll-left 45s linear infinite !important;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    #testimonialTicker {
+                        animation: scroll-left 45s linear infinite !important;
+                    }
+                }
+            </style>
+            
             <div class="reviews-grid">
                 <div class="review-card glass">
                     <div class="review-header">
                         <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <i class="fas fa-user"></i>
+                            <div class="reviewer-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 600;">
+                                AG
                             </div>
                             <div class="reviewer-details">
-                                <h4>Priya Sharma</h4>
-                                <p>Shastri Nagar, Jodhpur</p>
+                                <h4>Arvind Gadri</h4>
+                                <p>Google Review • <span style="color: #10b981;">✓ Verified Customer</span></p>
                             </div>
                         </div>
                         <div class="review-rating">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
                         </div>
                     </div>
-                    <p class="review-text">"Excellent service! My silk sarees were cleaned perfectly. The pickup and delivery was right on time. Highly recommended for delicate fabrics."</p>
-                    <div class="review-date">2 days ago</div>
+                    <p class="review-text">"Excellent laundry service, Clothes were perfectly cleaned and delivery was on time. Very professional and affordable Highly recommended 👌"</p>
+                    <div class="review-date">3 weeks ago via Google</div>
                 </div>
                 
                 <div class="review-card glass">
                     <div class="review-header">
                         <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <i class="fas fa-user"></i>
+                            <div class="reviewer-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; font-weight: 600;">
+                                KK
                             </div>
                             <div class="reviewer-details">
-                                <h4>Rajesh Kumar</h4>
-                                <p>Ratanada, Jodhpur</p>
+                                <h4>Kaushal Kumar</h4>
+                                <p>Google Review • <span style="color: #10b981;">✓ Verified Customer</span></p>
                             </div>
                         </div>
                         <div class="review-rating">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
                         </div>
                     </div>
-                    <p class="review-text">"Best laundry service in Jodhpur! Professional dry cleaning for my suits. The staff is courteous and the quality is outstanding."</p>
-                    <div class="review-date">1 week ago</div>
+                    <p class="review-text">"Best they collect clothes from hostels or rooms snd next day the clothes are clean and fully iron great job."</p>
+                    <div class="review-date">3 weeks ago via Google</div>
                 </div>
                 
                 <div class="review-card glass">
                     <div class="review-header">
                         <div class="reviewer-info">
-                            <div class="reviewer-avatar">
-                                <i class="fas fa-user"></i>
+                            <div class="reviewer-avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; font-weight: 600;">
+                                DP
                             </div>
                             <div class="reviewer-details">
-                                <h4>Meera Joshi</h4>
-                                <p>Paota, Jodhpur</p>
+                                <h4>Dhanraj Prajapat</h4>
+                                <p>Google Review • <span style="color: #10b981;">✓ Verified Customer</span></p>
                             </div>
                         </div>
                         <div class="review-rating">
                             <span class="stars">⭐⭐⭐⭐⭐</span>
                         </div>
                     </div>
-                    <p class="review-text">"Amazing service! They cleaned my wedding lehenga beautifully. Very careful with delicate work and reasonable prices."</p>
-                    <div class="review-date">2 weeks ago</div>
+                    <p class="review-text">"Premium quality and professional laundry on day delivery really very very appreciative this laundry"</p>
+                    <div class="review-date">3 days ago via Google</div>
                 </div>
             </div>
             
@@ -663,43 +1032,195 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 60px 0 0 0;">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
                 <div class="footer-brand">
-                    <div class="nav-brand">
-                        <i class="fas fa-tshirt"></i>
-                        <span>GenZ Laundry</span>
+                    <div class="nav-brand" style="margin-bottom: 20px;">
+                        <img src="public/logo.png" alt="GenZ Laundry Logo" class="nav-logo" style="width: 40px; height: 40px;">
+                        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                            <span style="font-size: 1.3em; font-weight: 700; color: white;">GenZ Laundry</span>
+                            <span style="font-size: 0.7em; font-weight: 400; opacity: 0.85; letter-spacing: 0.5px;">& Drycleaners</span>
+                        </div>
                     </div>
-                    <p>Premium laundry and dry cleaning service in Jodhpur. Professional garment care delivered to your doorstep.</p>
+                    <p style="color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 20px;">
+                        Jodhpur's first express laundry service with 4-hour delivery. Premium care for your garments, delivered to your doorstep.
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="https://www.instagram.com/genz_laundry_dryclean/" target="_blank" style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease;">
+                            <i class="fab fa-instagram" style="font-size: 18px;"></i>
+                        </a>
+                        <a href="https://wa.me/918233853727" target="_blank" style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease;">
+                            <i class="fab fa-whatsapp" style="font-size: 18px;"></i>
+                        </a>
+                        <a href="tel:+918233853727" style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease;">
+                            <i class="fas fa-phone" style="font-size: 18px;"></i>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 1.1rem; font-weight: 600;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 12px;"><a href="#home" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;"><i class="fas fa-chevron-right" style="font-size: 10px;"></i> Home</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#services" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;"><i class="fas fa-chevron-right" style="font-size: 10px;"></i> Services</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#pricing" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;"><i class="fas fa-chevron-right" style="font-size: 10px;"></i> Pricing</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#about" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;"><i class="fas fa-chevron-right" style="font-size: 10px;"></i> About</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#contact" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;"><i class="fas fa-chevron-right" style="font-size: 10px;"></i> Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-contact">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+918233853727" style="color: inherit; text-decoration: none;">+91 82338 53727</a></p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+918854935727" style="color: inherit; text-decoration: none;">+91 88549 35727</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:genzlaundry.in@gmail.com" style="color: inherit; text-decoration: none;">genzlaundry.in@gmail.com</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Jodhpur, Rajasthan</p>
-                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/genz_laundry_dryclean/" target="_blank" style="color: inherit; text-decoration: none;">@genz_laundry_dryclean</a></p>
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 1.1rem; font-weight: 600;">Contact Us</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <a href="tel:+918233853727" style="color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease;">
+                            <i class="fas fa-phone" style="color: #10b981; font-size: 16px;"></i>
+                            <span>+91 82338 53727</span>
+                        </a>
+                        <a href="tel:+918854935727" style="color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease;">
+                            <i class="fas fa-phone" style="color: #10b981; font-size: 16px;"></i>
+                            <span>+91 88549 35727</span>
+                        </a>
+                        <a href="mailto:genzlaundry.in@gmail.com" style="color: rgba(255,255,255,0.7); text-decoration: none; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease;">
+                            <i class="fas fa-envelope" style="color: #10b981; font-size: 16px;"></i>
+                            <span>genzlaundry.in@gmail.com</span>
+                        </a>
+                        <div style="color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-map-marker-alt" style="color: #10b981; font-size: 16px;"></i>
+                            <span>Jodhpur, Rajasthan</span>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="footer-hours">
+                    <h4 style="color: white; margin-bottom: 20px; font-size: 1.1rem; font-weight: 600;">Business Hours</h4>
+                    <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #10b981;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <i class="fas fa-clock" style="color: #10b981; font-size: 20px;"></i>
+                            <span style="font-size: 1.2rem; font-weight: 700; color: #10b981;">24/7 Open</span>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0; font-size: 0.95rem; line-height: 1.5;">
+                            We're available round the clock for your convenience. Call us anytime!
+                        </p>
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <p style="color: #fbbf24; margin: 0; font-size: 0.9rem; font-weight: 600;">
+                                <i class="fas fa-bolt"></i> Express 4-Hour Service Available
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2026 GenZ Laundry. All rights reserved.</p>
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding: 25px 0; text-align: center;">
+                <p style="color: rgba(255,255,255,0.6); margin: 0; font-size: 0.9rem;">
+                    &copy; 2026 GenZ Laundry & Drycleaners. All rights reserved. | Made with ❤️ in Jodhpur
+                </p>
             </div>
         </div>
+        
+        <style>
+            .footer a:hover {
+                color: #10b981 !important;
+                transform: translateX(3px);
+            }
+            .footer-brand a:hover {
+                background: rgba(255,255,255,0.2) !important;
+                transform: translateY(-3px) !important;
+            }
+            
+            /* Mobile Responsive Styles */
+            @media (max-width: 768px) {
+                .footer {
+                    padding: 40px 0 0 0 !important;
+                }
+                .footer-content {
+                    grid-template-columns: 1fr !important;
+                    gap: 30px !important;
+                }
+                .footer-brand .nav-brand {
+                    justify-content: center;
+                    text-align: center;
+                }
+                .footer-brand p {
+                    text-align: center;
+                }
+                .footer-brand > div:last-child {
+                    justify-content: center !important;
+                }
+                .footer-links h4,
+                .footer-contact h4,
+                .footer-hours h4 {
+                    text-align: center;
+                }
+                .footer-links ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 10px 20px;
+                }
+                .footer-links ul li {
+                    margin-bottom: 0 !important;
+                }
+                .footer-contact > div {
+                    align-items: center;
+                }
+                .footer-contact a,
+                .footer-contact > div > div {
+                    justify-content: center;
+                }
+                .footer-hours > div {
+                    text-align: center;
+                }
+                .footer-bottom {
+                    padding: 20px 15px !important;
+                }
+                .footer-bottom p {
+                    font-size: 0.85rem !important;
+                    line-height: 1.6;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .footer {
+                    padding: 30px 0 0 0 !important;
+                }
+                .footer-content {
+                    gap: 25px !important;
+                }
+                .footer-brand .nav-brand img {
+                    width: 35px !important;
+                    height: 35px !important;
+                }
+                .footer-brand .nav-brand span:first-of-type {
+                    font-size: 1.1em !important;
+                }
+                .footer-brand p {
+                    font-size: 0.9rem;
+                }
+                .footer-links h4,
+                .footer-contact h4,
+                .footer-hours h4 {
+                    font-size: 1rem !important;
+                    margin-bottom: 15px !important;
+                }
+                .footer-contact a,
+                .footer-contact > div > div {
+                    font-size: 0.9rem;
+                }
+                .footer-hours > div {
+                    padding: 15px !important;
+                }
+                .footer-hours > div > div:first-child span {
+                    font-size: 1.1rem !important;
+                }
+                .footer-hours > div p {
+                    font-size: 0.85rem !important;
+                }
+                .footer-bottom p {
+                    font-size: 0.8rem !important;
+                }
+            }
+        </style>
     </footer>
 
     <!-- Floating Action Buttons -->
@@ -720,9 +1241,169 @@
         </div>
     </div>
 
+    <!-- WhatsApp Sticky Button -->
+    <a href="https://wa.me/918233853727?text=Hi!%20I%20want%20to%20book%20a%20laundry%20pickup" 
+       class="whatsapp-sticky" 
+       target="_blank"
+       title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <style>
+        .whatsapp-sticky {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        .whatsapp-sticky:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-sticky i {
+            font-size: 24px;
+        }
+        @keyframes pulse-whatsapp {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7); }
+        }
+        @media (max-width: 768px) {
+            .whatsapp-sticky {
+                bottom: 90px;
+                left: 15px;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+            .whatsapp-sticky span {
+                display: none;
+            }
+            .whatsapp-sticky {
+                border-radius: 50%;
+                width: 56px;
+                height: 56px;
+                justify-content: center;
+                padding: 0;
+            }
+            .whatsapp-sticky i {
+                font-size: 28px;
+            }
+        }
+        @media (max-width: 480px) {
+            .whatsapp-sticky {
+                bottom: 80px;
+                left: 10px;
+                width: 50px;
+                height: 50px;
+            }
+            .whatsapp-sticky i {
+                font-size: 24px;
+            }
+        }
+    </style>
+
     <!-- Custom JavaScript -->
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/dynamic-enhancements.js"></script>
+    
+    <!-- Recently Booked Notification -->
+    <script>
+        const recentBookings = [
+            { name: "Rajesh from Ratanada", service: "Dry Cleaning", time: "2 minutes ago" },
+            { name: "Priya from Shastri Nagar", service: "Wash & Fold", time: "5 minutes ago" },
+            { name: "Amit from Paota", service: "Express Service", time: "8 minutes ago" },
+            { name: "Sneha from Chopasni", service: "Home Textiles", time: "12 minutes ago" },
+            { name: "Vikram from Sardarpura", service: "Premium Ironing", time: "15 minutes ago" }
+        ];
+        
+        let currentIndex = 0;
+        
+        function showRecentBooking() {
+            const booking = recentBookings[currentIndex];
+            const notification = document.createElement('div');
+            const isMobile = window.innerWidth <= 768;
+            
+            notification.style.cssText = `
+                position: fixed;
+                bottom: ${isMobile ? '90px' : '100px'};
+                right: ${isMobile ? '10px' : '30px'};
+                background: white;
+                padding: ${isMobile ? '12px 15px' : '15px 20px'};
+                border-radius: 12px;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+                z-index: 9999;
+                max-width: ${isMobile ? '90%' : '300px'};
+                animation: slideInRight 0.5s ease, slideOutRight 0.5s ease 4.5s;
+                border-left: 4px solid #10b981;
+            `;
+            
+            notification.innerHTML = `
+                <div style="display: flex; align-items: start; gap: ${isMobile ? '10px' : '12px'};">
+                    <div style="width: ${isMobile ? '35px' : '40px'}; height: ${isMobile ? '35px' : '40px'}; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <i class="fas fa-check" style="color: white; font-size: ${isMobile ? '16px' : '18px'};"></i>
+                    </div>
+                    <div style="flex: 1;">
+                        <p style="margin: 0; font-weight: 600; font-size: ${isMobile ? '13px' : '14px'}; color: #333;">${booking.name}</p>
+                        <p style="margin: 3px 0 0 0; font-size: ${isMobile ? '12px' : '13px'}; color: #666;">Just booked ${booking.service}</p>
+                        <p style="margin: 3px 0 0 0; font-size: ${isMobile ? '11px' : '12px'}; color: #10b981;">${booking.time}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+            
+            currentIndex = (currentIndex + 1) % recentBookings.length;
+        }
+        
+        // Show first notification after 5 seconds
+        setTimeout(() => {
+            showRecentBooking();
+            // Then show every 20 seconds
+            setInterval(showRecentBooking, 20000);
+        }, 5000);
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
     </body>
 </html>

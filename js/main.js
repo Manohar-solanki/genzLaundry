@@ -1413,16 +1413,66 @@ class NotificationManager {
             }
             @media (max-width: 768px) {
                 .welcome-popup-content {
-                    padding: 2rem 1.5rem;
+                    padding: 1.5rem 1.2rem;
+                    max-width: 90%;
+                    margin: 0 auto;
+                }
+                .welcome-icon {
+                    font-size: 2.5rem;
+                    margin-bottom: 0.8rem;
                 }
                 .welcome-title {
-                    font-size: 1.6rem;
+                    font-size: 1.4rem;
+                    margin-bottom: 0.4rem;
                 }
                 .welcome-subtitle {
-                    font-size: 1rem;
+                    font-size: 0.9rem;
+                    margin-bottom: 1.2rem;
+                }
+                .welcome-features {
+                    gap: 0.6rem;
+                    margin-bottom: 1.2rem;
                 }
                 .welcome-feature {
+                    font-size: 0.85rem;
+                    padding: 0.6rem 0.8rem;
+                }
+                .feature-icon {
+                    font-size: 1.2rem;
+                }
+                .welcome-cta {
+                    padding: 0.75rem 1.5rem;
                     font-size: 0.95rem;
+                }
+                .welcome-close {
+                    top: 10px;
+                    right: 10px;
+                    width: 30px;
+                    height: 30px;
+                    font-size: 20px;
+                }
+            }
+            @media (max-width: 480px) {
+                .welcome-popup-content {
+                    padding: 1.2rem 1rem;
+                    max-width: 95%;
+                }
+                .welcome-icon {
+                    font-size: 2rem;
+                }
+                .welcome-title {
+                    font-size: 1.2rem;
+                }
+                .welcome-subtitle {
+                    font-size: 0.85rem;
+                }
+                .welcome-feature {
+                    font-size: 0.8rem;
+                    padding: 0.5rem 0.7rem;
+                }
+                .welcome-cta {
+                    padding: 0.7rem 1.2rem;
+                    font-size: 0.9rem;
                 }
             }
         `;
