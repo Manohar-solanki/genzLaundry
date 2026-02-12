@@ -1264,6 +1264,181 @@ class NotificationManager {
         });
     }
 
+    showWelcome() {
+        const welcomePopup = document.createElement('div');
+        welcomePopup.className = 'welcome-popup';
+        welcomePopup.innerHTML = `
+            <div class="welcome-popup-content">
+                <button class="welcome-close">&times;</button>
+                <div class="welcome-icon">🧺✨</div>
+                <h2 class="welcome-title">Welcome to GenZ Laundry!</h2>
+                <p class="welcome-subtitle">⚡ Jodhpur's First Express Laundry Service</p>
+                <div class="welcome-features">
+                    <div class="welcome-feature">
+                        <span class="feature-icon">🚀</span>
+                        <span>4-Hour Express Delivery</span>
+                    </div>
+                    <div class="welcome-feature">
+                        <span class="feature-icon">🎁</span>
+                        <span>Free Steam Iron</span>
+                    </div>
+                    <div class="welcome-feature">
+                        <span class="feature-icon">🕐</span>
+                        <span>24-Hour Service</span>
+                    </div>
+                </div>
+                <a href="#contact" class="welcome-cta">Book Your Pickup Now</a>
+            </div>
+        `;
+        
+        welcomePopup.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        `;
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes slideUp {
+                from { transform: translateY(30px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            .welcome-popup-content {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 2.5rem;
+                border-radius: 20px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+                text-align: center;
+                max-width: 450px;
+                width: 90%;
+                position: relative;
+                animation: slideUp 0.4s ease;
+                color: white;
+            }
+            .welcome-close {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                color: white;
+                font-size: 24px;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .welcome-close:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: rotate(90deg);
+            }
+            .welcome-icon {
+                font-size: 3.5rem;
+                margin-bottom: 1rem;
+                animation: bounce 1s infinite;
+            }
+            @keyframes bounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            .welcome-title {
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+                color: white;
+            }
+            .welcome-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+                color: rgba(255, 255, 255, 0.95);
+                font-weight: 500;
+            }
+            .welcome-features {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+            .welcome-feature {
+                background: rgba(255, 255, 255, 0.15);
+                padding: 0.8rem 1rem;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                font-size: 1rem;
+                backdrop-filter: blur(10px);
+            }
+            .feature-icon {
+                font-size: 1.5rem;
+            }
+            .welcome-cta {
+                display: inline-block;
+                background: white;
+                color: #667eea;
+                padding: 0.9rem 2rem;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.05rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            .welcome-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+            @media (max-width: 768px) {
+                .welcome-popup-content {
+                    padding: 2rem 1.5rem;
+                }
+                .welcome-title {
+                    font-size: 1.6rem;
+                }
+                .welcome-subtitle {
+                    font-size: 1rem;
+                }
+                .welcome-feature {
+                    font-size: 0.95rem;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        document.body.appendChild(welcomePopup);
+
+        // Close handlers
+        const closePopup = () => {
+            welcomePopup.style.animation = 'fadeOut 0.3s ease';
+            setTimeout(() => welcomePopup.remove(), 300);
+        };
+
+        welcomePopup.querySelector('.welcome-close').addEventListener('click', closePopup);
+        welcomePopup.addEventListener('click', (e) => {
+            if (e.target === welcomePopup) closePopup();
+        });
+
+        // Auto close after 8 seconds
+        setTimeout(closePopup, 8000);
+    }
+
     remove(notification) {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
@@ -1298,7 +1473,7 @@ const notifications = new NotificationManager();
 // Show welcome notification after page load
 window.addEventListener('load', () => {
     setTimeout(() => {
-        notifications.show('Welcome to GenZ Laundry! 🧺', 'success', 4000);
+        notifications.showWelcome();
     }, 2000);
 });
 

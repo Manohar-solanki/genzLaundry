@@ -51,13 +51,13 @@ class I18nSystem {
                     title: "Premium Laundry &",
                     titleHighlight: "Dry Cleaning",
                     titleSuffix: "Service",
-                    subtitle: "✨ Professional garment care delivered to your doorstep in Jodhpur. Eco-friendly cleaning, expert handling, and guaranteed satisfaction.",
+                    subtitle: "⚡ Jodhpur's First Express Laundry Service - Lightning-fast 4-hour delivery, premium care, and eco-friendly cleaning that fits your busy lifestyle!",
                     bookPickup: "Book Pickup Now",
                     callNow: "Call Now",
                     features: {
-                        pickup: "Free Pickup & Delivery",
-                        eco: "100% Eco-Friendly", 
-                        service: "24-48 Hour Service"
+                        pickup: "Express Pickup & Delivery in 4 Hours",
+                        eco: "Free Steam Iron", 
+                        service: "24 Hour Service"
                     },
                     card: {
                         title: "Professional Care",
@@ -290,13 +290,13 @@ class I18nSystem {
                     title: "प्रीमियम लॉन्ड्री और",
                     titleHighlight: "ड्राई क्लीनिंग",
                     titleSuffix: "सेवा",
-                    subtitle: "✨ जोधपुर में आपके घर तक पेशेवर कपड़े की देखभाल। पर्यावरण-अनुकूल सफाई, विशेषज्ञ हैंडलिंग, और गारंटीशुदा संतुष्टि।",
+                    subtitle: "⚡ जोधपुर की पहली एक्सप्रेस लॉन्ड्री सेवा - बिजली की तेज़ 4 घंटे की डिलीवरी, प्रीमियम देखभाल, और पर्यावरण-अनुकूल सफाई जो आपकी व्यस्त जीवनशैली के अनुकूल है!",
                     bookPickup: "अभी पिकअप बुक करें",
                     callNow: "अभी कॉल करें",
                     features: {
-                        pickup: "मुफ्त पिकअप और डिलीवरी",
-                        eco: "100% पर्यावरण-अनुकूल",
-                        service: "24-48 घंटे की सेवा"
+                        pickup: "4 घंटे में एक्सप्रेस पिकअप और डिलीवरी",
+                        eco: "मुफ्त स्टीम आयरन",
+                        service: "24 घंटे की सेवा"
                     },
                     card: {
                         title: "पेशेवर देखभाल",
