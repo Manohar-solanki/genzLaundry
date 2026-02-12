@@ -116,6 +116,11 @@ class I18nSystem {
                 pricing: {
                     title: "Transparent Pricing",
                     subtitle: "No hidden charges, competitive rates",
+                    dryCleaningNotice: {
+                        title: "Dry Cleaning Services",
+                        description: "For premium dry cleaning services, pricing is customized based on garment type and fabric.",
+                        callText: "Call us now for an instant quote!"
+                    },
                     washFold: {
                         title: "Wash & Fold",
                         price: "₹15",
@@ -355,6 +360,11 @@ class I18nSystem {
                 pricing: {
                     title: "पारदर्शी मूल्य निर्धारण",
                     subtitle: "कोई छुपी हुई फीस नहीं, प्रतिस्पर्धी दरें",
+                    dryCleaningNotice: {
+                        title: "ड्राई क्लीनिंग सेवाएं",
+                        description: "प्रीमियम ड्राई क्लीनिंग सेवाओं के लिए, मूल्य निर्धारण कपड़े के प्रकार और फैब्रिक के आधार पर अनुकूलित किया जाता है।",
+                        callText: "तुरंत कोटेशन के लिए अभी कॉल करें!"
+                    },
                     washFold: {
                         title: "धुलाई और तह",
                         price: "₹15",

@@ -156,6 +156,11 @@
     "title": "Transparent Pricing",
     "subtitle": "Fair rates with no hidden charges",
     "disclaimer": "Final quote confirmed at pickup. Prices may vary based on fabric type and care requirements.",
+    "dryCleaningNotice": {
+      "title": "Dry Cleaning Services",
+      "description": "For premium dry cleaning services, pricing is customized based on garment type and fabric.",
+      "callText": "Call us now for an instant quote!"
+    },
     "washFold": {
       "title": "Wash & Fold",
       "perKg": "₹50/kg",
