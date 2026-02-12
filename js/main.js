@@ -303,7 +303,9 @@ const animateCounters = () => {
     const counters = document.querySelectorAll('.stat-number');
     
     counters.forEach((counter, index) => {
-        const target = parseInt(counter.textContent);
+        const text = counter.textContent;
+        const hasDecimal = text.includes('.');
+        const target = hasDecimal ? parseFloat(text) : parseInt(text);
         const duration = 2000;
         const startTime = performance.now();
         
@@ -314,13 +316,17 @@ const animateCounters = () => {
             const progress = Math.min(elapsed / duration, 1);
             const easedProgress = easeOutQuart(progress);
             
-            const current = Math.floor(easedProgress * target);
-            counter.textContent = current + (counter.textContent.includes('%') ? '%' : '+');
+            const current = hasDecimal 
+                ? (easedProgress * target).toFixed(1)
+                : Math.floor(easedProgress * target);
+            
+            const suffix = text.includes('%') ? '%' : (text.includes('+') ? '+' : '');
+            counter.textContent = current + suffix;
             
             if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
-                counter.textContent = target + (counter.textContent.includes('%') ? '%' : '+');
+                counter.textContent = target + suffix;
                 // Add a celebration effect
                 counter.style.animation = 'pulse 0.5s ease-in-out';
             }

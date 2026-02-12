@@ -363,14 +363,19 @@ class EnhancedCounter {
         const counters = container.querySelectorAll('.stat-number');
         
         counters.forEach((counter, index) => {
-            const text = counter.textContent;
-            const number = parseInt(text.replace(/\D/g, ''));
-            const suffix = text.replace(/\d/g, '');
+            const text = counter.textContent.trim();
+            const hasDecimal = text.includes('.');
+            
+            // Extract number (with decimal if present)
+            const numberMatch = text.match(/[\d.]+/);
+            if (!numberMatch) return;
+            
+            const number = hasDecimal ? parseFloat(numberMatch[0]) : parseInt(numberMatch[0]);
+            const suffix = text.replace(/[\d.]/g, '').trim();
             
             if (isNaN(number)) return;
             
             let current = 0;
-            const increment = number / 50;
             const duration = 2000;
             const startTime = performance.now();
             
@@ -380,7 +385,9 @@ class EnhancedCounter {
                 
                 // Easing function
                 const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-                current = Math.floor(easeOutCubic * number);
+                current = hasDecimal 
+                    ? (easeOutCubic * number).toFixed(1)
+                    : Math.floor(easeOutCubic * number);
                 
                 counter.textContent = current + suffix;
                 
