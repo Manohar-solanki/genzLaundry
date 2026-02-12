@@ -323,6 +323,16 @@
                         0%, 100% { opacity: 1; transform: scale(1); }
                         50% { opacity: 0.5; transform: scale(1.2); }
                     }
+                    
+                    /* Center live status badge on mobile */
+                    @media (max-width: 768px) {
+                        #liveStatus {
+                            display: flex !important;
+                            justify-content: center !important;
+                            width: 100% !important;
+                            text-align: center !important;
+                        }
+                    }
                 </style>
                 
                 <div class="hero-buttons">
