@@ -382,39 +382,20 @@
                         }
                     }, 15000); // Update every 15 seconds
                     
-                    // Update live status based on time
+                    // Update live status - 24 Hour Service Always Open
                     function updateLiveStatus() {
-                        const now = new Date();
-                        const hour = now.getHours();
-                        const day = now.getDay();
                         const statusEl = document.getElementById('liveStatus');
                         
-                        let isOpen = false;
-                        if (day === 0) { // Sunday
-                            isOpen = hour >= 9 && hour < 19;
-                        } else { // Mon-Sat
-                            isOpen = hour >= 8 && hour < 21;
-                        }
-                        
-                        if (isOpen) {
-                            statusEl.innerHTML = `
-                                <span style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; animation: pulse-dot 2s infinite;"></span>
-                                <span style="color: #10b981; font-weight: 600; font-size: 14px;">We're Open Now - Call for Instant Pickup!</span>
-                            `;
-                            statusEl.style.borderColor = '#10b981';
-                            statusEl.style.background = 'rgba(16, 185, 129, 0.1)';
-                        } else {
-                            statusEl.innerHTML = `
-                                <span style="width: 10px; height: 10px; background: #f59e0b; border-radius: 50%;"></span>
-                                <span style="color: #f59e0b; font-weight: 600; font-size: 14px;">Currently Closed - Book for Tomorrow!</span>
-                            `;
-                            statusEl.style.borderColor = '#f59e0b';
-                            statusEl.style.background = 'rgba(245, 158, 11, 0.1)';
-                        }
+                        // Always show as open for 24-hour service
+                        statusEl.innerHTML = `
+                            <span style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; animation: pulse-dot 2s infinite;"></span>
+                            <span style="color: #10b981; font-weight: 600; font-size: 14px;">Open 24/7 - Call Anytime for Instant Pickup!</span>
+                        `;
+                        statusEl.style.borderColor = '#10b981';
+                        statusEl.style.background = 'rgba(16, 185, 129, 0.1)';
                     }
                     
                     updateLiveStatus();
-                    setInterval(updateLiveStatus, 60000); // Check every minute
                 </script>
             </div>
             <div class="hero-image">
