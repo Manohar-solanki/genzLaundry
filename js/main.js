@@ -1003,7 +1003,8 @@ class FAQManager {
 
     setupFAQ() {
         document.querySelectorAll('.faq-question').forEach((question, index) => {
-            question.addEventListener('click', () => {
+            // Handle both click and touch events for mobile
+            const handleToggle = () => {
                 const faqItem = question.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 const answer = faqItem.querySelector('.faq-answer');
@@ -1015,9 +1016,13 @@ class FAQManager {
                         const otherAnswer = item.querySelector('.faq-answer');
                         const otherIcon = item.querySelector('.faq-question i');
                         
-                        otherAnswer.style.maxHeight = '0';
-                        otherAnswer.style.padding = '0 2rem';
-                        otherIcon.style.transform = 'rotate(0deg)';
+                        if (otherAnswer) {
+                            otherAnswer.style.maxHeight = '0';
+                            otherAnswer.style.padding = '0 2rem';
+                        }
+                        if (otherIcon) {
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
                         
                         setTimeout(() => {
                             item.classList.remove('active');
@@ -1056,8 +1061,17 @@ class FAQManager {
                         answer.style.maxHeight = '0';
                         answer.style.padding = '0 2rem';
                     }
+                    faqItem.classList.remove('active');
                 }
-            });
+            };
+            
+            // Add click event
+            question.addEventListener('click', handleToggle);
+            
+            // Improve mobile touch responsiveness
+            question.style.cursor = 'pointer';
+            question.style.userSelect = 'none';
+            question.style.webkitTapHighlightColor = 'transparent';
             
             // Add hover effect
             question.addEventListener('mouseenter', () => {
