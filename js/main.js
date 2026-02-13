@@ -1542,9 +1542,7 @@ const notifications = new NotificationManager();
 
 // Show welcome notification after page load
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        notifications.showWelcome();
-    }, 2000);
+    // Welcome popup removed
 });
 
 console.log('🚀 All enhanced features loaded successfully!');
