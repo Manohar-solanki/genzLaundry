@@ -1027,6 +1027,10 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2026 GenZ Laundry & Drycleaners. All rights reserved. | Made with care in Jodhpur</p>
+                <div class="visitor-counter">
+                    <i class="fas fa-users"></i>
+                    <span>Visitors: <strong id="visitorCount">0</strong></span>
+                </div>
             </div>
         </div>
     </footer>
@@ -1342,6 +1346,28 @@
                 font-size: 1rem;
             }
         }
+        
+        /* Visitor Counter */
+        .visitor-counter {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(13, 148, 136, 0.1);
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .visitor-counter i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        .visitor-counter strong {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
     </style>
     <script>
         // Track if user dismissed the splash permanently
@@ -1527,6 +1553,35 @@
                     setTimeout(() => throttle = false, 200);
                 }
             }, { passive: true });
+        })();
+        
+        // Visitor Counter
+        (function() {
+            const COUNTER_KEY = 'genzlaundry_page_views';
+            
+            // Increment counter on every page load
+            let count = parseInt(localStorage.getItem(COUNTER_KEY) || '0');
+            count++;
+            localStorage.setItem(COUNTER_KEY, count.toString());
+            
+            // Display the count with animation
+            const countElement = document.getElementById('visitorCount');
+            if (countElement) {
+                const finalCount = count;
+                let currentCount = Math.max(1, finalCount - 20); // Start animation from lower number
+                
+                const animateCount = () => {
+                    if (currentCount < finalCount) {
+                        currentCount += Math.ceil((finalCount - currentCount) / 8);
+                        countElement.textContent = currentCount.toLocaleString();
+                        requestAnimationFrame(animateCount);
+                    } else {
+                        countElement.textContent = finalCount.toLocaleString();
+                    }
+                };
+                
+                setTimeout(animateCount, 500); // Start animation after page loads
+            }
         })();
     </script>
 
