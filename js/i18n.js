@@ -39,13 +39,13 @@ class I18nSystem {
                 // Navigation
                 nav: {
                     home: "Home",
-                    services: "Services", 
+                    services: "Services",
                     pricing: "Pricing",
                     about: "About",
                     contact: "Contact",
                     bookNow: "Book Now"
                 },
-                
+
                 // Hero Section
                 hero: {
                     title: "Premium Laundry &",
@@ -56,7 +56,7 @@ class I18nSystem {
                     callNow: "Call Now",
                     features: {
                         pickup: "Express Pickup & Delivery in 4 Hours",
-                        eco: "Free Steam Iron", 
+                        eco: "Free Steam Iron",
                         service: "24 Hour Service"
                     },
                     card: {
@@ -75,7 +75,7 @@ class I18nSystem {
                         features: ["Cotton & synthetic fabrics", "Advanced stain treatment", "Premium fabric softener", "Hygienic packaging"]
                     },
                     dryCleaning: {
-                        title: "Dry Cleaning", 
+                        title: "Dry Cleaning",
                         description: "Specialized cleaning for delicate and formal garments with eco-friendly solvents",
                         features: ["Suits & formal wear", "Silk & delicate fabrics", "Wedding dresses & sarees", "Leather & suede items"],
                         badge: "Most Popular"
@@ -106,7 +106,7 @@ class I18nSystem {
                             description: "Professional cleaning with eco-friendly products and expert care"
                         },
                         {
-                            title: "Fresh Delivery", 
+                            title: "Fresh Delivery",
                             description: "Clean, fresh clothes delivered back to your doorstep"
                         }
                     ]
@@ -129,7 +129,7 @@ class I18nSystem {
                     },
                     dryCleaning: {
                         title: "Dry Cleaning",
-                        price: "₹80", 
+                        price: "₹80",
                         unit: "/piece",
                         features: ["Suits & formal wear", "Delicate fabrics", "Professional pressing", "Starch on request"],
                         badge: "Best Value"
@@ -137,7 +137,7 @@ class I18nSystem {
                     ironing: {
                         title: "Ironing Only",
                         price: "₹8",
-                        unit: "/piece", 
+                        unit: "/piece",
                         features: ["Steam pressing", "Crease setting", "Hanging service", "Quick turnaround"]
                     },
                     note: "Free pickup and delivery for orders above ₹300"
@@ -153,7 +153,7 @@ class I18nSystem {
                             description: "Your garments are fully insured during our care"
                         },
                         {
-                            title: "Eco-Friendly", 
+                            title: "Eco-Friendly",
                             description: "Biodegradable detergents and sustainable practices"
                         },
                         {
@@ -163,7 +163,7 @@ class I18nSystem {
                     ],
                     stats: {
                         customers: "Happy Customers",
-                        orders: "Orders Completed", 
+                        orders: "Orders Completed",
                         satisfaction: "Satisfaction Rate"
                     }
                 },
@@ -174,7 +174,7 @@ class I18nSystem {
                     subtitle: "Ready to experience premium laundry service?",
                     info: {
                         phone: "Phone",
-                        whatsapp: "WhatsApp", 
+                        whatsapp: "WhatsApp",
                         whatsappText: "Chat with us",
                         email: "Email",
                         serviceArea: "Service Area",
@@ -185,7 +185,7 @@ class I18nSystem {
                         subtitle: "Fill in your details and we'll contact you within 30 minutes!",
                         name: "👤 Full Name",
                         phone: "📱 Phone Number",
-                        address: "📍 Pickup Address", 
+                        address: "📍 Pickup Address",
                         service: "🔽 Select Service",
                         services: {
                             washFold: "🧺 Wash & Fold",
@@ -532,42 +532,61 @@ class I18nSystem {
         const langToggle = document.createElement('li');
         langToggle.className = 'language-toggle';
         langToggle.innerHTML = `
-            <div class="lang-switcher">
-                <button class="lang-btn ${this.currentLanguage === 'en' ? 'active' : ''}" data-lang="en">
-                    🇺🇸 EN
-                </button>
-                <button class="lang-btn ${this.currentLanguage === 'hi' ? 'active' : ''}" data-lang="hi">
-                    🇮🇳 हिं
-                </button>
-            </div>
+            <button class="lang-switch" aria-label="Toggle Language">
+                <span class="lang-switch-track">
+                    <span class="lang-switch-option" data-lang="en">EN</span>
+                    <span class="lang-switch-option" data-lang="hi">हिं</span>
+                    <span class="lang-switch-slider"></span>
+                </span>
+            </button>
         `;
 
         header.appendChild(langToggle);
 
-        // Add event listeners
-        langToggle.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const lang = e.target.dataset.lang;
-                this.setLanguage(lang);
+        const switchBtn = langToggle.querySelector('.lang-switch');
+        const slider = langToggle.querySelector('.lang-switch-slider');
+        const options = langToggle.querySelectorAll('.lang-switch-option');
+
+        // Set initial position
+        if (this.currentLanguage === 'hi') {
+            slider.style.transform = 'translateX(100%)';
+        }
+
+        // Toggle on click
+        switchBtn.addEventListener('click', () => {
+            const newLang = this.currentLanguage === 'en' ? 'hi' : 'en';
+            this.setLanguage(newLang);
+        });
+
+        // Click individual options
+        options.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.setLanguage(opt.dataset.lang);
             });
         });
     }
 
     setLanguage(lang) {
         if (lang !== 'en' && lang !== 'hi') return;
-        
+
         this.currentLanguage = lang;
         localStorage.setItem('genZ-language', lang);
         document.documentElement.lang = lang;
-        
+
         this.applyTranslations();
         this.updateLanguageToggle();
         this.callbacks.forEach(callback => callback(lang));
     }
 
     updateLanguageToggle() {
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === this.currentLanguage);
+        const slider = document.querySelector('.lang-switch-slider');
+        if (slider) {
+            slider.style.transform = this.currentLanguage === 'hi' ? 'translateX(100%)' : 'translateX(0)';
+        }
+        document.querySelectorAll('.lang-switch-option').forEach(opt => {
+            const isActive = opt.dataset.lang === this.currentLanguage;
+            opt.style.color = isActive ? '#2563EB' : '';
         });
     }
 
@@ -579,7 +598,7 @@ class I18nSystem {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             const translation = this.getNestedValue(t, key);
-            
+
             if (translation) {
                 if (element.tagName === 'INPUT' && element.type !== 'submit') {
                     element.placeholder = translation;
@@ -592,7 +611,7 @@ class I18nSystem {
         });
 
         // Update page title
-        document.title = this.currentLanguage === 'hi' 
+        document.title = this.currentLanguage === 'hi'
             ? 'GenZ लॉन्ड्री - जोधपुर में प्रीमियम लॉन्ड्री और ड्राई क्लीनिंग सेवा'
             : 'GenZ Laundry - Premium Laundry & Dry Cleaning Service in Jodhpur';
     }

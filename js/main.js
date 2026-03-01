@@ -1,20 +1,17 @@
-// Mobile Navigation
+// ============================================
+// GenZ Laundry — Clean Professional JavaScript
+// ============================================
+
+// --- Mobile Navigation ---
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
-    
-    // Prevent body scroll when menu is open
-    if (navMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 });
 
-// Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -23,7 +20,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('active');
@@ -32,656 +28,183 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Smooth scrolling for navigation links
+// --- Smooth Scrolling ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             const headerHeight = document.querySelector('.header').offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight;
-            
             window.scrollTo({
-                top: targetPosition,
+                top: target.offsetTop - headerHeight,
                 behavior: 'smooth'
             });
         }
     });
 });
 
-// Active navigation link highlighting
+// --- Active Nav Highlighting ---
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    
     let current = '';
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + section.offsetHeight) {
             current = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
     });
 });
 
-// Enhanced Floating Action Button with more animations
+// --- Header Scroll Effect ---
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    const scrolled = window.scrollY > 50;
+    header.classList.toggle('scrolled', scrolled);
+
+    if (window.scrollY > lastScroll && window.scrollY > 200) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
+    }
+    lastScroll = window.scrollY;
+});
+
+// --- Floating Action Button ---
 const fabMain = document.getElementById('fabMain');
 const fabOptions = document.getElementById('fabOptions');
 let fabOpen = false;
 
 fabMain.addEventListener('click', () => {
     fabOpen = !fabOpen;
-    
-    if (fabOpen) {
-        fabOptions.classList.add('active');
-        fabMain.style.transform = 'scale(1.15) rotate(135deg)';
-        fabMain.innerHTML = '<i class="fas fa-times"></i>';
-        
-        // Animate each option with stagger
-        const options = document.querySelectorAll('.fab-option');
-        options.forEach((option, index) => {
-            setTimeout(() => {
-                option.style.transform = 'scale(1) translateY(0)';
-                option.style.opacity = '1';
-            }, index * 100);
-        });
-    } else {
-        fabOptions.classList.remove('active');
-        fabMain.style.transform = 'scale(1) rotate(0deg)';
-        fabMain.innerHTML = '<i class="fas fa-phone"></i>';
-        
-        // Reset options
-        const options = document.querySelectorAll('.fab-option');
-        options.forEach(option => {
-            option.style.transform = 'scale(0.8) translateY(20px)';
-            option.style.opacity = '0';
-        });
-    }
+    fabOptions.classList.toggle('active', fabOpen);
+    fabMain.style.transform = fabOpen ? 'rotate(135deg)' : 'rotate(0deg)';
+    fabMain.innerHTML = fabOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-phone"></i>';
 });
 
-// Close FAB when clicking outside with animation
 document.addEventListener('click', (e) => {
     if (!fabMain.contains(e.target) && !fabOptions.contains(e.target) && fabOpen) {
         fabOpen = false;
         fabOptions.classList.remove('active');
-        fabMain.style.transform = 'scale(1) rotate(0deg)';
+        fabMain.style.transform = 'rotate(0deg)';
         fabMain.innerHTML = '<i class="fas fa-phone"></i>';
-        
-        const options = document.querySelectorAll('.fab-option');
-        options.forEach(option => {
-            option.style.transform = 'scale(0.8) translateY(20px)';
-            option.style.opacity = '0';
-        });
     }
 });
 
-// Initialize FAB options
-document.addEventListener('DOMContentLoaded', () => {
-    const options = document.querySelectorAll('.fab-option');
-    options.forEach(option => {
-        option.style.transform = 'scale(0.8) translateY(20px)';
-        option.style.opacity = '0';
-        option.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+// --- Scroll Reveal (IntersectionObserver) ---
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+        }
     });
-});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-// Enhanced form handling with bilingual support
-const bookingForm = document.getElementById('bookingForm');
+document.querySelectorAll('.fade-up').forEach(el => revealObserver.observe(el));
 
-// Add success animation method
-bookingForm.showSuccessAnimation = function() {
-    // Create confetti effect
-    for (let i = 0; i < 30; i++) {
-        setTimeout(() => {
-            const confetti = document.createElement('div');
-            confetti.style.cssText = `
-                position: fixed;
-                width: 10px;
-                height: 10px;
-                background: ${['#0D9488', '#F59E0B', '#14B8A6', '#D97706'][Math.floor(Math.random() * 4)]};
-                left: ${Math.random() * 100}%;
-                top: -10px;
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 10000;
-                animation: confettiFall ${2 + Math.random() * 2}s linear forwards;
-            `;
-            document.body.appendChild(confetti);
-            
-            setTimeout(() => confetti.remove(), 4000);
-        }, i * 50);
-    }
-    
-    // Show success message
-    if (typeof notifications !== 'undefined') {
-        const currentLang = i18n.getCurrentLanguage();
-        const successMsg = currentLang === 'hi' 
-            ? 'धन्यवाद! आपकी बुकिंग की पुष्टि के लिए आपको WhatsApp पर भेजा जाएगा।'
-            : 'Thank you! You will be redirected to WhatsApp to confirm your booking.';
-        notifications.show(successMsg, 'success', 4000);
-    }
+// --- Counter Animation ---
+const animateCounters = () => {
+    document.querySelectorAll('.stat-number').forEach(counter => {
+        const text = counter.textContent;
+        const hasDecimal = text.includes('.');
+        const target = hasDecimal ? parseFloat(text) : parseInt(text);
+        const suffix = text.includes('%') ? '%' : (text.includes('+') ? '+' : '');
+        const duration = 2000;
+        const startTime = performance.now();
+
+        const update = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 4);
+            const current = hasDecimal ? (eased * target).toFixed(1) : Math.floor(eased * target);
+            counter.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(update);
+            else counter.textContent = target + suffix;
+        };
+        requestAnimationFrame(update);
+    });
 };
 
+const statsSection = document.querySelector('.about-stats');
+if (statsSection) {
+    const statsObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                statsObs.unobserve(entry.target);
+            }
+        });
+    });
+    statsObs.observe(statsSection);
+}
+
+// --- Form Handling ---
+const bookingForm = document.getElementById('bookingForm');
 bookingForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
     const address = document.getElementById('address').value;
     const service = document.getElementById('service').value;
-    
-    // Get current language
-    const currentLang = i18n.getCurrentLanguage();
-    
-    // Validation messages
-    const messages = {
-        en: {
-            fillFields: 'Please fill in all fields',
-            invalidPhone: 'Please enter a valid 10-digit mobile number',
-            success: 'Thank you! You will be redirected to WhatsApp to confirm your booking.'
-        },
-        hi: {
-            fillFields: 'कृपया सभी फ़ील्ड भरें',
-            invalidPhone: 'कृपया एक वैध 10-अंकीय मोबाइल नंबर दर्ज करें',
-            success: 'धन्यवाद! आपकी बुकिंग की पुष्टि के लिए आपको WhatsApp पर भेजा जाएगा।'
-        }
-    };
-    
-    // Basic validation
+
+    const currentLang = typeof i18n !== 'undefined' ? i18n.getCurrentLanguage() : 'en';
+
     if (!name || !phone || !address || !service) {
-        alert(messages[currentLang].fillFields);
+        alert(currentLang === 'hi' ? 'कृपया सभी फ़ील्ड भरें' : 'Please fill in all fields');
         return;
     }
-    
-    // Phone validation (Indian mobile number)
+
     const phoneRegex = /^[6-9]\d{9}$/;
     if (!phoneRegex.test(phone)) {
-        alert(messages[currentLang].invalidPhone);
+        alert(currentLang === 'hi' ? 'कृपया एक वैध 10-अंकीय मोबाइल नंबर दर्ज करें' : 'Please enter a valid 10-digit mobile number');
         return;
     }
-    
-    // Service names in both languages
+
     const serviceNames = {
-        'wash-fold': {
-            en: 'Wash & Fold',
-            hi: 'धुलाई और तह'
-        },
-        'dry-clean': {
-            en: 'Dry Cleaning', 
-            hi: 'ड्राई क्लीनिंग'
-        },
-        'ironing': {
-            en: 'Ironing Only',
-            hi: 'केवल इस्त्री'
-        },
-        'home-textiles': {
-            en: 'Home Textiles',
-            hi: 'घरेलू वस्त्र'
-        }
+        'wash-fold': { en: 'Wash & Fold', hi: 'धुलाई और तह' },
+        'dry-clean': { en: 'Dry Cleaning', hi: 'ड्राई क्लीनिंग' },
+        'ironing': { en: 'Ironing Only', hi: 'केवल इस्त्री' },
+        'home-textiles': { en: 'Home Textiles', hi: 'घरेलू वस्त्र' }
     };
-    
-    // Create WhatsApp message in current language
+
     const serviceName = serviceNames[service][currentLang];
-    
-    const message = currentLang === 'hi' 
-        ? `नमस्ते! मैं ${serviceName} के लिए पिकअप बुक करना चाहता/चाहती हूं।
+    const message = currentLang === 'hi'
+        ? `नमस्ते! मैं ${serviceName} के लिए पिकअप बुक करना चाहता/चाहती हूं।\n\nनाम: ${name}\nफोन: ${phone}\nपता: ${address}\nसेवा: ${serviceName}\n\nकृपया पिकअप का समय बताएं। धन्यवाद!`
+        : `Hi! I'd like to book a pickup for ${serviceName}.\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nService: ${serviceName}\n\nPlease confirm the pickup time. Thank you!`;
 
-नाम: ${name}
-फोन: ${phone}
-पता: ${address}
-सेवा: ${serviceName}
-
-कृपया पिकअप का समय बताएं। धन्यवाद!`
-        : `Hi! I'd like to book a pickup for ${serviceName}.
-
-Name: ${name}
-Phone: ${phone}
-Address: ${address}
-Service: ${serviceName}
-
-Please confirm the pickup time. Thank you!`;
-    
-    // Create success animation
-    this.showSuccessAnimation();
-    
     const whatsappUrl = `https://wa.me/918233853727?text=${encodeURIComponent(message)}`;
-    
-    // Open WhatsApp after animation
-    setTimeout(() => {
-        window.open(whatsappUrl, '_blank');
-    }, 1500);
-    
-    // Reset form
-    setTimeout(() => {
-        this.reset();
-    }, 2000);
+    window.open(whatsappUrl, '_blank');
+
+    setTimeout(() => this.reset(), 1000);
 });
 
-// Enhanced animations with more attractive effects
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0) scale(1)';
-            
-            // Add special effects for different elements
-            if (entry.target.classList.contains('service-card')) {
-                entry.target.style.animation = 'slideInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            } else if (entry.target.classList.contains('pricing-card')) {
-                entry.target.style.animation = 'zoomIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            } else if (entry.target.classList.contains('step')) {
-                entry.target.style.animation = 'slideInLeft 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            }
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation with stagger effect
-document.querySelectorAll('.service-card, .step, .pricing-card, .stat, .feature-item').forEach((el, index) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(50px) scale(0.9)';
-    el.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-    el.style.transitionDelay = `${index * 0.1}s`;
-    observer.observe(el);
-});
-
-// Enhanced counter animation with easing
-const animateCounters = () => {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach((counter, index) => {
-        const text = counter.textContent;
-        const hasDecimal = text.includes('.');
-        const target = hasDecimal ? parseFloat(text) : parseInt(text);
-        const duration = 2000;
-        const startTime = performance.now();
-        
-        const easeOutQuart = (t) => 1 - (--t) * t * t * t;
-        
-        const updateCounter = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easedProgress = easeOutQuart(progress);
-            
-            const current = hasDecimal 
-                ? (easedProgress * target).toFixed(1)
-                : Math.floor(easedProgress * target);
-            
-            const suffix = text.includes('%') ? '%' : (text.includes('+') ? '+' : '');
-            counter.textContent = current + suffix;
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + suffix;
-                // Add a celebration effect
-                counter.style.animation = 'pulse 0.5s ease-in-out';
-            }
-        };
-        
-        // Stagger the counter animations
-        setTimeout(() => {
-            requestAnimationFrame(updateCounter);
-        }, index * 200);
-    });
-};
-
-// Enhanced particle effect on hover for service cards with more variety
-document.querySelectorAll('.service-card').forEach(card => {
-    let particleTimeout;
-    
-    card.addEventListener('mouseenter', (e) => {
-        createEnhancedParticles(e.target);
-        // Continuous particles while hovering
-        particleTimeout = setInterval(() => {
-            createEnhancedParticles(e.target);
-        }, 300);
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        clearInterval(particleTimeout);
-    });
-});
-
-function createEnhancedParticles(element) {
-    const colors = ['#0D9488', '#F59E0B', '#14B8A6', '#D97706'];
-    const particleCount = 8;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        const size = Math.random() * 6 + 3;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const angle = (Math.PI * 2 * i) / particleCount;
-        const distance = 30 + Math.random() * 20;
-        
-        particle.style.position = 'fixed';
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        particle.style.background = color;
-        particle.style.borderRadius = '50%';
-        particle.style.pointerEvents = 'none';
-        particle.style.zIndex = '1000';
-        particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
-        
-        const rect = element.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
-        particle.style.left = centerX + 'px';
-        particle.style.top = centerY + 'px';
-        
-        document.body.appendChild(particle);
-        
-        // Animate particle with more dynamic movement
-        const endX = centerX + Math.cos(angle) * distance;
-        const endY = centerY + Math.sin(angle) * distance;
-        
-        particle.animate([
-            { 
-                transform: 'translate(0, 0) scale(1)', 
-                opacity: 1 
-            },
-            { 
-                transform: `translate(${endX - centerX}px, ${endY - centerY}px) scale(0)`, 
-                opacity: 0 
-            }
-        ], {
-            duration: 800 + Math.random() * 400,
-            easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
-        }).onfinish = () => particle.remove();
-    }
-}
-
-
-// Add smooth reveal animation for sections
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 1s ease, transform 1s ease';
-    sectionObserver.observe(section);
-});
-
-// Trigger counter animation when stats section is visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(entry.target);
-        }
-    });
-});
-
-const statsSection = document.querySelector('.about-stats');
-if (statsSection) {
-    statsObserver.observe(statsSection);
-}
-
-// Enhanced header background on scroll with smooth transitions
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    const currentScroll = window.scrollY;
-    const scrolled = currentScroll > 50;
-    
-    if (scrolled) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
-        header.style.borderBottom = '1px solid rgba(13, 148, 136, 0.3)';
-        header.style.backdropFilter = 'blur(20px)';
-    } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        header.style.borderBottom = '1px solid rgba(13, 148, 136, 0.2)';
-    }
-    
-    // Hide/show header on scroll
-    if (currentScroll > lastScroll && currentScroll > 200) {
-        header.style.transform = 'translateY(-100%)';
-    } else {
-        header.style.transform = 'translateY(0)';
-    }
-    
-    lastScroll = currentScroll;
-});
-
-// Enhanced preloader with smooth fade-in
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // Animate hero elements on load
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    const heroButtons = document.querySelector('.hero-buttons');
-    const heroCard = document.querySelector('.hero-card');
-    
-    if (heroTitle) {
-        heroTitle.style.animation = 'slideInLeft 1s ease-out';
-    }
-    if (heroSubtitle) {
-        heroSubtitle.style.animation = 'slideInLeft 1s ease-out 0.2s both';
-    }
-    if (heroButtons) {
-        heroButtons.style.animation = 'slideInLeft 1s ease-out 0.4s both';
-    }
-    if (heroCard) {
-        heroCard.style.animation = 'slideInRight 1s ease-out 0.3s both, floatUp 3s ease-in-out infinite 1.3s';
-    }
-    
-    // Stagger service cards
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(50px)';
-        setTimeout(() => {
-            card.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, 1000 + (index * 100));
-    });
-});
-
-// Enhanced service card hover effects with more personality
-document.querySelectorAll('.service-card').forEach(card => {
-    let glowInterval;
-    
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-15px) scale(1.03)';
-        card.style.boxShadow = '0 25px 50px rgba(102, 126, 234, 0.25)';
-        
-        // Animate icon
-        const icon = card.querySelector('.service-icon');
-        if (icon) {
-            icon.style.animation = 'iconBounce 0.6s ease';
-        }
-        
-        // Pulsing glow effect
-        let glowIntensity = 0.25;
-        glowInterval = setInterval(() => {
-            glowIntensity = glowIntensity === 0.25 ? 0.35 : 0.25;
-            card.style.boxShadow = `0 25px 50px rgba(102, 126, 234, ${glowIntensity})`;
-        }, 500);
-        
-        // Animate list items
-        const listItems = card.querySelectorAll('li');
-        listItems.forEach((item, index) => {
-            setTimeout(() => {
-                item.style.transform = 'translateX(8px)';
-                item.style.transition = 'transform 0.3s ease';
-            }, index * 50);
-        });
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        clearInterval(glowInterval);
-        
-        if (card.classList.contains('featured')) {
-            card.style.transform = 'scale(1.05)';
-        } else {
-            card.style.transform = 'translateY(0) scale(1)';
-        }
-        card.style.boxShadow = '';
-        
-        // Reset list items
-        const listItems = card.querySelectorAll('li');
-        listItems.forEach(item => {
-            item.style.transform = '';
-        });
-    });
-});
-
-// Enhanced pricing card hover effects
-document.querySelectorAll('.pricing-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        if (card.classList.contains('popular')) {
-            card.style.transform = 'scale(1.08) translateY(-15px)';
-            card.style.boxShadow = '0 20px 50px rgba(245, 158, 11, 0.3)';
-        } else {
-            card.style.transform = 'translateY(-15px) scale(1.02)';
-            card.style.boxShadow = '0 20px 50px rgba(102, 126, 234, 0.2)';
-        }
-        
-        // Animate price
-        const price = card.querySelector('.price');
-        if (price) {
-            price.style.animation = 'pulse 0.5s ease';
-            price.style.color = '#F59E0B';
-        }
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        if (card.classList.contains('popular')) {
-            card.style.transform = 'scale(1.05)';
-        } else {
-            card.style.transform = 'translateY(0) scale(1)';
-        }
-        card.style.boxShadow = '';
-        
-        const price = card.querySelector('.price');
-        if (price) {
-            price.style.animation = '';
-            price.style.color = '';
-        }
-    });
-});
-
-// Enhanced button interactions with loading states
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        if (this.type === 'submit') {
-            // Create loading spinner
-            const originalContent = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            this.style.opacity = '0.8';
-            this.style.pointerEvents = 'none';
-            this.style.transform = 'scale(0.95)';
-            
-            // Simulate processing (replace with actual form submission)
-            setTimeout(() => {
-                this.innerHTML = originalContent;
-                this.style.opacity = '1';
-                this.style.pointerEvents = 'auto';
-                this.style.transform = '';
-                
-                // Success animation
-                this.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
-                setTimeout(() => {
-                    this.style.background = '';
-                }, 2000);
-            }, 2000);
-        } else {
-            // Ripple effect for non-submit buttons
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.6);
-                left: ${x}px;
-                top: ${y}px;
-                transform: scale(0);
-                animation: rippleExpand 0.6s ease-out;
-                pointer-events: none;
-            `;
-            
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
-        }
-    });
-});
-
-// Keyboard navigation for accessibility
+// --- Keyboard Accessibility ---
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        // Close mobile menu
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
-        
-        // Close FAB
+        document.body.style.overflow = '';
         fabOptions.classList.remove('active');
         fabMain.style.transform = 'rotate(0deg)';
     }
 });
 
-// Focus management for accessibility
-const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
-        const focusable = Array.from(document.querySelectorAll(focusableElements));
-        const index = focusable.indexOf(document.activeElement);
-        
-        if (e.shiftKey) {
-            const prevIndex = index > 0 ? index - 1 : focusable.length - 1;
-            focusable[prevIndex].focus();
-        } else {
-            const nextIndex = index < focusable.length - 1 ? index + 1 : 0;
-            focusable[nextIndex].focus();
-        }
-    }
-});
-
-console.log('GenZ Laundry website loaded successfully!');
-
-// Price Calculator – category-wise data
+// ============================================
+// Price Calculator
+// ============================================
 const PRICE_CALCULATOR_DATA = {
     deliveryFee: 30,
     freeDeliveryThreshold: 300,
     categories: [
         {
-            id: 'tops-basics',
-            name: 'Tops & Basics',
-            icon: '👕',
+            id: 'tops-basics', name: 'Tops & Basics', icon: '👕',
             items: [
                 { id: 'tshirt', name: 'T-shirt', price: 20 },
                 { id: 'shirt', name: 'Shirt', price: 20 },
@@ -691,9 +214,7 @@ const PRICE_CALCULATOR_DATA = {
             ]
         },
         {
-            id: 'warm-wear',
-            name: 'Warm Wear',
-            icon: '🧥',
+            id: 'warm-wear', name: 'Warm Wear', icon: '🧥',
             items: [
                 { id: 'sweater', name: 'Sweater', price: 50 },
                 { id: 'hoodie', name: 'Hoodie', price: 50 },
@@ -701,9 +222,7 @@ const PRICE_CALCULATOR_DATA = {
             ]
         },
         {
-            id: 'bottoms',
-            name: 'Bottoms',
-            icon: '👖',
+            id: 'bottoms', name: 'Bottoms', icon: '👖',
             items: [
                 { id: 'jeans', name: 'Jeans', price: 20 },
                 { id: 'pant_trouser', name: 'Pant / Trouser', price: 20 },
@@ -717,18 +236,14 @@ const PRICE_CALCULATOR_DATA = {
             ]
         },
         {
-            id: 'ethnic',
-            name: 'Ethnic',
-            icon: '👘',
+            id: 'ethnic', name: 'Ethnic', icon: '👘',
             items: [
                 { id: 'salwar', name: 'Salwar', price: 50 },
                 { id: 'dupatta', name: 'Dupatta', price: 20 }
             ]
         },
         {
-            id: 'outerwear',
-            name: 'Outerwear',
-            icon: '🧥',
+            id: 'outerwear', name: 'Outerwear', icon: '🧥',
             items: [
                 { id: 'jacket_light', name: 'Jacket (Light)', price: 50 },
                 { id: 'jacket_heavy', name: 'Jacket (Heavy)', price: 80 },
@@ -737,9 +252,7 @@ const PRICE_CALCULATOR_DATA = {
             ]
         },
         {
-            id: 'bedding-accessories',
-            name: 'Bedding & Accessories',
-            icon: '🛏️',
+            id: 'bedding-accessories', name: 'Bedding & Accessories', icon: '🛏️',
             items: [
                 { id: 'sock', name: 'Sock', price: 15 },
                 { id: 'blanket', name: 'Blanket', price: 200 },
@@ -781,7 +294,7 @@ class PriceCalculator {
         const totalLabel = root.dataset.total || 'Total:';
         const bookLabel = root.dataset.bookLabel || 'Book These Items';
 
-        let html = `
+        root.innerHTML = `
             <h3 class="calculator-form-title">${formTitle}</h3>
             <div class="calc-toolbar">
                 <div class="calc-search-wrap">
@@ -843,7 +356,6 @@ class PriceCalculator {
             </div>
             <div class="calc-toast" id="calc-toast" aria-live="polite">✓ Copied to clipboard!</div>
         `;
-        root.innerHTML = html;
     }
 
     setupCategoryToggles() {
@@ -870,9 +382,7 @@ class PriceCalculator {
         search.addEventListener('input', () => {
             const q = (search.value || '').trim().toLowerCase();
             document.querySelectorAll('.calc-item').forEach(el => {
-                const name = (el.dataset.itemName || '').toLowerCase();
-                const match = !q || name.includes(q);
-                el.style.display = match ? '' : 'none';
+                el.style.display = !q || (el.dataset.itemName || '').includes(q) ? '' : 'none';
             });
         });
     }
@@ -898,13 +408,11 @@ class PriceCalculator {
         if (!btn || !toast) return;
         btn.addEventListener('click', () => {
             const items = this.getCalculatedItems();
-            const sub = document.getElementById('subtotal')?.textContent || '₹0';
             const tot = document.getElementById('total-amount')?.textContent || '₹0';
             const lines = ['GenZ Laundry – Price estimate', ''];
             if (items.length) lines.push('Items:', ...items.map(i => '  • ' + i), '');
             lines.push('Total: ' + tot);
-            const text = lines.join('\n');
-            navigator.clipboard.writeText(text).then(() => {
+            navigator.clipboard.writeText(lines.join('\n')).then(() => {
                 toast.classList.add('show');
                 setTimeout(() => toast.classList.remove('show'), 2000);
             }).catch(() => {});
@@ -914,8 +422,7 @@ class PriceCalculator {
     updateItemCount() {
         let n = 0;
         Object.keys(this.prices).forEach(id => {
-            const input = document.getElementById(`qty-${id}`);
-            n += parseInt(input?.value, 10) || 0;
+            n += parseInt(document.getElementById(`qty-${id}`)?.value, 10) || 0;
         });
         const el = document.getElementById('calc-item-count');
         if (el) el.textContent = n;
@@ -925,50 +432,36 @@ class PriceCalculator {
         document.addEventListener('click', (e) => {
             const btn = e.target.closest('.qty-btn');
             if (!btn) return;
-            const action = btn.dataset.action;
-            const itemId = btn.dataset.item;
-            const input = document.getElementById(`qty-${itemId}`);
+            const input = document.getElementById(`qty-${btn.dataset.item}`);
             if (!input) return;
             let value = parseInt(input.value, 10) || 0;
-            if (action === 'increase') value++;
-            else if (action === 'decrease' && value > 0) value--;
+            if (btn.dataset.action === 'increase') value++;
+            else if (btn.dataset.action === 'decrease' && value > 0) value--;
             input.value = value;
             this.updateTotal();
             this.updateItemCount();
-            this.animateButton(btn);
         });
 
         const bookBtn = document.getElementById('btn-book-calc');
         if (bookBtn) bookBtn.addEventListener('click', () => window.bookWithCalculatedItems && window.bookWithCalculatedItems());
     }
 
-    animateButton(el) {
-        if (!el) return;
-        el.style.transform = 'scale(0.9)';
-        setTimeout(() => { el.style.transform = ''; }, 150);
-    }
-
     updateTotal() {
         let subtotal = 0;
         Object.keys(this.prices).forEach(id => {
-            const input = document.getElementById(`qty-${id}`);
-            const qty = parseInt(input?.value, 10) || 0;
-            subtotal += qty * this.prices[id];
+            subtotal += (parseInt(document.getElementById(`qty-${id}`)?.value, 10) || 0) * this.prices[id];
         });
-        const total = subtotal;
-
         const subEl = document.getElementById('subtotal');
         const totEl = document.getElementById('total-amount');
         if (subEl) subEl.textContent = `₹${subtotal}`;
-        if (totEl) totEl.textContent = `₹${total}`;
+        if (totEl) totEl.textContent = `₹${subtotal}`;
     }
 
     getCalculatedItems() {
         const items = [];
         this.data.categories.forEach(cat => {
             cat.items.forEach(it => {
-                const input = document.getElementById(`qty-${it.id}`);
-                const qty = parseInt(input?.value, 10) || 0;
+                const qty = parseInt(document.getElementById(`qty-${it.id}`)?.value, 10) || 0;
                 if (qty > 0) items.push(`${qty} x ${it.name}`);
             });
         });
@@ -989,781 +482,44 @@ window.bookWithCalculatedItems = function() {
     window.open(`https://wa.me/918233853727?text=${encodeURIComponent(message)}`, '_blank');
 };
 
-// Enhanced FAQ Functionality with smooth animations
+// ============================================
+// FAQ Accordion
+// ============================================
 class FAQManager {
     constructor() {
-        this.init();
+        document.addEventListener('DOMContentLoaded', () => this.setup());
     }
 
-    init() {
-        document.addEventListener('DOMContentLoaded', () => {
-            this.setupFAQ();
-        });
-    }
-
-    setupFAQ() {
-        document.querySelectorAll('.faq-question').forEach((question, index) => {
-            // Handle both click and touch events for mobile
-            const handleToggle = () => {
+    setup() {
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
                 const faqItem = question.parentElement;
                 const isActive = faqItem.classList.contains('active');
                 const answer = faqItem.querySelector('.faq-answer');
                 const icon = question.querySelector('i');
 
-                // Close all other FAQ items with animation
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem && item.classList.contains('active')) {
-                        const otherAnswer = item.querySelector('.faq-answer');
-                        const otherIcon = item.querySelector('.faq-question i');
-                        
-                        if (otherAnswer) {
-                            otherAnswer.style.maxHeight = '0';
-                            otherAnswer.style.padding = '0 2rem';
-                        }
-                        if (otherIcon) {
-                            otherIcon.style.transform = 'rotate(0deg)';
-                        }
-                        
-                        setTimeout(() => {
-                            item.classList.remove('active');
-                        }, 300);
+                // Close all other items
+                document.querySelectorAll('.faq-item.active').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        const a = item.querySelector('.faq-answer');
+                        if (a) a.style.maxHeight = '0';
                     }
                 });
 
-                // Toggle current item with smooth animation
+                // Toggle current
                 if (!isActive) {
                     faqItem.classList.add('active');
-                    
-                    // Animate icon
-                    if (icon) {
-                        icon.style.transform = 'rotate(45deg)';
-                        icon.style.transition = 'transform 0.3s ease';
-                    }
-                    
-                    // Animate answer
-                    setTimeout(() => {
-                        if (answer) {
-                            answer.style.maxHeight = answer.scrollHeight + 'px';
-                            answer.style.padding = '0 2rem 1.5rem';
-                        }
-                    }, 10);
-                    
-                    // Add highlight effect
-                    faqItem.style.background = 'rgba(13, 148, 136, 0.05)';
-                    setTimeout(() => {
-                        faqItem.style.background = '';
-                    }, 500);
+                    if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
                 } else {
-                    if (icon) {
-                        icon.style.transform = 'rotate(0deg)';
-                    }
-                    if (answer) {
-                        answer.style.maxHeight = '0';
-                        answer.style.padding = '0 2rem';
-                    }
                     faqItem.classList.remove('active');
-                }
-            };
-            
-            // Add click event
-            question.addEventListener('click', handleToggle);
-            
-            // Improve mobile touch responsiveness
-            question.style.cursor = 'pointer';
-            question.style.userSelect = 'none';
-            question.style.webkitTapHighlightColor = 'transparent';
-            
-            // Add hover effect
-            question.addEventListener('mouseenter', () => {
-                if (!question.parentElement.classList.contains('active')) {
-                    question.style.color = '#0D9488';
-                }
-            });
-            
-            question.addEventListener('mouseleave', () => {
-                if (!question.parentElement.classList.contains('active')) {
-                    question.style.color = '';
+                    if (answer) answer.style.maxHeight = '0';
                 }
             });
         });
     }
 }
 
-// Initialize FAQ
 new FAQManager();
 
-// Live Chat Widget
-class ChatWidget {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        document.addEventListener('DOMContentLoaded', () => {
-            this.createChatWidget();
-        });
-    }
-
-    createChatWidget() {
-        const chatWidget = document.createElement('div');
-        chatWidget.className = 'chat-widget';
-        chatWidget.innerHTML = `
-            <div class="chat-bubble" onclick="openWhatsAppChat()">
-                <i class="fab fa-whatsapp"></i>
-                <span>Need Help?</span>
-            </div>
-        `;
-        document.body.appendChild(chatWidget);
-
-        // Add animation
-        setTimeout(() => {
-            chatWidget.style.animation = 'slideInRight 0.5s ease-out';
-        }, 2000);
-    }
-}
-
-// Initialize Chat Widget
-new ChatWidget();
-
-// WhatsApp Chat Function
-window.openWhatsAppChat = function() {
-    const message = "Hi! I have a question about your laundry services. Can you help me?";
-    const whatsappUrl = `https://wa.me/918233853727?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-};
-
-// Enhanced Review Animation
-class ReviewAnimator {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        document.addEventListener('DOMContentLoaded', () => {
-            this.animateReviews();
-        });
-    }
-
-    animateReviews() {
-        const reviewCards = document.querySelectorAll('.review-card');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0) scale(1)';
-                    }, index * 200);
-                }
-            });
-        });
-
-        reviewCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px) scale(0.95)';
-            card.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            observer.observe(card);
-        });
-    }
-}
-
-// Initialize Review Animator
-new ReviewAnimator();
-
-// Gallery Hover Effects
-class GalleryManager {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        document.addEventListener('DOMContentLoaded', () => {
-            this.setupGalleryEffects();
-        });
-    }
-
-    setupGalleryEffects() {
-        document.querySelectorAll('.gallery-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                this.createSparkles(card);
-            });
-        });
-    }
-
-    createSparkles(element) {
-        for (let i = 0; i < 3; i++) {
-            const sparkle = document.createElement('div');
-            sparkle.innerHTML = '✨';
-            sparkle.style.position = 'absolute';
-            sparkle.style.pointerEvents = 'none';
-            sparkle.style.fontSize = '1rem';
-            sparkle.style.zIndex = '1000';
-            
-            const rect = element.getBoundingClientRect();
-            sparkle.style.left = (rect.left + Math.random() * rect.width) + 'px';
-            sparkle.style.top = (rect.top + Math.random() * rect.height) + 'px';
-            
-            document.body.appendChild(sparkle);
-            
-            sparkle.animate([
-                { transform: 'translateY(0) scale(1)', opacity: 1 },
-                { transform: 'translateY(-30px) scale(0)', opacity: 0 }
-            ], {
-                duration: 1000,
-                easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
-            }).onfinish = () => sparkle.remove();
-        }
-    }
-}
-
-// Initialize Gallery Manager
-new GalleryManager();
-
-// Notification System
-class NotificationManager {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        this.createNotificationContainer();
-    }
-
-    createNotificationContainer() {
-        const container = document.createElement('div');
-        container.id = 'notification-container';
-        container.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10000;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        `;
-        document.body.appendChild(container);
-    }
-
-    show(message, type = 'info', duration = 3000) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <i class="fas fa-${this.getIcon(type)}"></i>
-                <span>${message}</span>
-                <button class="notification-close">&times;</button>
-            </div>
-        `;
-        
-        notification.style.cssText = `
-            background: ${this.getColor(type)};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            max-width: 300px;
-        `;
-
-        document.getElementById('notification-container').appendChild(notification);
-
-        // Animate in
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-
-        // Auto remove
-        setTimeout(() => {
-            this.remove(notification);
-        }, duration);
-
-        // Close button
-        notification.querySelector('.notification-close').addEventListener('click', () => {
-            this.remove(notification);
-        });
-    }
-
-    showWelcome() {
-        const welcomePopup = document.createElement('div');
-        welcomePopup.className = 'welcome-popup';
-        welcomePopup.innerHTML = `
-            <div class="welcome-popup-content">
-                <button class="welcome-close">&times;</button>
-                <div class="welcome-icon">🧺✨</div>
-                <h2 class="welcome-title">Welcome to GenZ Laundry!</h2>
-                <p class="welcome-subtitle">⚡ Jodhpur's First Express Laundry Service</p>
-                <div class="welcome-features">
-                    <div class="welcome-feature">
-                        <span class="feature-icon">🚀</span>
-                        <span>4-Hour Express Delivery</span>
-                    </div>
-                    <div class="welcome-feature">
-                        <span class="feature-icon">🎁</span>
-                        <span>Free Steam Iron</span>
-                    </div>
-                    <div class="welcome-feature">
-                        <span class="feature-icon">🕐</span>
-                        <span>24-Hour Service</span>
-                    </div>
-                </div>
-                <a href="#contact" class="welcome-cta">Book Your Pickup Now</a>
-            </div>
-        `;
-        
-        welcomePopup.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            z-index: 10001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        `;
-
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-            @keyframes slideUp {
-                from { transform: translateY(30px); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            .welcome-popup-content {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                padding: 2.5rem;
-                border-radius: 20px;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-                text-align: center;
-                max-width: 450px;
-                width: 90%;
-                position: relative;
-                animation: slideUp 0.4s ease;
-                color: white;
-            }
-            .welcome-close {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                background: rgba(255, 255, 255, 0.2);
-                border: none;
-                color: white;
-                font-size: 24px;
-                width: 35px;
-                height: 35px;
-                border-radius: 50%;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .welcome-close:hover {
-                background: rgba(255, 255, 255, 0.3);
-                transform: rotate(90deg);
-            }
-            .welcome-icon {
-                font-size: 3.5rem;
-                margin-bottom: 1rem;
-                animation: bounce 1s infinite;
-            }
-            @keyframes bounce {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-10px); }
-            }
-            .welcome-title {
-                font-size: 2rem;
-                font-weight: 700;
-                margin-bottom: 0.5rem;
-                color: white;
-            }
-            .welcome-subtitle {
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-                color: rgba(255, 255, 255, 0.95);
-                font-weight: 500;
-            }
-            .welcome-features {
-                display: flex;
-                flex-direction: column;
-                gap: 0.8rem;
-                margin-bottom: 1.5rem;
-            }
-            .welcome-feature {
-                background: rgba(255, 255, 255, 0.15);
-                padding: 0.8rem 1rem;
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                gap: 0.8rem;
-                font-size: 1rem;
-                backdrop-filter: blur(10px);
-            }
-            .feature-icon {
-                font-size: 1.5rem;
-            }
-            .welcome-cta {
-                display: inline-block;
-                background: white;
-                color: #667eea;
-                padding: 0.9rem 2rem;
-                border-radius: 50px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 1.05rem;
-                transition: all 0.3s ease;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            }
-            .welcome-cta:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            }
-            @media (max-width: 768px) {
-                .welcome-popup-content {
-                    padding: 1.5rem 1.2rem;
-                    max-width: 90%;
-                    margin: 0 auto;
-                }
-                .welcome-icon {
-                    font-size: 2.5rem;
-                    margin-bottom: 0.8rem;
-                }
-                .welcome-title {
-                    font-size: 1.4rem;
-                    margin-bottom: 0.4rem;
-                }
-                .welcome-subtitle {
-                    font-size: 0.9rem;
-                    margin-bottom: 1.2rem;
-                }
-                .welcome-features {
-                    gap: 0.6rem;
-                    margin-bottom: 1.2rem;
-                }
-                .welcome-feature {
-                    font-size: 0.85rem;
-                    padding: 0.6rem 0.8rem;
-                }
-                .feature-icon {
-                    font-size: 1.2rem;
-                }
-                .welcome-cta {
-                    padding: 0.75rem 1.5rem;
-                    font-size: 0.95rem;
-                }
-                .welcome-close {
-                    top: 10px;
-                    right: 10px;
-                    width: 30px;
-                    height: 30px;
-                    font-size: 20px;
-                }
-            }
-            @media (max-width: 480px) {
-                .welcome-popup-content {
-                    padding: 1.2rem 1rem;
-                    max-width: 95%;
-                }
-                .welcome-icon {
-                    font-size: 2rem;
-                }
-                .welcome-title {
-                    font-size: 1.2rem;
-                }
-                .welcome-subtitle {
-                    font-size: 0.85rem;
-                }
-                .welcome-feature {
-                    font-size: 0.8rem;
-                    padding: 0.5rem 0.7rem;
-                }
-                .welcome-cta {
-                    padding: 0.7rem 1.2rem;
-                    font-size: 0.9rem;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        document.body.appendChild(welcomePopup);
-
-        // Close handlers
-        const closePopup = () => {
-            welcomePopup.style.animation = 'fadeOut 0.3s ease';
-            setTimeout(() => welcomePopup.remove(), 300);
-        };
-
-        welcomePopup.querySelector('.welcome-close').addEventListener('click', closePopup);
-        welcomePopup.addEventListener('click', (e) => {
-            if (e.target === welcomePopup) closePopup();
-        });
-
-        // Auto close after 8 seconds
-        setTimeout(closePopup, 8000);
-    }
-
-    remove(notification) {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }
-
-    getIcon(type) {
-        const icons = {
-            success: 'check-circle',
-            error: 'exclamation-circle',
-            warning: 'exclamation-triangle',
-            info: 'info-circle'
-        };
-        return icons[type] || 'info-circle';
-    }
-
-    getColor(type) {
-        const colors = {
-            success: '#28a745',
-            error: '#dc3545',
-            warning: '#ffc107',
-            info: '#17a2b8'
-        };
-        return colors[type] || '#17a2b8';
-    }
-}
-
-// Initialize Notification Manager
-const notifications = new NotificationManager();
-
-// Show welcome notification after page load
-window.addEventListener('load', () => {
-    // Welcome popup removed
-});
-
-console.log('🚀 All enhanced features loaded successfully!');
-
-// Mobile-specific optimizations
-class MobileOptimizer {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        this.detectMobile();
-        this.optimizeForMobile();
-        this.handleOrientationChange();
-        this.improveScrolling();
-        this.optimizeTouch();
-    }
-
-    detectMobile() {
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        const isSmallScreen = window.innerWidth <= 768;
-        
-        if (isMobile || isSmallScreen) {
-            document.body.classList.add('mobile-device');
-        }
-    }
-
-    optimizeForMobile() {
-        if (window.innerWidth <= 768) {
-            // Reduce animation complexity on mobile
-            document.documentElement.style.setProperty('--animation-duration', '0.3s');
-            
-            // Optimize images loading
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.loading = 'lazy';
-            });
-            
-            // Optimize iframe loading
-            const iframes = document.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                iframe.loading = 'lazy';
-            });
-        }
-    }
-
-    handleOrientationChange() {
-        window.addEventListener('orientationchange', () => {
-            setTimeout(() => {
-                // Recalculate viewport height
-                const vh = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', `${vh}px`);
-                
-                // Close mobile menu on orientation change
-                const navMenu = document.querySelector('.nav-menu');
-                const hamburger = document.querySelector('.hamburger');
-                if (navMenu && hamburger) {
-                    navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            }, 100);
-        });
-    }
-
-    improveScrolling() {
-        // Smooth scrolling for mobile
-        let isScrolling = false;
-        
-        window.addEventListener('scroll', () => {
-            if (!isScrolling) {
-                window.requestAnimationFrame(() => {
-                    // Update header on scroll
-                    const header = document.querySelector('.header');
-                    if (header) {
-                        if (window.scrollY > 50) {
-                            header.classList.add('scrolled');
-                        } else {
-                            header.classList.remove('scrolled');
-                        }
-                    }
-                    isScrolling = false;
-                });
-                isScrolling = true;
-            }
-        });
-    }
-
-    optimizeTouch() {
-        // Improve touch responsiveness
-        document.addEventListener('touchstart', () => {}, { passive: true });
-        
-        // Add touch feedback to buttons
-        const touchElements = document.querySelectorAll('.btn, .service-card, .review-card, .gallery-card, .faq-question');
-        
-        touchElements.forEach(element => {
-            element.addEventListener('touchstart', () => {
-                element.style.transform = 'scale(0.98)';
-            }, { passive: true });
-            
-            element.addEventListener('touchend', () => {
-                setTimeout(() => {
-                    element.style.transform = '';
-                }, 150);
-            }, { passive: true });
-        });
-    }
-}
-
-// Initialize mobile optimizer
-new MobileOptimizer();
-
-// Viewport height fix for mobile browsers
-const setVH = () => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-};
-
-setVH();
-window.addEventListener('resize', setVH);
-
-// Prevent zoom on double tap for iOS
-let lastTouchEnd = 0;
-document.addEventListener('touchend', (event) => {
-    const now = (new Date()).getTime();
-    if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-    }
-    lastTouchEnd = now;
-}, false);
-
-// Improve form experience on mobile
-const optimizeForms = () => {
-    const inputs = document.querySelectorAll('input, textarea, select');
-    
-    inputs.forEach(input => {
-        // Prevent zoom on focus for iOS
-        input.addEventListener('focus', () => {
-            if (window.innerWidth <= 768) {
-                const viewport = document.querySelector('meta[name=viewport]');
-                if (viewport) {
-                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-                }
-            }
-        });
-        
-        input.addEventListener('blur', () => {
-            if (window.innerWidth <= 768) {
-                const viewport = document.querySelector('meta[name=viewport]');
-                if (viewport) {
-                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
-                }
-            }
-        });
-    });
-};
-
-// Initialize form optimizations
-document.addEventListener('DOMContentLoaded', optimizeForms);
-
-// Performance monitoring for mobile
-const monitorPerformance = () => {
-    if ('performance' in window) {
-        window.addEventListener('load', () => {
-            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-            if (loadTime > 3000 && window.innerWidth <= 768) {
-                console.log('Mobile performance could be improved. Load time:', loadTime + 'ms');
-                
-                // Show performance notification if needed
-                if (loadTime > 5000) {
-                    setTimeout(() => {
-                        if (typeof notifications !== 'undefined') {
-                            notifications.show('Slow connection detected. Some features may load gradually.', 'info', 5000);
-                        }
-                    }, 2000);
-                }
-            }
-        });
-    }
-};
-
-monitorPerformance();
-
-// Enhanced accessibility for mobile
-const improveAccessibility = () => {
-    // Add skip link for mobile
-    const skipLink = document.createElement('a');
-    skipLink.href = '#main-content';
-    skipLink.textContent = 'Skip to main content';
-    skipLink.className = 'skip-link';
-    skipLink.style.cssText = `
-        position: absolute;
-        top: -40px;
-        left: 6px;
-        background: #667eea;
-        color: white;
-        padding: 8px;
-        text-decoration: none;
-        border-radius: 4px;
-        z-index: 10000;
-        transition: top 0.3s;
-    `;
-    
-    skipLink.addEventListener('focus', () => {
-        skipLink.style.top = '6px';
-    });
-    
-    skipLink.addEventListener('blur', () => {
-        skipLink.style.top = '-40px';
-    });
-    
-    document.body.insertBefore(skipLink, document.body.firstChild);
-    
-    // Add main content landmark
-    const heroSection = document.querySelector('#home');
-    if (heroSection) {
-        heroSection.id = 'main-content';
-        heroSection.setAttribute('tabindex', '-1');
-    }
-};
-
-improveAccessibility();
-
-console.log('🚀 Mobile optimizations loaded successfully!');
+console.log('GenZ Laundry website loaded successfully.');
