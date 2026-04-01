@@ -206,19 +206,19 @@ const PRICE_CALCULATOR_DATA = {
         {
             id: 'tops-basics', name: 'Tops & Basics', icon: '👕',
             items: [
-                { id: 'tshirt', name: 'T-shirt', price: 40 },
+                { id: 'tshirt', name: 'T-shirt', price: 30 },
                 { id: 'shirt', name: 'Shirt', price: 40 },
                 { id: 'kurti', name: 'Kurti', price: 40 },
-                { id: 'underwear', name: 'Underwear', price: 40 },
-                { id: 'banyan', name: 'Banyan', price: 40 }
+                { id: 'underwear', name: 'Underwear', price: 30 },
+                { id: 'banyan', name: 'Banyan', price: 30 }
             ]
         },
         {
             id: 'warm-wear', name: 'Warm Wear', icon: '🧥',
             items: [
-                { id: 'sweater', name: 'Sweater', price: 100 },
+                { id: 'sweater', name: 'Sweater', price: 60 },
                 { id: 'hoodie', name: 'Hoodie', price: 100 },
-                { id: 'sweatshirt', name: 'Sweatshirt', price: 100 }
+                { id: 'sweatshirt', name: 'Sweatshirt', price: 80 }
             ]
         },
         {
@@ -239,7 +239,7 @@ const PRICE_CALCULATOR_DATA = {
             id: 'ethnic', name: 'Ethnic', icon: '👘',
             items: [
                 { id: 'salwar', name: 'Salwar', price: 100 },
-                { id: 'dupatta', name: 'Dupatta', price: 40 }
+                { id: 'dupatta', name: 'Dupatta', price: 60 }
             ]
         },
         {
@@ -247,16 +247,16 @@ const PRICE_CALCULATOR_DATA = {
             items: [
                 { id: 'jacket_light', name: 'Jacket (Light)', price: 100 },
                 { id: 'jacket_heavy', name: 'Jacket (Heavy)', price: 160 },
-                { id: 'coat_pant', name: 'Coat Pant', price: 800 },
-                { id: 'shawl', name: 'Shawl', price: 200 }
+                { id: 'coat_pant', name: 'Coat Pant', price: 400 },
+                { id: 'shawl', name: 'Shawl', price: 120 }
             ]
         },
         {
             id: 'bedding-accessories', name: 'Bedding & Accessories', icon: '🛏️',
             items: [
                 { id: 'sock', name: 'Sock', price: 30 },
-                { id: 'blanket', name: 'Blanket', price: 400 },
-                { id: 'blanket_double_bed', name: 'Blanket (Double Bed)', price: 600 }
+                { id: 'blanket', name: 'Blanket', price: 200 },
+                { id: 'blanket_double_bed', name: 'Blanket (Double Bed)', price: 300 }
             ]
         }
     ]
@@ -295,7 +295,11 @@ class PriceCalculator {
         const bookLabel = root.dataset.bookLabel || 'Book These Items';
 
         root.innerHTML = `
-            <h3 class="calculator-form-title">${formTitle}</h3>
+            <h3 class="calculator-form-title">${formTitle}</h3>\r
+            <div class="calc-student-note">\r
+                <i class="fas fa-user-graduate"></i>\r
+                <span>Prices shown are exclusive to <strong>students</strong>. Professional pricing may vary.</span>\r
+            </div>
             <div class="calc-toolbar">
                 <div class="calc-search-wrap">
                     <i class="fas fa-search"></i>
