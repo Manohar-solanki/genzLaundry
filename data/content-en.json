@@ -112,7 +112,7 @@
           "Neat folding and packaging",
           "Turnaround: 24-48 hours"
         ],
-        "priceNote": "Starting from ₹50/kg"
+        "priceNote": "Starting from ₹100/kg"
       },
       "dryCleaning": {
         "title": "Dry Cleaning",
@@ -124,7 +124,7 @@
           "Fabric preservation",
           "Turnaround: 48-72 hours"
         ],
-        "priceNote": "Starting from ₹150/item"
+        "priceNote": "Starting from ₹300/item"
       },
       "ironing": {
         "title": "Professional Ironing",
@@ -136,7 +136,7 @@
           "Steam treatment",
           "Turnaround: 24 hours"
         ],
-        "priceNote": "Starting from ₹30/item"
+        "priceNote": "Starting from ₹60/item"
       },
       "specialty": {
         "title": "Specialty Care",
@@ -163,34 +163,34 @@
     },
     "washFold": {
       "title": "Wash & Fold",
-      "perKg": "₹50/kg",
+      "perKg": "₹100/kg",
       "minOrder": "Minimum 5kg",
       "bulk": "Bulk discounts available"
     },
     "dryCleaning": {
       "title": "Dry Cleaning",
-      "suit": "Suit/Blazer: ₹200",
-      "shirt": "Shirt: ₹80",
-      "dress": "Dress: ₹150",
-      "saree": "Saree: ₹250",
-      "other": "Other items: ₹150-300"
+      "suit": "Suit/Blazer: ₹400",
+      "shirt": "Shirt: ₹160",
+      "dress": "Dress: ₹300",
+      "saree": "Saree: ₹500",
+      "other": "Other items: ₹300-600"
     },
     "ironing": {
       "title": "Ironing",
-      "shirt": "Shirt: ₹30",
-      "trouser": "Trouser: ₹25",
-      "saree": "Saree: ₹50",
-      "dress": "Dress: ₹40",
-      "other": "Other items: ₹25-50"
+      "shirt": "Shirt: ₹60",
+      "trouser": "Trouser: ₹50",
+      "saree": "Saree: ₹100",
+      "dress": "Dress: ₹80",
+      "other": "Other items: ₹50-100"
     },
     "specialty": {
       "title": "Specialty Care",
       "note": "Pricing based on item complexity and care requirements. Contact us for a custom quote.",
       "examples": [
-        "Zari work: ₹300-500",
-        "Leather items: ₹400-600",
-        "Bedding sets: ₹200-400",
-        "Curtains: ₹150-300"
+        "Zari work: ₹600-1000",
+        "Leather items: ₹800-1200",
+        "Bedding sets: ₹400-800",
+        "Curtains: ₹300-600"
       ]
     },
     "estimator": {

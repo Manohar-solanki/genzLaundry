@@ -274,9 +274,9 @@ class ServiceComparison {
                             </tr>
                             <tr>
                                 <td>Price Range</td>
-                                <td>₹15-20/piece</td>
-                                <td>₹80-150/piece</td>
-                                <td>₹8-12/piece</td>
+                                <td>₹30-40/piece</td>
+                                <td>₹160-300/piece</td>
+                                <td>₹16-24/piece</td>
                             </tr>
                             <tr>
                                 <td>Fabric Types</td>

@@ -200,63 +200,63 @@ document.addEventListener('keydown', (e) => {
 // Price Calculator
 // ============================================
 const PRICE_CALCULATOR_DATA = {
-    deliveryFee: 30,
-    freeDeliveryThreshold: 300,
+    deliveryFee: 60,
+    freeDeliveryThreshold: 600,
     categories: [
         {
             id: 'tops-basics', name: 'Tops & Basics', icon: '👕',
             items: [
-                { id: 'tshirt', name: 'T-shirt', price: 20 },
-                { id: 'shirt', name: 'Shirt', price: 20 },
-                { id: 'kurti', name: 'Kurti', price: 20 },
-                { id: 'underwear', name: 'Underwear', price: 20 },
-                { id: 'banyan', name: 'Banyan', price: 20 }
+                { id: 'tshirt', name: 'T-shirt', price: 40 },
+                { id: 'shirt', name: 'Shirt', price: 40 },
+                { id: 'kurti', name: 'Kurti', price: 40 },
+                { id: 'underwear', name: 'Underwear', price: 40 },
+                { id: 'banyan', name: 'Banyan', price: 40 }
             ]
         },
         {
             id: 'warm-wear', name: 'Warm Wear', icon: '🧥',
             items: [
-                { id: 'sweater', name: 'Sweater', price: 50 },
-                { id: 'hoodie', name: 'Hoodie', price: 50 },
-                { id: 'sweatshirt', name: 'Sweatshirt', price: 50 }
+                { id: 'sweater', name: 'Sweater', price: 100 },
+                { id: 'hoodie', name: 'Hoodie', price: 100 },
+                { id: 'sweatshirt', name: 'Sweatshirt', price: 100 }
             ]
         },
         {
             id: 'bottoms', name: 'Bottoms', icon: '👖',
             items: [
-                { id: 'jeans', name: 'Jeans', price: 20 },
-                { id: 'pant_trouser', name: 'Pant / Trouser', price: 20 },
-                { id: 'track_pant', name: 'Track Pant', price: 20 },
-                { id: 'joggers', name: 'Joggers', price: 20 },
-                { id: 'leggings', name: 'Leggings', price: 20 },
-                { id: 'jeggings', name: 'Jeggings', price: 20 },
-                { id: 'shorts', name: 'Shorts', price: 20 },
-                { id: 'skirt', name: 'Skirt', price: 20 },
-                { id: 'pyjama', name: 'Pyjama', price: 20 }
+                { id: 'jeans', name: 'Jeans', price: 40 },
+                { id: 'pant_trouser', name: 'Pant / Trouser', price: 40 },
+                { id: 'track_pant', name: 'Track Pant', price: 40 },
+                { id: 'joggers', name: 'Joggers', price: 40 },
+                { id: 'leggings', name: 'Leggings', price: 40 },
+                { id: 'jeggings', name: 'Jeggings', price: 40 },
+                { id: 'shorts', name: 'Shorts', price: 40 },
+                { id: 'skirt', name: 'Skirt', price: 40 },
+                { id: 'pyjama', name: 'Pyjama', price: 40 }
             ]
         },
         {
             id: 'ethnic', name: 'Ethnic', icon: '👘',
             items: [
-                { id: 'salwar', name: 'Salwar', price: 50 },
-                { id: 'dupatta', name: 'Dupatta', price: 20 }
+                { id: 'salwar', name: 'Salwar', price: 100 },
+                { id: 'dupatta', name: 'Dupatta', price: 40 }
             ]
         },
         {
             id: 'outerwear', name: 'Outerwear', icon: '🧥',
             items: [
-                { id: 'jacket_light', name: 'Jacket (Light)', price: 50 },
-                { id: 'jacket_heavy', name: 'Jacket (Heavy)', price: 80 },
-                { id: 'coat_pant', name: 'Coat Pant', price: 400 },
-                { id: 'shawl', name: 'Shawl', price: 100 }
+                { id: 'jacket_light', name: 'Jacket (Light)', price: 100 },
+                { id: 'jacket_heavy', name: 'Jacket (Heavy)', price: 160 },
+                { id: 'coat_pant', name: 'Coat Pant', price: 800 },
+                { id: 'shawl', name: 'Shawl', price: 200 }
             ]
         },
         {
             id: 'bedding-accessories', name: 'Bedding & Accessories', icon: '🛏️',
             items: [
-                { id: 'sock', name: 'Sock', price: 15 },
-                { id: 'blanket', name: 'Blanket', price: 200 },
-                { id: 'blanket_double_bed', name: 'Blanket (Double Bed)', price: 300 }
+                { id: 'sock', name: 'Sock', price: 30 },
+                { id: 'blanket', name: 'Blanket', price: 400 },
+                { id: 'blanket_double_bed', name: 'Blanket (Double Bed)', price: 600 }
             ]
         }
     ]

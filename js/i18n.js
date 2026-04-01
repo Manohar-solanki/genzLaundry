@@ -123,24 +123,24 @@ class I18nSystem {
                     },
                     washFold: {
                         title: "Wash & Fold",
-                        price: "₹15",
+                        price: "₹30",
                         unit: "/piece",
                         features: ["Regular cotton clothes", "Washing & drying", "Folding included", "Stain treatment"]
                     },
                     dryCleaning: {
                         title: "Dry Cleaning",
-                        price: "₹80",
+                        price: "₹160",
                         unit: "/piece",
                         features: ["Suits & formal wear", "Delicate fabrics", "Professional pressing", "Starch on request"],
                         badge: "Best Value"
                     },
                     ironing: {
                         title: "Ironing Only",
-                        price: "₹8",
+                        price: "₹16",
                         unit: "/piece",
                         features: ["Steam pressing", "Crease setting", "Hanging service", "Quick turnaround"]
                     },
-                    note: "Free pickup and delivery for orders above ₹300"
+                    note: "Free pickup and delivery for orders above ₹600"
                 },
 
                 // About
@@ -232,7 +232,7 @@ class I18nSystem {
                     subtotal: "Subtotal:",
                     delivery: "Delivery Fee:",
                     total: "Total:",
-                    freeDelivery: "🚚 Free delivery on orders above ₹300",
+                    freeDelivery: "🚚 Free delivery on orders above ₹600",
                     bookNow: "Book These Items"
                 },
 
@@ -367,24 +367,24 @@ class I18nSystem {
                     },
                     washFold: {
                         title: "धुलाई और तह",
-                        price: "₹15",
+                        price: "₹30",
                         unit: "/पीस",
                         features: ["नियमित सूती कपड़े", "धुलाई और सुखाना", "तह शामिल", "दाग उपचार"]
                     },
                     dryCleaning: {
                         title: "ड्राई क्लीनिंग",
-                        price: "₹80",
+                        price: "₹160",
                         unit: "/पीस",
                         features: ["सूट और औपचारिक पोशाक", "नाजुक कपड़े", "पेशेवर प्रेसिंग", "अनुरोध पर स्टार्च"],
                         badge: "सर्वोत्तम मूल्य"
                     },
                     ironing: {
                         title: "केवल इस्त्री",
-                        price: "₹8",
+                        price: "₹16",
                         unit: "/पीस",
                         features: ["स्टीम प्रेसिंग", "क्रीज सेटिंग", "हैंगिंग सेवा", "त्वरित टर्नअराउंड"]
                     },
-                    note: "₹300 से अधिक के ऑर्डर पर मुफ्त पिकअप और डिलीवरी"
+                    note: "₹600 से अधिक के ऑर्डर पर मुफ्त पिकअप और डिलीवरी"
                 },
 
                 // About
@@ -476,7 +476,7 @@ class I18nSystem {
                     subtotal: "उप-योग:",
                     delivery: "डिलीवरी शुल्क:",
                     total: "कुल:",
-                    freeDelivery: "🚚 ₹300 से अधिक के ऑर्डर पर मुफ्त डिलीवरी",
+                    freeDelivery: "🚚 ₹600 से अधिक के ऑर्डर पर मुफ्त डिलीवरी",
                     bookNow: "इन वस्तुओं को बुक करें"
                 },
 
