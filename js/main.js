@@ -298,7 +298,7 @@ class PriceCalculator {
             <h3 class="calculator-form-title">${formTitle}</h3>\r
             <div class="calc-student-note">\r
                 <i class="fas fa-user-graduate"></i>\r
-                <span>Prices shown are exclusive to <strong>students</strong>. Professional pricing may vary.</span>\r
+                <span>Prices shown are exclusive to students. Professional pricing may vary.</span>\r
             </div>
             <div class="calc-toolbar">
                 <div class="calc-search-wrap">
