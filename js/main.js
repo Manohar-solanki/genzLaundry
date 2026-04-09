@@ -300,6 +300,18 @@ class PriceCalculator {
                 <i class="fas fa-user-graduate"></i>\r
                 <span>Prices shown are exclusive to students. Professional pricing may vary.</span>\r
             </div>
+            <div class="calc-express-notice" id="calc-express-notice">
+                <div class="express-notice-left">
+                    <i class="fas fa-bolt express-notice-icon"></i>
+                    <div class="express-notice-info">
+                        <span class="express-notice-title">⚡ Express 4-Hour Delivery Available</span>
+                        <span class="express-notice-desc">Need it fast? Express service charges may vary. Contact us for exact pricing.</span>
+                    </div>
+                </div>
+                <a href="https://wa.me/918233853727?text=Hi!%20I%20want%20to%20know%20about%20Express%20Service%20pricing" target="_blank" class="express-notice-btn">
+                    <i class="fab fa-whatsapp"></i> Ask Price
+                </a>
+            </div>
             <div class="calc-toolbar">
                 <div class="calc-search-wrap">
                     <i class="fas fa-search"></i>
