@@ -57,7 +57,7 @@ class I18nSystem {
                     features: {
                         pickup: "Express Pickup & Delivery in 4 Hours",
                         eco: "Free Steam Iron",
-                        service: "24 Hour Service"
+                        service: "24 - 48 Hour Service"
                     },
                     card: {
                         title: "Professional Care",
