@@ -201,14 +201,26 @@ document.addEventListener('DOMContentLoaded', function () {
     function animateCounter(el) {
       if (el._counterDone) return;
       el._counterDone = true;
-      const raw     = el.textContent.trim();
-      const hasPlus = raw.includes('+');
-      const hasPct  = raw.includes('%');
-      const hasStar = raw.includes('★');
-      const hasDec  = raw.includes('.');
-      let suffix    = hasStar ? ' ★' : hasPlus ? '+' : hasPct ? '%' : '';
-      const numStr  = raw.replace(/[^0-9.]/g, '');
-      const target  = hasDec ? parseFloat(numStr) : parseInt(numStr, 10);
+      const raw           = el.textContent.trim();
+
+      // Pure text values — skip animation, leave as-is
+      if (raw === '24/7' || raw.indexOf('/') !== -1) return;
+
+      const hasPlus       = raw.includes('+');
+      const hasPct        = raw.includes('%');
+      const hasStar       = raw.includes('★');
+      const hasYellowStar = raw.includes('⭐');
+      const hasDec        = raw.includes('.');
+
+      let suffix = '';
+      if (hasStar) suffix = raw.includes(' ★') ? ' ★' : '★';
+      else if (hasYellowStar) suffix = raw.includes(' ⭐') ? ' ⭐' : '⭐';
+      else if (hasPlus) suffix = '+';
+      else if (hasPct) suffix = '%';
+
+      const cleanRaw = suffix ? raw.slice(0, raw.lastIndexOf(suffix)) : raw;
+      const numStr   = cleanRaw.replace(/[^0-9.]/g, '');
+      const target   = hasDec ? parseFloat(numStr) : parseInt(numStr, 10);
       if (isNaN(target) || target === 0) return;
       const duration = 1800;
       const startTs  = performance.now();
@@ -218,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const val   = hasDec ? (eased * target).toFixed(1) : Math.floor(eased * target);
         el.textContent = val + suffix;
         if (t < 1) requestAnimationFrame(tick);
-        else el.textContent = target + suffix;
+        else el.textContent = (hasDec ? target.toFixed(1) : target) + suffix;
       }
       requestAnimationFrame(tick);
     }
