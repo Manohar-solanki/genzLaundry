@@ -1,0 +1,828 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before &amp; After Gallery | Professional Cleaning Results - Gen-Z Laundry Jodhpur</title>
+  <meta name="description" content="See real before and after photos of our professional laundry, dry cleaning, shoe cleaning, and carpet cleaning results. Gen-Z Laundry Jodhpur — quality you can see.">
+  <meta name="keywords" content="laundry before after jodhpur, shoe cleaning before after jodhpur, carpet cleaning results jodhpur, dry cleaning results jodhpur, genz laundry gallery">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://genzlaundry.com/gallery">
+  <meta property="og:title" content="Before &amp; After Gallery | Professional Cleaning Results - Gen-Z Laundry Jodhpur">
+  <meta property="og:description" content="Real before and after photos of professional laundry, shoe cleaning, and carpet cleaning by Gen-Z Laundry Jodhpur.">
+  <meta property="og:url" content="https://genzlaundry.com/gallery">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://genzlaundry.com/public/logo.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Gen-Z Laundry Before &amp; After Gallery",
+    "description": "Before and after cleaning results gallery for laundry, shoe cleaning, carpet cleaning, and dry cleaning services in Jodhpur.",
+    "url": "https://genzlaundry.com/gallery",
+    "author": {
+      "@type": "LocalBusiness",
+      "name": "Gen-Z Laundry &amp; Dry Cleaners",
+      "telephone": "+918233853727",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jodhpur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      }
+    }
+  }
+  </script>
+  <link rel="icon" type="image/png" href="public/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pro-redesign.css">
+  <style>
+    /* ── Gallery Hero ── */
+    .gallery-hero {
+      background: linear-gradient(180deg, #F0F4FF 0%, #ffffff 100%);
+      padding: 64px 0 48px;
+      margin-top: 72px;
+      text-align: center;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .gallery-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.18);
+      color: #2563EB;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .gallery-hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: #1E293B;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+    .gallery-hero p {
+      color: #64748B;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+    /* ── Sections ── */
+    .gallery-section {
+      padding: 72px 0;
+      background: #fff;
+    }
+    .gallery-section-alt {
+      padding: 72px 0;
+      background: #F8FAFC;
+    }
+    .gallery-section-header {
+      margin-bottom: 40px;
+    }
+    .gallery-section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.18);
+      color: #2563EB;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 14px;
+    }
+    .gallery-section-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .gallery-section-header p {
+      color: #64748B;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    /* ── Before/After Grid ── */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    /* Pair: one before + one after side by side */
+    .ba-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .ba-card {
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    .ba-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.1);
+    }
+    /* Placeholder image area */
+    .ba-img-placeholder {
+      aspect-ratio: 4/3;
+      background: #F1F5F9;
+      border: 2px dashed #CBD5E1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: border-color 0.2s ease;
+    }
+    .ba-img-placeholder:hover {
+      border-color: #2563EB;
+    }
+    .ba-img-placeholder i {
+      font-size: 2.2rem;
+      color: #94A3B8;
+    }
+    .ba-img-placeholder span {
+      font-size: 0.82rem;
+      color: #94A3B8;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    /* When real image is added, it will show here */
+    .ba-img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none; /* shown when real img added */
+    }
+    .ba-card-label {
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .ba-label-before {
+      background: rgba(239,68,68,0.06);
+      color: #EF4444;
+      border-top: 1px solid rgba(239,68,68,0.12);
+    }
+    .ba-label-after {
+      background: rgba(16,185,129,0.06);
+      color: #10B981;
+      border-top: 1px solid rgba(16,185,129,0.12);
+    }
+    .ba-card-caption {
+      padding: 10px 16px 14px;
+      font-size: 0.82rem;
+      color: #64748B;
+      line-height: 1.4;
+    }
+    /* ── File name comment helper ── */
+    .ba-filename-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: #F1F5F9;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #64748B;
+      font-family: monospace;
+      margin-top: 6px;
+    }
+    /* ── Section divider arrow ── */
+    .ba-arrow-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+      padding: 8px 0 0;
+      color: #94A3B8;
+      font-size: 0.82rem;
+    }
+    .ba-arrow-row i { color: #2563EB; font-size: 1rem; }
+    /* ── CTA ── */
+    .gallery-cta-section {
+      padding: 72px 0;
+      background: #fff;
+    }
+    .gallery-cta-card {
+      background: linear-gradient(135deg, #0B1120 0%, #1E3A8A 100%);
+      border-radius: 24px;
+      padding: 64px 48px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(37,99,235,0.2);
+    }
+    .gallery-cta-card h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+    }
+    .gallery-cta-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+    .gallery-cta-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .gallery-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: #F59E0B;
+      color: #0B1120;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(245,158,11,0.35);
+      transition: all 0.3s ease;
+    }
+    .gallery-btn-primary:hover {
+      background: #D97706;
+      transform: translateY(-2px);
+      color: #0B1120;
+    }
+    .gallery-btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 26px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+      transition: all 0.3s ease;
+    }
+    .gallery-btn-wa:hover {
+      background: #1db954;
+      transform: translateY(-2px);
+      color: #fff;
+    }
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .ba-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .gallery-hero { margin-top: 68px; padding: 48px 0 36px; }
+      .gallery-cta-card { padding: 40px 24px; }
+      .gallery-cta-actions { flex-direction: column; align-items: center; }
+      .gallery-btn-primary, .gallery-btn-wa { width: 100%; max-width: 320px; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .ba-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="pro-header" id="header">
+    <nav class="pro-navbar">
+      <a href="index.html" class="pro-brand">
+        <img src="public/logo.png" alt="Gen-Z Laundry Jodhpur" class="pro-logo" width="44" height="44">
+        <div class="pro-brand-text">
+          <span class="pro-brand-name">GenZ Laundry</span>
+          <span class="pro-brand-sub">&amp; Drycleaners</span>
+        </div>
+      </a>
+            <ul class="pro-nav-menu" id="proNavMenu">
+        <!-- Mobile drawer header (hidden on desktop) -->
+        <li class="mob-drawer-header" aria-hidden="true">
+          <img src="public/logo.png" alt="" class="pro-logo" style="height:36px;width:36px;">
+          <span>GenZ Laundry</span>
+        </li>
+
+        <li><a href="index.html" class="pro-nav-link">Home</a></li>
+
+        <!-- Our Services -->
+        <li class="has-dropdown">
+          <a href="index.html#services" class="pro-nav-link mob-expandable" data-mob-target="mob-services">
+            Our Services <i class="fas fa-chevron-down nav-arrow" style="font-size:0.65rem;"></i>
+          </a>
+          <div class="nav-dropdown">
+            <a href="laundry-service-jodhpur.html"><i class="fas fa-tshirt"></i> Laundry Service</a>
+            <a href="dry-cleaning-jodhpur.html"><i class="fas fa-user-tie"></i> Dry Cleaning</a>
+            <a href="shoe-cleaning-jodhpur.html"><i class="fas fa-shoe-prints"></i> Shoe Cleaning</a>
+            <a href="carpet-cleaning-jodhpur.html"><i class="fas fa-broom"></i> Carpet Cleaning</a>
+            <a href="sofa-cleaning-jodhpur.html"><i class="fas fa-couch"></i> Sofa Cleaning</a>
+            <a href="curtain-cleaning-jodhpur.html"><i class="fas fa-store"></i> Curtain Cleaning</a>
+          </div>
+          <div class="mob-submenu" id="mob-services">
+            <a href="laundry-service-jodhpur.html" class="mob-sub-link"><i class="fas fa-tshirt"></i> Laundry Service</a>
+            <a href="dry-cleaning-jodhpur.html" class="mob-sub-link"><i class="fas fa-user-tie"></i> Dry Cleaning</a>
+            <a href="shoe-cleaning-jodhpur.html" class="mob-sub-link"><i class="fas fa-shoe-prints"></i> Shoe Cleaning</a>
+            <a href="carpet-cleaning-jodhpur.html" class="mob-sub-link"><i class="fas fa-broom"></i> Carpet Cleaning</a>
+            <a href="sofa-cleaning-jodhpur.html" class="mob-sub-link"><i class="fas fa-couch"></i> Sofa Cleaning</a>
+            <a href="curtain-cleaning-jodhpur.html" class="mob-sub-link"><i class="fas fa-store"></i> Curtain Cleaning</a>
+          </div>
+        </li>
+
+        <!-- Service Areas -->
+        <li class="has-dropdown">
+          <a href="service-areas.html" class="pro-nav-link mob-expandable" data-mob-target="mob-areas">
+            Service Areas <i class="fas fa-chevron-down nav-arrow" style="font-size:0.65rem;"></i>
+          </a>
+          <div class="nav-dropdown nav-dropdown-areas">
+            <div class="nav-dropdown-section">
+              <span class="nav-dropdown-heading"><i class="fas fa-map-marker-alt"></i> Jodhpur Areas</span>
+              <a href="laundry-service-aiims-area.html"><i class="fas fa-hospital"></i> AIIMS Area</a>
+              <a href="laundry-service-jodhpur.html"><i class="fas fa-city"></i> Jodhpur City</a>
+              <a href="laundry-service-paota.html"><i class="fas fa-map-pin"></i> Paota</a>
+              <a href="laundry-service-ratanada.html"><i class="fas fa-map-pin"></i> Ratanada</a>
+              <a href="laundry-service-sardarpura.html"><i class="fas fa-map-pin"></i> Sardarpura</a>
+              <a href="laundry-service-shastri-nagar.html"><i class="fas fa-map-pin"></i> Shastri Nagar</a>
+            </div>
+            <div class="nav-dropdown-coming">
+              <span class="nav-dropdown-heading"><i class="fas fa-hotel"></i> Hotels & Resorts <a href="hotels-resorts.html" style="margin-left:6px;color:var(--blue-mid);font-weight:600;font-size:0.78rem;">View All →</a></span>
+              <a href="hotels-resorts.html"><i class="fas fa-crown"></i> Ummed Bhawan Palace</a>
+            </div>
+          </div>
+          <div class="mob-submenu" id="mob-areas">
+            <a href="laundry-service-aiims-area.html" class="mob-sub-link"><i class="fas fa-hospital"></i> AIIMS Area</a>
+            <a href="laundry-service-jodhpur.html" class="mob-sub-link"><i class="fas fa-city"></i> Jodhpur City</a>
+            <a href="laundry-service-paota.html" class="mob-sub-link"><i class="fas fa-map-pin"></i> Paota</a>
+            <a href="laundry-service-ratanada.html" class="mob-sub-link"><i class="fas fa-map-pin"></i> Ratanada</a>
+            <a href="laundry-service-sardarpura.html" class="mob-sub-link"><i class="fas fa-map-pin"></i> Sardarpura</a>
+            <a href="laundry-service-shastri-nagar.html" class="mob-sub-link"><i class="fas fa-map-pin"></i> Shastri Nagar</a>
+            <div class="mob-sub-coming"><i class="fas fa-hotel"></i> <a href="hotels-resorts.html" style="color:var(--blue-mid);font-weight:600;">Hotels & Resorts →</a></div>
+          </div>
+        </li>
+
+        <li><a href="index.html#pricing" class="pro-nav-link">Pricing</a></li>
+        <li><a href="index.html#sop" class="pro-nav-link">How We Clean</a></li>
+        <li><a href="about.html" class="pro-nav-link">About</a></li>
+        <li><a href="journey.html" class="pro-nav-link">Our Journey</a></li>
+        <li><a href="index.html#contact" class="pro-nav-link">Contact</a></li>
+        <li class="nav-actions">
+          <a href="tel:+918233853727" class="pro-btn-phone"><i class="fas fa-phone"></i> <span class="btn-phone-num">+91 82338 53727</span></a>
+          <a href="index.html#contact" class="pro-btn-book">Book Pickup</a>
+        </li>
+      </ul>
+      <button class="pro-hamburger" id="proHamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="gallery-hero">
+    <div class="pro-container">
+      <div class="gallery-hero-badge"><i class="fas fa-images"></i> Real Results</div>
+      <h1>See Our Professional Cleaning Results</h1>
+      <p>Real before and after photos from our laundry, shoe cleaning, and carpet cleaning services in Jodhpur. Quality you can see with your own eyes.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="tel:+918233853727" class="gallery-btn-primary"><i class="fas fa-phone"></i> Book a Pickup</a>
+        <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Hi%20Gen-Z%20Laundry!%20I%20saw%20your%20gallery%20and%20want%20to%20book%20a%20pickup." target="_blank" rel="noopener noreferrer" class="gallery-btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       SECTION 1 — CLOTHES / LAUNDRY
+  ════════════════════════════════════════════ -->
+  <!--
+    IMAGE FILE NAMES TO USE FOR THIS SECTION:
+    Before: laundry-service-jodhpur-before.jpg
+    After:  laundry-service-jodhpur-after.jpg
+    Place both files in the /public/ folder.
+    Then replace the placeholder divs with:
+    <img src="public/laundry-service-jodhpur-before.jpg" alt="..." loading="lazy">
+  -->
+  <section class="gallery-section">
+    <div class="pro-container">
+      <div class="gallery-section-header">
+        <div class="gallery-section-label"><i class="fas fa-tshirt"></i> Laundry Service</div>
+        <h2>Clothes Cleaning — Before &amp; After</h2>
+        <p>Professional wash, dry, and fold with eco-friendly detergents. See the transformation.</p>
+      </div>
+
+      <div class="ba-grid">
+
+        <!-- Pair 1 -->
+        <div>
+          <div class="ba-pair">
+            <!-- BEFORE -->
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: laundry-service-jodhpur-before.jpg
+                Save in: /public/laundry-service-jodhpur-before.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your before photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> laundry-service-jodhpur-before.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-before"><i class="fas fa-times-circle"></i> Before Cleaning</div>
+              <div class="ba-card-caption">Dirty, stained clothes before professional washing</div>
+            </div>
+            <!-- AFTER -->
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: laundry-service-jodhpur-after.jpg
+                Save in: /public/laundry-service-jodhpur-after.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your after photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> laundry-service-jodhpur-after.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-after"><i class="fas fa-check-circle"></i> After Cleaning</div>
+              <div class="ba-card-caption">
+                <img
+                  src="public/clean-tshirt.jpeg"
+                  alt="Laundry service jodhpur before after - clothes cleaning result"
+                  loading="lazy"
+                  style="width:100%;border-radius:8px;margin-bottom:6px;"
+                >
+                Freshly washed, neatly folded &mdash; ready to wear
+              </div>
+            </div>
+          </div>
+          <div class="ba-arrow-row">
+            <i class="fas fa-arrow-right"></i>
+            <span>Professional wash &amp; fold — from Rs. 30/piece</span>
+          </div>
+        </div>
+
+        <!-- Pair 2 -->
+        <div>
+          <div class="ba-pair">
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: dry-cleaning-jodhpur-before.jpg
+                Save in: /public/dry-cleaning-jodhpur-before.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your before photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> dry-cleaning-jodhpur-before.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-before"><i class="fas fa-times-circle"></i> Before Dry Cleaning</div>
+              <div class="ba-card-caption">Stained suit or saree before dry cleaning treatment</div>
+            </div>
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: dry-cleaning-jodhpur-after.jpg
+                Save in: /public/dry-cleaning-jodhpur-after.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your after photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> dry-cleaning-jodhpur-after.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-after"><i class="fas fa-check-circle"></i> After Dry Cleaning</div>
+              <div class="ba-card-caption">Perfectly clean, pressed, and ready for any occasion</div>
+            </div>
+          </div>
+          <div class="ba-arrow-row">
+            <i class="fas fa-arrow-right"></i>
+            <span>Dry cleaning from Rs. 150/piece</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       SECTION 2 — SHOE CLEANING
+  ════════════════════════════════════════════ -->
+  <!--
+    IMAGE FILE NAMES TO USE FOR THIS SECTION:
+    Before: shoe-cleaning-jodhpur-before.jpg
+    After:  shoe-cleaning-jodhpur-after.jpg
+    Place both files in the /public/ folder.
+  -->
+  <section class="gallery-section-alt">
+    <div class="pro-container">
+      <div class="gallery-section-header">
+        <div class="gallery-section-label"><i class="fas fa-shoe-prints"></i> Shoe Cleaning</div>
+        <h2>Shoe Cleaning — Before &amp; After</h2>
+        <p>Deep cleaning for sneakers, leather shoes, and sports footwear. Looks brand new after our process.</p>
+      </div>
+
+      <div class="ba-grid">
+
+        <!-- Pair 1 -->
+        <div>
+          <div class="ba-pair">
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: shoe-cleaning-jodhpur-before.jpg
+                Save in: /public/shoe-cleaning-jodhpur-before.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your before photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> shoe-cleaning-jodhpur-before.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-before"><i class="fas fa-times-circle"></i> Before Cleaning</div>
+              <div class="ba-card-caption">Dirty sneakers with mud, dust, and stains</div>
+            </div>
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: shoe-cleaning-jodhpur-after.jpg
+                Save in: /public/shoe-cleaning-jodhpur-after.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your after photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> shoe-cleaning-jodhpur-after.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-after"><i class="fas fa-check-circle"></i> After Cleaning</div>
+              <div class="ba-card-caption">
+                <img
+                  src="public/clean-tshirt.jpeg"
+                  alt="Shoe cleaning jodhpur before after - sneaker cleaning result"
+                  loading="lazy"
+                  style="width:100%;border-radius:8px;margin-bottom:6px;display:none;"
+                >
+                Sparkling clean — looks brand new again
+              </div>
+            </div>
+          </div>
+          <div class="ba-arrow-row">
+            <i class="fas fa-arrow-right"></i>
+            <span>Shoe cleaning from Rs. 199/pair</span>
+          </div>
+        </div>
+
+        <!-- Pair 2 -->
+        <div>
+          <div class="ba-pair">
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: leather-shoe-cleaning-jodhpur-before.jpg
+                Save in: /public/leather-shoe-cleaning-jodhpur-before.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your before photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> leather-shoe-cleaning-jodhpur-before.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-before"><i class="fas fa-times-circle"></i> Before Cleaning</div>
+              <div class="ba-card-caption">Scuffed leather shoes before deep cleaning treatment</div>
+            </div>
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: leather-shoe-cleaning-jodhpur-after.jpg
+                Save in: /public/leather-shoe-cleaning-jodhpur-after.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your after photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> leather-shoe-cleaning-jodhpur-after.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-after"><i class="fas fa-check-circle"></i> After Cleaning</div>
+              <div class="ba-card-caption">Polished, conditioned leather — like new again</div>
+            </div>
+          </div>
+          <div class="ba-arrow-row">
+            <i class="fas fa-arrow-right"></i>
+            <span>Leather shoe restoration from Rs. 299/pair</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       SECTION 3 — CARPET / SOFA / GENERAL
+  ════════════════════════════════════════════ -->
+  <!--
+    IMAGE FILE NAMES TO USE FOR THIS SECTION:
+    Before: carpet-cleaning-jodhpur-before.jpg
+    After:  carpet-cleaning-jodhpur-after.jpg
+    Place both files in the /public/ folder.
+  -->
+  <section class="gallery-section">
+    <div class="pro-container">
+      <div class="gallery-section-header">
+        <div class="gallery-section-label"><i class="fas fa-border-all"></i> Carpet &amp; Sofa Cleaning</div>
+        <h2>Carpet &amp; Sofa Cleaning — Before &amp; After</h2>
+        <p>Steam and deep cleaning for carpets and sofas. Removes stains, dust, and allergens completely.</p>
+      </div>
+
+      <div class="ba-grid">
+
+        <!-- Pair 1: Carpet -->
+        <div>
+          <div class="ba-pair">
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: carpet-cleaning-jodhpur-before.jpg
+                Save in: /public/carpet-cleaning-jodhpur-before.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your before photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> carpet-cleaning-jodhpur-before.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-before"><i class="fas fa-times-circle"></i> Before Cleaning</div>
+              <div class="ba-card-caption">Stained and dusty carpet before deep cleaning</div>
+            </div>
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: carpet-cleaning-jodhpur-after.jpg
+                Save in: /public/carpet-cleaning-jodhpur-after.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your after photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> carpet-cleaning-jodhpur-after.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-after"><i class="fas fa-check-circle"></i> After Cleaning</div>
+              <div class="ba-card-caption">
+                <img
+                  src="public/clean-tshirt.jpeg"
+                  alt="Carpet cleaning jodhpur before after - deep cleaning result"
+                  loading="lazy"
+                  style="width:100%;border-radius:8px;margin-bottom:6px;display:none;"
+                >
+                Spotless carpet — fresh, clean, and allergen-free
+              </div>
+            </div>
+          </div>
+          <div class="ba-arrow-row">
+            <i class="fas fa-arrow-right"></i>
+            <span>Carpet cleaning from Rs. 5/sq ft</span>
+          </div>
+        </div>
+
+        <!-- Pair 2: Sofa -->
+        <div>
+          <div class="ba-pair">
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: sofa-cleaning-jodhpur-before.jpg
+                Save in: /public/sofa-cleaning-jodhpur-before.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your before photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> sofa-cleaning-jodhpur-before.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-before"><i class="fas fa-times-circle"></i> Before Cleaning</div>
+              <div class="ba-card-caption">Stained fabric sofa before professional cleaning</div>
+            </div>
+            <div class="ba-card">
+              <!--
+                ADD PHOTO HERE:
+                File name: sofa-cleaning-jodhpur-after.jpg
+                Save in: /public/sofa-cleaning-jodhpur-after.jpg
+              -->
+              <div class="ba-img-placeholder">
+                <i class="fas fa-camera"></i>
+                <span>Add your after photo here</span>
+                <span class="ba-filename-hint"><i class="fas fa-file-image"></i> sofa-cleaning-jodhpur-after.jpg</span>
+              </div>
+              <div class="ba-card-label ba-label-after"><i class="fas fa-check-circle"></i> After Cleaning</div>
+              <div class="ba-card-caption">Like-new sofa — stains removed, fabric refreshed</div>
+            </div>
+          </div>
+          <div class="ba-arrow-row">
+            <i class="fas fa-arrow-right"></i>
+            <span>Sofa cleaning from Rs. 499/seat</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Add Photos Note -->
+  <section style="padding:32px 0;background:#FFFBEB;border-top:1px solid #FDE68A;border-bottom:1px solid #FDE68A;">
+    <div class="pro-container">
+      <div style="max-width:700px;margin:0 auto;text-align:center;">
+        <p style="font-size:0.88rem;color:#92400E;font-weight:500;margin:0;">
+          <i class="fas fa-info-circle" style="margin-right:6px;"></i>
+          <strong>For site owner:</strong> To add real photos, save your images in the <code style="background:#FEF3C7;padding:2px 6px;border-radius:4px;">/public/</code> folder using the exact file names shown in each card's comment. The ALT text is already written and optimised for SEO.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="gallery-cta-section">
+    <div class="pro-container">
+      <div class="gallery-cta-card">
+        <h2>Ready to See These Results for Your Clothes?</h2>
+        <p>Book your first pickup today. Free doorstep collection across Jodhpur. No minimum order.</p>
+        <div class="gallery-cta-actions">
+          <a href="tel:+918233853727" class="gallery-btn-primary"><i class="fas fa-phone"></i> Call: +91 82338 53727</a>
+          <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Hi%20Gen-Z%20Laundry!%20I%20saw%20the%20gallery%20and%20want%20to%20book%20a%20pickup." target="_blank" rel="noopener noreferrer" class="gallery-btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="pro-footer">
+    <div class="pro-container">
+      <div class="pro-footer-grid">
+        <div class="pro-footer-brand">
+          <p>Gen-Z Laundry &amp; Dry Cleaners — Jodhpur's #1 laundry service with free pickup &amp; delivery.</p>
+          <div class="pro-footer-social">
+            <a href="https://www.instagram.com/genz_laundry_dryclean/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send/?phone=918233853727" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+918233853727" aria-label="Call us"><i class="fas fa-phone"></i></a>
+          </div>
+        </div>
+        <div class="pro-footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Laundry Service</a></li>
+            <li><a href="dry-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Dry Cleaning</a></li>
+            <li><a href="shoe-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Shoe Cleaning</a></li>
+            <li><a href="carpet-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Carpet Cleaning</a></li>
+            <li><a href="sofa-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Sofa Cleaning</a></li>
+            <li><a href="curtain-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Curtain Cleaning</a></li>
+          </ul>
+          <h4 style="margin-top:15px;">B2B Solutions</h4>
+          <ul>
+            <li><a href="hotel-laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Hotel Laundry</a></li>
+            <li><a href="commercial-laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Commercial Laundry</a></li>
+            <li><a href="resort-laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Resort Laundry</a></li>
+            <li><a href="linen-laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Linen Laundry</a></li>
+          </ul>
+        </div>
+        <div class="pro-footer-contact">
+          <h4>Contact &mdash; NAP</h4>
+          <a href="tel:+918233853727"><i class="fas fa-phone"></i> +91 82338 53727</a>
+          <a href="mailto:genzlaundry.in@gmail.com"><i class="fas fa-envelope"></i> genzlaundry.in@gmail.com</a>
+          <div><i class="fas fa-map-marker-alt"></i> Ratanada, Jodhpur, Rajasthan 342001</div>
+        </div>
+        <div class="pro-footer-hours">
+          <h4>Hours</h4>
+          <div class="pfh-box">
+            <div class="pfh-badge"><i class="fas fa-clock"></i> <span>Open 24/7</span></div>
+            <p>Call anytime for pickup!</p>
+            <div class="pfh-express"><i class="fas fa-bolt"></i> Express 4-Hour Service</div>
+          </div>
+        </div>
+      </div>
+      <div class="pro-footer-bottom">
+        <p>&copy; 2026 Gen-Z Laundry &amp; Dry Cleaners, Jodhpur. All rights reserved.</p>
+        <a href="https://www.linkedin.com/in/mr-manohar-solanki/" target="_blank" rel="noopener noreferrer" class="footer-dev-credit"><i class="fas fa-code"></i> Designed &amp; Developed by Manohar Solanki</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20pickup." class="pro-wa-sticky" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i><span>Book Now</span>
+  </a>
+
+  <script src="js/about.js"></script>
+</body>
+</html>

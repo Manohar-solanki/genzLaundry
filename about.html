@@ -1,515 +1,616 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about GenZLaundry - your trusted partner in garment care. Quality, sustainability, and convenience.">
-  <meta name="keywords" content="about GenZLaundry, laundry service about, dry cleaning company">
-  <title>GenZLaundry - About Us</title>
-  
+  <title>About Us — GenZ Laundry & Drycleaners | Jodhpur's #1 Laundry Service</title>
+  <meta name="description" content="Learn the story behind GenZ Laundry — Jodhpur's first express laundry service. Our journey, mission, values, team, and vision for the future.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://genzlaundry.com/about">
+
+  <link rel="icon" type="image/png" href="public/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="icon" type="image/png" href="../public/favicon.png">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pro-redesign.css">
+  <link rel="stylesheet" href="css/about.css">
 </head>
-<body>
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">
-          <img src="../public/logo.png" alt="GenZLaundry Logo" class="logo-img">
-          <span data-i18n="meta.siteName">GenZLaundry</span>
-        </a>
-        
-        <nav id="main-nav">
-          <ul>
-            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-            <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
-            <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
-            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
-            <li><a href="about.html" data-i18n="nav.about" class="active">About</a></li>
-            <li><a href="booking.html" class="btn btn-primary btn-sm" data-i18n="common.bookPickup">Book Pickup</a></li>
-          </ul>
-        </nav>
-        
-        <div class="language-toggle"></div>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
-      </div>
-    </div>
+
+<body class="about-page">
+
+  <!-- ══════════════════════════════════════
+       HEADER (shared with index)
+  ══════════════════════════════════════ -->
+  <header class="pro-header" id="header">
+    <nav class="pro-navbar">
+      <a href="index.html" class="pro-brand">
+        <img src="public/logo.png" alt="GenZ Laundry" class="pro-logo">
+        <div class="pro-brand-text">
+          <span class="pro-brand-name">GenZ Laundry</span>
+          <span class="pro-brand-sub">& Drycleaners</span>
+        </div>
+      </a>
+
+      <ul class="pro-nav-menu" id="proNavMenu">
+        <li><a href="index.html" class="pro-nav-link">Home</a></li>
+        <li><a href="index.html#services" class="pro-nav-link">Services</a></li>
+        <li><a href="index.html#pricing" class="pro-nav-link">Pricing</a></li>
+        <li><a href="index.html#sop" class="pro-nav-link">How We Clean</a></li>
+        <li><a href="about.html" class="pro-nav-link active">About</a></li>
+        <li><a href="journey.html" class="pro-nav-link">Our Journey</a></li>
+        <li><a href="index.html#contact" class="pro-nav-link">Contact</a></li>
+        <li class="nav-actions">
+          <a href="tel:+918233853727" class="pro-btn-phone"><i class="fas fa-phone"></i> <span class="btn-phone-num">+91 82338 53727</span></a>
+          <a href="index.html#contact" class="pro-btn-book">Book Pickup</a>
+        </li>
+      </ul>
+
+      <button class="pro-hamburger" id="proHamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
   </header>
-<!-- Floating Contact Buttons -->
-<div class="floating-buttons">
-  <a href="tel:+918233853727" class="btn-floating btn-call" title="Call Us">
-    <i class="fas fa-phone"></i>
-    <span class="btn-tooltip">Call Us Now</span>
-  </a>
-  <a href="https://wa.me/8233853727" target="_blank" class="btn-floating btn-whatsapp" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-    <span class="btn-tooltip">Chat on WhatsApp</span>
-  </a>
-</div>
 
-<style>
-.floating-buttons {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
-
-.btn-floating {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  color: white;
-  font-size: 24px;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.btn-floating:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.btn-call {
-  background: linear-gradient(135deg, #3498db, #2980b9);
-}
-
-.btn-whatsapp {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-}
-
-.btn-tooltip {
-  position: absolute;
-  right: 70px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 14px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-
-.btn-floating:hover .btn-tooltip {
-  opacity: 1;
-}
-
-.btn-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -5px;
-  transform: translateY(-50%);
-  border-width: 5px 0 5px 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
-}
-
-@media (max-width: 768px) {
-  .floating-buttons {
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .btn-floating {
-    width: 55px;
-    height: 55px;
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 480px) {
-  .floating-buttons {
-    bottom: 15px;
-    right: 15px;
-  }
-  
-  .btn-floating {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-  }
-  
-  .btn-tooltip {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-}
-</style>
-
-<!-- Make sure Font Awesome is included in your head section -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 data-i18n="about.title">About GenZLaundry</h1>
-        <p class="hero-subtitle" data-i18n="about.subtitle">Your trusted partner in garment care</p>
-      </div>
+  <!-- ══════════════════════════════════════
+       HERO — About Page
+  ══════════════════════════════════════ -->
+  <section class="ab-hero">
+    <div class="ab-hero-bg">
+      <div class="ab-orb ab-orb1"></div>
+      <div class="ab-orb ab-orb2"></div>
+      <div class="ab-hero-grid"></div>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div style="max-width: 800px; margin: 0 auto;">
-        <div id="mission-section" style="margin-bottom: 3rem;">
-          <!-- Mission content will be populated by JavaScript -->
+    <div class="ab-hero-inner">
+      <div class="ab-hero-content">
+        <div class="ab-badge"><i class="fas fa-store"></i> Our Story</div>
+        <h1>Born in Jodhpur.<br><span class="ab-gradient">Built for You.</span></h1>
+        <p>We started GenZ Laundry with one simple belief — that everyone deserves clean, fresh clothes without the hassle. What began as a small dream in 2023 has grown into Jodhpur's most trusted on-demand laundry service.</p>
+        <div class="ab-hero-stats">
+          <div class="ab-hstat"><strong>1000+</strong><span>Happy Customers</span></div>
+          <div class="ab-hstat-div"></div>
+          <div class="ab-hstat"><strong>5000+</strong><span>Orders Completed</span></div>
+          <div class="ab-hstat-div"></div>
+          <div class="ab-hstat"><strong>4.9 ★</strong><span>Google Rating</span></div>
         </div>
-        
-        <div class="section-header">
-          <h2 class="section-title" data-i18n="about.values.title">Our Values</h2>
-        </div>
-        
-        <div class="services-grid" id="values-section">
-          <!-- Values will be populated by JavaScript -->
+      </div>
+      <div class="ab-hero-img">
+        <div class="ab-img-frame">
+          <img src="public/genglaundry_tranparent_paperweight.jpeg" alt="GenZ Laundry Store" class="ab-store-img">
+          <div class="ab-img-badge ab-img-badge1"><i class="fas fa-bolt"></i> Express 4-Hr</div>
+          <div class="ab-img-badge ab-img-badge2"><i class="fas fa-leaf"></i> Eco-Friendly</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background-color: var(--color-bg-alt);">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="about.contact.title">Get in Touch</h2>
-        <p class="section-subtitle" data-i18n="about.contact.description">Have questions? We're here to help.</p>
-      </div>
-      
-      <div style="max-width: 600px; margin: 2rem auto;">
-        <div class="contact-info" id="contact-info">
-          <!-- Contact info will be populated by JavaScript -->
+  <!-- ══════════════════════════════════════
+       MISSION & VISION — Two column
+  ══════════════════════════════════════ -->
+  <section class="ab-section ab-mv-section">
+    <div class="ab-container">
+      <div class="ab-mv-grid">
+        <div class="ab-mv-card ab-mv-mission fade-in">
+          <div class="ab-mv-icon"><i class="fas fa-bullseye"></i></div>
+          <h2>Our Mission</h2>
+          <p>To make professional garment care accessible, affordable and effortless for every person in Jodhpur — delivered right to their doorstep, on their schedule, without compromise on quality.</p>
+          <ul class="ab-mv-list">
+            <li><i class="fas fa-check-circle"></i> Premium quality at honest prices</li>
+            <li><i class="fas fa-check-circle"></i> Doorstep pickup &amp; delivery always</li>
+            <li><i class="fas fa-check-circle"></i> Eco-friendly cleaning, every time</li>
+            <li><i class="fas fa-check-circle"></i> 24/7 service — because life doesn't wait</li>
+          </ul>
+        </div>
+
+        <div class="ab-mv-card ab-mv-vision fade-in">
+          <div class="ab-mv-icon ab-mv-icon-amber"><i class="fas fa-eye"></i></div>
+          <h2>Our Vision</h2>
+          <p>To become Rajasthan's most trusted laundry brand — a name that families, students, professionals and businesses rely on for impeccable garment care, powered by technology and driven by love for the craft.</p>
+          <ul class="ab-mv-list">
+            <li><i class="fas fa-check-circle"></i> Expand to every city in Rajasthan</li>
+            <li><i class="fas fa-check-circle"></i> Technology-first operations</li>
+            <li><i class="fas fa-check-circle"></i> 10,000+ happy customers by 2026</li>
+            <li><i class="fas fa-check-circle"></i> Zero-waste cleaning by 2027</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title text-center" data-i18n="about.mapTitle">Service Area</h2>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14307.614870852485!2d73.02063630759008!3d26.297221121641606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418da83bfdddfd%3A0x10bf32a54ceba8fa!2sPaota%2C%20Jodhpur%2C%20Rajasthan%20342006!5e0!3m2!1sen!2sin!4v1762626706695!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          width="100%" 
-          height="400" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
+  <!-- ══════════════════════════════════════
+       THE STORY — Narrative section
+  ══════════════════════════════════════ -->
+  <section class="ab-section ab-story-section">
+    <div class="ab-container">
+      <div class="ab-section-header fade-in">
+        <span class="ab-label">The Full Story</span>
+        <h2>How It All Began</h2>
+      </div>
+
+      <div class="ab-story-grid">
+        <div class="ab-story-text fade-in">
+          <p class="ab-story-lead">Every great business starts with a personal frustration. Ours started with a pile of dirty laundry and zero time to deal with it.</p>
+
+          <p>In 2023, our founder — a young entrepreneur from Jodhpur — noticed a massive gap in the market. The city had no reliable, affordable, on-demand laundry service. Students living in hostels were struggling. Working professionals had no time. Families needed help with heavy textiles like blankets and curtains.</p>
+
+          <p>The solution was obvious: a professional laundry service that comes to you, cleans your clothes to hotel standards, and delivers them back fresh — all at prices that make sense.</p>
+
+          <p>GenZ Laundry was born. We started small — just a team of two, a washing machine, and a WhatsApp number. Word spread fast. Within months, we were serving hundreds of customers across Jodhpur. The reviews poured in. The orders multiplied. We upgraded our equipment, trained our team, and built our 10-step cleaning process to guarantee consistent quality every single time.</p>
+
+          <p>Today, we're proud to be Jodhpur's most loved laundry service — but we're just getting started.</p>
+        </div>
+
+        <div class="ab-story-media fade-in">
+          <!-- Image placeholder — replace with your store image -->
+          <div class="ab-story-img-wrap">
+            <img src="public/laundry_counter.jpeg" alt="GenZ Laundry Store Inside" class="ab-story-img">
+            <div class="ab-story-img-caption">
+              <i class="fas fa-map-marker-alt"></i> Our store in Jodhpur, Rajasthan
+            </div>
+          </div>
+          <div class="ab-story-img-wrap ab-story-img-small">
+            <img src="public/Steam_irom_Setup.jpg" alt="Our Equipment" class="ab-story-img">
+            <div class="ab-story-img-caption">
+              <i class="fas fa-temperature-high"></i> Professional steam iron setup
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       JOURNEY ROADMAP — Timeline
+  ══════════════════════════════════════ -->
+  <section class="ab-section ab-timeline-section">
+    <div class="ab-container">
+      <div class="ab-section-header fade-in">
+        <span class="ab-label">Our Journey</span>
+        <h2>From Zero to Jodhpur's #1</h2>
+        <p>Every milestone that made us who we are today</p>
+      </div>
+
+      <div class="ab-timeline">
+
+        <!-- 2023 Q1 -->
+        <div class="ab-tl-item ab-tl-left fade-in">
+          <div class="ab-tl-content">
+            <div class="ab-tl-date">Early 2023</div>
+            <h3>The Idea Sparks</h3>
+            <p>Frustrated by the lack of a reliable laundry service in Jodhpur, our founder decides to solve the problem himself. Research begins, business plan is drafted, and the name "GenZ Laundry" is born.</p>
+            <!-- Image slot — add your image here -->
+            <div class="ab-tl-img-slot">
+              <div class="ab-tl-img-placeholder">
+                <i class="fas fa-lightbulb"></i>
+                <span>Add your image here</span>
+              </div>
+            </div>
+          </div>
+          <div class="ab-tl-dot"><span>1</span></div>
+        </div>
+
+        <!-- 2023 Q2 -->
+        <div class="ab-tl-item ab-tl-right fade-in">
+          <div class="ab-tl-dot"><span>2</span></div>
+          <div class="ab-tl-content">
+            <div class="ab-tl-date">Mid 2023</div>
+            <h3>First Orders, First Smiles</h3>
+            <p>GenZ Laundry officially launches. Our first customers are hostel students near the store. We hand-deliver freshly washed clothes. The feedback is overwhelmingly positive — "Best wash quality in Jodhpur!"</p>
+            <div class="ab-tl-img-slot">
+              <div class="ab-tl-img-placeholder">
+                <i class="fas fa-star"></i>
+                <span>Add your first order photo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2023 Q3 -->
+        <div class="ab-tl-item ab-tl-left fade-in">
+          <div class="ab-tl-content">
+            <div class="ab-tl-date">Late 2023</div>
+            <h3>Growing Fast</h3>
+            <p>Word of mouth takes over. We reach 100+ regular customers. We hire our first team members, invest in professional washing machines, and set up our dedicated steam ironing station.</p>
+            <div class="ab-tl-img-slot">
+              <div class="ab-tl-img-placeholder">
+                <i class="fas fa-users"></i>
+                <span>Add team photo here</span>
+              </div>
+            </div>
+          </div>
+          <div class="ab-tl-dot"><span>3</span></div>
+        </div>
+
+        <!-- 2024 Q1 -->
+        <div class="ab-tl-item ab-tl-right fade-in">
+          <div class="ab-tl-dot"><span>4</span></div>
+          <div class="ab-tl-content">
+            <div class="ab-tl-date">Early 2024</div>
+            <h3>Express Service Launched</h3>
+            <p>We introduce our signature 4-Hour Express Delivery — a first in Jodhpur. Students and professionals love it. Our Google rating climbs to 4.8+ stars. Orders double every month.</p>
+            <div class="ab-tl-img-slot">
+              <img src="public/clean-tshirt.jpeg" alt="Express Service Launch" class="ab-tl-real-img">
+            </div>
+          </div>
+        </div>
+
+        <!-- 2024 Q2-Q3 -->
+        <div class="ab-tl-item ab-tl-left fade-in">
+          <div class="ab-tl-content">
+            <div class="ab-tl-date">Mid 2024</div>
+            <h3>500+ Happy Customers</h3>
+            <p>We cross the 500 customer milestone. Our 10-step cleaning process is formalized and every order is tracked for quality. We launch dry cleaning services for premium garments, suits, and ethnic wear.</p>
+            <div class="ab-tl-img-slot">
+              <img src="public/a_fully_functional_3d_rendered_billing_room_for.jpeg" alt="Our Service Counter" class="ab-tl-real-img">
+            </div>
+          </div>
+          <div class="ab-tl-dot"><span>5</span></div>
+        </div>
+
+        <!-- 2024 Q4 -->
+        <div class="ab-tl-item ab-tl-right fade-in">
+          <div class="ab-tl-dot"><span>6</span></div>
+          <div class="ab-tl-content">
+            <div class="ab-tl-date">Late 2024</div>
+            <h3>Premium Facility &amp; Website</h3>
+            <p>We upgrade our facility with industrial-grade equipment. A professional website with online price calculator goes live. Instagram following grows organically to thousands. 4.9★ on Google!</p>
+            <div class="ab-tl-img-slot">
+              <img src="public/Steam_irom_Setup.jpg" alt="Premium Facility" class="ab-tl-real-img">
+            </div>
+          </div>
+        </div>
+
+        <!-- 2025 -->
+        <div class="ab-tl-item ab-tl-left fade-in">
+          <div class="ab-tl-content">
+            <div class="ab-tl-date">2025</div>
+            <h3>1000+ Orders &amp; Beyond</h3>
+            <p>5000+ orders completed. We become the go-to laundry service for students, professionals, hotels, and families across Jodhpur. Monthly subscription plans launch for regular customers.</p>
+            <div class="ab-tl-img-slot">
+              <div class="ab-tl-img-placeholder">
+                <i class="fas fa-trophy"></i>
+                <span>Add your milestone photo</span>
+              </div>
+            </div>
+          </div>
+          <div class="ab-tl-dot ab-tl-dot-gold"><span>7</span></div>
+        </div>
+
+        <!-- Future -->
+        <div class="ab-tl-item ab-tl-right ab-tl-future fade-in">
+          <div class="ab-tl-dot ab-tl-dot-future"><i class="fas fa-rocket"></i></div>
+          <div class="ab-tl-content">
+            <div class="ab-tl-date">2026 & Beyond</div>
+            <h3>Expanding Across Rajasthan</h3>
+            <p>Our vision: GenZ Laundry stores in every major Rajasthan city. A mobile app for seamless booking, tracking, and loyalty rewards. 10,000+ customers served. Zero-waste operations.</p>
+            <div class="ab-tl-future-pills">
+              <span><i class="fas fa-mobile-alt"></i> Mobile App</span>
+              <span><i class="fas fa-map-marker-alt"></i> Multiple Cities</span>
+              <span><i class="fas fa-leaf"></i> Zero Waste</span>
+              <span><i class="fas fa-users"></i> 10,000+ Customers</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.ab-timeline -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       VALUES — 4 Core Values
+  ══════════════════════════════════════ -->
+  <section class="ab-section ab-values-section">
+    <div class="ab-container">
+      <div class="ab-section-header fade-in">
+        <span class="ab-label">What We Stand For</span>
+        <h2>Our Core Values</h2>
+        <p>The principles that guide every decision we make and every garment we clean</p>
+      </div>
+
+      <div class="ab-values-grid">
+        <div class="ab-value-card fade-in">
+          <div class="ab-val-icon" style="background:linear-gradient(135deg,#2563EB,#7C3AED);">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h3>Quality First</h3>
+          <p>Every single garment goes through our rigorous 10-step process. No shortcuts, no compromises. If it's not perfect, it goes back to cleaning.</p>
+        </div>
+
+        <div class="ab-value-card fade-in">
+          <div class="ab-val-icon" style="background:linear-gradient(135deg,#10B981,#059669);">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Eco-Friendly</h3>
+          <p>We use biodegradable, family-safe detergents. No harsh chemicals, no environmental harm. Clean clothes and a clean conscience.</p>
+        </div>
+
+        <div class="ab-value-card fade-in">
+          <div class="ab-val-icon" style="background:linear-gradient(135deg,#F59E0B,#D97706);">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Trust &amp; Transparency</h3>
+          <p>No hidden charges. No surprises. What you see is what you pay. All garments are fully insured and handled with complete accountability.</p>
+        </div>
+
+        <div class="ab-value-card fade-in">
+          <div class="ab-val-icon" style="background:linear-gradient(135deg,#EF4444,#DC2626);">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Customer Love</h3>
+          <p>We're obsessed with customer satisfaction. Every review matters, every feedback shapes us. 98% of our customers come back again and again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       WHY US — Stats + Differentiators
+  ══════════════════════════════════════ -->
+  <section class="ab-section ab-why-section">
+    <div class="ab-container">
+      <div class="ab-why-grid">
+        <!-- Left: Big differentiators -->
+        <div class="ab-why-text fade-in">
+          <span class="ab-label">Why GenZ Laundry</span>
+          <h2>Not Just Another Laundry. A Better Way to Live.</h2>
+          <p>We built GenZ Laundry to solve a real problem — and we did it right. Here's what makes us different from every other laundry service in Jodhpur.</p>
+
+          <div class="ab-diff-list">
+            <div class="ab-diff-item">
+              <div class="ab-diff-icon"><i class="fas fa-bolt"></i></div>
+              <div>
+                <strong>Express 4-Hour Service</strong>
+                <span>Jodhpur's only guaranteed 4-hour laundry service. Fast, without sacrificing quality.</span>
+              </div>
+            </div>
+            <div class="ab-diff-item">
+              <div class="ab-diff-icon" style="background:rgba(16,185,129,0.1);color:#10B981;"><i class="fas fa-home"></i></div>
+              <div>
+                <strong>Pickup from Any Location</strong>
+                <span>Hostel, home, office, PG — we come to wherever you are. No minimum order.</span>
+              </div>
+            </div>
+            <div class="ab-diff-item">
+              <div class="ab-diff-icon" style="background:rgba(245,158,11,0.1);color:#F59E0B;"><i class="fas fa-shield-alt"></i></div>
+              <div>
+                <strong>Insured Up to ₹20,000</strong>
+                <span>Every order is fully insured. Your clothes are safe with us — always.</span>
+              </div>
+            </div>
+            <div class="ab-diff-item">
+              <div class="ab-diff-icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;"><i class="fas fa-clock"></i></div>
+              <div>
+                <strong>Open 24/7</strong>
+                <span>Urgent need at midnight? We're here. Call us any time, any day.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Stats cards -->
+        <div class="ab-why-stats fade-in">
+          <div class="ab-stat-card">
+            <span class="ab-stat-num">1000+</span>
+            <span class="ab-stat-lbl">Happy Customers</span>
+            <span class="ab-stat-sub">And growing every day</span>
+          </div>
+          <div class="ab-stat-card">
+            <span class="ab-stat-num">5000+</span>
+            <span class="ab-stat-lbl">Orders Completed</span>
+            <span class="ab-stat-sub">With zero major complaints</span>
+          </div>
+          <div class="ab-stat-card ab-stat-highlight">
+            <span class="ab-stat-num">4.9 ★</span>
+            <span class="ab-stat-lbl">Google Rating</span>
+            <span class="ab-stat-sub">Top-rated in Jodhpur</span>
+          </div>
+          <div class="ab-stat-card">
+            <span class="ab-stat-num">98%</span>
+            <span class="ab-stat-lbl">Satisfaction Rate</span>
+            <span class="ab-stat-sub">Customers who return</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       OUR STORE — Photo Gallery Section
+  ══════════════════════════════════════ -->
+  <section class="ab-section ab-store-section">
+    <div class="ab-container">
+      <div class="ab-section-header fade-in">
+        <span class="ab-label">Our Store</span>
+        <h2>See Where the Magic Happens</h2>
+        <p>A peek inside our professional laundry facility in Jodhpur</p>
+      </div>
+
+      <div class="ab-store-gallery">
+        <div class="ab-gallery-main fade-in">
+          <img src="public/a_fully_functional_3d_rendered_billing_room_for.jpeg" alt="GenZ Laundry Service Counter">
+          <div class="ab-gallery-caption">Our Professional Service Counter</div>
+        </div>
+        <div class="ab-gallery-side">
+          <div class="ab-gallery-item fade-in">
+            <img src="public/Steam_irom_Setup.jpg" alt="Steam Iron Setup">
+            <div class="ab-gallery-caption">Industrial Steam Iron Setup</div>
+          </div>
+          <div class="ab-gallery-item fade-in">
+            <img src="public/laundry_counter.jpeg" alt="Laundry Counter">
+            <div class="ab-gallery-caption">Organised Workspace</div>
+          </div>
+          <!-- Placeholder for more images -->
+          <div class="ab-gallery-item ab-gallery-placeholder fade-in">
+            <i class="fas fa-camera"></i>
+            <span>Add Store Photo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Store info strip -->
+      <div class="ab-store-info fade-in">
+        <div class="ab-si-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Location</strong>
+            <span>Jodhpur, Rajasthan</span>
+          </div>
+        </div>
+        <div class="ab-si-div"></div>
+        <div class="ab-si-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <strong>Hours</strong>
+            <span>Open 24 / 7 — All Days</span>
+          </div>
+        </div>
+        <div class="ab-si-div"></div>
+        <div class="ab-si-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Phone</strong>
+            <a href="tel:+918233853727">+91 82338 53727</a>
+          </div>
+        </div>
+        <div class="ab-si-div"></div>
+        <div class="ab-si-item">
+          <i class="fab fa-instagram"></i>
+          <div>
+            <strong>Instagram</strong>
+            <a href="https://www.instagram.com/genz_laundry_dryclean/" target="_blank" rel="noopener noreferrer">@genz_laundry_dryclean</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       MAP SECTION
+  ══════════════════════════════════════ -->
+  <section class="ab-section ab-map-section">
+    <div class="ab-container">
+      <div class="ab-section-header fade-in">
+        <span class="ab-label">Find Us</span>
+        <h2>Our Service Area</h2>
+        <p>We serve all major areas of Jodhpur — including Shastri Nagar, Ratanada, Paota, Chopasni, Sardarpura &amp; more</p>
+      </div>
+      <div class="ab-map-wrap fade-in">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.6618537234963!2d73.0323465748731!3d26.2726358873055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418d286461e41d%3A0x4436e4af4a2c9d1e!2sGenZ%20Laundry!5e0!3m2!1sen!2sin!4v1768896037279!5m2!1sen!2sin"
+          width="100%" height="420" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Service Area Map"
-        ></iframe>
+          title="GenZ Laundry — Jodhpur Location">
+        </iframe>
       </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4 data-i18n="meta.siteName">GenZLaundry</h4>
-          <p data-i18n="footer.description">Premium laundry and dry cleaning service in Jodhpur. Professional garment care delivered to your doorstep.</p>
-        </div>
-        
-        <div class="footer-section">
-          <h4 data-i18n="footer.quickLinks">Quick Links</h4>
-          <ul>
-            <li><a href="services.html" data-i18n="footer.services">Services</a></li>
-            <li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li>
-            <li><a href="about.html" data-i18n="footer.about">About</a></li>
-            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h4 data-i18n="common.contactUs">Contact Us</h4>
-          <ul>
-            <li><a href="tel:+918233853727" data-i18n="common.phone">Phone</a>: +91 8233853727</li>
-            <li><a href="https://wa.me/918233853727" target="_blank" data-i18n="common.whatsapp">WhatsApp</a></li>
-            <li><a href="mailto:genzlaundry.in@gmail.com" data-i18n="common.email">Email</a>: genzlaundry.in@gmail.com</li>
-            <li><a href="https://www.instagram.com/genz_laundry_dryclean/" target="_blank" rel="noopener noreferrer" class="footer-instagram"><i class="fab fa-instagram"></i> @genz_laundry_dryclean</a></li>
-          </ul>
+  <!-- ══════════════════════════════════════
+       CTA — Final Section
+  ══════════════════════════════════════ -->
+  <section class="ab-cta-section">
+    <div class="ab-container">
+      <div class="ab-cta-card fade-in">
+        <div class="ab-cta-orb ab-cta-orb1"></div>
+        <div class="ab-cta-orb ab-cta-orb2"></div>
+        <div class="ab-cta-content">
+          <h2>Ready to Experience the Difference?</h2>
+          <p>Join 1000+ happy customers who trust GenZ Laundry for all their garment care needs. Book your first pickup today.</p>
+          <div class="ab-cta-actions">
+            <a href="index.html#contact" class="ab-cta-btn-primary">
+              <i class="fas fa-calendar-alt"></i> Book Pickup Now
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Hey%20Gen-Z%20Team!%20%F0%9F%94%A5%20My%20clothes%20need%20a%20glow-up.%20Can%20I%20book%20a%20pickup%3F%20%F0%9F%A7%BA%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="ab-cta-btn-wa">
+              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p data-i18n="footer.copyright">© 2026 GenZLaundry. All rights reserved.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER (shared)
+  ══════════════════════════════════════ -->
+  <footer class="pro-footer">
+    <div class="pro-container">
+      <div class="pro-footer-grid">
+        <div class="pro-footer-brand">
+          <a href="index.html" class="pro-brand" style="margin-bottom:14px;display:inline-flex;">
+            <img src="public/logo.png" alt="GenZ Laundry" class="pro-logo">
+            <div class="pro-brand-text">
+              <span class="pro-brand-name" style="color:#fff;">GenZ Laundry</span>
+              <span class="pro-brand-sub">& Drycleaners</span>
+            </div>
+          </a>
+          <p>Jodhpur's first express laundry service with 4-hour delivery. Premium care for all your garments, delivered to your doorstep.</p>
+          <div class="pro-footer-social">
+            <a href="https://www.instagram.com/genz_laundry_dryclean/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send/?phone=918233853727" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+918233853727" aria-label="Call us"><i class="fas fa-phone"></i></a>
+          </div>
+        </div>
+        <div class="pro-footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Laundry Service</a></li>
+            <li><a href="dry-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Dry Cleaning</a></li>
+            <li><a href="shoe-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Shoe Cleaning</a></li>
+            <li><a href="carpet-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Carpet Cleaning</a></li>
+            <li><a href="sofa-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Sofa Cleaning</a></li>
+            <li><a href="curtain-cleaning-jodhpur.html"><i class="fas fa-chevron-right"></i> Curtain Cleaning</a></li>
+          </ul>
+          <h4 style="margin-top:15px;">B2B Solutions</h4>
+          <ul>
+            <li><a href="hotel-laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Hotel Laundry</a></li>
+            <li><a href="commercial-laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Commercial Laundry</a></li>
+            <li><a href="resort-laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Resort Laundry</a></li>
+            <li><a href="linen-laundry-service-jodhpur.html"><i class="fas fa-chevron-right"></i> Linen Laundry</a></li>
+          </ul>
+        </div>
+        <div class="pro-footer-contact">
+          <h4>Contact Us</h4>
+          <a href="tel:+918233853727"><i class="fas fa-phone"></i> +91 82338 53727</a>
+          <a href="tel:+918854935727"><i class="fas fa-phone"></i> +91 88549 35727</a>
+          <a href="mailto:genzlaundry.in@gmail.com"><i class="fas fa-envelope"></i> genzlaundry.in@gmail.com</a>
+          <div><i class="fas fa-map-marker-alt"></i> Jodhpur, Rajasthan</div>
+        </div>
+        <div class="pro-footer-hours">
+          <h4>Business Hours</h4>
+          <div class="pfh-box">
+            <div class="pfh-badge"><i class="fas fa-clock"></i> <span>Open 24/7</span></div>
+            <p>Available round the clock. Call us anytime for pickup!</p>
+            <div class="pfh-express"><i class="fas fa-bolt"></i> Express 4-Hour Service Available</div>
+          </div>
+        </div>
+      </div>
+      <div class="pro-footer-bottom">
+        <p>© 2026 GenZ Laundry &amp; Drycleaners. All rights reserved. | Made with ❤️ in Jodhpur</p>
+        <a href="https://www.linkedin.com/in/mr-manohar-solanki/" target="_blank" rel="noopener noreferrer" class="footer-dev-credit">
+          <i class="fas fa-code"></i> Designed &amp; Developed by Manohar Solanki
+        </a>
       </div>
     </div>
   </footer>
 
-  <script src="js/i18n.js"></script>
-  <script src="js/language-toggle.js"></script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      function loadAboutContent() {
-        if (typeof i18n === 'undefined') return;
-        
-        const lang = i18n.getLanguage();
-        const about = i18n.content[lang]?.about || {};
-        
-        // Load mission
-        const missionSection = document.getElementById('mission-section');
-        if (missionSection && about.mission) {
-          missionSection.innerHTML = `
-            <h2>${about.mission.title}</h2>
-            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-text-light);">${about.mission.description}</p>
-          `;
-        }
-        
-        // Load values
-        const valuesSection = document.getElementById('values-section');
-        if (valuesSection && about.values) {
-          const icons = {
-            quality: '✨',
-            sustainability: '🌱',
-            convenience: '🚚',
-            trust: '🛡️'
-          };
-          
-          valuesSection.innerHTML = Object.keys(about.values).filter(key => key !== 'title').map(key => {
-            const value = about.values[key];
-            return `
-              <div class="service-card">
-                <div class="service-icon">${icons[key] || '✓'}</div>
-                <h3>${value.title}</h3>
-                <p>${value.description}</p>
-              </div>
-            `;
-          }).join('');
-        }
-        
-        // Load contact info
-        const contactInfo = document.getElementById('contact-info');
-        if (contactInfo && about.contact) {
-          contactInfo.innerHTML = `
-            <div class="contact-item">
-              <span class="contact-icon">📞</span>
-              <div>
-                <strong>${about.contact.phoneLabel}</strong>
-                <br>
-                <a href="tel:+918233853727" class="contact-link">+91 8233853727</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">💬</span>
-              <div>
-                <strong>${about.contact.whatsappLabel}</strong>
-                <br>
-                <a href="https://wa.me/918233853727" class="contact-link" target="_blank">WhatsApp Us</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">✉️</span>
-              <div>
-                <strong>${about.contact.emailLabel}</strong>
-                <br>
-                <a href="mailto:genzlaundry.in@gmail.com" class="contact-link">genzlaundry.in@gmail.com</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">📍</span>
-              <div>
-                <strong>${about.contact.addressLabel}</strong>
-                <br>
-                <span>Jodhpur, Rajasthan</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <span class="contact-icon">🕒</span>
-              <div>
-                <strong>${about.contact.hours}</strong>
-                <br>
-                <span style="white-space: pre-line;">${about.contact.hoursValue}</span>
-              </div>
-            </div>
-          `;
-        }
-      }
-      
-      setTimeout(loadAboutContent, 200);
-      if (typeof i18n !== 'undefined') {
-        i18n.onLanguageChange(loadAboutContent);
-      }
-    });
+  <!-- Floating buttons -->
+  <div class="pro-fab" id="proFab">
+    <button class="pro-fab-main" id="proFabMain" aria-label="Contact options">
+      <i class="fas fa-headset"></i>
+    </button>
+    <div class="pro-fab-opts" id="proFabOpts">
+      <a href="tel:+918233853727" class="pro-fab-opt pro-fab-call" title="Call Us"><i class="fas fa-phone"></i></a>
+      <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Hey%20Gen-Z%20Team!%20%F0%9F%94%A5%20My%20clothes%20need%20a%20glow-up.%20Can%20I%20book%20a%20pickup%3F%20%F0%9F%A7%BA%E2%9C%A8" class="pro-fab-opt pro-fab-wa" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+      <a href="index.html#contact" class="pro-fab-opt pro-fab-book"><i class="fas fa-calendar-alt"></i></a>
+    </div>
+  </div>
 
-    // Mobile menu toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.querySelector('.mobile-menu-toggle');
-      const nav = document.getElementById('main-nav');
-      if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
-      }
-    });
-    
-  </script>
-  <!-- Add this script at the end of your body tag -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Create floating buttons container
-  const floatingButtons = document.createElement('div');
-  floatingButtons.className = 'floating-buttons';
-  
-  // Create call button
-  const callButton = document.createElement('a');
-  callButton.href = 'tel:+918233853727';
-  callButton.className = 'btn-floating btn-call';
-  callButton.title = 'Call Us';
-  callButton.innerHTML = `
-    <i class="fas fa-phone"></i>
-    <span class="btn-tooltip">Call Us Now</span>
-  `;
-  
-  // Create WhatsApp button
-  const whatsappButton = document.createElement('a');
-  whatsappButton.href = 'https://wa.me/8233853727';
-  whatsappButton.target = '_blank';
-  whatsappButton.className = 'btn-floating btn-whatsapp';
-  whatsappButton.title = 'Chat on WhatsApp';
-  whatsappButton.innerHTML = `
-    <i class="fab fa-whatsapp"></i>
-    <span class="btn-tooltip">Chat on WhatsApp</span>
-  `;
-  
-  // Add buttons to container
-  floatingButtons.appendChild(callButton);
-  floatingButtons.appendChild(whatsappButton);
-  
-  // Add container to body
-  document.body.appendChild(floatingButtons);
-  
-  // Add CSS styles
-  const style = document.createElement('style');
-  style.textContent = `
-    .floating-buttons {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 1000;
-    }
-    
-    .btn-floating {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      color: white;
-      font-size: 24px;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .btn-floating:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .btn-call {
-      background: linear-gradient(135deg, #3498db, #2980b9);
-    }
-    
-    .btn-whatsapp {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-    }
-    
-    .btn-tooltip {
-      position: absolute;
-      right: 70px;
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-size: 14px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    
-    .btn-floating:hover .btn-tooltip {
-      opacity: 1;
-    }
-    
-    .btn-tooltip::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: -5px;
-      transform: translateY(-50%);
-      border-width: 5px 0 5px 5px;
-      border-style: solid;
-      border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
-    }
-    
-    @media (max-width: 768px) {
-      .floating-buttons {
-        bottom: 20px;
-        right: 20px;
-      }
-      
-      .btn-floating {
-        width: 55px;
-        height: 55px;
-        font-size: 22px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .floating-buttons {
-        bottom: 15px;
-        right: 15px;
-      }
-      
-      .btn-floating {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-      }
-      
-      .btn-tooltip {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-    }
-  `;
-  
-  document.head.appendChild(style);
-});
+  <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Hey%20Gen-Z%20Team!%20%F0%9F%94%A5%20My%20clothes%20need%20a%20glow-up.%20Can%20I%20book%20a%20pickup%3F%20%F0%9F%A7%BA%E2%9C%A8" class="pro-wa-sticky" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i><span>Chat with us</span>
+  </a>
 
-// Check if Font Awesome is already loaded, if not, load it
-if (!document.querySelector('link[href*="font-awesome"]') && !document.querySelector('link[href*="fontawesome"]')) {
-  const faLink = document.createElement('link');
-  faLink.rel = 'stylesheet';
-  faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-  document.head.appendChild(faLink);
-}
-</script>
+  <script src="js/about.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
