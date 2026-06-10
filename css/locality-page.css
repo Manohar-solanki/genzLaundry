@@ -1,0 +1,581 @@
+/* ═══════════════════════════════════════════════════
+   Gen-Z Laundry — Locality Landing Pages Shared CSS
+   Used by: laundry-service-ratanada.html,
+            laundry-service-shastri-nagar.html,
+            laundry-service-sardarpura.html,
+            laundry-service-paota.html,
+            laundry-service-aiims-area.html
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  --navy:       #0B1120;
+  --blue-mid:   #2563EB;
+  --amber:      #F59E0B;
+  --white:      #ffffff;
+  --off-white:  #F8FAFC;
+  --text:       #1E293B;
+  --text-muted: #64748B;
+  --border:     #E2E8F0;
+}
+
+/* ── Breadcrumb ─────────────────────────────────── */
+.loc-breadcrumb {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  margin-top: 72px;
+}
+
+.loc-breadcrumb ol {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.loc-breadcrumb li + li::before {
+  content: '›';
+  margin-right: 6px;
+  color: #94A3B8;
+}
+
+.loc-breadcrumb a {
+  color: var(--blue-mid);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.loc-breadcrumb a:hover { text-decoration: underline; }
+
+/* ── Hero ───────────────────────────────────────── */
+.loc-hero {
+  background: linear-gradient(135deg, #0B1120 0%, #1E3A8A 100%);
+  padding: 64px 0 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loc-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.loc-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.loc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: #FDE68A;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+}
+
+.loc-hero-content h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+}
+
+.loc-hero-sub {
+  color: rgba(255,255,255,0.72);
+  font-size: 1rem;
+  line-height: 1.72;
+  max-width: 620px;
+  margin: 0 auto 22px;
+}
+
+.loc-hero-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  background: rgba(245,158,11,0.12);
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 10px;
+  margin-bottom: 26px;
+}
+
+.loc-hero-price span {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+}
+
+.loc-hero-price strong {
+  color: #F59E0B;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* ── Hero Action Buttons ────────────────────────── */
+.loc-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.loc-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--amber);
+  color: var(--navy);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(245,158,11,0.35);
+  transition: all 0.3s ease;
+}
+
+.loc-btn-primary:hover {
+  background: #D97706;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(245,158,11,0.45);
+  color: var(--navy);
+}
+
+.loc-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  transition: all 0.3s ease;
+}
+
+.loc-btn-wa:hover {
+  background: #1db954;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* ── Trust Pills ────────────────────────────────── */
+.loc-trust-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.loc-trust-pills span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.loc-trust-pills span i {
+  color: #10B981;
+  font-size: 0.72rem;
+}
+
+/* ── Section Base ───────────────────────────────── */
+.loc-section {
+  padding: 72px 0;
+  background: var(--white);
+}
+
+.loc-section-alt {
+  padding: 72px 0;
+  background: var(--off-white);
+}
+
+/* ── Section Header ─────────────────────────────── */
+.loc-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.loc-section-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.025em;
+  margin-bottom: 10px;
+}
+
+.loc-section-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Services Grid ──────────────────────────────── */
+.loc-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.loc-svc-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 22px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loc-svc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+  border-color: rgba(37,99,235,0.2);
+}
+
+.loc-svc-icon {
+  width: 58px;
+  height: 58px;
+  background: rgba(37,99,235,0.08);
+  color: var(--blue-mid);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.loc-svc-card:hover .loc-svc-icon {
+  background: var(--blue-mid);
+  color: #fff;
+}
+
+.loc-svc-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.loc-svc-card p {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.loc-svc-price {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 14px;
+}
+
+.loc-svc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--blue-mid);
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.loc-svc-link:hover {
+  gap: 10px;
+  color: #1d4ed8;
+}
+
+/* ── Why Grid ───────────────────────────────────── */
+.loc-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.loc-why-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 22px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+}
+
+.loc-why-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+}
+
+.loc-why-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+.loc-why-card h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.loc-why-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── Nearby Areas ───────────────────────────────── */
+.loc-areas-nearby {
+  text-align: center;
+}
+
+.loc-areas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.loc-areas-list a {
+  padding: 8px 18px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--blue-mid);
+  text-decoration: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: all 0.25s ease;
+}
+
+.loc-areas-list a:hover {
+  background: var(--blue-mid);
+  color: var(--white);
+  border-color: var(--blue-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37,99,235,0.25);
+}
+
+.loc-areas-note {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.loc-areas-note a {
+  color: var(--blue-mid);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.loc-areas-note a:hover { text-decoration: underline; }
+
+/* ── Map ────────────────────────────────────────── */
+.loc-map-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid var(--border);
+}
+
+.loc-map-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 360px;
+  border: none;
+}
+
+/* ── Review Strip ───────────────────────────────── */
+.loc-review-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.loc-review-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+}
+
+.loc-review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+}
+
+.loc-review-stars {
+  color: #F59E0B;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.loc-review-text {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.loc-review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.loc-review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.84rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.loc-av-blue   { background: linear-gradient(135deg, #2563EB, #7C3AED); }
+.loc-av-green  { background: linear-gradient(135deg, #10B981, #059669); }
+.loc-av-amber  { background: linear-gradient(135deg, #F59E0B, #D97706); }
+
+.loc-review-author > div strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.loc-review-author > div span {
+  font-size: 0.76rem;
+  color: #10B981;
+  font-weight: 500;
+}
+
+/* ── CTA Card ───────────────────────────────────── */
+.loc-cta-section {
+  padding: 72px 0;
+  background: var(--white);
+}
+
+.loc-cta-card {
+  background: linear-gradient(135deg, #0B1120 0%, #1E3A8A 100%);
+  border-radius: 24px;
+  padding: 64px 48px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(37,99,235,0.2);
+}
+
+.loc-cta-card h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.025em;
+}
+
+.loc-cta-card p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  margin-bottom: 28px;
+  line-height: 1.65;
+}
+
+.loc-cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) {
+  .loc-services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .loc-hero-inner { text-align: center; }
+  .loc-hero-actions { justify-content: center; flex-direction: column; align-items: center; }
+  .loc-btn-primary, .loc-btn-wa { width: 100%; max-width: 320px; justify-content: center; }
+  .loc-trust-pills { justify-content: center; }
+
+  .loc-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .loc-why-grid { grid-template-columns: 1fr; }
+  .loc-review-strip { grid-template-columns: 1fr; }
+
+  .loc-section, .loc-section-alt { padding: 52px 0; }
+
+  .loc-cta-card { padding: 40px 24px; }
+  .loc-cta-actions { flex-direction: column; align-items: center; }
+  .loc-cta-actions .loc-btn-primary,
+  .loc-cta-actions .loc-btn-wa { width: 100%; max-width: 320px; justify-content: center; }
+
+  .loc-map-wrap iframe { height: 280px; }
+}
+
+@media (max-width: 480px) {
+  .loc-services-grid { grid-template-columns: 1fr; }
+  .loc-hero-content h1 { font-size: 1.8rem; }
+  .loc-breadcrumb { margin-top: 68px; }
+}
