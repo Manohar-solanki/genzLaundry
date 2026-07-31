@@ -1,7 +1,6 @@
 /**
  * GEN-Z LAUNDRY - ELEGANT GRAND INAUGURATION & ROYAL CURTAIN CEREMONY
- * When user taps "Cut Ribbon", curtains part, flower rain cascades over the website, 
- * and the user seamlessly enters the main website to use it directly!
+ * Featuring exact store address, velvet curtains reveal, flower rain & audio synth
  */
 
 (function () {
@@ -16,7 +15,7 @@
   function initDOM() {
     if (document.getElementById('inauguration-overlay')) return;
 
-    // Canvas Element for Petals Rain (Fixed on top of full screen & website)
+    // Canvas Element for Petals Rain
     canvas = document.createElement('canvas');
     canvas.id = 'ceremony-canvas';
     document.body.appendChild(canvas);
@@ -71,8 +70,15 @@
           </div>
           <div class="pill-card">
             <i class="fas fa-map-marker-alt"></i>
-            <div class="pill-val">Jodhpur</div>
-            <div class="pill-sub">Rajasthan</div>
+            <div class="pill-val">Ratanada</div>
+            <div class="pill-sub">Jodhpur</div>
+          </div>
+        </div>
+
+        <div class="venue-address-box">
+          <div class="venue-hdr"><i class="fas fa-location-dot"></i> VENUE ADDRESS</div>
+          <div class="venue-text">
+            2nd floor, Sabji Mandi Circle, Above Mahadev Barf Factory, Ratanada, Jodhpur, Rajasthan (342011)
           </div>
         </div>
 

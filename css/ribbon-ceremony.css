@@ -309,6 +309,36 @@
   text-transform: uppercase;
 }
 
+/* Venue Address Box */
+.venue-address-box {
+  margin: 10px 0 14px;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.venue-hdr {
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffd700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.venue-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
 /* Satin Ribbon Banner Overlay */
 .ribbon-banner-wrap {
   position: relative;
