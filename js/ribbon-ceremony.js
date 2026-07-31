@@ -1,26 +1,21 @@
 /**
- * GEN-Z LAUNDRY - GRAND INAUGURATION & RIBBON CEREMONY JAVASCRIPT
- * Interactive Ribbon Cutting, Canvas Flower Petal Shower & Festive Audio Synthesis
+ * GEN-Z LAUNDRY - FULL PAGE GRAND INAUGURATION & VELVET CURTAIN CEREMONY
+ * Full-screen Velvet Curtains, Spotlights, Ribbon Cut & Flower Shower Canvas
  */
 
 (function () {
   'use strict';
 
-  // State
   let isCut = false;
   let canvas, ctx;
   let animationFrameId;
   let particles = [];
   let audioCtx = null;
 
-  // Configuration
-  const EVENT_DATE = new Date('2026-08-01T10:00:00+05:30'); // 1 August 2026
-
-  // DOM Structure Injection
   function initDOM() {
     if (document.getElementById('inauguration-overlay')) return;
 
-    // Create Canvas element
+    // Fullscreen Canvas for Petals & Gold Confetti
     canvas = document.createElement('canvas');
     canvas.id = 'ceremony-canvas';
     document.body.appendChild(canvas);
@@ -28,89 +23,83 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Create Modal HTML
+    // Fullscreen Inauguration Stage HTML
     const overlay = document.createElement('div');
     overlay.id = 'inauguration-overlay';
     overlay.innerHTML = `
-      <div class="inauguration-card" id="inauguration-card">
-        <div class="card-corner top-left"></div>
-        <div class="card-corner top-right"></div>
-        <div class="card-corner bottom-left"></div>
-        <div class="card-corner bottom-right"></div>
+      <!-- Spotlights -->
+      <div class="spotlight left"></div>
+      <div class="spotlight right"></div>
 
-        <button class="ceremony-close-btn" id="close-ceremony-btn" title="Close Overlay">&times;</button>
+      <!-- Top Valance / Pelmet -->
+      <div class="top-valance"></div>
 
-        <div class="ceremony-badge">
-          <i class="fas fa-sparkles"></i> GEN-Z OF JODHPUR <i class="fas fa-sparkles"></i>
+      <!-- Velvet Stage Curtains -->
+      <div class="curtain-container">
+        <div class="curtain-panel left"></div>
+        <div class="curtain-panel right"></div>
+      </div>
+
+      <!-- Close Button -->
+      <button class="ceremony-close-btn" id="close-ceremony-btn" title="Close Stage">&times;</button>
+
+      <!-- Center Fullscreen Stage Content -->
+      <div class="inauguration-stage-content">
+        <div class="crown-emblem">👑</div>
+
+        <div class="stage-top-tag">
+          ✨ GEN-Z OF JODHPUR ✨
         </div>
 
-        <h2 class="ceremony-title-hi">भव्य शुभारंभ</h2>
-        <div class="ceremony-subtitle">CORDIALLY INVITES YOU TO THE GRAND INAUGURATION</div>
+        <h1 class="stage-main-title">भव्य शुभारंभ</h1>
+        <div class="stage-sub-invite">CORDIALLY INVITES YOU TO THE GRAND INAUGURATION</div>
 
-        <div class="brand-hero-box">
-          <h1 class="brand-main-title">GEN-Z <span>LAUNDRY</span> & DRY CLEANER</h1>
-          <div class="brand-tagline">(Premium Garment Care & Express Service)</div>
+        <div class="stage-brand-card">
+          <h2 class="stage-brand-title">GEN-Z <span>LAUNDRY</span> & DRY CLEANER</h2>
+          <div class="stage-brand-tagline">(Premium Garment Care & Express Service)</div>
         </div>
 
-        <div class="chief-guest-card">
-          <div class="chief-guest-label">
-            <i class="fas fa-crown"></i> CHIEF GUEST <i class="fas fa-crown"></i>
+        <div class="stage-guest-card">
+          <div class="stage-guest-label">
+            <i class="fas fa-star"></i> CHIEF GUEST <i class="fas fa-star"></i>
           </div>
-          <div class="chief-guest-name">RAVINDRA SINGH BHATI</div>
-          <div class="chief-guest-designation">— Sheo MLA —</div>
+          <div class="stage-guest-name">RAVINDRA SINGH BHATI</div>
+          <div class="stage-guest-desc">— Sheo MLA —</div>
         </div>
 
-        <div class="event-info-grid">
-          <div class="info-pill">
-            <i class="fas fa-calendar-star"></i>
-            <div class="pill-val">1 August 2026</div>
-            <div class="pill-lbl">Saturday</div>
+        <div class="stage-info-row">
+          <div class="stage-info-pill">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Saturday, 1 August 2026</span>
           </div>
-          <div class="info-pill">
+          <div class="stage-info-pill">
             <i class="fas fa-map-marker-alt"></i>
-            <div class="pill-val">Jodhpur</div>
-            <div class="pill-lbl">Rajasthan</div>
+            <span>Jodhpur, Rajasthan</span>
           </div>
         </div>
 
-        <div class="ceremony-actions">
-          <button class="btn-ceremony-primary" id="snip-action-btn">
-            <i class="fas fa-cut"></i> <span id="snip-btn-text">Snip Ribbon to Inaugurate!</span>
-          </button>
-          <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Congratulations%20on%20the%20Grand%20Inauguration%20of%20Gen-Z%20Laundry!%20%F0%9F%8E%89%F0%9F%A7%BA" target="_blank" rel="noopener noreferrer" class="btn-ceremony-secondary">
+        <div class="stage-action-row">
+          <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Congratulations%20on%20the%20Grand%20Inauguration%20of%20Gen-Z%20Laundry!%20%F0%9F%8E%89%F0%9F%A7%BA" target="_blank" rel="noopener noreferrer" class="btn-stage-secondary">
             <i class="fab fa-whatsapp"></i> Send Inauguration Wishes
           </a>
+          <button class="btn-stage-secondary" id="enter-site-btn">
+            <i class="fas fa-globe"></i> Explore Website
+          </button>
         </div>
 
-        <!-- Interactive Ribbon & Scissors Overlay -->
-        <div class="ribbon-ceremony-stage" id="ribbon-stage">
-          <div class="ribbon-half left"></div>
-          <div class="ribbon-half right"></div>
-          
-          <div class="scissors-action-wrap" id="scissors-trigger" title="Tap to Cut Ribbon!">
-            <svg class="golden-bow-svg" viewBox="0 0 100 100">
-              <path d="M50 35 C 35 10, 10 30, 45 48 C 10 60, 35 90, 50 55 C 65 90, 90 60, 55 48 C 90 30, 65 10, 50 35 Z" fill="url(#goldGrad)" stroke="#fff" stroke-width="1.5"/>
-              <circle cx="50" cy="48" r="8" fill="#ffd700" stroke="#b38f00" stroke-width="2"/>
-              <defs>
-                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#fff2a3"/>
-                  <stop offset="50%" stop-color="#ffd700"/>
-                  <stop offset="100%" stop-color="#b8860b"/>
-                </linearGradient>
-              </defs>
-            </svg>
-            <div class="scissors-btn">
-              <span class="scissors-icon">✂️</span>
-              <span>TAP TO CUT</span>
-            </div>
-          </div>
+        <!-- Bottom Grand Ribbon & Interactive Scissors -->
+        <div class="stage-ribbon-bar" id="ribbon-bar">
+          <div class="stage-ribbon-line"></div>
+          <button class="stage-scissors-btn" id="cut-ribbon-trigger">
+            <i class="fas fa-cut"></i> <span id="cut-btn-text">TAP TO CUT RIBBON & OPEN STAGE</span>
+          </button>
         </div>
       </div>
     `;
 
     document.body.appendChild(overlay);
 
-    // Create Floating Reopen Button on Website
+    // Floating Reopen Button on Website
     const reopenBtn = document.createElement('button');
     reopenBtn.id = 'reopen-ceremony-btn';
     reopenBtn.innerHTML = `<i class="fas fa-ribbon"></i> <span>Grand Inauguration (1 Aug)</span>`;
@@ -118,25 +107,20 @@
 
     // Event Listeners
     document.getElementById('close-ceremony-btn').addEventListener('click', closeOverlay);
+    document.getElementById('enter-site-btn').addEventListener('click', closeOverlay);
     document.getElementById('reopen-ceremony-btn').addEventListener('click', openOverlay);
-    document.getElementById('scissors-trigger').addEventListener('click', triggerRibbonCut);
-    document.getElementById('snip-action-btn').addEventListener('click', () => {
+    document.getElementById('cut-ribbon-trigger').addEventListener('click', () => {
       if (isCut) {
-        replayRibbonCut();
+        replayCeremony();
       } else {
         triggerRibbonCut();
       }
     });
 
-    // Close on background click
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeOverlay();
-    });
-
-    // Auto open on initial load
+    // Auto open on page load
     setTimeout(() => {
       openOverlay();
-    }, 600);
+    }, 400);
   }
 
   function resizeCanvas() {
@@ -145,7 +129,7 @@
     canvas.height = window.innerHeight;
   }
 
-  // Web Audio Synthesizer for Festive Sound
+  // Web Audio Festive Fanfare
   function playFestiveAudio() {
     try {
       if (!audioCtx) {
@@ -156,100 +140,93 @@
         audioCtx.resume();
       }
 
-      // Snip Sound
       const now = audioCtx.currentTime;
+      
+      // Snip Sound
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
-      
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(800, now);
-      osc.frequency.exponentialRampToValueAtTime(200, now + 0.15);
-      
-      gain.gain.setValueAtTime(0.3, now);
-      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
-
+      osc.frequency.setValueAtTime(900, now);
+      osc.frequency.exponentialRampToValueAtTime(150, now + 0.18);
+      gain.gain.setValueAtTime(0.35, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.18);
       osc.connect(gain);
       gain.connect(audioCtx.destination);
-
       osc.start(now);
-      osc.stop(now + 0.15);
+      osc.stop(now + 0.18);
 
-      // Fanfare Chime Chords
-      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+      // Fanfare Chords
+      const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51];
       notes.forEach((freq, idx) => {
         const noteOsc = audioCtx.createOscillator();
         const noteGain = audioCtx.createGain();
-        const noteTime = now + 0.1 + (idx * 0.08);
+        const noteTime = now + 0.12 + (idx * 0.08);
 
         noteOsc.type = 'sine';
         noteOsc.frequency.setValueAtTime(freq, noteTime);
 
-        noteGain.gain.setValueAtTime(0.2, noteTime);
-        noteGain.gain.exponentialRampToValueAtTime(0.001, noteTime + 0.8);
+        noteGain.gain.setValueAtTime(0.25, noteTime);
+        noteGain.gain.exponentialRampToValueAtTime(0.001, noteTime + 0.9);
 
         noteOsc.connect(noteGain);
         noteGain.connect(audioCtx.destination);
 
         noteOsc.start(noteTime);
-        noteOsc.stop(noteTime + 0.8);
+        noteOsc.stop(noteTime + 0.9);
       });
     } catch (e) {
-      console.log('Audio playback prevented or unsupported');
+      console.log('Audio playback prevented');
     }
   }
 
-  // Ribbon Cut Trigger
+  // Trigger Ribbon Cut & Curtain Reveal
   function triggerRibbonCut() {
-    const stage = document.getElementById('ribbon-stage');
-    if (!stage || isCut) return;
+    const overlay = document.getElementById('inauguration-overlay');
+    if (!overlay || isCut) return;
 
     isCut = true;
-    stage.classList.add('snipped');
-    
+    overlay.classList.add('curtains-open');
+
     playFestiveAudio();
     spawnFlowerShower();
 
-    const snipBtnText = document.getElementById('snip-btn-text');
-    if (snipBtnText) snipBtnText.innerText = '🌸 Replay Flower Ceremony';
-
-    setTimeout(() => {
-      stage.classList.add('completed');
-    }, 900);
+    const btnText = document.getElementById('cut-btn-text');
+    if (btnText) btnText.innerText = '🌸 REPLAY STAGE CEREMONY';
   }
 
-  function replayRibbonCut() {
-    const stage = document.getElementById('ribbon-stage');
-    if (!stage) return;
+  function replayCeremony() {
+    const overlay = document.getElementById('inauguration-overlay');
+    if (!overlay) return;
 
-    stage.classList.remove('snipped', 'completed');
+    overlay.classList.remove('curtains-open');
     isCut = false;
-    
+
     setTimeout(() => {
       triggerRibbonCut();
-    }, 150);
+    }, 250);
   }
 
-  // Flower Petal & Confetti Canvas Particle System
+  // Flower Petals & Gold Confetti Particle Shower
   function spawnFlowerShower() {
     particles = [];
     const colors = [
       '#ffa500', '#ff7f00', '#ffd700', // Marigold Gold/Orange
       '#e60026', '#b3001e', '#ff3355', // Red Rose
-      '#ffffff', '#fff2a3'             // White Jasmine & Sparkles
+      '#ffffff', '#fff2a3'             // Jasmine & Gold Sparkles
     ];
 
-    const particleCount = window.innerWidth < 480 ? 70 : 130;
+    const count = window.innerWidth < 480 ? 90 : 160;
 
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
-        y: Math.random() * (canvas.height * 0.4) - (canvas.height * 0.2),
-        size: Math.random() * 12 + 6,
+        y: Math.random() * (canvas.height * 0.3) - (canvas.height * 0.1),
+        size: Math.random() * 14 + 6,
         color: colors[Math.floor(Math.random() * colors.length)],
-        speedY: Math.random() * 3 + 2,
-        speedX: (Math.random() - 0.5) * 2,
+        speedY: Math.random() * 3.5 + 2,
+        speedX: (Math.random() - 0.5) * 2.5,
         rotation: Math.random() * 360,
-        rotSpeed: (Math.random() - 0.5) * 5,
+        rotSpeed: (Math.random() - 0.5) * 6,
         type: Math.random() > 0.4 ? 'petal' : 'confetti',
         opacity: 1
       });
@@ -265,7 +242,7 @@
     let activeParticles = 0;
 
     particles.forEach((p) => {
-      if (p.y < canvas.height + 20) {
+      if (p.y < canvas.height + 25) {
         activeParticles++;
         p.y += p.speedY;
         p.x += Math.sin(p.y * 0.02) * p.speedX;
@@ -278,12 +255,10 @@
         ctx.fillStyle = p.color;
 
         if (p.type === 'petal') {
-          // Oval Petal shape
           ctx.beginPath();
           ctx.ellipse(0, 0, p.size, p.size * 0.6, 0, 0, Math.PI * 2);
           ctx.fill();
         } else {
-          // Confetti Rectangle shape
           ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
         }
 
@@ -312,7 +287,6 @@
     }
   }
 
-  // Initialize script on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDOM);
   } else {
