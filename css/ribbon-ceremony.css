@@ -1,0 +1,528 @@
+/* ==========================================================================
+   GEN-Z LAUNDRY - GRAND INAUGURATION & RIBBON CEREMONY STYLES
+   Royal Indian Festive Gold & Maroon Theme | Fully Responsive & Animated
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Poppins:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+
+/* Main Overlay Backdrop */
+#inauguration-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: radial-gradient(circle at center, rgba(30, 8, 40, 0.88) 0%, rgba(10, 3, 15, 0.96) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+#inauguration-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Fullscreen Canvas for Petals & Confetti */
+#ceremony-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000000;
+}
+
+/* Main Modal Card */
+.inauguration-card {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  background: linear-gradient(145deg, #4a040d 0%, #2b0207 45%, #150004 100%);
+  border: 2px solid #e2b755;
+  border-radius: 24px;
+  box-shadow: 
+    0 0 30px rgba(226, 183, 85, 0.35),
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    inset 0 0 20px rgba(226, 183, 85, 0.15);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 32px 24px 28px;
+  box-sizing: border-box;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+#inauguration-overlay.active .inauguration-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Gold Frame Pattern Border Accents */
+.inauguration-card::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px dashed rgba(243, 207, 126, 0.4);
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+.card-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: #ffd700;
+  border-style: solid;
+  pointer-events: none;
+}
+.card-corner.top-left { top: 14px; left: 14px; border-width: 3px 0 0 3px; }
+.card-corner.top-right { top: 14px; right: 14px; border-width: 3px 3px 0 0; }
+.card-corner.bottom-left { bottom: 14px; left: 14px; border-width: 0 0 3px 3px; }
+.card-corner.bottom-right { bottom: 14px; right: 14px; border-width: 0 3px 3px 0; }
+
+/* Close Button */
+.ceremony-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  color: #ffd700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.3s ease;
+}
+.ceremony-close-btn:hover {
+  background: #ffd700;
+  color: #4a040d;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Header Badge */
+.ceremony-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: linear-gradient(90deg, rgba(255,215,0,0.15), rgba(255,215,0,0.3), rgba(255,215,0,0.15));
+  border: 1px solid #ffd700;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffe680;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Main Titles */
+.ceremony-title-hi {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(180deg, #fff3a8 0%, #ffd700 50%, #cca300 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 4px 0 2px 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  letter-spacing: 0.5px;
+}
+
+.ceremony-subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: #e0d0b0;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* Brand Display */
+.brand-hero-box {
+  margin: 12px 0;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.brand-main-title {
+  font-family: 'Cinzel', serif;
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.brand-main-title span {
+  color: #ffd700;
+}
+
+.brand-tagline {
+  font-size: 12px;
+  font-weight: 500;
+  color: #dfc888;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Chief Guest Section */
+.chief-guest-card {
+  margin: 18px 0;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(80, 5, 20, 0.7) 0%, rgba(20, 2, 8, 0.8) 100%);
+  border: 1.5px solid #d4af37;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.chief-guest-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffd700;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.chief-guest-name {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 2px 0;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.chief-guest-designation {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffe680;
+  letter-spacing: 1px;
+}
+
+/* Event Info Row (Date & Location) */
+.event-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.info-pill {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-pill i {
+  color: #ffd700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.info-pill .pill-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.info-pill .pill-lbl {
+  font-size: 10px;
+  color: #cfb880;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Ribbon Overlay & Interactive Scissors Section */
+.ribbon-ceremony-stage {
+  position: absolute;
+  top: 48%;
+  left: -20px;
+  right: -20px;
+  height: 90px;
+  transform: translateY(-50%);
+  z-index: 25;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.ribbon-ceremony-stage.completed {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* Ribbon Halves */
+.ribbon-half {
+  position: absolute;
+  top: 50%;
+  width: 52%;
+  height: 48px;
+  background: linear-gradient(180deg, #e60026 0%, #b3001e 50%, #800015 100%);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    inset 0 2px 2px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+  border-top: 2px solid #ffd700;
+  border-bottom: 2px solid #ffd700;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+}
+
+.ribbon-half.left {
+  left: 0;
+  transform-origin: left center;
+  border-radius: 0 4px 4px 0;
+}
+
+.ribbon-half.right {
+  right: 0;
+  transform-origin: right center;
+  border-radius: 4px 0 0 4px;
+}
+
+/* Snipped State Animations */
+.ribbon-ceremony-stage.snipped .ribbon-half.left {
+  transform: rotate(-35deg) translateX(-120px) translateY(40px);
+  opacity: 0;
+}
+
+.ribbon-ceremony-stage.snipped .ribbon-half.right {
+  transform: rotate(35deg) translateX(120px) translateY(40px);
+  opacity: 0;
+}
+
+/* Golden Bow & Scissors Button */
+.scissors-action-wrap {
+  position: absolute;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.scissors-action-wrap:hover {
+  transform: scale(1.1);
+}
+
+.golden-bow-svg {
+  width: 70px;
+  height: 70px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+  animation: bowGlow 2s infinite alternate;
+}
+
+@keyframes bowGlow {
+  0% { filter: drop-shadow(0 0 5px rgba(255,215,0,0.5)); }
+  100% { filter: drop-shadow(0 0 20px rgba(255,215,0,0.9)); }
+}
+
+.scissors-btn {
+  margin-top: -15px;
+  padding: 8px 18px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  border: 2px solid #ffffff;
+  border-radius: 24px;
+  color: #4a040d;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.6);
+  letter-spacing: 0.5px;
+  animation: pulseSnip 1.5s infinite;
+}
+
+@keyframes pulseSnip {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(255, 215, 0, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+.scissors-icon {
+  font-size: 16px;
+  display: inline-block;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+.scissors-action-wrap:hover .scissors-icon {
+  transform: rotate(-10deg) scale(1.2);
+}
+
+/* Action Buttons */
+.ceremony-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  z-index: 20;
+  position: relative;
+}
+
+.btn-ceremony-primary {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #ffd700 0%, #f39c12 100%);
+  border: none;
+  border-radius: 14px;
+  color: #3b0007;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-ceremony-primary:hover {
+  background: linear-gradient(135deg, #ffe033 0%, #ffb300 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+}
+
+.btn-ceremony-secondary {
+  width: 100%;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 14px;
+  color: #ffe680;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-ceremony-secondary:hover {
+  background: rgba(255, 215, 0, 0.15);
+  color: #ffffff;
+  border-color: #ffd700;
+}
+
+/* Floating Reopen Button on Website */
+#reopen-ceremony-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 99998;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #4a040d 0%, #7a0615 100%);
+  border: 2px solid #ffd700;
+  border-radius: 30px;
+  color: #ffd700;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#reopen-ceremony-btn:hover {
+  transform: scale(1.08) translateY(-3px);
+  background: linear-gradient(135deg, #600511 0%, #90081a 100%);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6), 0 0 22px rgba(255, 215, 0, 0.6);
+}
+
+#reopen-ceremony-btn i {
+  font-size: 15px;
+  animation: rotateScissors 3s infinite ease-in-out;
+}
+
+@keyframes rotateScissors {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-25deg); }
+}
+
+/* Media Queries for Mobile Screens */
+@media (max-width: 480px) {
+  .inauguration-card {
+    padding: 24px 16px 20px;
+    border-radius: 20px;
+  }
+
+  .ceremony-title-hi {
+    font-size: 24px;
+  }
+
+  .brand-main-title {
+    font-size: 19px;
+  }
+
+  .chief-guest-name {
+    font-size: 17px;
+  }
+
+  .event-info-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .info-pill .pill-val {
+    font-size: 11px;
+  }
+
+  #reopen-ceremony-btn {
+    bottom: 85px;
+    left: 16px;
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+}
