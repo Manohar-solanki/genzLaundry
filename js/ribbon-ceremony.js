@@ -1,6 +1,7 @@
 /**
  * GEN-Z LAUNDRY - ELEGANT GRAND INAUGURATION & ROYAL CURTAIN CEREMONY
- * Clean Velvet Curtains Reveal, Satin Ribbon Cut, Canvas Flower Petals & Audio Synth
+ * When user taps "Cut Ribbon", curtains part, flower rain cascades over the website, 
+ * and the user seamlessly enters the main website to use it directly!
  */
 
 (function () {
@@ -15,7 +16,7 @@
   function initDOM() {
     if (document.getElementById('inauguration-overlay')) return;
 
-    // Canvas Element for Petals
+    // Canvas Element for Petals Rain (Fixed on top of full screen & website)
     canvas = document.createElement('canvas');
     canvas.id = 'ceremony-canvas';
     document.body.appendChild(canvas);
@@ -79,7 +80,7 @@
         <div class="ribbon-banner-wrap">
           <div class="ribbon-satin-strip"></div>
           <button class="btn-snip-ribbon" id="snip-trigger-btn">
-            <i class="fas fa-cut"></i> <span id="snip-btn-label">Cut Ribbon to Open Stage!</span>
+            <i class="fas fa-cut"></i> <span>TAP TO CUT RIBBON & OPEN STAGE</span>
           </button>
         </div>
 
@@ -87,9 +88,6 @@
           <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Congratulations%20on%20the%20Grand%20Inauguration%20of%20Gen-Z%20Laundry!%20%F0%9F%8E%89%F0%9F%A7%BA" target="_blank" rel="noopener noreferrer" class="btn-action-sec">
             <i class="fab fa-whatsapp"></i> Send Inauguration Wishes
           </a>
-          <button class="btn-action-sec" id="explore-site-btn">
-            <i class="fas fa-globe"></i> Explore Website
-          </button>
         </div>
       </div>
     `;
@@ -104,15 +102,8 @@
 
     // Event Handlers
     document.getElementById('close-ceremony-btn').addEventListener('click', closeOverlay);
-    document.getElementById('explore-site-btn').addEventListener('click', closeOverlay);
     document.getElementById('reopen-ceremony-btn').addEventListener('click', openOverlay);
-    document.getElementById('snip-trigger-btn').addEventListener('click', () => {
-      if (isCut) {
-        replayRibbonCut();
-      } else {
-        triggerRibbonCut();
-      }
-    });
+    document.getElementById('snip-trigger-btn').addEventListener('click', triggerRibbonCutAndEnter);
 
     // Auto open on page load
     setTimeout(() => {
@@ -176,31 +167,26 @@
     }
   }
 
-  // Ribbon Cut & Curtain Slide Trigger
-  function triggerRibbonCut() {
-    const overlay = document.getElementById('inauguration-overlay');
-    if (!overlay || isCut) return;
-
-    isCut = true;
-    overlay.classList.add('curtains-open');
-
-    playFestiveAudio();
-    spawnFlowerShower();
-
-    const label = document.getElementById('snip-btn-label');
-    if (label) label.innerText = '🌸 Replay Flower Ceremony';
-  }
-
-  function replayRibbonCut() {
+  // Trigger Ribbon Cut -> Curtains Slide Open -> Flower Rain -> Enter Website!
+  function triggerRibbonCutAndEnter() {
     const overlay = document.getElementById('inauguration-overlay');
     if (!overlay) return;
 
-    overlay.classList.remove('curtains-open');
-    isCut = false;
+    isCut = true;
 
+    // 1. Slide Curtains Open
+    overlay.classList.add('curtains-open');
+
+    // 2. Play Audio Fanfare & Cut Sound
+    playFestiveAudio();
+
+    // 3. Start Flower Rain over the entire screen & website
+    spawnFlowerShower();
+
+    // 4. Smoothly fade out overlay after curtains part so user enters website directly!
     setTimeout(() => {
-      triggerRibbonCut();
-    }, 200);
+      overlay.classList.remove('active');
+    }, 600);
   }
 
   // Particle Flower Petals & Gold Confetti System
@@ -212,16 +198,16 @@
       '#ffffff', '#fff2a3'             // Jasmine & Gold Sparkles
     ];
 
-    const count = window.innerWidth < 480 ? 80 : 140;
+    const count = window.innerWidth < 480 ? 100 : 180;
 
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
-        y: Math.random() * (canvas.height * 0.3) - (canvas.height * 0.1),
-        size: Math.random() * 12 + 6,
+        y: Math.random() * (canvas.height * 0.4) - (canvas.height * 0.2),
+        size: Math.random() * 13 + 7,
         color: colors[Math.floor(Math.random() * colors.length)],
-        speedY: Math.random() * 3 + 2,
-        speedX: (Math.random() - 0.5) * 2,
+        speedY: Math.random() * 3.5 + 2,
+        speedX: (Math.random() - 0.5) * 2.5,
         rotation: Math.random() * 360,
         rotSpeed: (Math.random() - 0.5) * 5,
         type: Math.random() > 0.4 ? 'petal' : 'confetti',
@@ -273,6 +259,7 @@
   function openOverlay() {
     const overlay = document.getElementById('inauguration-overlay');
     if (overlay) {
+      overlay.classList.remove('curtains-open');
       overlay.classList.add('active');
     }
   }
