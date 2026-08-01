@@ -1,6 +1,7 @@
 /**
- * GEN-Z LAUNDRY - ELEGANT GRAND INAUGURATION & ROYAL CURTAIN CEREMONY
- * Featuring exact store address, velvet curtains reveal, flower rain & audio synth
+ * GEN-Z LAUNDRY - POST-INAUGURATION & CEREMONY ARCHIVE
+ * Grand Inauguration was successfully completed on 1 August 2026.
+ * Auto-popup disabled; ceremony replay available via floating badge.
  */
 
 (function () {
@@ -43,11 +44,11 @@
         <button class="ceremony-close-btn" id="close-ceremony-btn" title="Close Invitation">&times;</button>
 
         <div class="card-top-crest">
-          ✨ GEN-Z OF JODHPUR ✨
+          ✨ GEN-Z LAUNDRY IS NOW OPEN! ✨
         </div>
 
-        <h2 class="card-title-hi">भव्य शुभारंभ</h2>
-        <div class="card-subtitle">CORDIALLY INVITES YOU TO THE GRAND INAUGURATION</div>
+        <h2 class="card-title-hi">भव्य शुभारंभ संपन्न</h2>
+        <div class="card-subtitle">GRAND INAUGURATION CELEBRATED ON 1 AUGUST 2026</div>
 
         <div class="brand-box">
           <h1 class="brand-title-text">GEN-Z <span>LAUNDRY</span> & DRY CLEANER</h1>
@@ -64,9 +65,9 @@
 
         <div class="event-pills-row">
           <div class="pill-card">
-            <i class="fas fa-calendar-star"></i>
+            <i class="fas fa-calendar-check"></i>
             <div class="pill-val">1 August 2026</div>
-            <div class="pill-sub">Saturday</div>
+            <div class="pill-sub">Inaugurated</div>
           </div>
           <div class="pill-card">
             <i class="fas fa-map-marker-alt"></i>
@@ -76,7 +77,7 @@
         </div>
 
         <div class="venue-address-box">
-          <div class="venue-hdr"><i class="fas fa-location-dot"></i> VENUE ADDRESS</div>
+          <div class="venue-hdr"><i class="fas fa-location-dot"></i> STORE LOCATION</div>
           <div class="venue-text">
             2nd floor, Sabji Mandi Circle, Above Mahadev Barf Factory, Ratanada, Jodhpur, Rajasthan (342011)
           </div>
@@ -86,13 +87,13 @@
         <div class="ribbon-banner-wrap">
           <div class="ribbon-satin-strip"></div>
           <button class="btn-snip-ribbon" id="snip-trigger-btn">
-            <i class="fas fa-cut"></i> <span>TAP TO CUT RIBBON & OPEN STAGE</span>
+            <i class="fas fa-cut"></i> <span>REPLAY RIBBON CEREMONY & FLOWER RAIN</span>
           </button>
         </div>
 
         <div class="card-actions-grid">
-          <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Congratulations%20on%20the%20Grand%20Inauguration%20of%20Gen-Z%20Laundry!%20%F0%9F%8E%89%F0%9F%A7%BA" target="_blank" rel="noopener noreferrer" class="btn-action-sec">
-            <i class="fab fa-whatsapp"></i> Send Inauguration Wishes
+          <a href="https://api.whatsapp.com/send/?phone=918233853727&text=Hey%20Gen-Z%20Team!%20%F0%9F%94%A5%20I'd%20like%20to%20book%20a%20laundry%20pickup!%20%F0%9F%A7%BA" target="_blank" rel="noopener noreferrer" class="btn-action-sec">
+            <i class="fab fa-whatsapp"></i> Book Pickup on WhatsApp
           </a>
         </div>
       </div>
@@ -103,18 +104,13 @@
     // Reopen Button on Website
     const reopenBtn = document.createElement('button');
     reopenBtn.id = 'reopen-ceremony-btn';
-    reopenBtn.innerHTML = `<i class="fas fa-ribbon"></i> <span>Grand Inauguration (1 Aug)</span>`;
+    reopenBtn.innerHTML = `<i class="fas fa-ribbon"></i> <span>Inauguration Memories</span>`;
     document.body.appendChild(reopenBtn);
 
     // Event Handlers
     document.getElementById('close-ceremony-btn').addEventListener('click', closeOverlay);
     document.getElementById('reopen-ceremony-btn').addEventListener('click', openOverlay);
     document.getElementById('snip-trigger-btn').addEventListener('click', triggerRibbonCutAndEnter);
-
-    // Auto open on page load
-    setTimeout(() => {
-      openOverlay();
-    }, 400);
   }
 
   function resizeCanvas() {
