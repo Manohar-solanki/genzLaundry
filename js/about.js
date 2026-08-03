@@ -89,6 +89,14 @@
     }
   });
 
+  // ── 3D Visiting Card Flip ──────────────────────
+  const flipCard = document.getElementById('visitingCardFlip');
+  if (flipCard) {
+    flipCard.addEventListener('click', () => {
+      flipCard.classList.toggle('flipped');
+    });
+  }
+
   console.log('📖 GenZ Laundry About Page — loaded');
 
 })();
