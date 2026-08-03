@@ -363,8 +363,15 @@
   display: block;
 }
 
+.ab-story-img-small {
+  max-width: 80%;
+  margin: 0 auto;
+  align-self: center;
+}
+
 .ab-story-img-small .ab-story-img { 
   aspect-ratio: 36 / 41; 
+  max-height: 300px;
   object-fit: cover; 
   object-position: center;
 }
