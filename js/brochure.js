@@ -21,6 +21,7 @@
       const floatBtn = document.createElement('div');
       floatBtn.className = 'brochure-floating-btn';
       floatBtn.id = 'openBrochureBtn';
+      floatBtn.style.display = 'none';
       floatBtn.setAttribute('title', 'View Official Price List & E-Brochure');
       floatBtn.innerHTML = `
         <i class="fas fa-file-invoice"></i>

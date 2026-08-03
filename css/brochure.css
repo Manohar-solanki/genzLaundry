@@ -3,8 +3,9 @@
    Professional, Mobile-Friendly & Desktop-Optimised
    ═══════════════════════════════════════════════════ */
 
-/* Floating E-Brochure Button */
+/* Floating E-Brochure Button (Hidden for now until pricing is finalized) */
 .brochure-floating-btn {
+  display: none !important;
   position: fixed;
   bottom: 105px;
   left: 24px;
