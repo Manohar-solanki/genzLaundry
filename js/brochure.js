@@ -63,7 +63,7 @@
               <!-- PANEL 1: COVER & WHY CHOOSE -->
               <div class="ebrochure-panel">
                 <div class="ebr-brand-cover">
-                  <img src="public/gallery/Logo_Brand_with_name.png" alt="GenZ Laundry Logo" class="ebr-logo" onerror="this.src='public/logo.png'">
+                  <img src="public/logo.png" alt="GenZ Laundry Logo" class="ebr-logo">
                   <h3 class="ebr-brand-title">GEN-Z</h3>
                   <div class="ebr-brand-tagline">LAUNDRY &amp; CLEANERS</div>
                 </div>
