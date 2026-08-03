@@ -1164,7 +1164,13 @@ h1,h2,h3,h4,h5 { font-family: var(--font-heading); font-weight: 700; line-height
   padding: 18px 20px;
 }
 
-.pro-fac-body h4 { color: #93C5FD; font-size: 1rem; margin-bottom: 4px; }
+.pro-fac-body h4,
+.pro-fac-body .pro-fac-title { color: #93C5FD; font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.pro-step .pro-step-title { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.pro-offer-card .pro-offer-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+.pro-footer-links .pro-footer-heading,
+.pro-footer-contact .pro-footer-heading,
+.pro-footer-hours .pro-footer-heading { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 14px; display: block; }
 .pro-fac-body p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
 
 /* ── Reviews — Spotlight Carousel ───────────────── */
