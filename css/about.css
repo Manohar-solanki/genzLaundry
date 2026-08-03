@@ -503,35 +503,27 @@
 }
 
 /* Image slot inside timeline */
-.ab-tl-img-slot { margin-top: 14px; }
-
-.ab-tl-img-placeholder {
-  background: linear-gradient(135deg, #F1F5F9, #E2E8F0);
-  border: 2px dashed #CBD5E1;
-  border-radius: 12px;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: #94A3B8;
+.ab-tl-img-slot {
+  margin-top: 14px;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
 }
-
-.ab-tl-img-placeholder i { font-size: 1.6rem; }
-.ab-tl-img-placeholder span { font-size: 0.78rem; font-weight: 600; }
 
 .ab-tl-real-img {
   width: 100%;
   height: auto;
-  max-height: 240px;
-  object-fit: contain;
-  border-radius: 12px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
   display: block;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 6px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.ab-tl-img-fitted {
+  aspect-ratio: 38 / 41;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Future milestone */
