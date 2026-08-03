@@ -816,15 +816,17 @@
   perspective: 1000px;
   cursor: pointer;
   user-select: none;
-  min-height: 110px;
-  height: 100%;
+  width: 100%;
+  aspect-ratio: 1.78 / 1;
+  min-height: 180px;
+  height: auto;
 }
 
 .ab-flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 110px;
+  min-height: 180px;
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
   transform-style: preserve-3d;
   border-radius: 14px;
@@ -845,13 +847,15 @@
   backface-visibility: hidden;
   border-radius: 14px;
   overflow: hidden;
+  background: #0f172a;
 }
 
 .ab-flip-card-front img,
 .ab-flip-card-back img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: #0f172a;
   display: block;
 }
 
@@ -1088,6 +1092,7 @@
 
   .ab-store-gallery { grid-template-columns: 1fr; }
   .ab-gallery-side { grid-template-rows: auto; grid-template-columns: 1fr 1fr; }
+  .ab-flip-card { grid-column: 1 / -1; aspect-ratio: 1.78 / 1; min-height: 190px; }
   .ab-gallery-main img { height: 240px; }
 
   .ab-store-info { flex-direction: column; gap: 16px; padding: 20px; }
