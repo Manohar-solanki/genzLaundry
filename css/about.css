@@ -364,9 +364,9 @@
 }
 
 .ab-story-img-small .ab-story-img { 
-  aspect-ratio: 16/9; 
-  object-fit: contain; 
-  background: #ffffff; 
+  aspect-ratio: 36 / 41; 
+  object-fit: cover; 
+  object-position: center;
 }
 
 .ab-story-img-caption {
