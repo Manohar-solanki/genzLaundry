@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rate GEN-Z Laundry &amp; Dry Cleaners Jodhpur | 1-Click Google Review</title>
+  <meta name="description" content="Share your 5-star experience with Gen-Z Laundry & Dry Cleaners Jodhpur. 1-Click Google review assistant with pre-crafted authentic review ideas.">
+  <meta name="theme-color" content="#1A73E8">
+
+  <!-- Open Graph / WhatsApp sharing -->
+  <meta property="og:title" content="Rate Your Experience — GEN-Z Laundry & Dry Cleaners Jodhpur">
+  <meta property="og:description" content="Share your love for Gen-Z Laundry on Google in 1 tap! Express pickup, crisp steam iron & fresh clean clothes.">
+  <meta property="og:image" content="public/logo.png">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/png" href="public/logo.png">
+  <link rel="apple-touch-icon" href="public/logo.png">
+
+  <!-- Google Fonts: Roboto & Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --google-blue: #1A73E8;
+      --google-blue-hover: #1557B0;
+      --google-blue-light: #E8F0FE;
+      --google-gold: #FBBC04;
+      --google-green: #34A853;
+      --google-red: #EA4335;
+      --gray-50: #F8F9FA;
+      --gray-100: #F1F3F4;
+      --gray-200: #E8EAED;
+      --gray-300: #DADCE0;
+      --gray-600: #5F6368;
+      --gray-800: #3C4043;
+      --gray-900: #202124;
+      --font-google: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-google);
+      background: linear-gradient(180deg, #EDF2F7 0%, #E2E8F0 100%);
+      color: var(--gray-900);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 12px;
+      line-height: 1.5;
+    }
+
+    /* Ambient background graphic */
+    .bg-decor {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-circle-1 {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26, 115, 232, 0.12) 0%, rgba(26, 115, 232, 0) 70%);
+      top: -100px;
+      right: -100px;
+    }
+    .bg-circle-2 {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(251, 188, 4, 0.12) 0%, rgba(251, 188, 4, 0) 70%);
+      bottom: -120px;
+      left: -120px;
+    }
+
+    /* Main Container */
+    .review-container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 540px;
+      background: #FFFFFF;
+      border-radius: 24px;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(218, 220, 224, 0.8);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Top Google Style Accent Strip */
+    .google-color-bar {
+      height: 4px;
+      width: 100%;
+      display: flex;
+    }
+    .g-bar-blue { flex: 1; background: #4285F4; }
+    .g-bar-red { flex: 1; background: #EA4335; }
+    .g-bar-yellow { flex: 1; background: #FBBC04; }
+    .g-bar-green { flex: 1; background: #34A853; }
+
+    /* Header Section */
+    .card-header {
+      padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--gray-200);
+      background: #FFFFFF;
+    }
+    .brand-logo-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: #FFFFFF;
+      border: 1px solid var(--gray-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+    .brand-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .header-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .business-title {
+      font-family: var(--font-heading);
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .verified-icon {
+      color: var(--google-blue);
+      font-size: 0.95rem;
+    }
+    .business-meta {
+      font-size: 0.8rem;
+      color: var(--gray-600);
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: #FEF3C7;
+      color: #92400E;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+    }
+    .rating-badge i {
+      color: #F59E0B;
+      font-size: 0.72rem;
+    }
+
+    /* Google Star Rating Row */
+    .stars-section {
+      padding: 16px 20px 12px;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      text-align: center;
+    }
+    .stars-prompt {
+      font-size: 0.84rem;
+      color: var(--gray-600);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .stars-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .star-btn {
+      background: none;
+      border: none;
+      font-size: 2.1rem;
+      color: var(--google-gold);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+      filter: drop-shadow(0 2px 4px rgba(251, 188, 4, 0.3));
+    }
+    .star-btn:hover, .star-btn:active {
+      transform: scale(1.18);
+    }
+    .star-status-pill {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--google-blue);
+      background: var(--google-blue-light);
+      padding: 3px 12px;
+      border-radius: 9999px;
+    }
+
+    /* Controls Bar: Language + Shuffle */
+    .controls-bar {
+      padding: 12px 20px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lang-switcher {
+      display: inline-flex;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-300);
+      border-radius: 9999px;
+      padding: 3px;
+    }
+    .lang-tab {
+      background: none;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lang-tab.active {
+      background: #FFFFFF;
+      color: var(--google-blue);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+      font-weight: 700;
+    }
+    .btn-shuffle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1px solid var(--gray-300);
+      color: var(--gray-800);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-shuffle:hover {
+      background: var(--gray-50);
+      border-color: var(--google-blue);
+      color: var(--google-blue);
+    }
+    .btn-shuffle i {
+      color: var(--google-blue);
+      transition: transform 0.3s ease;
+    }
+    .btn-shuffle.rotating i {
+      transform: rotate(360deg);
+    }
+
+    /* Quick Mention Tags (Staff & Services) */
+    .tags-section {
+      padding: 8px 20px 10px;
+    }
+    .tags-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tags-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gray-600);
+      font-weight: 700;
+    }
+    .rotation-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #059669;
+      background: #ECFDF5;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid #A7F3D0;
+    }
+    .rotation-indicator i {
+      font-size: 0.68rem;
+    }
+    .tags-scroll {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tags-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-300);
+      color: var(--gray-800);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 9999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .tag-chip:hover {
+      background: var(--google-blue-light);
+      border-color: #AECBFA;
+      color: var(--google-blue);
+    }
+    .tag-chip.active {
+      background: var(--google-blue);
+      border-color: var(--google-blue);
+      color: #FFFFFF;
+    }
+    .tag-chip.active i {
+      color: #FFFFFF;
+    }
+
+    /* Google Style Textarea Box */
+    .input-section {
+      padding: 4px 20px 16px;
+      position: relative;
+    }
+    .google-input-box {
+      width: 100%;
+      min-height: 120px;
+      max-height: 220px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--gray-300);
+      border-radius: 14px;
+      padding: 14px;
+      font-family: var(--font-google);
+      font-size: 0.94rem;
+      color: var(--gray-900);
+      line-height: 1.55;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .google-input-box:focus {
+      border-color: var(--google-blue);
+      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+    }
+    .input-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: var(--gray-600);
+    }
+    .editable-hint {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #059669;
+      font-weight: 600;
+    }
+
+    /* Primary 1-Click Action Button */
+    .action-section {
+      padding: 0 20px 20px;
+    }
+    .btn-copy-open {
+      width: 100%;
+      background: var(--google-blue);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9999px;
+      padding: 16px 22px;
+      font-family: var(--font-google);
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(26, 115, 232, 0.35);
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-copy-open:hover {
+      background: var(--google-blue-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(26, 115, 232, 0.45);
+    }
+    .btn-copy-open:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+    }
+
+    /* Next Steps Mini Guide */
+    .steps-pill {
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: #1E40AF;
+    }
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--google-blue);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.72rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Direct link backup */
+    .manual-link-row {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .manual-link-row a {
+      color: var(--gray-600);
+      font-size: 0.76rem;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* Footer Credits & Trust */
+    .card-footer {
+      padding: 12px 20px;
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--gray-600);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-links a {
+      color: var(--google-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Toast Notification */
+    .toast-popup {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #202124;
+      color: #FFFFFF;
+      padding: 14px 24px;
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .toast-popup.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    .toast-popup i {
+      color: #34A853;
+      font-size: 1.15rem;
+    }
+
+    /* Confetti Canvas */
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 998;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient background elements -->
+  <div class="bg-decor">
+    <div class="bg-circle-1"></div>
+    <div class="bg-circle-2"></div>
+  </div>
+
+  <!-- Confetti canvas for celebration -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- 1-Click Review Container -->
+  <main class="review-container" role="main">
+
+    <!-- Top 4-Color Google Accent Strip -->
+    <div class="google-color-bar">
+      <div class="g-bar-blue"></div>
+      <div class="g-bar-red"></div>
+      <div class="g-bar-yellow"></div>
+      <div class="g-bar-green"></div>
+    </div>
+
+    <!-- Header Section (Google Maps Business Profile Style) -->
+    <header class="card-header">
+      <div class="brand-logo-wrap">
+        <img src="public/logo.png" alt="Gen-Z Laundry Logo" class="brand-logo-img">
+      </div>
+      <div class="header-info">
+        <h1 class="business-title">
+          GEN-Z Laundry &amp; Dry Cleaners
+          <i class="fas fa-check-circle verified-icon" title="Verified Business on Google"></i>
+        </h1>
+        <div class="business-meta">
+          <span>Sabji Mandi Circle, Ratanada, Jodhpur</span>
+          <span class="rating-badge">
+            <i class="fas fa-star"></i> 5.0 (520+ Reviews)
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 5-Star Rating Section -->
+    <section class="stars-section" aria-label="Review Rating">
+      <div class="stars-prompt">Tap stars to confirm your 5-star experience</div>
+      <div class="stars-row" id="starsRow" role="radiogroup" aria-label="Rating 5 stars">
+        <button type="button" class="star-btn" data-star="1" aria-label="1 star"><i class="fas fa-star"></i></button>
+        <button type="button" class="star-btn" data-star="2" aria-label="2 stars"><i class="fas fa-star"></i></button>
+        <button type="button" class="star-btn" data-star="3" aria-label="3 stars"><i class="fas fa-star"></i></button>
+        <button type="button" class="star-btn" data-star="4" aria-label="4 stars"><i class="fas fa-star"></i></button>
+        <button type="button" class="star-btn" data-star="5" aria-label="5 stars"><i class="fas fa-star"></i></button>
+      </div>
+      <div>
+        <span class="star-status-pill" id="starStatusPill">★★★★★ 5.0 • Loved It!</span>
+      </div>
+    </section>
+
+    <!-- Controls Bar: Language Segment + Shuffle -->
+    <div class="controls-bar">
+      <div class="lang-switcher" role="tablist" aria-label="Review Language">
+        <button type="button" class="lang-tab active" data-lang="en" role="tab" aria-selected="true">English</button>
+        <button type="button" class="lang-tab" data-lang="hi_en" role="tab" aria-selected="false">Hinglish</button>
+        <button type="button" class="lang-tab" data-lang="hi" role="tab" aria-selected="false">हिन्दी</button>
+      </div>
+
+      <button type="button" class="btn-shuffle" id="btnShuffle" title="Get another review draft">
+        <i class="fas fa-dice"></i> Shuffle Draft
+      </button>
+    </div>
+
+    <!-- Quick Mention Staff & Service Tags -->
+    <div class="tags-section">
+      <div class="tags-header-row">
+        <div class="tags-label"><i class="fas fa-tag"></i> Tap to mention team or service:</div>
+        <div class="rotation-indicator">
+          <i class="fas fa-sparkles"></i> 1,000+ Reviews &bull; 30&ndash;40 Words &bull; Fresh on Refresh
+        </div>
+      </div>
+      <div class="tags-scroll" id="tagsScroll">
+        <button type="button" class="tag-chip active" data-tag="delivery">
+          <i class="fas fa-motorcycle"></i> Sawai &amp; Anil (Delivery)
+        </button>
+        <button type="button" class="tag-chip active" data-tag="iron">
+          <i class="fas fa-shirt"></i> Mahi (Steam Iron)
+        </button>
+        <button type="button" class="tag-chip active" data-tag="wash">
+          <i class="fas fa-soap"></i> Mukesh (Wash Expert)
+        </button>
+        <button type="button" class="tag-chip" data-tag="express">
+          <i class="fas fa-bolt"></i> 4-Hour Express
+        </button>
+        <button type="button" class="tag-chip" data-tag="fragrance">
+          <i class="fas fa-spa"></i> Fresh Scent
+        </button>
+        <button type="button" class="tag-chip" data-tag="students">
+          <i class="fas fa-graduation-cap"></i> Student Friendly
+        </button>
+      </div>
+    </div>
+
+    <!-- Google Style Textarea -->
+    <section class="input-section">
+      <textarea id="reviewTextarea" class="google-input-box" rows="4" aria-label="Review Text" placeholder="Share details of your own experience at this place..."></textarea>
+      <div class="input-footer">
+        <span class="editable-hint"><i class="fas fa-pen"></i> Feel free to edit or add your words</span>
+        <span id="charCounter">0 characters</span>
+      </div>
+    </section>
+
+    <!-- 1-Click Primary Action -->
+    <section class="action-section">
+      <button type="button" class="btn-copy-open" id="btnCopyOpen">
+        <i class="fas fa-copy"></i> Copy Review &amp; Open Google Maps
+      </button>
+
+      <!-- Next Steps Guide -->
+      <div class="steps-pill">
+        <div class="step-num">2</div>
+        <div><strong>Final Step:</strong> Just <strong>Paste (Ctrl+V or Long-Press)</strong> in the Google box and tap <strong>Post</strong>!</div>
+      </div>
+
+      <div class="manual-link-row">
+        <a href="https://g.page/r/CR6dLEqv5DZEEAE/review" target="_blank" rel="noopener noreferrer">
+          Opening Google Maps directly? Tap here →
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer Links -->
+    <footer class="card-footer">
+      <div>© 2026 GEN-Z Laundry • Jodhpur</div>
+      <div class="footer-links">
+        <a href="index.html">Website</a>
+        <a href="https://wa.me/918233853727" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Help</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div class="toast-popup" id="toastPopup" role="status" aria-live="polite">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage">Review copied! Opening Google Maps...</span>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════
+    // 1-CLICK GOOGLE REVIEW ASSISTANT: CALIBRATED 30-40 WORD ENGINE
+    // ═══════════════════════════════════════════════════════════════
+    const GOOGLE_REVIEW_URL = 'https://g.page/r/CR6dLEqv5DZEEAE/review';
+
+    // Combinatorial phrase banks calibrated so every review is strictly 30-40 words
+    const PHRASE_BANKS = {
+      en: {
+        openers: [
+          "Best laundry and dry cleaning experience in Jodhpur!",
+          "Had an exceptional experience with Gen-Z Laundry in Jodhpur.",
+          "Truly 5-star garment care right at your doorstep in Jodhpur.",
+          "Hands down the most reliable laundry service in town.",
+          "Super impressed with the speed and hygiene of Gen-Z Laundry!",
+          "Outstanding doorstep garment care by Gen-Z Laundry in Ratanada.",
+          "The most convenient and hassle-free laundry experience in Jodhpur!",
+          "Flawless laundry and dry cleaning experience from start to finish."
+        ],
+        delivery: [
+          "Sawai and Anil arrived within 25 minutes for doorstep pickup.",
+          "Doorstep pickup and delivery was handled seamlessly by Anil and Sawai.",
+          "Sawai collected clothes from my hostel room right on time.",
+          "Anil and Sawai handled delivery with polite, friendly customer care.",
+          "Super punctual doorstep delivery by Sawai and Anil with live updates.",
+          "Sawai and Anil made the whole pickup and drop experience effortless.",
+          "Doorstep collection by Sawai and Anil was punctual and courteous."
+        ],
+        service: [
+          "Mukesh removed tough collar stains, and Mahi steam pressed my formals wrinkle-free.",
+          "Mukesh washed my delicate outfits spotless, and Mahi gave razor-sharp creases.",
+          "Mukesh ensured spotless washing, while Mahi ironed shirts to showroom perfection.",
+          "Mukesh handled stain inspection brilliantly, and Mahi steam pressed everything flawlessly.",
+          "Mukesh took great care of fabrics, and Mahi gave crisp, long-lasting creases."
+        ],
+        closers: [
+          "Clothes smell super fresh. Highly recommended!",
+          "Neatly packed with fresh aroma. Deserves 5 stars!",
+          "Affordable rates and premium service. Must try!",
+          "Will definitely be a regular customer. 5 stars!",
+          "Best team in Jodhpur. 10/10 recommended!"
+        ]
+      },
+      hi_en: {
+        openers: [
+          "Jodhpur me sabse best laundry aur dry cleaning service!",
+          "Gen-Z Laundry ka experience sach me lajawab raha.",
+          "Bhai kya mast doorstep laundry service hai Gen-Z ki!",
+          "Jodhpur me aisi professional laundry pehle kabhi nahi dekhi.",
+          "Hostel students aur families ke liye no. 1 laundry service.",
+          "Ratanada aur pure Jodhpur me sabse fast doorstep laundry."
+        ],
+        delivery: [
+          "Sawai aur Anil ne hostel gate se time pe pickup aur delivery ki.",
+          "Anil aur Sawai ne 30 minute ke andar doorstep collection kiya.",
+          "Sawai time pe kapde le gaya aur agle din deliver kar diya.",
+          "Anil and Sawai ka pickup-drop service ekdum punctual aur polite hai.",
+          "Doorstep pickup bohot fast tha, Sawai aur Anil ne prompt service di."
+        ],
+        service: [
+          "Mukesh bhai ne collar stains hataye aur Mahi ne crisp steam press kiya.",
+          "Mukesh ne kapde naye jaise clean kiye aur Mahi ne sharp creases banayi.",
+          "Mukesh ka spotless wash aur Mahi bhai ki steam pressing dono kamaal hain.",
+          "Inspection Mukesh ji ne dhyan se kiya aur Mahi ne wrinkle-free press kiya."
+        ],
+        closers: [
+          "Kapdo ki khushbu lajawab hai. Full 5 stars!",
+          "Student-friendly rates aur premium quality. Highly recommended!",
+          "Ab se meri saari laundry Gen-Z se hi hogi. Superb team!",
+          "Kapde bilkul showroom jaise mile. 10/10 recommended!"
+        ]
+      },
+      hi: {
+        openers: [
+          "जोधपुर में सबसे बेहतरीन और भरोसेमंद लॉन्ड्री सेवा!",
+          "जेन-ज़ी लॉन्ड्री के साथ मेरा अनुभव बहुत ही शानदार रहा।",
+          "डोरस्टेप लॉन्ड्री के लिए जोधपुर की सबसे उत्तम और तेज टीम।",
+          "छात्रों और परिवारों के लिए सबसे भरोसेमंद सेवा।"
+        ],
+        delivery: [
+          "सवाई और अनिल ने समय पर पिकअप किया।",
+          "अनिल और सवाई की डोरस्टेप डिलीवरी बहुत तेज है।",
+          "सवाई ने हॉस्टल से कपड़े पिकअप किए।",
+          "अनिल और सवाई का व्यवहार बहुत विनम्र है।"
+        ],
+        service: [
+          "मुकेश जी ने कॉलर के दाग हटाए और माही जी ने क्रिस्प स्टीम प्रेसिंग की।",
+          "मुकेश जी की धुलाई बेदाग है और माही जी की प्रेसिंग लाजवाब।",
+          "मुकेश जी ने सफेद कपड़े चमकदार धोए और माही भाई ने क्रीज़ बनाई।",
+          "मुकेश जी ने कपड़े नए जैसे धोए और माही जी ने शानदार प्रेस किया।"
+        ],
+        closers: [
+          "कपड़े खुशबूदार और सुरक्षित मिले। 10/10 स्टार!",
+          "किफायती दाम और 5-स्टार गुणवत्ता। बहुत-बहुत धन्यवाद!",
+          "कपड़ों की खुशबू और पैकिंग बहुत अच्छी है। 5 स्टार!",
+          "जोधपुर में सभी को अवश्य इस्तेमाल करना चाहिए। उत्तम सेवा!"
+        ]
+      }
+    };
+
+    // State management
+    let currentLang = 'en';
+    const activeTags = new Set(['delivery', 'iron', 'wash']);
+
+    const textarea = document.getElementById('reviewTextarea');
+    const charCounter = document.getElementById('charCounter');
+    const btnShuffle = document.getElementById('btnShuffle');
+    const btnCopyOpen = document.getElementById('btnCopyOpen');
+    const toastPopup = document.getElementById('toastPopup');
+    const toastMessage = document.getElementById('toastMessage');
+    const starsRow = document.getElementById('starsRow');
+    const starStatusPill = document.getElementById('starStatusPill');
+
+    // Helper: Pick random item
+    function pickRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    // Helper: Accurate word counter
+    function countWords(str) {
+      return str.trim().split(/\s+/).filter(Boolean).length;
+    }
+
+    // Calibrated Review Generator: Strictly guarantees 30-40 words
+    function generateCalibratedReview(lang, tags) {
+      const bank = PHRASE_BANKS[lang] || PHRASE_BANKS.en;
+
+      for (let attempt = 0; attempt < 50; attempt++) {
+        const o = pickRandom(bank.openers);
+        const d = pickRandom(bank.delivery);
+        const s = pickRandom(bank.service);
+        const c = pickRandom(bank.closers);
+
+        const draft = `${o} ${d} ${s} ${c}`.replace(/\s+/g, ' ').trim();
+        const wc = countWords(draft);
+
+        if (wc >= 30 && wc <= 40) {
+          return draft;
+        }
+      }
+
+      // Default calibrated fallback
+      const o = bank.openers[0];
+      const d = bank.delivery[0];
+      const s = bank.service[0];
+      const c = bank.closers[0];
+      return `${o} ${d} ${s} ${c}`.replace(/\s+/g, ' ').trim();
+    }
+
+    // Refresh review with non-repeating logic across refreshes
+    function refreshReviewDraft() {
+      let draft = generateCalibratedReview(currentLang, activeTags);
+      const lastDraft = sessionStorage.getItem('last_genz_review');
+      let attempts = 0;
+
+      while (draft === lastDraft && attempts < 8) {
+        draft = generateCalibratedReview(currentLang, activeTags);
+        attempts++;
+      }
+
+      sessionStorage.setItem('last_genz_review', draft);
+      textarea.value = draft;
+      updateCharCount();
+    }
+
+    function updateCharCount() {
+      const text = textarea.value.trim();
+      const words = countWords(text);
+      const chars = text.length;
+      charCounter.innerHTML = `<strong>${words} words</strong> &bull; ${chars} characters`;
+    }
+
+    // Language switcher
+    document.querySelectorAll('.lang-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.lang-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        currentLang = tab.getAttribute('data-lang');
+        refreshReviewDraft();
+      });
+    });
+
+    // Shuffle button
+    btnShuffle.addEventListener('click', () => {
+      btnShuffle.classList.add('rotating');
+      setTimeout(() => btnShuffle.classList.remove('rotating'), 350);
+      refreshReviewDraft();
+    });
+
+    // Tag chip toggle
+    document.querySelectorAll('.tag-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const tag = chip.getAttribute('data-tag');
+        if (chip.classList.contains('active')) {
+          chip.classList.remove('active');
+          activeTags.delete(tag);
+        } else {
+          chip.classList.add('active');
+          activeTags.add(tag);
+        }
+        refreshReviewDraft();
+      });
+    });
+
+    // Star rating interaction
+    starsRow.querySelectorAll('.star-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const star = parseInt(btn.getAttribute('data-star'), 10);
+        starsRow.querySelectorAll('.star-btn').forEach(b => {
+          const s = parseInt(b.getAttribute('data-star'), 10);
+          if (s <= star) {
+            b.style.color = '#FBBC04';
+          } else {
+            b.style.color = '#DADCE0';
+          }
+        });
+        starStatusPill.textContent = `★★★★★ ${star}.0 • ${star === 5 ? 'Loved It!' : 'Very Good'}`;
+      });
+    });
+
+    textarea.addEventListener('input', updateCharCount);
+
+    // Toast utility
+    function showToast(msg) {
+      toastMessage.textContent = msg;
+      toastPopup.classList.add('show');
+      setTimeout(() => {
+        toastPopup.classList.remove('show');
+      }, 3500);
+    }
+
+    // Lightweight Confetti Burst Generator
+    function launchConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const pieces = [];
+      const colors = ['#4285F4', '#EA4335', '#FBBC04', '#34A853', '#0B3A8F', '#9333EA'];
+      for (let i = 0; i < 70; i++) {
+        pieces.push({
+          x: canvas.width / 2,
+          y: canvas.height * 0.45,
+          vx: (Math.random() - 0.5) * 14,
+          vy: (Math.random() - 0.7) * 16,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 10
+        });
+      }
+
+      let frame = 0;
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.35; // gravity
+          p.rotation += p.rotationSpeed;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+          ctx.restore();
+        });
+        frame++;
+        if (frame < 75) {
+          requestAnimationFrame(animate);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    // Copy Review & Open Google Maps in 1-Click
+    async function copyAndOpenGoogle() {
+      const reviewText = textarea.value.trim();
+
+      // Step 1: Copy to clipboard
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(reviewText);
+        } else {
+          textarea.select();
+          document.execCommand('copy');
+        }
+      } catch (err) {
+        // Fallback
+        textarea.select();
+        document.execCommand('copy');
+      }
+
+      // Step 2: Confetti burst & Toast
+      launchConfetti();
+      showToast('✓ Review Copied! Opening Google Maps...');
+
+      // Step 3: Open Google Review dialog in a new tab
+      setTimeout(() => {
+        window.open(GOOGLE_REVIEW_URL, '_blank', 'noopener,noreferrer');
+      }, 700);
+    }
+
+    btnCopyOpen.addEventListener('click', copyAndOpenGoogle);
+
+    // Initial load: Generate a brand new review on every page visit/refresh
+    refreshReviewDraft();
+  </script>
+</body>
+</html>

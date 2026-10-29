@@ -3,166 +3,282 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Comprehensive laundry and dry cleaning services in Jaipur. Wash & fold, dry cleaning, ironing, and specialty care for all your garment needs.">
-  <meta name="keywords" content="laundry services, dry cleaning, wash and fold, ironing, specialty care, Jaipur">
-  <title>GenZLaundry - Our Services</title>
-  
+  <title>Our Laundry &amp; Dry Cleaning Services in Jodhpur | Gen-Z Laundry</title>
+  <meta name="description" content="Explore complete laundry and dry cleaning services in Jodhpur: Wash & Fold, Wash & Iron, Dry Cleaning, 6-Hour Express Wash, Shoe Spa, and Sofa Cleaning with free pickup.">
+  <meta name="keywords" content="laundry services jodhpur, dry cleaning jodhpur, shoe cleaning jodhpur, express laundry jodhpur, steam ironing jodhpur, sofa cleaning jodhpur">
+  <link rel="canonical" href="https://genzlaundry.com/services.html">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="public/favicon.png">
+  <meta name="theme-color" content="#0B3A8F">
+
+  <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="icon" type="image/png" href="../public/favicon.png">
-  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/blue-city-theme.css?v=3.4">
 </head>
 <body>
-  <header>
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
     <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">
-          <img src="../public/logo.png" alt="GenZLaundry Logo" class="logo-img">
-          <span data-i18n="meta.siteName">GenZLaundry</span>
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="nav-brand">
+          <img src="public/logo.png" alt="Gen-Z Laundry Logo" class="nav-logo">
+          <div class="nav-brand-text">
+            <span class="nav-brand-name">Gen-Z Laundry</span>
+            <span class="nav-brand-sub">&amp; Dry Cleaners</span>
+          </div>
         </a>
-        
-        <nav id="main-nav">
-          <ul>
-            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-            <li><a href="services.html" data-i18n="nav.services" class="active">Services</a></li>
-            <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
-            <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
-            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
-            <li><a href="about.html" data-i18n="nav.about">About</a></li>
-            <li><a href="booking.html" class="btn btn-primary btn-sm" data-i18n="common.bookPickup">Book Pickup</a></li>
-          </ul>
-        </nav>
-        
-        <div class="language-toggle"></div>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
-      </div>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="index.html#tourists" class="nav-link tourist-pill"><i class="fas fa-plane-departure"></i> For Tourists</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="journey.html" class="nav-link">Our Journey</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
+            <i class="fab fa-whatsapp"></i> WhatsApp Us
+          </a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 data-i18n="services.title">Our Services</h1>
-        <p class="hero-subtitle" data-i18n="services.subtitle">Comprehensive garment care solutions</p>
-      </div>
+  <!-- Hero -->
+  <section class="section" style="background: linear-gradient(135deg, #EAF3FF 0%, #DBEAFE 100%); padding: 60px 0;">
+    <div class="container text-center" style="text-align: center;">
+      <span class="section-tag"><i class="fas fa-sparkles"></i> Comprehensive Fabric Care</span>
+      <h1 class="section-title">Our Services in Jodhpur</h1>
+      <p class="section-subtitle">
+        From daily t-shirts to royal Rajasthani bridal attire and luxury hotel linens � we deliver immaculate cleanliness, fresh scent, and sharp finish with free doorstep pickup.
+      </p>
     </div>
   </section>
 
+  <!-- Detailed Services Grid -->
   <section class="section">
     <div class="container">
-      <div class="services-grid" id="services-detail">
-        <!-- Services will be populated by JavaScript -->
+      <div class="services-grid">
+        <!-- 1: Wash & Fold -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-wrap"><i class="fas fa-tshirt"></i></div>
+            <span class="service-badge">Starts ?30/pc</span>
+          </div>
+          <h3>Wash &amp; Fold</h3>
+          <p class="service-desc">
+            Gentle washing in soft water with fabric conditioner, hygienic drying, and neat boutique folding ready for your suitcase or wardrobe.
+          </p>
+          <div class="service-price-hint">Best for daily casuals, travel shirts, pajamas, gym wear.</div>
+          <div class="service-footer">
+            <a href="laundry-service-jodhpur.html" class="service-link">Full Details <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/918233853727?text=Hi!%20I%20want%20to%20book%20Wash%20%26%20Fold%20service." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Book</a>
+          </div>
+        </div>
+
+        <!-- 2: Wash & Iron -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-wrap"><i class="fas fa-vest-patches"></i></div>
+            <span class="service-badge">Starts ?40/pc</span>
+          </div>
+          <h3>Wash &amp; Steam Iron</h3>
+          <p class="service-desc">
+            Complete washing cycle combined with professional vacuum steam table ironing for crisp collars, sharp pleats, and zero burn marks.
+          </p>
+          <div class="service-price-hint">Ideal for formal shirts, trousers, kurtis, and office wear.</div>
+          <div class="service-footer">
+            <a href="index.html#pricing" class="service-link">View Rates <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/918233853727?text=Hi!%20I%20want%20to%20book%20Wash%20%26%20Iron%20service." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Book</a>
+          </div>
+        </div>
+
+        <!-- 3: Dry Cleaning -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-wrap"><i class="fas fa-user-tie"></i></div>
+            <span class="service-badge badge-premium">Starts ?79/pc</span>
+          </div>
+          <h3>Premium Dry Cleaning</h3>
+          <p class="service-desc">
+            Hydrocarbon gentle solvent cleaning for ethnic poshaks, silk sarees, blazers, heavy lehengas, sherwanis, and woolens without fading colors.
+          </p>
+          <div class="service-price-hint">Individually inspected and hand-finished by master cleaners.</div>
+          <div class="service-footer">
+            <a href="dry-cleaning-jodhpur.html" class="service-link">Dry Clean Info <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/918233853727?text=Hi!%20I%20want%20to%20book%20Dry%20Cleaning." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Book</a>
+          </div>
+        </div>
+
+        <!-- 4: Express Laundry -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-wrap"><i class="fas fa-bolt"></i></div>
+            <span class="service-badge badge-urgent">? 4 to 6 Hours</span>
+          </div>
+          <h3>Express Service</h3>
+          <p class="service-desc">
+            Lightning-fast wash, dry, and steam press service for urgent travelers catching flights, trains, or attending wedding ceremonies in Jodhpur.
+          </p>
+          <div class="service-price-hint">Priority queue with same-day guaranteed return.</div>
+          <div class="service-footer">
+            <a href="https://wa.me/918233853727?text=Hi!%20I%20need%20Express%20Laundry%20Service%20urgently." target="_blank" rel="noopener noreferrer" class="service-link">Express Support <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/918233853727?text=Hi!%20I%20need%20Express%20Laundry%20Service%20urgently." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Urgent</a>
+          </div>
+        </div>
+
+        <!-- 5: Shoe Cleaning & Spa -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-wrap"><i class="fas fa-shoe-prints"></i></div>
+            <span class="service-badge">From ?199/pair</span>
+          </div>
+          <h3>Shoe Cleaning &amp; Restoration</h3>
+          <p class="service-desc">
+            Ultrasonic and steam shoe spa for sneakers, leather boots, trekking shoes, and loafers. Midsole whitening, sanitization, and deodorizing.
+          </p>
+          <div class="service-price-hint">Restores sneakers from Jodhpur desert dust &amp; mud.</div>
+          <div class="service-footer">
+            <a href="shoe-cleaning-jodhpur.html" class="service-link">Shoe Spa Info <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/918233853727?text=Hi!%20I%20want%20to%20book%20Shoe%20Cleaning." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Book</a>
+          </div>
+        </div>
+
+        <!-- 6: Sofa & Upholstery Cleaning -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-wrap"><i class="fas fa-couch"></i></div>
+            <span class="service-badge">From ?499</span>
+          </div>
+          <h3>Sofa &amp; Carpet Cleaning</h3>
+          <p class="service-desc">
+            On-site injection-extraction shampooing for home and hotel sofas, armchairs, Persian rugs, carpets, and blackout drapery.
+          </p>
+          <div class="service-price-hint">Removes deep allergens, dust mites, and persistent spots.</div>
+          <div class="service-footer">
+            <a href="sofa-cleaning-jodhpur.html" class="service-link">Upholstery Info <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/918233853727?text=Hi!%20I%20want%20to%20book%20Sofa%20Cleaning." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Book</a>
+          </div>
+        </div>
+
+        <!-- 7: Steam Ironing -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-wrap"><i class="fas fa-temperature-high"></i></div>
+            <span class="service-badge">From ?20/pc</span>
+          </div>
+          <h3>Commercial Steam Ironing</h3>
+          <p class="service-desc">
+            Industrial Italian boiler steam presses that eliminate stubborn wrinkles while preserving fabric fibers and giving a crisp professional look.
+          </p>
+          <div class="service-price-hint">Safe for synthetic, cotton, linen, silk &amp; rayon.</div>
+          <div class="service-footer">
+            <a href="pricing.html" class="service-link">Rates <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/918233853727?text=Hi!%20I%20want%20to%20book%20Steam%20Ironing." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Book</a>
+          </div>
+        </div>
+
+        <!-- 8: Hotel & B2B Solutions -->
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon-wrap"><i class="fas fa-hotel"></i></div>
+            <span class="service-badge badge-premium">B2B Partner</span>
+          </div>
+          <h3>Hotel &amp; Resort Solutions</h3>
+          <p class="service-desc">
+            Dedicated bulk laundry services for Jodhpur heritage hotels, luxury resorts, boutique homestays, and Airbnbs. Guest laundry &amp; bed linen contracts.
+          </p>
+          <div class="service-price-hint">Custom pickup schedules, invoicing &amp; volume discounts.</div>
+          <div class="service-footer">
+            <a href="hotel-laundry-service-jodhpur.html" class="service-link">B2B Solutions <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/918233853727?text=Hi!%20We%20want%20to%20discuss%20Hotel/B2B%20Laundry%20Partnership." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Contact</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background-color: var(--color-bg-alt);">
+  <!-- CTA Banner -->
+  <section class="final-cta-section">
     <div class="container">
-      <div class="text-center">
-        <h2 data-i18n="home.ctaTitle">Ready to Get Started?</h2>
-        <p class="section-subtitle" data-i18n="home.ctaDescription">Book your pickup today and experience premium laundry service.</p>
-        <div style="margin-top: 2rem;">
-          <a href="booking.html" class="btn btn-primary btn-lg" data-i18n="common.bookPickup">Book Pickup</a>
-        </div>
+      <div class="final-cta-banner">
+        <h2>Ready for Fresh, Clean Clothes?</h2>
+        <p>Book online in 30 seconds or WhatsApp our Jodhpur operations team directly.</p>
+        <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20pickup." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+          <i class="fab fa-whatsapp"></i> Book via WhatsApp Now
+        </a>
       </div>
     </div>
   </section>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4 data-i18n="meta.siteName">GenZLaundry</h4>
-          <p data-i18n="footer.description">Premium laundry and dry cleaning service in Jaipur. Professional garment care delivered to your doorstep.</p>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name"><i class="fas fa-tshirt" style="color:var(--color-accent-blue);"></i> Gen-Z Laundry</div>
+          <p class="footer-desc">Jodhpur's premier express laundry &amp; dry cleaners with free pickup &amp; delivery.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/genzlaundryjodhpur/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/918233853727" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+918233853727" class="social-btn" aria-label="Phone"><i class="fas fa-phone"></i></a>
+          </div>
         </div>
-        
-        <div class="footer-section">
-          <h4 data-i18n="footer.quickLinks">Quick Links</h4>
-          <ul>
-            <li><a href="services.html" data-i18n="footer.services">Services</a></li>
-            <li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li>
-            <li><a href="about.html" data-i18n="footer.about">About</a></li>
-            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service-areas.html">Service Areas</a></li>
           </ul>
         </div>
-        
-        <div class="footer-section">
-          <h4 data-i18n="common.contactUs">Contact Us</h4>
-          <ul>
-            <li><a href="tel:+918233853727" data-i18n="common.phone">Phone</a>: +91 8233853727</li>
-            <li><a href="https://wa.me/8233853727" target="_blank" data-i18n="common.whatsapp">WhatsApp</a></li>
-            <li><a href="mailto:newgenzlaundry@gmail.com" data-i18n="common.email">Email</a>: newgenzlaundry@gmail.com</li>
-            <li><a href="https://www.instagram.com/genzlaundryjodhpur/" target="_blank" rel="noopener noreferrer" class="footer-instagram"><i class="fab fa-instagram"></i> @genzlaundryjodhpur</a></li>
+        <div>
+          <div class="footer-heading">Garment Care</div>
+          <ul class="footer-links">
+            <li><a href="dry-cleaning-jodhpur.html">Dry Cleaning</a></li>
+            <li><a href="laundry-service-jodhpur.html">Wash &amp; Fold</a></li>
+            <li><a href="shoe-cleaning-jodhpur.html">Shoe Spa</a></li>
+            <li><a href="carpet-cleaning-jodhpur.html">Carpet Cleaning</a></li>
+            <li><a href="sofa-cleaning-jodhpur.html">Sofa Cleaning</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Store Location</div>
+          <ul class="footer-contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> Ratanada, Jodhpur, Rajasthan 342011</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+918233853727" style="color:#CBD5E1;">+91 82338 53727</a></li>
+            <li><i class="fas fa-clock"></i> Open 24/7 round the clock</li>
           </ul>
         </div>
       </div>
-      
       <div class="footer-bottom">
-        <p data-i18n="footer.copyright">© 2025 GenZLaundry. All rights reserved.</p>
+        <p>&copy; 2026 Gen-Z Laundry &amp; Dry Cleaners, Jodhpur. All rights reserved.</p>
+        <p><a href="https://www.linkedin.com/in/mr-manohar-solanki/" target="_blank" rel="noopener noreferrer">Designed &amp; Developed by Manohar Solanki</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="js/i18n.js"></script>
-  <script src="js/language-toggle.js"></script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      function loadServices() {
-        if (typeof i18n === 'undefined') return;
-        
-        const container = document.getElementById('services-detail');
-        if (!container) return;
-        
-        const lang = i18n.getLanguage();
-        const categories = i18n.content[lang]?.services?.categories || {};
-        
-        const services = [
-          { key: 'washFold', icon: '🧺' },
-          { key: 'dryCleaning', icon: '👔' },
-          { key: 'ironing', icon: '✨' },
-          { key: 'specialty', icon: '🎨' }
-        ];
-        
-        container.innerHTML = services.map(service => {
-          const data = categories[service.key];
-          if (!data) return '';
-          
-          return `
-            <div class="service-card">
-              <div class="service-icon">${service.icon}</div>
-              <h3>${data.title}</h3>
-              <p style="margin-bottom: 1.5rem;">${data.description}</p>
-              <ul style="text-align: left; list-style: none; margin-bottom: 1rem;">
-                ${data.features.map(feature => `<li style="padding: 0.5rem 0; border-bottom: 1px solid var(--color-border-light);">✓ ${feature}</li>`).join('')}
-              </ul>
-              <p style="font-weight: 600; color: var(--color-primary); margin-top: 1rem;">${data.priceNote}</p>
-            </div>
-          `;
-        }).join('');
-      }
-      
-      setTimeout(loadServices, 200);
-      if (typeof i18n !== 'undefined') {
-        i18n.onLanguageChange(loadServices);
-      }
-    });
+  <!-- Floating Buttons -->
+  <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20pickup." class="floating-wa" target="_blank" rel="noopener noreferrer" title="WhatsApp Us" aria-label="WhatsApp Us">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="tel:+918233853727" class="floating-call" title="Call Us" aria-label="Call Us">
+    <i class="fas fa-phone"></i>
+  </a>
 
-    // Mobile menu toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.querySelector('.mobile-menu-toggle');
-      const nav = document.getElementById('main-nav');
-      if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
-      }
-    });
-  </script>
+  <script src="js/blue-city.js"></script>
 </body>
 </html>
-
-
-
-
-

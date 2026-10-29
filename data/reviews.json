@@ -1,0 +1,84 @@
+{
+  "ratingSummary": {
+    "average": 4.9,
+    "maxRating": 5.0,
+    "totalReviews": "90+",
+    "source": "Google Business Profile",
+    "verified": true,
+    "badge": "Jodhpur's #1 Rated Laundry Service"
+  },
+  "reviews": [
+    {
+      "id": "rev-1",
+      "author": "Arvind Gadri",
+      "rating": 5,
+      "date": "Recent",
+      "source": "Google Review",
+      "verified": true,
+      "avatarText": "AG",
+      "avatarColor": "#2563EB",
+      "text": "Excellent laundry service. Clothes were perfectly cleaned and delivery was on time. Very professional and affordable. Highly recommended for both locals and visitors.",
+      "tag": "Wash & Fold"
+    },
+    {
+      "id": "rev-2",
+      "author": "Kaushal Kumar",
+      "rating": 5,
+      "date": "Recent",
+      "source": "Google Review",
+      "verified": true,
+      "avatarText": "KK",
+      "avatarColor": "#10B981",
+      "text": "They collect clothes from hostels and rooms, and next day the clothes are clean and fully ironed. Great job — highly recommended for students and travelers!",
+      "tag": "Hostel / Room Pickup"
+    },
+    {
+      "id": "rev-3",
+      "author": "Dhanraj Prajapat",
+      "rating": 5,
+      "date": "Recent",
+      "source": "Google Review",
+      "verified": true,
+      "avatarText": "DP",
+      "avatarColor": "#F59E0B",
+      "text": "Premium quality and professional laundry with same-day delivery. Really very appreciative. The fragrance after washing is wonderful!",
+      "tag": "Express Delivery"
+    },
+    {
+      "id": "rev-4",
+      "author": "Anil Solanki",
+      "rating": 5,
+      "date": "Recent",
+      "source": "Google Review",
+      "verified": true,
+      "avatarText": "AS",
+      "avatarColor": "#0B3A8F",
+      "text": "The fragrance after wash is so good and wash quality is the best in Jodhpur. I will never go anywhere else for laundry!",
+      "tag": "Garment Care"
+    },
+    {
+      "id": "rev-5",
+      "author": "Rohit Vyas",
+      "rating": 5,
+      "date": "Recent",
+      "source": "Google Review",
+      "verified": true,
+      "avatarText": "RV",
+      "avatarColor": "#8B5CF6",
+      "text": "Good service and affordable price. Very friendly staff. I have been using this laundry service for months and never disappointed.",
+      "tag": "Dry Cleaning"
+    },
+    {
+      "id": "rev-6",
+      "author": "Hitesh Chaudhari",
+      "rating": 5,
+      "date": "Recent",
+      "source": "Google Review",
+      "verified": true,
+      "avatarText": "HC",
+      "avatarColor": "#059669",
+      "text": "Best service in town. The pickup and delivery is so convenient. Jodhpur's first quick laundry with best wash quality!",
+      "tag": "Pickup & Delivery"
+    }
+  ]
+}

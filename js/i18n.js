@@ -526,10 +526,10 @@ class I18nSystem {
     }
 
     createLanguageToggle() {
-        const header = document.querySelector('.nav-menu');
-        if (!header) return;
+        return; // Language toggle button removed as requested
+    }
 
-        const langToggle = document.createElement('li');
+    _disabled_createLanguageToggle() {
         langToggle.className = 'language-toggle';
         langToggle.innerHTML = `
             <button class="lang-switch" aria-label="Toggle Language">

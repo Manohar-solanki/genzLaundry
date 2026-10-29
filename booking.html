@@ -1,541 +1,320 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Book your laundry service pickup. Fill in the details and we'll get in touch to confirm your booking.">
-  <meta name="keywords" content="book laundry, laundry pickup, schedule pickup">
-  <title>>GenZLaundry - Book Your Service</title>
+  <meta name="description" content="Book your laundry and dry cleaning pickup in Jodhpur. Free door-to-door pickup & delivery across all Jodhpur localities, hotels, and hostels.">
+  <meta name="keywords" content="book laundry jodhpur, laundry pickup jodhpur, dry cleaning pickup, express laundry service">
+  <title>Book Pickup | Gen-Z Laundry &amp; Dry Cleaners Jodhpur</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <link rel="icon" type="image/png" href="../public/favicon.png">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="public/logo.png">
+  <link rel="stylesheet" href="css/blue-city-theme.css?v=3.4">
 </head>
 <body>
-  <header>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar" id="topAnnouncement">
+    <div class="container announcement-inner">
+      <span><i class="fas fa-bolt"></i> <strong>Express Pickup across Jodhpur:</strong> Free door-to-door delivery within 4�6 hrs!</span>
+      <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20schedule%20an%20urgent%20pickup." target="_blank" rel="noopener noreferrer" class="announcement-link">Book on WhatsApp &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header" id="siteHeader">
     <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">
-          <img src="../public/logo.png" alt="GenZLaundry Logo" class="logo-img">
-          <span data-i18n="meta.siteName">GenZLaundry</span>
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="nav-brand">
+          <img src="public/logo.png" alt="Gen-Z Laundry Logo" class="nav-logo">
+          <div class="nav-brand-text">
+            <span class="nav-brand-name">Gen-Z Laundry</span>
+            <span class="nav-brand-sub">&amp; Dry Cleaners</span>
+          </div>
         </a>
-        
-        <nav id="main-nav">
-          <ul>
-            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-            <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
-            <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
-            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
-            <li><a href="about.html" data-i18n="nav.about">About</a></li>
-            <li><a href="booking.html" class="btn btn-primary btn-sm" data-i18n="common.bookPickup" style="pointer-events: none;">Book Pickup</a></li>
-          </ul>
-        </nav>
-        
-        <div class="language-toggle"></div>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
-      </div>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="index.html#tourists" class="nav-link tourist-pill"><i class="fas fa-plane-departure"></i> For Tourists</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="service-areas.html" class="nav-link">Coverage</a></li>
+          <li><a href="journey.html" class="nav-link">Our Journey</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20pickup." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
+            <i class="fab fa-whatsapp"></i> WhatsApp Us
+          </a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
     </div>
   </header>
-<!-- Floating Contact Buttons -->
-<div class="floating-buttons">
-  <a href="tel:+918233853727" class="btn-floating btn-call" title="Call Us">
-    <i class="fas fa-phone"></i>
-    <span class="btn-tooltip">Call Us Now</span>
-  </a>
-  <a href="https://wa.me/8233853727" target="_blank" class="btn-floating btn-whatsapp" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-    <span class="btn-tooltip">Chat on WhatsApp</span>
-  </a>
-</div>
 
-<style>
-.floating-buttons {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
+  <!-- Page Banner -->
+  <section class="section" style="background:linear-gradient(180deg, #EAF3FF 0%, #FFFFFF 100%); padding: 60px 0 40px;">
+    <div class="container text-center">
+      <span class="badge-blue"><i class="fas fa-calendar-check"></i> Instant Booking</span>
+      <h1 style="margin: 16px 0 12px; font-size: clamp(2rem, 4vw, 2.8rem);">Schedule Your Pickup in Jodhpur</h1>
+      <p style="max-width: 650px; margin: 0 auto; color: var(--color-text-muted); font-size: 1.05rem;">
+        Fill in your details below and we will confirm your pickup immediately on WhatsApp. Zero hassle, hotel/hostel door pickup, and express delivery available.
+      </p>
+    </div>
+  </section>
 
-.btn-floating {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  color: white;
-  font-size: 24px;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.btn-floating:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.btn-call {
-  background: linear-gradient(135deg, #3498db, #2980b9);
-}
-
-.btn-whatsapp {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-}
-
-.btn-tooltip {
-  position: absolute;
-  right: 70px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 14px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-
-.btn-floating:hover .btn-tooltip {
-  opacity: 1;
-}
-
-.btn-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -5px;
-  transform: translateY(-50%);
-  border-width: 5px 0 5px 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
-}
-
-@media (max-width: 768px) {
-  .floating-buttons {
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .btn-floating {
-    width: 55px;
-    height: 55px;
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 480px) {
-  .floating-buttons {
-    bottom: 15px;
-    right: 15px;
-  }
-  
-  .btn-floating {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-  }
-  
-  .btn-tooltip {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-}
-</style>
-
-<!-- Make sure Font Awesome is included in your head section -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- end of addition -->
-  <section class="hero">
+  <!-- Booking Form & Info Grid -->
+  <section class="section" style="padding-top: 10px;">
     <div class="container">
-      <div class="hero-content">
-        <h1 data-i18n="booking.title">Book Your Service</h1>
-        <p class="hero-subtitle" data-i18n="booking.subtitle">Fill in the details and we'll get in touch</p>
+      <div class="booking-grid">
+        
+        <!-- Left Column: Quick Info -->
+        <div class="booking-info-card">
+          <h3 style="font-size: 1.4rem; margin-bottom: 24px; color: var(--color-primary-deep);">Why Book With Us?</h3>
+          
+          <div class="booking-info-item">
+            <div class="booking-info-icon"><i class="fas fa-truck"></i></div>
+            <div>
+              <strong>Free Doorstep Pickup &amp; Delivery</strong>
+              <p>We collect and deliver anywhere in Jodhpur including hotels, guest houses, and hostels.</p>
+            </div>
+          </div>
+
+          <div class="booking-info-item">
+            <div class="booking-info-icon"><i class="fas fa-bolt"></i></div>
+            <div>
+              <strong>Express 4�6 Hour Service</strong>
+              <p>Catching a train or flight? Let us know in instructions and get priority rapid turnaround.</p>
+            </div>
+          </div>
+
+          <div class="booking-info-item">
+            <div class="booking-info-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <strong>Eco-Friendly &amp; Fabric-Safe</strong>
+              <p>RO water washing, pH-balanced detergents, and anti-bacterial hygiene for all clothes.</p>
+            </div>
+          </div>
+
+          <div class="booking-info-item">
+            <div class="booking-info-icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <strong>Prefer Instant Chat?</strong>
+              <p>You can also message us directly on WhatsApp without filling any form:</p>
+              <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20pickup%20right%20now." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" style="margin-top: 10px; display: inline-flex;">
+                <i class="fab fa-whatsapp"></i> Message +91 82338 53727
+              </a>
+            </div>
+          </div>
+
+          <div style="margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--color-border-subtle);">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <i class="fas fa-phone-alt" style="color:var(--color-primary-bright); font-size:1.3rem;"></i>
+              <div>
+                <strong style="color:var(--color-primary-deep); font-size:0.9rem;">Need Immediate Assistance?</strong>
+                <div><a href="tel:+918233853727" style="color:var(--color-primary-bright); font-weight:700; font-size:1.05rem;">+91 82338 53727</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Booking Form -->
+        <div class="booking-form-card">
+          <h3>Pickup Request Form</h3>
+          <p>Please enter your contact details and address below:</p>
+          
+          <form id="booking-form" class="booking-form" method="POST" data-action="">
+            
+            <div class="form-group">
+              <label for="name" class="form-label">
+                <span data-i18n="booking.form.name">Full Name</span> <span style="color:#DC2626;">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form-input" 
+                required
+                data-i18n-placeholder="booking.form.namePlaceholder"
+                placeholder="Enter your full name"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-label">
+                <span data-i18n="booking.form.phone">Phone / WhatsApp Number</span> <span style="color:#DC2626;">*</span>
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                class="form-input" 
+                required
+                pattern="[0-9]{10,12}"
+                data-i18n-placeholder="booking.form.phonePlaceholder"
+                placeholder="e.g. 8233853727"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">
+                <span data-i18n="booking.form.email">Email Address (Optional)</span>
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input"
+                data-i18n-placeholder="booking.form.emailPlaceholder"
+                placeholder="name@example.com"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="address" class="form-label">
+                <span data-i18n="booking.form.address">Pickup Address / Hotel &amp; Room No.</span> <span style="color:#DC2626;">*</span>
+              </label>
+              <textarea 
+                id="address" 
+                name="address" 
+                class="form-textarea" 
+                required
+                rows="3"
+                data-i18n-placeholder="booking.form.addressPlaceholder"
+                placeholder="e.g. Hotel Haveli, Room 204, Makrana Mohalla, Jodhpur"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="service" class="form-label">
+                <span data-i18n="booking.form.service">Service Required</span> <span style="color:#DC2626;">*</span>
+              </label>
+              <select id="service" name="service" class="form-select" required>
+                <option value="" data-i18n="booking.form.servicePlaceholder">Select a service</option>
+                <option value="Wash & Fold">Wash &amp; Fold (Laundry)</option>
+                <option value="Wash & Iron">Wash &amp; Steam Iron</option>
+                <option value="Dry Cleaning">Premium Dry Cleaning</option>
+                <option value="Express Laundry">Express Laundry (6-Hour)</option>
+                <option value="Shoe Cleaning">Shoe Spa &amp; Cleaning</option>
+                <option value="Steam Ironing">Steam Ironing Only</option>
+                <option value="Sofa Cleaning">Sofa &amp; Upholstery Care</option>
+                <option value="Blanket Cleaning">Blanket &amp; Quilt Cleaning</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="preferredTime" class="form-label">
+                <span data-i18n="booking.form.preferredTime">Preferred Pickup Slot</span>
+              </label>
+              <select id="preferredTime" name="preferredTime" class="form-select">
+                <option value="" data-i18n="booking.form.preferredTimePlaceholder">Select preferred time</option>
+                <option value="Morning (9 AM - 12 PM)">Morning (9:00 AM - 12:00 PM)</option>
+                <option value="Afternoon (12 PM - 4 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
+                <option value="Evening (4 PM - 8 PM)">Evening (4:00 PM - 8:00 PM)</option>
+                <option value="Urgent Express (Within 2 Hours)">Urgent Express (Within 2 Hours)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="instructions" class="form-label">
+                <span data-i18n="booking.form.instructions">Special Instructions (Optional)</span>
+              </label>
+              <textarea 
+                id="instructions" 
+                name="instructions" 
+                class="form-textarea" 
+                rows="3"
+                data-i18n-placeholder="booking.form.instructionsPlaceholder"
+                placeholder="e.g. Please handle silk gently, need back by tomorrow 10 AM, etc."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-doorstep-whatsapp" data-i18n="booking.form.submit">
+              <span class="btn-wa-icon-glow">
+                <i class="fab fa-whatsapp"></i>
+              </span>
+              <span class="btn-wa-text-group">
+                <span class="btn-wa-title">Confirm &amp; Book on WhatsApp</span>
+                <span class="btn-wa-sub">? Instant Confirmation &bull; Free Pickup &amp; Delivery</span>
+              </span>
+            </button>
+            <p style="font-size: 0.8rem; text-align: center; color: var(--color-text-muted); margin-top: 10px;">
+              Submitting opens WhatsApp with your pre-filled request to our direct dispatch team.
+            </p>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- Footer -->
+  <footer class="site-footer">
     <div class="container">
-      <div style="max-width: 700px; margin: 0 auto;">
-        <form id="booking-form" class="booking-form" method="POST" data-action="">
-          <div class="form-group">
-            <label for="name" class="form-label">
-              <span data-i18n="booking.form.name">Full Name</span>
-              <span class="required">*</span>
-            </label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              class="form-input" 
-              required
-              data-i18n-placeholder="booking.form.namePlaceholder"
-              placeholder="Enter your full name"
-            >
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name"><i class="fas fa-tshirt" style="color:var(--color-accent-blue);"></i> Gen-Z Laundry</div>
+          <p class="footer-desc">Jodhpur's premier express laundry &amp; dry cleaners with free pickup &amp; delivery.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/genzlaundryjodhpur/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/918233853727" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+918233853727" class="social-btn" aria-label="Phone"><i class="fas fa-phone"></i></a>
           </div>
-
-          <div class="form-group">
-            <label for="phone" class="form-label">
-              <span data-i18n="booking.form.phone">Phone Number</span>
-              <span class="required">*</span>
-            </label>
-            <input 
-              type="tel" 
-              id="phone" 
-              name="phone" 
-              class="form-input" 
-              required
-              pattern="[6-9][0-9]{9}"
-              maxlength="10"
-              data-i18n-placeholder="booking.form.phonePlaceholder"
-              placeholder="Enter your 10-digit mobile number"
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="email" class="form-label">
-              <span data-i18n="booking.form.email">Email (Optional)</span>
-            </label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              class="form-input"
-              data-i18n-placeholder="booking.form.emailPlaceholder"
-              placeholder="Enter your email"
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="address" class="form-label">
-              <span data-i18n="booking.form.address">Pickup Address</span>
-              <span class="required">*</span>
-            </label>
-            <textarea 
-              id="address" 
-              name="address" 
-              class="form-textarea" 
-              required
-              rows="3"
-              data-i18n-placeholder="booking.form.addressPlaceholder"
-              placeholder="Enter your complete address"
-            ></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="service" class="form-label">
-              <span data-i18n="booking.form.service">Service Required</span>
-              <span class="required">*</span>
-            </label>
-            <select id="service" name="service" class="form-select" required>
-              <option value="" data-i18n="booking.form.servicePlaceholder">Select a service</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="preferredTime" class="form-label">
-              <span data-i18n="booking.form.preferredTime">Preferred Pickup Time</span>
-            </label>
-            <select id="preferredTime" name="preferredTime" class="form-select">
-              <option value="" data-i18n="booking.form.preferredTimePlaceholder">Select preferred time</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="instructions" class="form-label">
-              <span data-i18n="booking.form.instructions">Special Instructions (Optional)</span>
-            </label>
-            <textarea 
-              id="instructions" 
-              name="instructions" 
-              class="form-textarea" 
-              rows="4"
-              data-i18n-placeholder="booking.form.instructionsPlaceholder"
-              placeholder="Any special care instructions or notes"
-            ></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" data-i18n="booking.form.submit">Submit Booking Request</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4 data-i18n="meta.siteName">GenZLaundry</h4>
-          <p data-i18n="footer.description">Premium laundry and dry cleaning service in Jodhpur. Professional garment care delivered to your doorstep.</p>
         </div>
-        
-        <div class="footer-section">
-          <h4 data-i18n="footer.quickLinks">Quick Links</h4>
-          <ul>
-            <li><a href="services.html" data-i18n="footer.services">Services</a></li>
-            <li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li>
-            <li><a href="about.html" data-i18n="footer.about">About</a></li>
-            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="journey.html">Our Journey</a></li>
+            <li><a href="service-areas.html">Coverage</a></li>
           </ul>
         </div>
-        
-        <div class="footer-section">
-          <h4 data-i18n="common.contactUs">Contact Us</h4>
-          <ul>
-            <li><a href="tel:+918233853727" data-i18n="common.phone">Phone</a>: +91 8233853727</li>
-            <li><a href="https://wa.me/918233853727" target="_blank" data-i18n="common.whatsapp">WhatsApp</a></li>
-            <li><a href="mailto:genzlaundry.in@gmail.com" data-i18n="common.email">Email</a>: genzlaundry.in@gmail.com</li>
-            <li><a href="https://www.instagram.com/genzlaundryjodhpur/" target="_blank" rel="noopener noreferrer" class="footer-instagram"><i class="fab fa-instagram"></i> @genzlaundryjodhpur</a></li>
+        <div>
+          <div class="footer-heading">Garment Care</div>
+          <ul class="footer-links">
+            <li><a href="dry-cleaning-jodhpur.html">Dry Cleaning</a></li>
+            <li><a href="laundry-service-jodhpur.html">Wash &amp; Fold</a></li>
+            <li><a href="shoe-cleaning-jodhpur.html">Shoe Spa</a></li>
+            <li><a href="carpet-cleaning-jodhpur.html">Carpet Cleaning</a></li>
+            <li><a href="sofa-cleaning-jodhpur.html">Sofa Cleaning</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Store Location</div>
+          <ul class="footer-contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> Ratanada, Jodhpur, Rajasthan 342011</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+918233853727" style="color:#CBD5E1;">+91 82338 53727</a></li>
+            <li><i class="fas fa-clock"></i> Open 24/7 round the clock</li>
           </ul>
         </div>
       </div>
-      
       <div class="footer-bottom">
-        <p data-i18n="footer.copyright">© 2025 GenZLaundry. All rights reserved.</p>
+        <p>&copy; 2026 Gen-Z Laundry &amp; Dry Cleaners, Jodhpur. All rights reserved.</p>
+        <p><a href="https://www.linkedin.com/in/mr-manohar-solanki/" target="_blank" rel="noopener noreferrer">Designed &amp; Developed by Manohar Solanki</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="js/i18n.js"></script>
-  <script src="js/language-toggle.js"></script>
-  <script src="js/forms.js"></script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      function loadFormOptions() {
-        if (typeof i18n === 'undefined') return;
-        
-        const lang = i18n.getLanguage();
-        
-        // Load service options
-        const serviceSelect = document.getElementById('service');
-        if (serviceSelect && serviceSelect.children.length === 1) {
-          const services = i18n.content[lang]?.services?.categories || {};
-          Object.keys(services).forEach(key => {
-            const option = document.createElement('option');
-            option.value = key;
-            option.textContent = services[key].title;
-            serviceSelect.appendChild(option);
-          });
-        }
-        
-        // Load time options
-        const timeSelect = document.getElementById('preferredTime');
-        if (timeSelect && timeSelect.children.length === 1) {
-          const times = [
-            lang === 'hi' ? 'सुबह 9 बजे - 12 बजे' : 'Morning (9 AM - 12 PM)',
-            lang === 'hi' ? 'दोपहर 12 बजे - 4 बजे' : 'Afternoon (12 PM - 4 PM)',
-            lang === 'hi' ? 'शाम 4 बजे - 8 बजे' : 'Evening (4 PM - 8 PM)'
-          ];
-          times.forEach(time => {
-            const option = document.createElement('option');
-            option.value = time;
-            option.textContent = time;
-            timeSelect.appendChild(option);
-          });
-        }
-      }
-      
-      setTimeout(loadFormOptions, 200);
-      if (typeof i18n !== 'undefined') {
-        i18n.onLanguageChange(() => {
-          // Reload options on language change
-          const serviceSelect = document.getElementById('service');
-          const timeSelect = document.getElementById('preferredTime');
-          if (serviceSelect) {
-            while (serviceSelect.children.length > 1) {
-              serviceSelect.removeChild(serviceSelect.lastChild);
-            }
-          }
-          if (timeSelect) {
-            while (timeSelect.children.length > 1) {
-              timeSelect.removeChild(timeSelect.lastChild);
-            }
-          }
-          loadFormOptions();
-        });
-      }
-    });
-
-    // Update placeholders on language change
-    if (typeof i18n !== 'undefined') {
-      i18n.onLanguageChange(() => {
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(input => {
-          const key = input.getAttribute('data-i18n-placeholder');
-          input.placeholder = i18n.t(key);
-        });
-      });
-    }
-
-    // Mobile menu toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuToggle = document.querySelector('.mobile-menu-toggle');
-      const nav = document.getElementById('main-nav');
-      if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => nav.classList.toggle('active'));
-      }
-    });
-  </script>
-  <!-- Add this script at the end of your body tag -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Create floating buttons container
-  const floatingButtons = document.createElement('div');
-  floatingButtons.className = 'floating-buttons';
-  
-  // Create call button
-  const callButton = document.createElement('a');
-  callButton.href = 'tel:+918233853727';
-  callButton.className = 'btn-floating btn-call';
-  callButton.title = 'Call Us';
-  callButton.innerHTML = `
-    <i class="fas fa-phone"></i>
-    <span class="btn-tooltip">Call Us Now</span>
-  `;
-  
-  // Create WhatsApp button
-  const whatsappButton = document.createElement('a');
-  whatsappButton.href = 'https://wa.me/8233853727';
-  whatsappButton.target = '_blank';
-  whatsappButton.className = 'btn-floating btn-whatsapp';
-  whatsappButton.title = 'Chat on WhatsApp';
-  whatsappButton.innerHTML = `
+  <!-- Floating Buttons -->
+  <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20pickup." class="floating-wa" target="_blank" rel="noopener noreferrer" title="WhatsApp Us" aria-label="WhatsApp Us">
     <i class="fab fa-whatsapp"></i>
-    <span class="btn-tooltip">Chat on WhatsApp</span>
-  `;
-  
-  // Add buttons to container
-  floatingButtons.appendChild(callButton);
-  floatingButtons.appendChild(whatsappButton);
-  
-  // Add container to body
-  document.body.appendChild(floatingButtons);
-  
-  // Add CSS styles
-  const style = document.createElement('style');
-  style.textContent = `
-    .floating-buttons {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 1000;
-    }
-    
-    .btn-floating {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      color: white;
-      font-size: 24px;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .btn-floating:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-    
-    .btn-call {
-      background: linear-gradient(135deg, #3498db, #2980b9);
-    }
-    
-    .btn-whatsapp {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-    }
-    
-    .btn-tooltip {
-      position: absolute;
-      right: 70px;
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-size: 14px;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-    
-    .btn-floating:hover .btn-tooltip {
-      opacity: 1;
-    }
-    
-    .btn-tooltip::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: -5px;
-      transform: translateY(-50%);
-      border-width: 5px 0 5px 5px;
-      border-style: solid;
-      border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
-    }
-    
-    @media (max-width: 768px) {
-      .floating-buttons {
-        bottom: 20px;
-        right: 20px;
-      }
-      
-      .btn-floating {
-        width: 55px;
-        height: 55px;
-        font-size: 22px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .floating-buttons {
-        bottom: 15px;
-        right: 15px;
-      }
-      
-      .btn-floating {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-      }
-      
-      .btn-tooltip {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-    }
-  `;
-  
-  document.head.appendChild(style);
-});
-
-// Check if Font Awesome is already loaded, if not, load it
-if (!document.querySelector('link[href*="font-awesome"]') && !document.querySelector('link[href*="fontawesome"]')) {
-  const faLink = document.createElement('link');
-  faLink.rel = 'stylesheet';
-  faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-  document.head.appendChild(faLink);
-}
-</script>
-<!-- end of the script -->
+  </a>
+  <a href="tel:+918233853727" class="floating-call" title="Call Us" aria-label="Call Us">
+    <i class="fas fa-phone"></i>
+  </a>
+  <script src="js/forms.js"></script>
+  <script src="js/blue-city.js"></script>
 </body>
 </html>
 

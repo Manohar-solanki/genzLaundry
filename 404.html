@@ -1,158 +1,712 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | GenZ Laundry</title>
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" type="image/png" href="/public/favicon.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0D9488 0%, #06B6D4 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            text-align: center;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            max-width: 600px;
-            width: 100%;
-        }
-        
-        .error-code {
-            font-size: 120px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #0D9488 0%, #06B6D4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            font-size: 32px;
-            color: #1e293b;
-            margin-bottom: 15px;
-        }
-        
-        p {
-            font-size: 18px;
-            color: #64748b;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        
-        .buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 15px 30px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #0D9488 0%, #06B6D4 100%);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3);
-        }
-        
-        .btn-secondary {
-            background: #f1f5f9;
-            color: #0D9488;
-        }
-        
-        .btn-secondary:hover {
-            background: #e2e8f0;
-        }
-        
-        .icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-        
-        @media (max-width: 768px) {
-            .error-code {
-                font-size: 80px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            p {
-                font-size: 16px;
-            }
-            
-            .container {
-                padding: 40px 30px;
-            }
-            
-            .buttons {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Gen-Z Laundry &amp; Dry Cleaners Jodhpur</title>
+  <meta name="description" content="Oops! The page you're looking for seems to have been washed away in the spin cycle. Return to Gen-Z Laundry & Dry Cleaners Jodhpur for premium doorstep garment care.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="public/logo.png">
+  <link rel="apple-touch-icon" href="public/logo.png">
+  <meta name="theme-color" content="#0B3A8F">
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Blue City Theme Styles -->
+  <link rel="stylesheet" href="css/blue-city-theme.css?v=3.7">
+
+  <style>
+    /* ----------------------------------------
+       404 HERO & INTERACTIVE BUBBLE STYLING
+       ---------------------------------------- */
+    .hero-404-wrapper {
+      position: relative;
+      background: linear-gradient(135deg, #071E4A 0%, #0B3A8F 55%, #1D4ED8 100%);
+      color: #FFFFFF;
+      padding: 70px 0 90px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Ambient animated bubbles background */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(56, 189, 248, 0.15) 60%, rgba(255, 255, 255, 0.05) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.25), 0 8px 24px rgba(11, 58, 143, 0.3);
+      pointer-events: none;
+      animation: floatUp 14s infinite ease-in-out;
+    }
+    .bubble-1 { width: 90px; height: 90px; left: 8%; bottom: -100px; animation-duration: 16s; animation-delay: 0s; }
+    .bubble-2 { width: 60px; height: 60px; right: 12%; bottom: -80px; animation-duration: 13s; animation-delay: 2s; }
+    .bubble-3 { width: 45px; height: 45px; left: 22%; bottom: -60px; animation-duration: 11s; animation-delay: 4s; }
+    .bubble-4 { width: 110px; height: 110px; right: 26%; bottom: -120px; animation-duration: 18s; animation-delay: 1s; }
+    .bubble-5 { width: 35px; height: 35px; left: 45%; bottom: -50px; animation-duration: 9s; animation-delay: 5s; }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.9) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.75;
+      }
+      85% {
+        opacity: 0.75;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.1) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* 404 Washing Machine Illustration Badge */
+    .washing-machine-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 104px;
+      height: 104px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .machine-spinner {
+      font-size: 3.2rem;
+      color: #60A5FA;
+      animation: spinMachine 8s infinite linear;
+      display: inline-block;
+    }
+
+    @keyframes spinMachine {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .washing-machine-badge .bubble-sparkle {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #F59E0B;
+      color: #FFFFFF;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.5);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    /* 404 Big Numeric Typography */
+    .display-404 {
+      font-family: var(--font-heading);
+      font-size: clamp(4.5rem, 13vw, 8.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      background: linear-gradient(180deg, #FFFFFF 30%, #93C5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      text-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .pill-lost-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #FDE047;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-404-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .hero-404-sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+      color: #CBD5E1;
+      max-width: 640px;
+      margin: 0 auto 34px;
+      line-height: 1.65;
+    }
+
+    /* Primary CTA buttons */
+    .hero-404-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .btn-404-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: #FFFFFF;
+      color: #0B3A8F;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
+    }
+    .btn-404-home:hover {
+      background: #EFF6FF;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+      color: #1D4ED8;
+    }
+
+    .btn-404-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: #25D366;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-404-whatsapp:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.45);
+      color: #FFFFFF;
+    }
+
+    .btn-404-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 24px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-404-call:hover {
+      background: rgba(255, 255, 255, 0.22);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* Smart URL Auto-Detector Banner */
+    .smart-redirect-banner {
+      display: none;
+      background: rgba(253, 224, 71, 0.18);
+      border: 1px solid #FDE047;
+      color: #FFFFFF;
+      border-radius: 12px;
+      padding: 12px 20px;
+      max-width: 600px;
+      margin: 0 auto 28px;
+      text-align: center;
+      font-size: 0.92rem;
+      animation: fadeIn 0.4s ease;
+    }
+    .smart-redirect-banner strong {
+      color: #FDE047;
+    }
+
+    /* ----------------------------------------
+       DESTINATION CARDS SECTION ("Where To Next?")
+       ---------------------------------------- */
+    .destinations-section {
+      padding: 70px 0 80px;
+      background: #F8FAFC;
+    }
+
+    .dest-section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+    .dest-section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EFF6FF;
+      color: #2563EB;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      margin-bottom: 10px;
+    }
+    .dest-section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+    .dest-section-sub {
+      color: #64748B;
+      font-size: 0.98rem;
+    }
+
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1024px) {
+      .destinations-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .destinations-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .destination-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .destination-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: transparent;
+      transition: background 0.25s ease;
+    }
+    .destination-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(11, 58, 143, 0.12);
+      border-color: #BFDBFE;
+    }
+    .destination-card:hover::before {
+      background: linear-gradient(90deg, #2563EB, #38BDF8);
+    }
+
+    .dest-card-icon-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+    .dest-icon-blue { background: #EFF6FF; color: #2563EB; }
+    .dest-icon-purple { background: #FAF5FF; color: #9333EA; }
+    .dest-icon-gold { background: #FFFBEB; color: #D97706; }
+    .dest-icon-emerald { background: #ECFDF5; color: #059669; }
+
+    .dest-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+
+    .dest-card-desc {
+      font-size: 0.88rem;
+      color: #64748B;
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .dest-card-link-text {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #2563EB;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .destination-card:hover .dest-card-link-text {
+      color: #1D4ED8;
+      gap: 10px;
+    }
+
+    /* ----------------------------------------
+       NEED INSTANT PICKUP BANNER
+       ---------------------------------------- */
+    .pickup-help-strip {
+      background: #FFFFFF;
+      border-top: 1px solid #E2E8F0;
+      padding: 36px 0;
+      text-align: center;
+    }
+    .strip-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .strip-flex {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ----------------------------------------
+       1. STICKY NAVBAR (Luxury Studio Header)
+       ---------------------------------------- -->
+  <header class="site-header" id="siteHeader">
     <div class="container">
-        <div class="icon">🧺</div>
-        <div class="error-code">404</div>
-        <h1>Oops! Page Not Found</h1>
-        <p>The page you're looking for seems to have been washed away! Don't worry, we can help you find what you need.</p>
-        
-        <div class="buttons">
-            <a href="/" class="btn btn-primary">
-                🏠 Go to Homepage
-            </a>
-            <a href="tel:+918233853727" class="btn btn-secondary">
-                📞 Call Us Now
-            </a>
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="nav-brand" aria-label="Gen-Z Laundry Home">
+          <img src="public/logo.png" alt="Gen-Z Laundry Logo" class="nav-brand-logo" width="46" height="46">
+          <div class="nav-brand-text">
+            <span class="nav-brand-name">GEN-Z LAUNDRY</span>
+            <span class="nav-brand-sub">Dry Cleaners &bull; Jodhpur</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="index.html#process" class="nav-link">10-Step Care</a></li>
+          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+          <li><a href="index.html#about" class="nav-link">About Us</a></li>
+          <li><a href="index.html#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="index.html#booking" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20would%20like%20to%20book%20a%20doorstep%20pickup." target="_blank" rel="noopener noreferrer" class="nav-wa-btn" aria-label="Chat with Gen-Z Laundry on WhatsApp">
+            <span class="nav-wa-dot"></span>
+            <i class="fab fa-whatsapp"></i> <span class="nav-wa-text">Book Pickup</span>
+          </a>
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
-        
-        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
-            <p style="font-size: 14px; margin-bottom: 15px;">Quick Links:</p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; font-size: 14px;">
-                <a href="/#services" style="color: #0D9488; text-decoration: none;">Services</a>
-                <a href="/#pricing" style="color: #0D9488; text-decoration: none;">Pricing</a>
-                <a href="/#contact" style="color: #0D9488; text-decoration: none;">Contact</a>
-                <a href="/faq.html" style="color: #0D9488; text-decoration: none;">FAQ</a>
-            </div>
-        </div>
+      </nav>
     </div>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- ----------------------------------------
+         2. 404 INTERACTIVE HERO SECTION
+         ---------------------------------------- -->
+    <section class="hero-404-wrapper">
+      <!-- Animated Soap Bubbles -->
+      <div class="bubble bubble-1"></div>
+      <div class="bubble bubble-2"></div>
+      <div class="bubble bubble-3"></div>
+      <div class="bubble bubble-4"></div>
+      <div class="bubble bubble-5"></div>
+
+      <div class="container" style="position:relative; z-index:2;">
+        
+        <!-- Smart Redirect Banner (Shows if user typed /review or similar) -->
+        <div class="smart-redirect-banner" id="smartRedirectBanner">
+          <i class="fas fa-compass"></i> Were you searching for <strong id="smartTopicText">our Reviews</strong>? 
+          <a href="index.html#reviews" id="smartRedirectLink" style="color:#FFFFFF; text-decoration:underline; font-weight:700; margin-left:8px;">
+            Go there now <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="washing-machine-badge">
+          <i class="fas fa-spinner machine-spinner"></i>
+          <div class="bubble-sparkle"><i class="fas fa-sparkles">✨</i></div>
+        </div>
+
+        <div class="display-404">404</div>
+
+        <div class="pill-lost-tag">
+          <i class="fas fa-tshirt"></i> Lost in the Spin Cycle
+        </div>
+
+        <h1 class="hero-404-title">
+          Oops! Looks Like This Page Got Washed Away
+        </h1>
+
+        <p class="hero-404-sub">
+          Even our 10-step garment inspection protocol couldn't track down this link. 
+          Don't worry — our doorstep pickup across Jodhpur is always right on time!
+        </p>
+
+        <div class="hero-404-actions">
+          <a href="index.html" class="btn-404-home">
+            <i class="fas fa-home"></i> Back to Homepage
+          </a>
+          <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20am%20looking%20for%20pickup%20service%20in%20Jodhpur." target="_blank" rel="noopener noreferrer" class="btn-404-whatsapp">
+            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+          </a>
+          <a href="tel:+918233853727" class="btn-404-call">
+            <i class="fas fa-phone-alt"></i> Call +91 82338 53727
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------
+         3. "WHERE TO NEXT?" DESTINATION CARDS
+         ---------------------------------------- -->
+    <section class="destinations-section">
+      <div class="container">
+        
+        <div class="dest-section-header">
+          <span class="dest-section-badge"><i class="fas fa-compass"></i> QUICK NAVIGATION</span>
+          <h2 class="dest-section-title">Where Would You Like to Go?</h2>
+          <p class="dest-section-sub">Choose any popular service or section below to get back on track</p>
+        </div>
+
+        <div class="destinations-grid">
+          
+          <!-- Card 1: Wash & Fold -->
+          <a href="index.html#services" class="destination-card">
+            <div>
+              <div class="dest-card-icon-wrap dest-icon-blue">
+                <i class="fas fa-tshirt"></i>
+              </div>
+              <h3 class="dest-card-title">Wash &amp; Fold Laundry</h3>
+              <p class="dest-card-desc">Everyday clothes, t-shirts, kurtis &amp; denim cleaned with eco-friendly detergent and hygienically folded.</p>
+            </div>
+            <div class="dest-card-link-text">
+              View Wash &amp; Fold <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <!-- Card 2: Official Pricing -->
+          <a href="pricing.html" class="destination-card">
+            <div>
+              <div class="dest-card-icon-wrap dest-icon-emerald">
+                <i class="fas fa-tags"></i>
+              </div>
+              <h3 class="dest-card-title">2026 Price List</h3>
+              <p class="dest-card-desc">Transparent rates across 7 garment categories with our interactive order cost calculator.</p>
+            </div>
+            <div class="dest-card-link-text">
+              Check Rate Cards <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <!-- Card 3: Dry Cleaning -->
+          <a href="index.html#services" class="destination-card">
+            <div>
+              <div class="dest-card-icon-wrap dest-icon-purple">
+                <i class="fas fa-gem"></i>
+              </div>
+              <h3 class="dest-card-title">Delicate Dry Cleaning</h3>
+              <p class="dest-card-desc">Specialized solvent care for wedding sherwanis, silk sarees, heavy lehengas, suits &amp; woolens.</p>
+            </div>
+            <div class="dest-card-link-text">
+              Explore Dry Clean <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <!-- Card 4: Customer Reviews -->
+          <a href="index.html#reviews" class="destination-card">
+            <div>
+              <div class="dest-card-icon-wrap dest-icon-gold">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3 class="dest-card-title">Customer Reviews</h3>
+              <p class="dest-card-desc">See why 1,000+ happy families, students, and hotel travelers in Jodhpur rate us 4.9★ on Google.</p>
+            </div>
+            <div class="dest-card-link-text">
+              Read 500+ Reviews <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------
+         4. QUICK PICKUP STRIP
+         ---------------------------------------- -->
+    <section class="pickup-help-strip">
+      <div class="container">
+        <div class="strip-flex">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:48px; height:48px; border-radius:50%; background:#EFF6FF; color:#2563EB; display:flex; align-items:center; justify-content:center; font-size:1.3rem;">
+              <i class="fas fa-truck-fast"></i>
+            </div>
+            <div style="text-align:left;">
+              <h4 style="font-size:1.05rem; font-weight:800; color:#0F172A; margin-bottom:2px;">Need Immediate Laundry Pickup in Jodhpur?</h4>
+              <p style="font-size:0.86rem; color:#64748B; margin:0;">Free doorstep collection within 30 minutes from homes, hostels &amp; hotels.</p>
+            </div>
+          </div>
+          <div>
+            <a href="index.html#booking" class="btn btn-primary" style="padding:10px 22px; font-size:0.88rem; font-weight:700; border-radius:9999px;">
+              <i class="fas fa-calendar-check"></i> Book Doorstep Pickup
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ----------------------------------------
+       5. CLEAN FOOTER (Pixel-Matched to Theme)
+       ---------------------------------------- -->
+  <footer class="mockup-footer-section" id="contact">
+    <div class="container">
+      <div class="mockup-footer-top">
+        <div class="mockup-footer-brand">
+          <img src="public/logo.png" alt="Gen-Z Laundry Logo" class="footer-brand-logo" width="46" height="46">
+          <div class="footer-brand-text">
+            <span class="footer-brand-title">GEN-Z LAUNDRY</span>
+            <span class="footer-brand-tagline">Dry Cleaners &bull; Jodhpur</span>
+          </div>
+        </div>
+
+        <ul class="mockup-footer-nav">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#tourists">For Tourists</a></li>
+          <li><a href="index.html#process">How it Works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="service-areas.html">Service Areas</a></li>
+          <li><a href="index.html#booking">Contact</a></li>
+        </ul>
+
+        <div class="mockup-footer-meta">
+          <div class="mockup-footer-socials">
+            <a href="https://www.instagram.com/genzlaundryjodhpur/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/918233853727" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <div class="mockup-footer-status">
+            <span class="live-dot"></span> Open 24/7 &bull; Instant Delivery
+          </div>
+        </div>
+      </div>
+
+      <div class="mockup-footer-bottom">
+        <p>&copy; 2026 Gen-Z Laundry &amp; Dry Cleaners. Sabji Mandi Circle, Ratanada, Jodhpur. All rights reserved.</p>
+        <p class="mockup-footer-developer">
+          Crafted with <i class="fas fa-heart text-danger"></i> for Jodhpur's Residents &amp; Travelers
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ----------------------------------------
+       6. FLOATING ACTIONS (Call stacked directly above WhatsApp)
+       ---------------------------------------- -->
+  <a href="tel:+918233853727" class="floating-call" title="Call Gen-Z Laundry" aria-label="Call Gen-Z Laundry">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+
+  <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20need%20help%20with%20a%20doorstep%20pickup." class="floating-wa" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" aria-label="WhatsApp Us">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Script Files -->
+  <script src="js/blue-city.js?v=3.7"></script>
+  <script>
+    // Smart URL Intent Detection (e.g. user typed /review, /pricing, /book, etc.)
+    document.addEventListener('DOMContentLoaded', function () {
+      const path = (window.location.pathname + window.location.search).toLowerCase();
+      const banner = document.getElementById('smartRedirectBanner');
+      const topicText = document.getElementById('smartTopicText');
+      const redirectLink = document.getElementById('smartRedirectLink');
+
+      let targetUrl = '';
+      let targetName = '';
+
+      if (path.includes('review')) {
+        targetUrl = 'review.html';
+        targetName = 'our 1-Click Google Review Assistant';
+      } else if (path.includes('price') || path.includes('rate') || path.includes('cost')) {
+        targetUrl = 'pricing.html';
+        targetName = 'our 2026 Garment Rate Cards';
+      } else if (path.includes('book') || path.includes('pickup') || path.includes('contact')) {
+        targetUrl = 'index.html#booking';
+        targetName = 'our Doorstep Pickup Booking form';
+      } else if (path.includes('service')) {
+        targetUrl = 'index.html#services';
+        targetName = 'our Laundry & Dry Cleaning Services';
+      } else if (path.includes('tourist') || path.includes('hotel')) {
+        targetUrl = 'index.html#tourists';
+        targetName = 'our Tourist Express Hotel Laundry';
+      }
+
+      if (targetUrl && banner && topicText && redirectLink) {
+        topicText.textContent = targetName;
+        redirectLink.setAttribute('href', targetUrl);
+        banner.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>

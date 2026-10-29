@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="circBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAF3FF"/>
+      <stop offset="100%" stop-color="#BFDBFE"/>
+    </linearGradient>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#0B3A8F" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="550" rx="24" fill="url(#circBg)"/>
+  
+  <!-- Decorative Laundry Sparkles -->
+  <circle cx="120" cy="80" r="6" fill="#FBBF24"/>
+  <circle cx="480" cy="90" r="8" fill="#38BDF8"/>
+  <circle cx="520" cy="220" r="5" fill="#34D399"/>
+  <circle cx="90" cy="380" r="7" fill="#F472B6"/>
+
+  <!-- Stack of Crisp Fresh Clothes -->
+  <g transform="translate(160, 160)" filter="url(#glow)">
+    <!-- Base Woven Basket -->
+    <path d="M 40 220 L 240 220 L 220 270 L 60 270 Z" fill="#D97706" stroke="#92400E" stroke-width="2"/>
+    <line x1="50" y1="245" x2="230" y2="245" stroke="#FDE68A" stroke-width="2"/>
+
+    <!-- Bottom Jeans folded -->
+    <rect x="50" y="180" width="180" height="38" rx="10" fill="#1E3A8A"/>
+    <!-- Navy Chino folded -->
+    <rect x="45" y="145" width="190" height="36" rx="10" fill="#2563EB"/>
+    <!-- Sky Blue Shirt folded -->
+    <rect x="40" y="110" width="200" height="36" rx="10" fill="#60A5FA"/>
+    <!-- Crisp White Linen folded -->
+    <rect x="35" y="75" width="210" height="36" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <!-- Top Lavender Traditional Kurta folded -->
+    <rect x="50" y="40" width="180" height="36" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    
+    <!-- Flower & Fragrance on top -->
+    <circle cx="140" cy="35" r="12" fill="#FEF08A"/>
+    <circle cx="132" cy="28" r="8" fill="#FFFFFF"/>
+    <circle cx="148" cy="28" r="8" fill="#FFFFFF"/>
+    <circle cx="140" cy="20" r="8" fill="#FFFFFF"/>
+    <circle cx="130" cy="40" r="8" fill="#FFFFFF"/>
+    <circle cx="150" cy="40" r="8" fill="#FFFFFF"/>
+
+    <!-- Steam & Freshness Whiff -->
+    <path d="M 90 20 Q 80 5 90 -10 T 85 -30" stroke="#93C5FD" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8"/>
+    <path d="M 190 20 Q 200 5 190 -10 T 195 -30" stroke="#93C5FD" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.8"/>
+  </g>
+
+  <!-- Tagline Card -->
+  <g transform="translate(100, 440)" filter="url(#glow)">
+    <rect width="400" height="74" rx="20" fill="#0B3A8F"/>
+    <text x="200" y="34" font-family="'Outfit', sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">Fresh Clothes. Happy Travels.</text>
+    <text x="200" y="56" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#93C5FD" text-anchor="middle">⚡ 4 to 6 Hour Express Service Available</text>
+  </g>
+</svg>

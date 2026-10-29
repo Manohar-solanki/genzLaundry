@@ -7,9 +7,17 @@
   <!-- ── Homepage ── -->
   <url>
     <loc>https://genzlaundry.com/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- ── Pricing & Rate Card ── -->
+  <url>
+    <loc>https://genzlaundry.com/pricing.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
 
   <!-- ── Primary Service Pages (highest SEO value) ── -->
