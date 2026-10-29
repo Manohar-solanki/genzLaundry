@@ -31,6 +31,14 @@
       } else {
         header.classList.remove('scrolled');
       }
+
+      // Hide mobile floating CTA button when at top hero to prevent overlapping review card
+      if (window.innerWidth <= 768) {
+        const floatWa = document.querySelector('.floating-wa');
+        if (floatWa) {
+          floatWa.classList.toggle('scrolled-visible', window.scrollY > 380);
+        }
+      }
     }, { passive: true });
 
     // ── 3. Mobile Hamburger Navigation ──
@@ -153,6 +161,47 @@
         }
 
         window.open(waUrl, '_blank');
+      });
+    }
+
+    // ── 5b. Service Card & Hero Availability Bar Pre-Selection ──
+    const svcButtons = document.querySelectorAll('.svc-card-btn-wa[data-service]');
+    const serviceMap = {
+      'Wash & Fold': 'wash-fold',
+      'Wash & Steam Iron': 'wash-iron',
+      'Delicate Dry Clean': 'dry-cleaning',
+      '6-Hour Express': 'express',
+      'Shoe Cleaning': 'shoe-cleaning',
+      'Sofa Cleaning': 'sofa-cleaning'
+    };
+
+    svcButtons.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        const rawSvc = btn.getAttribute('data-service');
+        const mappedVal = serviceMap[rawSvc] || '';
+        const serviceSelect = document.getElementById('bookingService');
+        if (serviceSelect && mappedVal) {
+          serviceSelect.value = mappedVal;
+        }
+      });
+    });
+
+    const habBtn = document.getElementById('habCheckBtn');
+    if (habBtn) {
+      habBtn.addEventListener('click', function () {
+        const locVal = (document.getElementById('habLocation') || {}).value || '';
+        const habSvc = (document.getElementById('habService') || {}).value || '';
+        const addressEl = document.getElementById('bookingAddress');
+        const serviceSelect = document.getElementById('bookingService');
+        if (locVal && addressEl && !addressEl.value) {
+          addressEl.value = locVal;
+        }
+        if (habSvc && serviceSelect) {
+          if (habSvc.includes('Fold')) serviceSelect.value = 'wash-fold';
+          else if (habSvc.includes('Dry Clean')) serviceSelect.value = 'dry-cleaning';
+          else if (habSvc.includes('Press') || habSvc.includes('Iron')) serviceSelect.value = 'wash-iron';
+          else serviceSelect.value = 'wash-fold';
+        }
       });
     }
 

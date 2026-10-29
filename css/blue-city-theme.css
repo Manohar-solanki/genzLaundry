@@ -789,25 +789,24 @@ section[id] {
 
 /* WhatsApp Hero Button — Clean Crisp Emerald, High-Trust */
 .hero-btn-wa {
-  background: #FFFFFF !important;
-  color: #065F46 !important;
-  border: 1.5px solid #25D366 !important;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.22) !important;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35) !important;
   font-weight: 700;
 }
 
 .hero-btn-wa i {
-  color: #25D366 !important;
+  color: #FFFFFF !important;
   font-size: 1.15rem;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .hero-btn-wa:hover {
-  background: #25D366 !important;
+  background: linear-gradient(135deg, #28E06D 0%, #0E7569 100%) !important;
   color: #FFFFFF !important;
-  border-color: #25D366 !important;
   transform: translateY(-1.5px);
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.38) !important;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45) !important;
 }
 
 .hero-btn-wa:hover i {
@@ -883,6 +882,12 @@ section[id] {
 }
 .hero-rock-note .fa-heart {
   color: #EF4444;
+}
+
+@media (max-width: 1024px) {
+  .hero-rock-note {
+    display: none !important; /* Completely prevent any text collision on mobile and tablets */
+  }
 }
 
 /* ── Feature Chips (Desktop Compact Inline Pills) ── */
@@ -2558,21 +2563,20 @@ section[id] {
     box-shadow: 0 3px 10px rgba(11, 58, 143, 0.18);
   }
   .hero-actions .hero-btn-wa {
-    background: #FFFFFF !important;
-    color: #065F46 !important;
-    border: 1.5px solid #25D366 !important;
-    box-shadow: 0 3px 12px rgba(37, 211, 102, 0.22) !important;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 3px 12px rgba(37, 211, 102, 0.35) !important;
     font-weight: 700 !important;
   }
   .hero-actions .hero-btn-wa i {
-    color: #25D366 !important;
+    color: #FFFFFF !important;
     font-size: 1.1rem !important;
   }
   .hero-actions .hero-btn-wa:hover,
   .hero-actions .hero-btn-wa:active {
-    background: #25D366 !important;
+    background: linear-gradient(135deg, #28E06D 0%, #0E7569 100%) !important;
     color: #FFFFFF !important;
-    border-color: #25D366 !important;
   }
   .hero-actions .hero-btn-wa:hover i,
   .hero-actions .hero-btn-wa:active i {
@@ -3009,7 +3013,8 @@ section[id] {
   color: #F8FAFC;
   flex-shrink: 0;
 }
-.services-extra-content h4 {
+.services-extra-content h4,
+.services-extra-content .extra-banner-title {
   font-size: 1.15rem;
   font-weight: 800;
   color: #FFFFFF;
@@ -4930,7 +4935,8 @@ section[id] {
 .facility-body {
   padding: 18px 20px 22px;
 }
-.facility-body h4 {
+.facility-body h4,
+.facility-body .facility-card-title {
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 800;
@@ -5749,7 +5755,8 @@ section[id] {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin: 28px 0;
 }
-.mfd-col h5 {
+.mfd-col h5,
+.mfd-col .mfd-title {
   font-family: var(--font-heading);
   font-size: 0.88rem;
   font-weight: 800;
