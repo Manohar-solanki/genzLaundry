@@ -2666,14 +2666,6 @@ section[id] {
   .floating-call {
     display: none !important;
   }
-    bottom: 78px;
-    right: 19px;
-    left: auto !important;
-    width: 44px;
-    height: 44px;
-    font-size: 1.15rem;
-    display: flex !important;
-  }
 }
 
 /* ══════════════════════════════════════════════════════════
