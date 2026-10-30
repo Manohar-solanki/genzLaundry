@@ -884,9 +884,9 @@ section[id] {
   color: #EF4444;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .hero-rock-note {
-    display: none !important; /* Completely prevent any text collision on mobile and tablets */
+    display: none !important; /* Completely prevent any text collision across laptops, tablets, and phones */
   }
 }
 

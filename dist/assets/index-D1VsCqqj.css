@@ -6293,7 +6293,7 @@ html {
 .hero-rock-note .fa-heart {
   color: #EF4444;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .hero-rock-note {
     display: none !important;
   }

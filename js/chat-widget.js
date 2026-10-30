@@ -391,7 +391,7 @@ class ChatWidget {
       },
       'pricing': {
         keywords: ['price', 'cost', 'rate', 'charge', 'fee'],
-        response: "Our pricing is very competitive! Wash & Fold starts at ₹30/kg, Dry Cleaning from ₹100/piece. Would you like to see our complete pricing list?"
+        response: "Our pricing is very competitive! Wash & Fold starts from ₹30/pc, Wash & Iron from ₹40/pc, and Dry Cleaning from ₹50/pc. Would you like to see our complete pricing list?"
       },
       'services': {
         keywords: ['service', 'offer', 'do', 'provide'],

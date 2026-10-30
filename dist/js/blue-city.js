@@ -433,57 +433,86 @@
           {
             id: 'tops-basics', name: 'Tops & Basics', icon: '👕',
             items: [
-              { id: 'tshirt',    name: 'T-shirt',    price: 30 },
-              { id: 'shirt',     name: 'Shirt',      price: 40 },
-              { id: 'kurti',     name: 'Kurti',      price: 40 },
-              { id: 'underwear', name: 'Underwear',  price: 30 },
-              { id: 'banyan',    name: 'Banyan',     price: 30 }
+              { id: 'tshirt',        name: 'T-Shirt (Wash & Iron)',         price: 50 },
+              { id: 'vest',          name: 'Vest / Banyan',                 price: 40 },
+              { id: 'formal_shirt',  name: 'Formal Shirt (Wash & Iron)',    price: 50 },
+              { id: 'casual_shirt',  name: 'Casual Shirt (Wash & Iron)',    price: 50 },
+              { id: 'white_shirt',   name: 'White Shirt (Wash & Iron)',     price: 60 },
+              { id: 'kurti',         name: 'Kurti (Wash & Iron)',           price: 60 },
+              { id: 'womens_top',    name: "Women's Casual Top",            price: 50 },
+              { id: 'undergarment',  name: 'Undergarment (Wash & Fold)',    price: 30 }
             ]
           },
           {
-            id: 'warm-wear', name: 'Warm Wear', icon: '🧥',
+            id: 'bottoms', name: 'Bottoms & Pants', icon: '👖',
             items: [
-              { id: 'sweater',    name: 'Sweater',     price: 60 },
-              { id: 'hoodie',     name: 'Hoodie',      price: 100 },
-              { id: 'sweatshirt', name: 'Sweatshirt',  price: 80 }
+              { id: 'jeans',        name: 'Jeans (Wash & Iron)',            price: 50 },
+              { id: 'trousers',     name: 'Trousers (Wash & Iron)',         price: 50 },
+              { id: 'chinos',       name: 'Chinos (Wash & Iron)',           price: 50 },
+              { id: 'track_pants',  name: 'Track Pants (Wash & Iron)',      price: 60 },
+              { id: 'joggers',      name: 'Joggers (Wash & Iron)',          price: 50 },
+              { id: 'shorts',       name: 'Shorts (Wash & Iron)',           price: 40 },
+              { id: 'pyjama',       name: 'Pyjama (Wash & Iron)',           price: 40 },
+              { id: 'leggings',     name: 'Leggings (Wash & Iron)',         price: 50 }
             ]
           },
           {
-            id: 'bottoms', name: 'Bottoms', icon: '👖',
+            id: 'winter', name: 'Winter Wear', icon: '❄️',
             items: [
-              { id: 'jeans',       name: 'Jeans',          price: 40 },
-              { id: 'pant_trouser',name: 'Pant / Trouser',  price: 40 },
-              { id: 'track_pant',  name: 'Track Pant',      price: 40 },
-              { id: 'joggers',     name: 'Joggers',         price: 40 },
-              { id: 'leggings',    name: 'Leggings',        price: 40 },
-              { id: 'jeggings',    name: 'Jeggings',        price: 40 },
-              { id: 'shorts',      name: 'Shorts',          price: 40 },
-              { id: 'skirt',       name: 'Skirt',           price: 40 },
-              { id: 'pyjama',      name: 'Pyjama',          price: 40 }
+              { id: 'woolen_sweater',  name: 'Woolen Sweater (Dry Clean)',  price: 200 },
+              { id: 'pullover',        name: 'Pullover (Dry Clean)',        price: 180 },
+              { id: 'hoodie',          name: 'Hoodie (Dry Clean)',          price: 150 },
+              { id: 'sweatshirt',      name: 'Sweatshirt (Dry Clean)',      price: 100 },
+              { id: 'wool_shawl',      name: 'Pure Wool Shawl (Dry Clean)', price: 220 },
+              { id: 'wool_stole',      name: 'Pure Wool Stole (Dry Clean)', price: 80 },
+              { id: 'heavy_jacket',    name: 'Heavy Winter Jacket (Dry Clean)', price: 380 },
+              { id: 'parka',           name: 'Parka (Dry Clean)',           price: 420 }
             ]
           },
           {
-            id: 'ethnic', name: 'Ethnic', icon: '👘',
+            id: 'suits', name: 'Suits & Blazers', icon: '👔',
             items: [
-              { id: 'salwar',  name: 'Salwar',  price: 100 },
-              { id: 'dupatta', name: 'Dupatta', price: 60 }
+              { id: 'suit_2pc',      name: '2-Piece Suit (Dry Clean)',      price: 400 },
+              { id: 'suit_3pc',      name: '3-Piece Suit (Dry Clean)',      price: 500 },
+              { id: 'blazer',        name: 'Blazer (Dry Clean)',            price: 250 },
+              { id: 'nehru_jacket',  name: 'Nehru Jacket (Dry Clean)',      price: 150 }
             ]
           },
           {
-            id: 'outerwear', name: 'Outerwear', icon: '🧥',
+            id: 'ethnic', name: 'Ethnic & Wedding', icon: '👘',
             items: [
-              { id: 'jacket_light', name: 'Jacket (Light)', price: 100 },
-              { id: 'jacket_heavy', name: 'Jacket (Heavy)', price: 160 },
-              { id: 'coat_pant',    name: 'Coat Pant',      price: 400 },
-              { id: 'shawl',        name: 'Shawl',          price: 120 }
+              { id: 'kurta_pajama',    name: 'Kurta Pajama (Cotton Dry Clean)', price: 200 },
+              { id: 'salwar_kurti_2pc',name: 'Salwar Kurti 2pc (Dry Clean)',   price: 150 },
+              { id: 'silk_saree',      name: 'Silk Saree (Dry Clean)',         price: 300 },
+              { id: 'chiffon_saree',   name: 'Chiffon Saree (Dry Clean)',      price: 250 },
+              { id: 'banarasi_saree',  name: 'Banarasi Saree (Dry Clean)',     price: 280 },
+              { id: 'bridal_lehenga',  name: 'Bridal Heavy Lehenga (Dry Clean)', price: 500 },
+              { id: 'royal_sherwani',  name: 'Royal Groom Sherwani (Dry Clean)', price: 550 },
+              { id: 'royal_achkan',    name: 'Royal Groom Achkan (Dry Clean)', price: 600 },
+              { id: 'dupatta',         name: 'Dupatta (Wash & Iron)',          price: 50 },
+              { id: 'stole',           name: 'Stole (Dry Clean)',              price: 60 }
             ]
           },
           {
-            id: 'bedding-accessories', name: 'Bedding & Accessories', icon: '🛏️',
+            id: 'bedding', name: 'Bedding & Linens', icon: '🛏️',
             items: [
-              { id: 'sock',                name: 'Sock',                      price: 30 },
-              { id: 'blanket',             name: 'Blanket',                   price: 200 },
-              { id: 'blanket_double_bed',  name: 'Blanket (Double Bed)',      price: 300 }
+              { id: 'single_bedsheet',  name: 'Single Bedsheet (Wash & Iron)', price: 50 },
+              { id: 'double_bedsheet',  name: 'Double Bedsheet (Wash & Iron)', price: 80 },
+              { id: 'king_bedsheet',    name: 'King Size Bedsheet (Wash & Iron)', price: 100 },
+              { id: 'blanket_single',   name: 'Single Bed Blanket (Dry Clean)', price: 200 },
+              { id: 'blanket_double',   name: 'Double Bed Blanket (Dry Clean)', price: 300 },
+              { id: 'heavy_razai',      name: 'Double Bed Heavy Razai (Dry Clean)', price: 400 },
+              { id: 'curtain',          name: 'Curtains per panel (Wash & Iron)', price: 80 },
+              { id: 'pillow_cover',     name: 'Pillow Cover (Wash & Fold)',     price: 20 },
+              { id: 'sofa_cover',       name: 'Sofa Cover (Wash & Fold)',       price: 80 }
+            ]
+          },
+          {
+            id: 'specialized', name: 'Specialized Care', icon: '✨',
+            items: [
+              { id: 'shoes_spa',        name: 'Shoes Deep Spa (Per Pair)',      price: 250 },
+              { id: 'sofa_seat',        name: 'Sofa Home Service (Per Seat)',   price: 250 },
+              { id: 'carpet_clean',     name: 'Carpet Deep Clean',              price: 600 }
             ]
           }
         ]

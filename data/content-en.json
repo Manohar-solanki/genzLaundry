@@ -112,7 +112,7 @@
           "Neat folding and packaging",
           "Turnaround: 24-48 hours"
         ],
-        "priceNote": "Starting from ₹100/kg"
+        "priceNote": "Starting from ₹30/piece"
       },
       "dryCleaning": {
         "title": "Dry Cleaning",
@@ -124,7 +124,7 @@
           "Fabric preservation",
           "Turnaround: 48-72 hours"
         ],
-        "priceNote": "Starting from ₹300/item"
+        "priceNote": "Starting from ₹50/piece"
       },
       "ironing": {
         "title": "Professional Ironing",
@@ -136,7 +136,7 @@
           "Steam treatment",
           "Turnaround: 24 hours"
         ],
-        "priceNote": "Starting from ₹60/item"
+        "priceNote": "Starting from ₹40/piece"
       },
       "specialty": {
         "title": "Specialty Care",
@@ -163,8 +163,8 @@
     },
     "washFold": {
       "title": "Wash & Fold",
-      "perKg": "₹100/kg",
-      "minOrder": "Minimum 5kg",
+      "startingRate": "Starting from ₹30/piece",
+      "popularItems": "T-Shirts ₹40, Vests ₹30, Shirts ₹40",
       "bulk": "Bulk discounts available"
     },
     "dryCleaning": {
