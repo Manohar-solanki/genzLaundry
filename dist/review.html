@@ -231,9 +231,9 @@
       border-radius: 9999px;
     }
 
-    /* Controls Bar: Language + Shuffle */
+    /* Controls Bar: Language + Auto-Refresh + Shuffle */
     .controls-bar {
-      padding: 12px 20px 6px;
+      padding: 12px 20px 8px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -264,6 +264,86 @@
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
       font-weight: 700;
     }
+
+    .controls-right-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* Auto-Refresh Status Pill */
+    .auto-refresh-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #166534;
+      padding: 5px 11px;
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .auto-refresh-pill:hover {
+      background: #DCFCE7;
+      border-color: #86EFAC;
+    }
+    .auto-refresh-pill.paused {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+      color: #64748B;
+    }
+    .auto-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulseGreen 2s infinite;
+      flex-shrink: 0;
+    }
+    .auto-refresh-pill.paused .auto-pulse-dot {
+      background: #94A3B8;
+      box-shadow: none;
+      animation: none;
+    }
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+      70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .auto-toggle-btn {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-left: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .auto-progress-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: #22C55E;
+      width: 100%;
+      transition: width 1s linear;
+    }
+    .auto-refresh-pill.paused .auto-progress-line {
+      background: #CBD5E1;
+      width: 0% !important;
+    }
+
     .btn-shuffle {
       display: inline-flex;
       align-items: center;
@@ -293,7 +373,7 @@
 
     /* Quick Mention Tags (Staff & Services) */
     .tags-section {
-      padding: 8px 20px 10px;
+      padding: 6px 20px 10px;
     }
     .tags-header-row {
       display: flex;
@@ -385,12 +465,20 @@
       line-height: 1.55;
       resize: vertical;
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s, opacity 0.2s;
     }
     .google-input-box:focus {
       border-color: var(--google-blue);
       box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
     }
+    .draft-fade-in {
+      animation: fadeInDraft 0.28s ease-out;
+    }
+    @keyframes fadeInDraft {
+      from { opacity: 0.45; transform: translateY(2px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .input-footer {
       display: flex;
       align-items: center;
@@ -398,12 +486,26 @@
       margin-top: 6px;
       font-size: 0.75rem;
       color: var(--gray-600);
+      flex-wrap: wrap;
+      gap: 6px;
     }
     .editable-hint {
       display: flex;
       align-items: center;
       gap: 4px;
       color: #059669;
+      font-weight: 600;
+    }
+    .char-counter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #15803D;
+      padding: 2px 9px;
+      border-radius: 9999px;
+      font-size: 0.74rem;
       font-weight: 600;
     }
 
@@ -599,7 +701,7 @@
       </div>
     </section>
 
-    <!-- Controls Bar: Language Segment + Shuffle -->
+    <!-- Controls Bar: Language Segment + Auto-Refresh + Shuffle -->
     <div class="controls-bar">
       <div class="lang-switcher" role="tablist" aria-label="Review Language">
         <button type="button" class="lang-tab active" data-lang="en" role="tab" aria-selected="true">English</button>
@@ -607,37 +709,52 @@
         <button type="button" class="lang-tab" data-lang="hi" role="tab" aria-selected="false">हिन्दी</button>
       </div>
 
-      <button type="button" class="btn-shuffle" id="btnShuffle" title="Get another review draft">
-        <i class="fas fa-dice"></i> Shuffle Draft
-      </button>
+      <div class="controls-right-group">
+        <!-- Auto-Refresh Pill with live countdown & pause/play -->
+        <div class="auto-refresh-pill" id="autoRefreshPill" title="Click to pause or resume auto-refresh">
+          <span class="auto-pulse-dot"></span>
+          <span id="autoRefreshText">Auto: <strong id="autoSecCount">8s</strong></span>
+          <button type="button" class="auto-toggle-btn" id="btnAutoToggle" aria-label="Pause Auto Refresh">
+            <i class="fas fa-pause" id="autoToggleIcon"></i>
+          </button>
+          <div class="auto-progress-line" id="autoProgressBar" style="width: 100%;"></div>
+        </div>
+
+        <button type="button" class="btn-shuffle" id="btnShuffle" title="Get another review draft">
+          <i class="fas fa-dice"></i> Shuffle Draft
+        </button>
+      </div>
     </div>
 
-    <!-- Quick Mention Staff & Service Tags -->
+    <!-- Quick Mention Service Tags (No personal staff names) -->
     <div class="tags-section">
       <div class="tags-header-row">
-        <div class="tags-label"><i class="fas fa-tag"></i> Tap to mention team or service:</div>
+        <div class="tags-label"><i class="fas fa-tag"></i> Tap to highlight experience:</div>
         <div class="rotation-indicator">
-          <i class="fas fa-sparkles"></i> 1,000+ Reviews &bull; 30&ndash;40 Words &bull; Fresh on Refresh
+          <i class="fas fa-sparkles"></i> 1,000+ Reviews &bull; 30&ndash;40 Words &bull; Auto-Refresh Active
         </div>
       </div>
       <div class="tags-scroll" id="tagsScroll">
         <button type="button" class="tag-chip active" data-tag="delivery">
-          <i class="fas fa-motorcycle"></i> Sawai &amp; Anil (Delivery)
+          <i class="fas fa-truck-fast"></i> Doorstep Pickup &amp; Delivery
         </button>
         <button type="button" class="tag-chip active" data-tag="iron">
-          <i class="fas fa-shirt"></i> Mahi (Steam Iron)
+          <i class="fas fa-shirt"></i> Steam Press &amp; Crease
         </button>
         <button type="button" class="tag-chip active" data-tag="wash">
-          <i class="fas fa-soap"></i> Mukesh (Wash Expert)
+          <i class="fas fa-soap"></i> Stain Care &amp; Deep Wash
         </button>
         <button type="button" class="tag-chip" data-tag="express">
-          <i class="fas fa-bolt"></i> 4-Hour Express
+          <i class="fas fa-bolt"></i> Express 4-Hour Service
         </button>
         <button type="button" class="tag-chip" data-tag="fragrance">
-          <i class="fas fa-spa"></i> Fresh Scent
+          <i class="fas fa-spa"></i> Fresh Linen Scent
         </button>
         <button type="button" class="tag-chip" data-tag="students">
-          <i class="fas fa-graduation-cap"></i> Student Friendly
+          <i class="fas fa-graduation-cap"></i> Student &amp; Traveler Rate
+        </button>
+        <button type="button" class="tag-chip" data-tag="packaging">
+          <i class="fas fa-box"></i> Protective Packaging
         </button>
       </div>
     </div>
@@ -646,8 +763,8 @@
     <section class="input-section">
       <textarea id="reviewTextarea" class="google-input-box" rows="4" aria-label="Review Text" placeholder="Share details of your own experience at this place..."></textarea>
       <div class="input-footer">
-        <span class="editable-hint"><i class="fas fa-pen"></i> Feel free to edit or add your words</span>
-        <span id="charCounter">0 characters</span>
+        <span class="editable-hint"><i class="fas fa-pen"></i> Feel free to edit or personalize</span>
+        <span id="charCounter" class="char-counter-badge"><strong>0 words</strong> &bull; 0 chars</span>
       </div>
     </section>
 
@@ -689,107 +806,169 @@
 
   <script>
     // ═══════════════════════════════════════════════════════════════
-    // 1-CLICK GOOGLE REVIEW ASSISTANT: CALIBRATED 30-40 WORD ENGINE
+    // 1-CLICK GOOGLE REVIEW ASSISTANT: 1,000+ REVIEWS (30-40 WORDS)
+    // ZERO STAFF NAMES • AUTO-REFRESH & USER PERSONALIZATION ENGINE
     // ═══════════════════════════════════════════════════════════════
     const GOOGLE_REVIEW_URL = 'https://g.page/r/CR6dLEqv5DZEEAE/review';
 
-    // Combinatorial phrase banks calibrated so every review is strictly 30-40 words
+    // Calibrated 28,000+ combinations: strictly 30 to 40 words, 100% humanized
     const PHRASE_BANKS = {
-      en: {
-        openers: [
-          "Best laundry and dry cleaning experience in Jodhpur!",
-          "Had an exceptional experience with Gen-Z Laundry in Jodhpur.",
-          "Truly 5-star garment care right at your doorstep in Jodhpur.",
-          "Hands down the most reliable laundry service in town.",
-          "Super impressed with the speed and hygiene of Gen-Z Laundry!",
-          "Outstanding doorstep garment care by Gen-Z Laundry in Ratanada.",
-          "The most convenient and hassle-free laundry experience in Jodhpur!",
-          "Flawless laundry and dry cleaning experience from start to finish."
-        ],
-        delivery: [
-          "Sawai and Anil arrived within 25 minutes for doorstep pickup.",
-          "Doorstep pickup and delivery was handled seamlessly by Anil and Sawai.",
-          "Sawai collected clothes from my hostel room right on time.",
-          "Anil and Sawai handled delivery with polite, friendly customer care.",
-          "Super punctual doorstep delivery by Sawai and Anil with live updates.",
-          "Sawai and Anil made the whole pickup and drop experience effortless.",
-          "Doorstep collection by Sawai and Anil was punctual and courteous."
-        ],
-        service: [
-          "Mukesh removed tough collar stains, and Mahi steam pressed my formals wrinkle-free.",
-          "Mukesh washed my delicate outfits spotless, and Mahi gave razor-sharp creases.",
-          "Mukesh ensured spotless washing, while Mahi ironed shirts to showroom perfection.",
-          "Mukesh handled stain inspection brilliantly, and Mahi steam pressed everything flawlessly.",
-          "Mukesh took great care of fabrics, and Mahi gave crisp, long-lasting creases."
-        ],
-        closers: [
-          "Clothes smell super fresh. Highly recommended!",
-          "Neatly packed with fresh aroma. Deserves 5 stars!",
-          "Affordable rates and premium service. Must try!",
-          "Will definitely be a regular customer. 5 stars!",
-          "Best team in Jodhpur. 10/10 recommended!"
-        ]
-      },
-      hi_en: {
-        openers: [
-          "Jodhpur me sabse best laundry aur dry cleaning service!",
-          "Gen-Z Laundry ka experience sach me lajawab raha.",
-          "Bhai kya mast doorstep laundry service hai Gen-Z ki!",
-          "Jodhpur me aisi professional laundry pehle kabhi nahi dekhi.",
-          "Hostel students aur families ke liye no. 1 laundry service.",
-          "Ratanada aur pure Jodhpur me sabse fast doorstep laundry."
-        ],
-        delivery: [
-          "Sawai aur Anil ne hostel gate se time pe pickup aur delivery ki.",
-          "Anil aur Sawai ne 30 minute ke andar doorstep collection kiya.",
-          "Sawai time pe kapde le gaya aur agle din deliver kar diya.",
-          "Anil and Sawai ka pickup-drop service ekdum punctual aur polite hai.",
-          "Doorstep pickup bohot fast tha, Sawai aur Anil ne prompt service di."
-        ],
-        service: [
-          "Mukesh bhai ne collar stains hataye aur Mahi ne crisp steam press kiya.",
-          "Mukesh ne kapde naye jaise clean kiye aur Mahi ne sharp creases banayi.",
-          "Mukesh ka spotless wash aur Mahi bhai ki steam pressing dono kamaal hain.",
-          "Inspection Mukesh ji ne dhyan se kiya aur Mahi ne wrinkle-free press kiya."
-        ],
-        closers: [
-          "Kapdo ki khushbu lajawab hai. Full 5 stars!",
-          "Student-friendly rates aur premium quality. Highly recommended!",
-          "Ab se meri saari laundry Gen-Z se hi hogi. Superb team!",
-          "Kapde bilkul showroom jaise mile. 10/10 recommended!"
-        ]
-      },
-      hi: {
-        openers: [
-          "जोधपुर में सबसे बेहतरीन और भरोसेमंद लॉन्ड्री सेवा!",
-          "जेन-ज़ी लॉन्ड्री के साथ मेरा अनुभव बहुत ही शानदार रहा।",
-          "डोरस्टेप लॉन्ड्री के लिए जोधपुर की सबसे उत्तम और तेज टीम।",
-          "छात्रों और परिवारों के लिए सबसे भरोसेमंद सेवा।"
-        ],
-        delivery: [
-          "सवाई और अनिल ने समय पर पिकअप किया।",
-          "अनिल और सवाई की डोरस्टेप डिलीवरी बहुत तेज है।",
-          "सवाई ने हॉस्टल से कपड़े पिकअप किए।",
-          "अनिल और सवाई का व्यवहार बहुत विनम्र है।"
-        ],
-        service: [
-          "मुकेश जी ने कॉलर के दाग हटाए और माही जी ने क्रिस्प स्टीम प्रेसिंग की।",
-          "मुकेश जी की धुलाई बेदाग है और माही जी की प्रेसिंग लाजवाब।",
-          "मुकेश जी ने सफेद कपड़े चमकदार धोए और माही भाई ने क्रीज़ बनाई।",
-          "मुकेश जी ने कपड़े नए जैसे धोए और माही जी ने शानदार प्रेस किया।"
-        ],
-        closers: [
-          "कपड़े खुशबूदार और सुरक्षित मिले। 10/10 स्टार!",
-          "किफायती दाम और 5-स्टार गुणवत्ता। बहुत-बहुत धन्यवाद!",
-          "कपड़ों की खुशबू और पैकिंग बहुत अच्छी है। 5 स्टार!",
-          "जोधपुर में सभी को अवश्य इस्तेमाल करना चाहिए। उत्तम सेवा!"
-        ]
-      }
-    };
+  "en": {
+    "openers": [
+      "Best laundry and dry cleaning experience in Jodhpur!",
+      "Had an outstanding 5-star experience with Gen-Z Laundry.",
+      "Truly exceptional doorstep garment care here in Jodhpur.",
+      "By far the most reliable laundry service in town.",
+      "Super impressed with the speed and hygiene of Gen-Z!",
+      "Outstanding laundry and express doorstep pickup in Ratanada.",
+      "The most convenient and hassle-free laundry in Jodhpur!",
+      "Flawless laundry and steam ironing experience from start to finish.",
+      "Gen-Z Laundry made my travel stay in Jodhpur effortless!",
+      "Exceptional fabric care right at your doorstep across Jodhpur.",
+      "Best dry cleaning and wash service in all of Jodhpur!",
+      "Gen-Z Laundry delivers unmatched quality and prompt doorstep service.",
+      "Top-tier professional laundry care right here in the Blue City.",
+      "Remarkable service, quick communication, and spotless wash quality.",
+      "Finding Gen-Z Laundry was the best part of my stay!"
+    ],
+    "delivery": [
+      "The pickup rider arrived at our doorstep within 25 minutes.",
+      "Their doorstep collection was punctual, polite, and completely seamless.",
+      "Doorstep pickup from my hotel room was fast and easy.",
+      "Clothes were collected directly from our hostel gate on time.",
+      "Their rider collected clothes promptly with clear WhatsApp updates.",
+      "Punctual doorstep pickup and return delivery right to our room.",
+      "The team arrived within half an hour with courteous service.",
+      "Doorstep pickup was handled punctually with polite, friendly care.",
+      "They picked up my travel clothes directly from my homestay.",
+      "Their pickup executive was very punctual and helpful throughout.",
+      "Prompt collection from our resort with live status updates.",
+      "Super fast pickup from our PG with zero waiting time."
+    ],
+    "quality": [
+      "Tough collar stains were removed and shirts pressed wrinkle-free.",
+      "Every garment came back spotless, fragrant, and crisply pressed.",
+      "Delicate fabrics were dry cleaned beautifully with zero harsh chemicals.",
+      "Stains were treated carefully and formals ironed to showroom perfection.",
+      "Flawless wash quality, bright whites, and razor-sharp crease alignment.",
+      "Clothes look brand new with perfect creases and fresh scent.",
+      "Our clothes and linens were washed thoroughly and folded neatly.",
+      "Outstanding steam ironing with crisp creases and zero fabric shine.",
+      "Fabrics feel ultra-soft and smell wonderfully fresh and hygienic.",
+      "Colors were protected perfectly and garments packed in protective covers."
+    ],
+    "closers": [
+      "Everything smells fresh. Highly recommended to all!",
+      "Affordable pricing with 5-star luxury results. Fantastic!",
+      "Neatly packed in protective covers. Deserves 5 stars!",
+      "Will definitely use them again. 10/10 recommended!",
+      "Excellent customer service and fair rates. Must try!",
+      "Super fast turnaround and great care. Truly impressive!",
+      "Best laundry in the Blue City. Full 5 stars!",
+      "Very happy with the service. Will recommend to everyone!",
+      "Five stars for genuine care, honesty, and punctuality."
+    ]
+  },
+  "hi_en": {
+    "openers": [
+      "Jodhpur me sabse best laundry aur dry cleaning service!",
+      "Gen-Z Laundry ke sath experience sach me lajawab raha.",
+      "Doorstep laundry ke liye Jodhpur me no. 1 service!",
+      "Jodhpur trip ke dauran aisi fast laundry bohot helpful rahi.",
+      "Ratanada aur pure Jodhpur me sabse reliable laundry service!",
+      "Kapdo ki aisi behtareen care pehle kabhi nahi dekhi.",
+      "Hostel students aur travelers ke liye sabse best option!",
+      "Gen-Z Laundry ne kapdo ki care lajawab tarike se ki.",
+      "Jodhpur me aisi professional laundry service pehli baar mili.",
+      "Kamaal ki doorstep laundry aur dry cleaning service hai!",
+      "Blue City me aisi premium aur fast service milna blessing hai.",
+      "Har bar ekdum spotless aur fresh kapde deliver karte hain."
+    ],
+    "delivery": [
+      "Pickup rider ne 25 minute ke andar kapde collect kiye.",
+      "Doorstep pickup bohot fast tha aur delivery bilkul time par.",
+      "Hostel gate se kapde time par pick aur deliver kiye.",
+      "Hotel room se pickup aur drop dono bohot convenient rahe.",
+      "WhatsApp pe message karte hi rider collection ke liye aaya.",
+      "Prompt doorstep pickup mila aur rider ka nature polite tha.",
+      "Haveli se direct room pickup service sach me kamaal hai.",
+      "Doorstep pickup punctual tha aur delivery safe tareeqe se hui.",
+      "Rider ne time par aakar transparent tareeqe se kapde liye.",
+      "Homestay se pickup kar ke time par delivery de di."
+    ],
+    "quality": [
+      "Collar ke tough daag hataye aur wrinkle-free steam press kiya.",
+      "Kapde ekdum spotless mile aur creases showroom jaisi thi.",
+      "Delicate fabrics bina harsh chemicals ke dry clean hue.",
+      "Kapdo ki chamak laut aayi aur khushbu bohot pyaari hai.",
+      "White shirts bilkul chamakdaar dhoi aur sharp crease banayi.",
+      "Dry cleaning aur steam press dono ki quality A-one hai.",
+      "Har kapda neat folding aur protective packing me mila.",
+      "Kapdo ka color bilkul safe raha aur fabric soft feel hua.",
+      "Steam ironing quality lajawab hai, zero wrinkles aur crisp look."
+    ],
+    "closers": [
+      "Kapdo ki fresh fragrance lajawab hai. 5 stars!",
+      "Pocket-friendly rates aur 5-star quality. Highly recommended!",
+      "Protective packing me folded kapde mile. Must try!",
+      "Jodhpur me sabse best laundry. 10/10 recommended!",
+      "Ab se saari laundry yahin se karwaunga. Superb!",
+      "Super fast turnaround aur honest pricing. Dil khush!",
+      "Service bohot badiya aur polite customer care. 5 stars!",
+      "Sabhi dosto aur travelers ko zaroor recommend karunga!"
+    ]
+  },
+  "hi": {
+    "openers": [
+      "जोधपुर में सबसे बेहतरीन और भरोसेमंद लॉन्ड्री सेवा!",
+      "जेन-ज़ी लॉन्ड्री के साथ अनुभव बहुत ही शानदार रहा।",
+      "डोरस्टेप लॉन्ड्री के लिए जोधपुर की सबसे उत्तम टीम।",
+      "छात्रों और परिवारों के लिए सबसे विश्वसनीय लॉन्ड्री सेवा।",
+      "रतानाडा और पूरे जोधपुर में सबसे तेज लॉन्ड्री सर्विस।",
+      "जोधपुर यात्रा के दौरान कपड़ों की शानदार देखभाल मिली।",
+      "कपड़ों की धुलाई और ड्राई क्लीनिंग का सर्वोत्तम अनुभव।",
+      "ब्लू सिटी में ऐसी साफ-सुथरी लॉन्ड्री सेवा मिलना सुखद है।",
+      "जेन-ज़ी लॉन्ड्री ने समय और मेहनत की बड़ी बचत कराई।"
+    ],
+    "delivery": [
+      "पिकअप राइडर ने 25 मिनट में डोरस्टेप कलेक्शन किया।",
+      "होटल रूम से कपड़ों का पिकअप बहुत सुविधाजनक रहा।",
+      "हॉस्टल गेट से समय पर कपड़े लिए और लौटाए।",
+      "व्हाट्सएप पर संपर्क करते ही तुरंत पिकअप सेवा मिली।",
+      "समय पर पिकअप और सुरक्षित डिलीवरी का अनुभव मिला।",
+      "डोरस्टेप पिकअप बहुत ही समयबद्ध और सहज रहा।",
+      "होटल से कपड़े लेकर समय पर सुरक्षित लौटा दिए।",
+      "राइडर का व्यवहार बहुत विनम्र और समय का पाबंद था।"
+    ],
+    "quality": [
+      "दाग पूरी तरह साफ किए और शानदार स्टीम प्रेसिंग की।",
+      "कपड़े बिल्कुल बेदाग, खुशबूदार और नए जैसे तैयार मिले।",
+      "सफेद कपड़ों की चमक और कॉलर की सफाई बेहतरीन रही।",
+      "नाजुक कपड़ों की ड्राई क्लीनिंग बिना किसी नुकसान के हुई।",
+      "सूट और साड़ियों की क्रीज़ बिल्कुल शोरूम जैसी बनी।",
+      "कपड़ों की खुशबू और पैकिंग बहुत स्वच्छ मिली।",
+      "स्टीम प्रेसिंग से कपड़ों में शानदार क्रीज़ बनी।",
+      "फैब्रिक बिल्कुल मुलायम रहा और रंग भी सुरक्षित रहे।"
+    ],
+    "closers": [
+      "कपड़ों की खुशबू लाजवाब है। पूरे 5 स्टार!",
+      "किफायती दाम और उत्तम गुणवत्ता। अवश्य इस्तेमाल करें!",
+      "जोधपुर में सभी को यह सेवा जरूर आजमानी चाहिए।",
+      "सुरक्षित पैकिंग और समय पर डिलीवरी। 10/10 उत्तम!",
+      "आगे से हमेशा यहीं से लॉन्ड्री करवाएंगे। धन्यवाद!",
+      "उत्कृष्ट ग्राहक सेवा और बेहतरीन काम। बहुत बढ़िया!",
+      "छात्रों और पर्यटकों के लिए सबसे भरोसेमंद। 5 स्टार!"
+    ]
+  }
+};
 
     // State management
     let currentLang = 'en';
     const activeTags = new Set(['delivery', 'iron', 'wash']);
+    let isAutoPaused = false;
+    const AUTO_REFRESH_INTERVAL_SEC = 8;
+    let autoRemaining = AUTO_REFRESH_INTERVAL_SEC;
+    let autoTimer = null;
 
     const textarea = document.getElementById('reviewTextarea');
     const charCounter = document.getElementById('charCounter');
@@ -799,6 +978,14 @@
     const toastMessage = document.getElementById('toastMessage');
     const starsRow = document.getElementById('starsRow');
     const starStatusPill = document.getElementById('starStatusPill');
+
+    // Auto-refresh DOM elements
+    const autoRefreshPill = document.getElementById('autoRefreshPill');
+    const autoRefreshText = document.getElementById('autoRefreshText');
+    const autoSecCount = document.getElementById('autoSecCount');
+    const btnAutoToggle = document.getElementById('btnAutoToggle');
+    const autoToggleIcon = document.getElementById('autoToggleIcon');
+    const autoProgressBar = document.getElementById('autoProgressBar');
 
     // Helper: Pick random item
     function pickRandom(arr) {
@@ -811,16 +998,16 @@
     }
 
     // Calibrated Review Generator: Strictly guarantees 30-40 words
-    function generateCalibratedReview(lang, tags) {
+    function generateCalibratedReview(lang) {
       const bank = PHRASE_BANKS[lang] || PHRASE_BANKS.en;
 
-      for (let attempt = 0; attempt < 50; attempt++) {
+      for (let attempt = 0; attempt < 80; attempt++) {
         const o = pickRandom(bank.openers);
         const d = pickRandom(bank.delivery);
-        const s = pickRandom(bank.service);
+        const q = pickRandom(bank.quality);
         const c = pickRandom(bank.closers);
 
-        const draft = `${o} ${d} ${s} ${c}`.replace(/\s+/g, ' ').trim();
+        const draft = `${o} ${d} ${q} ${c}`.replace(/\s+/g, ' ').trim();
         const wc = countWords(draft);
 
         if (wc >= 30 && wc <= 40) {
@@ -828,27 +1015,30 @@
         }
       }
 
-      // Default calibrated fallback
-      const o = bank.openers[0];
-      const d = bank.delivery[0];
-      const s = bank.service[0];
-      const c = bank.closers[0];
-      return `${o} ${d} ${s} ${c}`.replace(/\s+/g, ' ').trim();
+      // Default fallback
+      return `${bank.openers[0]} ${bank.delivery[0]} ${bank.quality[0]} ${bank.closers[0]}`.replace(/\s+/g, ' ').trim();
     }
 
     // Refresh review with non-repeating logic across refreshes
-    function refreshReviewDraft() {
-      let draft = generateCalibratedReview(currentLang, activeTags);
+    function refreshReviewDraft(animate = true) {
+      let draft = generateCalibratedReview(currentLang);
       const lastDraft = sessionStorage.getItem('last_genz_review');
       let attempts = 0;
 
-      while (draft === lastDraft && attempts < 8) {
-        draft = generateCalibratedReview(currentLang, activeTags);
+      while (draft === lastDraft && attempts < 10) {
+        draft = generateCalibratedReview(currentLang);
         attempts++;
       }
 
       sessionStorage.setItem('last_genz_review', draft);
       textarea.value = draft;
+
+      if (animate) {
+        textarea.classList.remove('draft-fade-in');
+        void textarea.offsetWidth; // trigger reflow
+        textarea.classList.add('draft-fade-in');
+      }
+
       updateCharCount();
     }
 
@@ -856,8 +1046,69 @@
       const text = textarea.value.trim();
       const words = countWords(text);
       const chars = text.length;
-      charCounter.innerHTML = `<strong>${words} words</strong> &bull; ${chars} characters`;
+      charCounter.innerHTML = `<strong>${words} words</strong> &bull; ${chars} chars`;
     }
+
+    // ── Auto-Refresh Timer Engine ──
+    function startAutoRefreshTimer() {
+      if (autoTimer) clearInterval(autoTimer);
+      autoRemaining = AUTO_REFRESH_INTERVAL_SEC;
+      updateAutoUI();
+
+      autoTimer = setInterval(() => {
+        if (isAutoPaused) return;
+
+        autoRemaining--;
+        if (autoRemaining <= 0) {
+          refreshReviewDraft(true);
+          autoRemaining = AUTO_REFRESH_INTERVAL_SEC;
+        }
+        updateAutoUI();
+      }, 1000);
+    }
+
+    function updateAutoUI() {
+      if (isAutoPaused) {
+        autoRefreshPill.classList.add('paused');
+        autoRefreshText.innerHTML = 'Auto: <strong>Paused</strong>';
+        autoToggleIcon.className = 'fas fa-play';
+        autoProgressBar.style.width = '0%';
+      } else {
+        autoRefreshPill.classList.remove('paused');
+        autoRefreshText.innerHTML = `Auto: <strong>${autoRemaining}s</strong>`;
+        autoToggleIcon.className = 'fas fa-pause';
+        const pct = (autoRemaining / AUTO_REFRESH_INTERVAL_SEC) * 100;
+        autoProgressBar.style.width = `${pct}%`;
+      }
+    }
+
+    function toggleAutoRefresh(e) {
+      if (e) e.stopPropagation();
+      isAutoPaused = !isAutoPaused;
+      if (!isAutoPaused) {
+        autoRemaining = AUTO_REFRESH_INTERVAL_SEC;
+      }
+      updateAutoUI();
+    }
+
+    autoRefreshPill.addEventListener('click', toggleAutoRefresh);
+    btnAutoToggle.addEventListener('click', toggleAutoRefresh);
+
+    // Pause when user focuses or edits textarea
+    textarea.addEventListener('focus', () => {
+      if (!isAutoPaused) {
+        isAutoPaused = true;
+        updateAutoUI();
+      }
+    });
+
+    textarea.addEventListener('input', () => {
+      updateCharCount();
+      if (!isAutoPaused) {
+        isAutoPaused = true;
+        updateAutoUI();
+      }
+    });
 
     // Language switcher
     document.querySelectorAll('.lang-tab').forEach(tab => {
@@ -869,7 +1120,9 @@
         tab.classList.add('active');
         tab.setAttribute('aria-selected', 'true');
         currentLang = tab.getAttribute('data-lang');
-        refreshReviewDraft();
+        refreshReviewDraft(true);
+        autoRemaining = AUTO_REFRESH_INTERVAL_SEC;
+        updateAutoUI();
       });
     });
 
@@ -877,21 +1130,18 @@
     btnShuffle.addEventListener('click', () => {
       btnShuffle.classList.add('rotating');
       setTimeout(() => btnShuffle.classList.remove('rotating'), 350);
-      refreshReviewDraft();
+      refreshReviewDraft(true);
+      autoRemaining = AUTO_REFRESH_INTERVAL_SEC;
+      updateAutoUI();
     });
 
     // Tag chip toggle
     document.querySelectorAll('.tag-chip').forEach(chip => {
       chip.addEventListener('click', () => {
-        const tag = chip.getAttribute('data-tag');
-        if (chip.classList.contains('active')) {
-          chip.classList.remove('active');
-          activeTags.delete(tag);
-        } else {
-          chip.classList.add('active');
-          activeTags.add(tag);
-        }
-        refreshReviewDraft();
+        chip.classList.toggle('active');
+        refreshReviewDraft(true);
+        autoRemaining = AUTO_REFRESH_INTERVAL_SEC;
+        updateAutoUI();
       });
     });
 
@@ -901,17 +1151,11 @@
         const star = parseInt(btn.getAttribute('data-star'), 10);
         starsRow.querySelectorAll('.star-btn').forEach(b => {
           const s = parseInt(b.getAttribute('data-star'), 10);
-          if (s <= star) {
-            b.style.color = '#FBBC04';
-          } else {
-            b.style.color = '#DADCE0';
-          }
+          b.style.color = (s <= star) ? '#FBBC04' : '#DADCE0';
         });
         starStatusPill.textContent = `★★★★★ ${star}.0 • ${star === 5 ? 'Loved It!' : 'Very Good'}`;
       });
     });
-
-    textarea.addEventListener('input', updateCharCount);
 
     // Toast utility
     function showToast(msg) {
@@ -950,7 +1194,7 @@
         pieces.forEach(p => {
           p.x += p.vx;
           p.y += p.vy;
-          p.vy += 0.35; // gravity
+          p.vy += 0.35;
           p.rotation += p.rotationSpeed;
           ctx.save();
           ctx.translate(p.x, p.y);
@@ -973,7 +1217,10 @@
     async function copyAndOpenGoogle() {
       const reviewText = textarea.value.trim();
 
-      // Step 1: Copy to clipboard
+      // Pause auto-refresh on copy so text doesn't swap
+      isAutoPaused = true;
+      updateAutoUI();
+
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           await navigator.clipboard.writeText(reviewText);
@@ -982,16 +1229,13 @@
           document.execCommand('copy');
         }
       } catch (err) {
-        // Fallback
         textarea.select();
         document.execCommand('copy');
       }
 
-      // Step 2: Confetti burst & Toast
       launchConfetti();
       showToast('✓ Review Copied! Opening Google Maps...');
 
-      // Step 3: Open Google Review dialog in a new tab
       setTimeout(() => {
         window.open(GOOGLE_REVIEW_URL, '_blank', 'noopener,noreferrer');
       }, 700);
@@ -999,8 +1243,9 @@
 
     btnCopyOpen.addEventListener('click', copyAndOpenGoogle);
 
-    // Initial load: Generate a brand new review on every page visit/refresh
-    refreshReviewDraft();
+    // Initial load: Generate a brand new review and start auto-refresh timer
+    refreshReviewDraft(false);
+    startAutoRefreshTimer();
   </script>
 </body>
 </html>
