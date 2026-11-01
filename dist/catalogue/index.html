@@ -15,7 +15,7 @@
 
   <style>
     /* ══════════════════════════════════════════════════════════
-       RESET & BASE DESIGN SYSTEM
+       RESET & BASE SYSTEM
        ══════════════════════════════════════════════════════════ */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -24,28 +24,29 @@
     }
 
     :root {
-      --color-navy-dark: #071E4A;
-      --color-navy-deep: #0B2559;
-      --color-blue-primary: #1D4ED8;
-      --color-blue-bright: #2563EB;
-      --color-gold-deep: #B45309;
-      --color-gold-metallic: #D97706;
-      --color-gold-bright: #F59E0B;
-      --color-gold-light: #FDE68A;
-      --color-gold-bg: #FEF3C7;
-      --color-slate-900: #0F172A;
-      --color-slate-800: #1E293B;
-      --color-slate-700: #334155;
-      --color-slate-600: #475569;
-      --color-slate-100: #F1F5F9;
-      --color-slate-50: #F8FAFC;
-      --color-emerald: #10B981;
+      --navy-950: #041026;
+      --navy-900: #071E4A;
+      --navy-800: #0B2559;
+      --navy-700: #10377A;
+      --gold-bright: #F59E0B;
+      --gold-metallic: #D97706;
+      --gold-light: #FDE68A;
+      --gold-subtle: #FEF3C7;
+      --blue-accent: #2563EB;
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1E293B;
+      --emerald-600: #16A34A;
+      --rose-600: #E11D48;
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0B192C;
-      color: #1E293B;
+      background: #081326;
+      color: var(--slate-800);
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -53,7 +54,7 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       STICKY DIGITAL VIEWER BAR (SCREEN ONLY)
+       STICKY DIGITAL VIEWER TOP BAR (SCREEN ONLY)
        ══════════════════════════════════════════════════════════ */
     .catalogue-actions-bar {
       position: fixed;
@@ -64,7 +65,7 @@
       background: rgba(7, 30, 74, 0.96);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 2px solid #D97706;
+      border-bottom: 2px solid var(--gold-metallic);
       z-index: 9999;
       display: flex;
       align-items: center;
@@ -88,7 +89,7 @@
       border-radius: 8px;
       background: #FFFFFF;
       padding: 2px;
-      border: 1px solid #D97706;
+      border: 1px solid var(--gold-metallic);
       object-fit: contain;
     }
 
@@ -102,7 +103,7 @@
       font-size: 0.92rem;
       font-weight: 800;
       letter-spacing: 0.8px;
-      color: #FDE68A;
+      color: var(--gold-light);
       line-height: 1.1;
     }
 
@@ -147,7 +148,7 @@
     }
 
     .cab-nav-btn:hover {
-      background: #D97706;
+      background: var(--gold-metallic);
       transform: scale(1.08);
     }
 
@@ -193,7 +194,7 @@
     .cab-zoom-text {
       font-size: 0.7rem;
       font-weight: 700;
-      color: #FDE68A;
+      color: var(--gold-light);
       min-width: 36px;
       text-align: center;
     }
@@ -203,7 +204,7 @@
       align-items: center;
       gap: 8px;
       background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: #071E4A;
+      color: var(--navy-900);
       font-size: 0.82rem;
       font-weight: 800;
       padding: 8px 18px;
@@ -294,14 +295,14 @@
     .dock-pill:hover,
     .dock-pill.active {
       background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: #071E4A;
+      color: var(--navy-900);
       font-weight: 800;
-      border-color: #FDE68A;
+      border-color: var(--gold-light);
       transform: translateY(-1px);
     }
 
     /* ══════════════════════════════════════════════════════════
-       A4 PAGES CONTAINER (EXACT 210mm x 297mm SHEET DIMENSIONS)
+       A4 PAGES CONTAINER (EXACT 210mm x 297mm DIMENSIONS)
        ══════════════════════════════════════════════════════════ */
     .catalogue-container {
       width: 210mm;
@@ -315,7 +316,7 @@
       height: 297mm;
       background: #FFFFFF;
       margin-bottom: 30px;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
       position: relative;
       overflow: hidden;
       page-break-after: always;
@@ -330,7 +331,7 @@
        ══════════════════════════════════════════════════════════ */
     .page-cover-masterpiece {
       padding: 0;
-      background: #071E4A;
+      background: var(--navy-900);
     }
 
     .cover-master-img {
@@ -341,16 +342,16 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       EDITORIAL PAGES GLOBAL HEADER & FOOTER
+       GLOBAL EDITORIAL HEADER & FOOTER
        ══════════════════════════════════════════════════════════ */
     .page-inner-header {
       background: linear-gradient(135deg, #071E4A 0%, #0B2559 100%);
       color: #FFFFFF;
-      padding: 10mm 14mm 8mm;
+      padding: 8mm 12mm 6mm;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 2.5px solid #D97706;
+      border-bottom: 2.5px solid var(--gold-metallic);
       flex-shrink: 0;
     }
 
@@ -361,26 +362,26 @@
     }
 
     .pih-logo {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 8px;
       background: #FFFFFF;
       padding: 3px;
-      border: 1.5px solid #F59E0B;
+      border: 1.5px solid var(--gold-bright);
       object-fit: contain;
     }
 
     .pih-brand-name {
       font-family: 'Cinzel', serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 800;
       letter-spacing: 1px;
-      color: #FDE68A;
+      color: var(--gold-light);
       line-height: 1.1;
     }
 
     .pih-brand-tag {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: #E2E8F0;
       letter-spacing: 0.4px;
     }
@@ -391,14 +392,14 @@
 
     .pih-doc-title {
       font-family: 'Cinzel', serif;
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: #FFFFFF;
       letter-spacing: 0.5px;
     }
 
     .pih-doc-sub {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: #FCD34D;
       font-weight: 600;
     }
@@ -406,7 +407,7 @@
     .page-inner-footer {
       background: #F8FAFC;
       border-top: 1px solid #E2E8F0;
-      padding: 4mm 14mm;
+      padding: 3.5mm 12mm;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -422,23 +423,24 @@
     }
 
     .pif-contact strong {
-      color: #071E4A;
+      color: var(--navy-900);
     }
 
     .pif-badge {
       font-family: 'Cinzel', serif;
       font-weight: 700;
-      color: #D97706;
+      color: var(--gold-metallic);
     }
 
     .page-body {
-      padding: 8mm 14mm;
+      padding: 6mm 12mm;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
       background: #FFFFFF;
+      gap: 8px;
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -446,15 +448,14 @@
        ══════════════════════════════════════════════════════════ */
     .editorial-hero-banner {
       width: 100%;
-      height: 140px;
-      border-radius: 12px;
+      height: 125px;
+      border-radius: 10px;
       overflow: hidden;
       position: relative;
-      border: 1.5px solid #E2E8F0;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      margin-bottom: 12px;
+      border: 1.5px solid var(--slate-200);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
       flex-shrink: 0;
-      background: #071E4A;
+      background: var(--navy-900);
     }
 
     .editorial-hero-banner img {
@@ -467,23 +468,23 @@
     .editorial-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(7, 30, 74, 0.1) 0%, rgba(7, 30, 74, 0.85) 100%);
+      background: linear-gradient(180deg, rgba(7, 30, 74, 0.15) 0%, rgba(7, 30, 74, 0.88) 100%);
       display: flex;
       align-items: flex-end;
-      padding: 12px 16px;
+      padding: 10px 14px;
       color: #FFFFFF;
     }
 
     .eho-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 800;
-      color: #FDE68A;
+      color: var(--gold-light);
       line-height: 1.2;
     }
 
     .eho-sub {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: #E2E8F0;
     }
 
@@ -491,196 +492,220 @@
     .pillar-row-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 8px;
       flex-shrink: 0;
     }
 
     .pillar-card {
       background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-top: 3px solid #D97706;
+      border: 1px solid var(--slate-200);
+      border-top: 3px solid var(--gold-metallic);
       border-radius: 8px;
-      padding: 10px 12px;
-      transition: all 0.2s;
+      padding: 8px 10px;
     }
 
     .pillar-card-icon {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 6px;
-      background: #FEF3C7;
-      color: #D97706;
+      background: var(--gold-subtle);
+      color: var(--gold-metallic);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.85rem;
-      margin-bottom: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
     }
 
     .pillar-card-title {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 800;
-      color: #071E4A;
-      margin-bottom: 3px;
+      color: var(--navy-900);
+      margin-bottom: 2px;
     }
 
     .pillar-card-desc {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: #64748B;
-      line-height: 1.35;
+      line-height: 1.3;
     }
 
-    /* Before & After Master Box */
+    /* ══════════════════════════════════════════════════════════
+       ENHANCED BEFORE & AFTER COMPARISON SECTION
+       ══════════════════════════════════════════════════════════ */
     .ba-section-box {
       background: linear-gradient(135deg, #071E4A 0%, #0F2D6B 100%);
-      border-radius: 12px;
-      padding: 12px 14px;
+      border-radius: 10px;
+      padding: 10px 12px;
       color: #FFFFFF;
-      border: 1px solid #D97706;
-      box-shadow: 0 6px 20px rgba(7, 30, 74, 0.25);
-      flex: 1;
+      border: 1.5px solid var(--gold-metallic);
+      box-shadow: 0 4px 16px rgba(7, 30, 74, 0.2);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
+      gap: 6px;
+      flex-shrink: 0;
     }
 
     .ba-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 8px;
     }
 
     .ba-title {
       font-family: 'Cinzel', serif;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       font-weight: 800;
-      color: #FDE68A;
+      color: var(--gold-light);
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
     .ba-sub {
-      font-size: 0.66rem;
+      font-size: 0.65rem;
       color: #94A3B8;
     }
 
-    .ba-image-container {
+    .ba-display-frame {
       width: 100%;
-      height: 135px;
+      height: 180px;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 8px;
-      background: #000000;
-    }
-
-    .ba-image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      background: #0F172A;
-    }
-
-    .ba-footer-tags {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.68rem;
-      color: #E2E8F0;
-    }
-
-    .ba-tag-pill {
-      background: rgba(217, 119, 6, 0.25);
-      border: 1px solid #D97706;
-      padding: 3px 8px;
-      border-radius: 9999px;
-      color: #FDE68A;
-      font-weight: 700;
-      font-size: 0.65rem;
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       PAGE 2: SERVICES DIRECTORY
-       ══════════════════════════════════════════════════════════ */
-    .services-grid-12 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      flex: 1;
-      margin-bottom: 10px;
-    }
-
-    .service-row-card {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-left: 3.5px solid #1D4ED8;
-      border-radius: 6px;
-      padding: 7px 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .service-row-card.highlight {
-      border-left-color: #D97706;
-      background: #FFFBEB;
-    }
-
-    .src-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-      background: #EFF6FF;
-      color: #1D4ED8;
+      background: #061533;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.95rem;
+      padding: 4px;
+    }
+
+    .ba-display-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .ba-labels-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ba-badge-before {
+      background: rgba(225, 29, 72, 0.25);
+      border: 1px solid var(--rose-600);
+      color: #FECDD3;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .ba-badge-after {
+      background: rgba(22, 163, 74, 0.25);
+      border: 1px solid var(--emerald-600);
+      color: #BBF7D0;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .ba-badge-center {
+      font-size: 0.65rem;
+      color: var(--gold-light);
+      font-weight: 800;
+      font-family: 'Cinzel', serif;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       PAGE 2: OUR SERVICES WITH REAL PHOTOS FOR EVERY ITEM
+       ══════════════════════════════════════════════════════════ */
+    .services-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 7px;
+      flex: 1;
+    }
+
+    .service-photo-card {
+      background: #F8FAFC;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      transition: all 0.2s;
+    }
+
+    .service-photo-card.highlight {
+      background: #FFFBEB;
+      border-color: #FCD34D;
+      border-left: 3.5px solid var(--gold-metallic);
+    }
+
+    .spc-thumb-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 7px;
+      overflow: hidden;
+      border: 1.5px solid var(--slate-200);
+      background: #FFFFFF;
       flex-shrink: 0;
+      position: relative;
     }
 
-    .service-row-card.highlight .src-icon {
-      background: #FEF3C7;
-      color: #D97706;
+    .spc-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .src-info {
+    .spc-info {
       flex: 1;
       min-width: 0;
     }
 
-    .src-title {
-      font-size: 0.78rem;
+    .spc-title {
+      font-size: 0.75rem;
       font-weight: 800;
-      color: #071E4A;
+      color: var(--navy-900);
       line-height: 1.2;
     }
 
-    .src-desc {
-      font-size: 0.64rem;
+    .spc-desc {
+      font-size: 0.62rem;
       color: #64748B;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .src-badge {
-      font-size: 0.6rem;
+    .spc-badge {
+      font-size: 0.58rem;
       font-weight: 800;
       background: #E2E8F0;
-      color: #071E4A;
-      padding: 2px 6px;
+      color: var(--navy-900);
+      padding: 1.5px 6px;
       border-radius: 4px;
-      white-space: nowrap;
+      display: inline-block;
+      margin-top: 2px;
     }
 
-    .service-row-card.highlight .src-badge {
-      background: #D97706;
+    .service-photo-card.highlight .spc-badge {
+      background: var(--gold-metallic);
       color: #FFFFFF;
     }
 
@@ -688,23 +713,23 @@
       background: linear-gradient(135deg, #071E4A 0%, #0B2559 100%);
       color: #FFFFFF;
       border-radius: 8px;
-      padding: 8px 14px;
+      padding: 7px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border: 1px solid #D97706;
+      border: 1px solid var(--gold-metallic);
       flex-shrink: 0;
     }
 
     .sgr-text strong {
       font-family: 'Cinzel', serif;
-      color: #FDE68A;
-      font-size: 0.8rem;
+      color: var(--gold-light);
+      font-size: 0.78rem;
       display: block;
     }
 
     .sgr-text span {
-      font-size: 0.66rem;
+      font-size: 0.64rem;
       color: #CBD5E1;
     }
 
@@ -714,8 +739,7 @@
     .hotel-dual-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 12px;
+      gap: 10px;
       flex-shrink: 0;
     }
 
@@ -723,9 +747,9 @@
       height: 130px;
       border-radius: 10px;
       overflow: hidden;
-      border: 1.5px solid #E2E8F0;
+      border: 1.5px solid var(--slate-200);
       position: relative;
-      background: #071E4A;
+      background: var(--navy-900);
     }
 
     .hotel-img-card img {
@@ -751,7 +775,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 8px;
       flex-shrink: 0;
     }
 
@@ -759,18 +783,18 @@
       background: #F1F5F9;
       border: 1px solid #CBD5E1;
       border-radius: 6px;
-      padding: 8px;
+      padding: 6px;
       text-align: center;
-      font-size: 0.68rem;
-      color: #071E4A;
+      font-size: 0.66rem;
+      color: var(--navy-900);
       font-weight: 700;
     }
 
     .hsg-item i {
       display: block;
-      font-size: 1.1rem;
-      color: #D97706;
-      margin-bottom: 4px;
+      font-size: 1rem;
+      color: var(--gold-metallic);
+      margin-bottom: 3px;
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -779,14 +803,13 @@
     .projects-3-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 8px;
       flex-shrink: 0;
     }
 
     .project-card {
       background: #F8FAFC;
-      border: 1px solid #E2E8F0;
+      border: 1px solid var(--slate-200);
       border-radius: 8px;
       overflow: hidden;
       display: flex;
@@ -794,8 +817,8 @@
     }
 
     .project-card-img {
-      height: 95px;
-      background: #071E4A;
+      height: 100px;
+      background: var(--navy-900);
       overflow: hidden;
     }
 
@@ -807,7 +830,7 @@
     }
 
     .project-card-body {
-      padding: 8px;
+      padding: 7px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -816,13 +839,13 @@
 
     .pcb-badge {
       display: inline-block;
-      font-size: 0.58rem;
+      font-size: 0.56rem;
       font-weight: 800;
-      color: #D97706;
-      background: #FEF3C7;
-      padding: 2px 6px;
+      color: var(--gold-metallic);
+      background: var(--gold-subtle);
+      padding: 2px 5px;
       border-radius: 4px;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       width: fit-content;
     }
 
@@ -830,74 +853,74 @@
       font-family: 'Cinzel', serif;
       font-size: 0.74rem;
       font-weight: 800;
-      color: #071E4A;
+      color: var(--navy-900);
       line-height: 1.2;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .pcb-desc {
       font-size: 0.62rem;
       color: #64748B;
-      line-height: 1.3;
+      line-height: 1.25;
     }
 
     .tender-document-slot {
       background: linear-gradient(135deg, #071E4A 0%, #0F2D6B 100%);
-      border: 1.5px solid #D97706;
+      border: 1.5px solid var(--gold-metallic);
       border-radius: 10px;
-      padding: 12px 16px;
+      padding: 10px 14px;
       color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      flex: 1;
+      gap: 14px;
       box-shadow: 0 4px 16px rgba(7, 30, 74, 0.2);
+      flex-shrink: 0;
     }
 
     .tds-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .tds-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       background: rgba(217, 119, 6, 0.25);
-      border: 1.5px solid #F59E0B;
-      color: #FDE68A;
+      border: 1.5px solid var(--gold-bright);
+      color: var(--gold-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       flex-shrink: 0;
     }
 
     .tds-title {
       font-family: 'Cinzel', serif;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       font-weight: 800;
-      color: #FDE68A;
-      margin-bottom: 3px;
+      color: var(--gold-light);
+      margin-bottom: 2px;
     }
 
     .tds-sub {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: #CBD5E1;
-      line-height: 1.35;
+      line-height: 1.3;
     }
 
     .tds-badge {
-      background: #D97706;
+      background: var(--gold-metallic);
       color: #FFFFFF;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 9999px;
       white-space: nowrap;
-      border: 1px solid #FDE68A;
+      border: 1px solid var(--gold-light);
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -905,23 +928,22 @@
        ══════════════════════════════════════════════════════════ */
     .contact-hero-container {
       background: #F8FAFC;
-      border: 1.5px solid #E2E8F0;
+      border: 1.5px solid var(--slate-200);
       border-radius: 12px;
-      padding: 14px;
+      padding: 12px;
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 12px;
+      gap: 14px;
       flex-shrink: 0;
     }
 
     .contact-qr-box {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 10px;
       background: #FFFFFF;
-      border: 2px solid #D97706;
-      padding: 6px;
+      border: 2px solid var(--gold-metallic);
+      padding: 5px;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
@@ -931,40 +953,40 @@
     }
 
     .contact-qr-box img {
-      width: 90px;
-      height: 90px;
+      width: 82px;
+      height: 82px;
       object-fit: contain;
       display: block;
     }
 
     .contact-qr-caption {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       font-weight: 800;
-      color: #071E4A;
-      margin-top: 3px;
+      color: var(--navy-900);
+      margin-top: 2px;
     }
 
     .contact-details-grid {
       flex: 1;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 7px;
     }
 
     .cdg-item {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
+      gap: 7px;
     }
 
     .cdg-item i {
-      color: #D97706;
-      font-size: 0.85rem;
+      color: var(--gold-metallic);
+      font-size: 0.82rem;
       margin-top: 2px;
     }
 
     .cdg-label {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       color: #64748B;
       text-transform: uppercase;
       font-weight: 700;
@@ -972,65 +994,64 @@
     }
 
     .cdg-val {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      color: #071E4A;
+      color: var(--navy-900);
       line-height: 1.25;
     }
 
     .contact-address-card {
       background: linear-gradient(135deg, #071E4A 0%, #0F2D6B 100%);
       color: #FFFFFF;
-      border: 1px solid #D97706;
+      border: 1px solid var(--gold-metallic);
       border-radius: 10px;
-      padding: 12px 16px;
+      padding: 10px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
       flex-shrink: 0;
     }
 
     .cac-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .cac-icon {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 8px;
       background: rgba(217, 119, 6, 0.25);
-      border: 1px solid #F59E0B;
-      color: #FDE68A;
+      border: 1px solid var(--gold-bright);
+      color: var(--gold-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1rem;
       flex-shrink: 0;
     }
 
     .cac-title {
       font-family: 'Cinzel', serif;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 800;
-      color: #FDE68A;
+      color: var(--gold-light);
       margin-bottom: 2px;
     }
 
     .cac-text {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: #E2E8F0;
     }
 
     .cac-hours {
-      background: #D97706;
+      background: var(--gold-metallic);
       color: #FFFFFF;
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 8px;
       text-align: center;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 800;
       white-space: nowrap;
     }
@@ -1039,8 +1060,8 @@
       margin-top: auto;
       border-radius: 8px;
       overflow: hidden;
-      border: 1px solid #E2E8F0;
-      height: 75px;
+      border: 1px solid var(--slate-200);
+      height: 65px;
       background: linear-gradient(180deg, #071E4A 0%, #030D20 100%);
       position: relative;
       display: flex;
@@ -1048,19 +1069,19 @@
       justify-content: center;
       color: #FFFFFF;
       text-align: center;
-      padding: 8px;
+      padding: 6px;
     }
 
     .sfd-text {
       font-family: 'Cinzel', serif;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 800;
-      color: #FDE68A;
+      color: var(--gold-light);
       letter-spacing: 0.6px;
     }
 
     .sfd-sub {
-      font-size: 0.64rem;
+      font-size: 0.62rem;
       color: #94A3B8;
     }
 
@@ -1147,7 +1168,7 @@
         <i class="fas fa-chevron-left"></i>
       </button>
       <div class="cab-page-counter">
-        <i class="far fa-file-alt" style="color: #F59E0B;"></i>
+        <i class="far fa-file-alt" style="color: var(--gold-bright);"></i>
         <span id="pageIndicatorText">Page 1 of 10</span>
       </div>
       <button type="button" class="cab-nav-btn" id="nextPageBtn" onclick="nextPage()" title="Next Page (Right Arrow)">
@@ -1183,9 +1204,9 @@
     </section>
 
     <!-- ───────────────────────────────────────────
-         PAGE 2: OUR SERVICES (PANEL 2)
+         PAGE 2: OUR SERVICES - ATTACHED IMAGE WITH EACH ITEM (PANEL 2)
          ─────────────────────────────────────────── -->
-    <section class="catalogue-page" id="page-2" aria-label="Page 2: Complete Services Matrix">
+    <section class="catalogue-page" id="page-2" aria-label="Page 2: Complete Services Matrix with Item Photos">
       <header class="page-inner-header">
         <div class="pih-left">
           <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1201,144 +1222,169 @@
       </header>
 
       <div class="page-body">
-        <div class="services-guarantee-ribbon" style="margin-bottom: 10px;">
+        <div class="services-guarantee-ribbon">
           <div class="sgr-text">
-            <strong>YOU LIVE, WE LAUNDRY &bull; 100% GARMENT SATISFACTION</strong>
+            <strong>YOU LIVE, WE LAUNDRY &bull; PREMIUM FABRIC CARE</strong>
             <span>World-Class European Processing &bull; Softened RO Water &bull; Zero Color Bleed</span>
           </div>
-          <div style="font-size: 0.72rem; font-weight: 800; color: #FDE68A;">
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--gold-light);">
             <i class="fas fa-shield-alt"></i> &nbsp;&starf;&starf;&starf;&starf;&starf;
           </div>
         </div>
 
-        <div class="services-grid-12">
-          <!-- 1 -->
-          <div class="service-row-card">
-            <div class="src-icon"><i class="fas fa-tshirt"></i></div>
-            <div class="src-info">
-              <div class="src-title">Professional Laundry</div>
-              <div class="src-desc">Enzyme wash &bull; Bio-detergents &bull; Sanitised</div>
+        <!-- 12 Service Items with Real Attached Photos -->
+        <div class="services-photo-grid">
+          <!-- Item 1: Professional Laundry -->
+          <div class="service-photo-card">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/folded_clothes.png" onerror="this.onerror=null;this.src='dist/gallery/folded_clothes.png'" alt="Professional Laundry">
             </div>
-            <span class="src-badge">Daily Care</span>
+            <div class="spc-info">
+              <div class="spc-title">Professional Laundry</div>
+              <div class="spc-desc">Bio-enzymes &bull; German detergent</div>
+              <span class="spc-badge">Daily Care</span>
+            </div>
           </div>
 
-          <!-- 2 -->
-          <div class="service-row-card">
-            <div class="src-icon"><i class="fas fa-layer-group"></i></div>
-            <div class="src-info">
-              <div class="src-title">Wash &amp; Fold</div>
-              <div class="src-desc">Neat boutique fold &bull; Ready for wardrobe</div>
+          <!-- Item 2: Wash & Fold -->
+          <div class="service-photo-card">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/Folded_dresses.png" onerror="this.onerror=null;this.src='dist/gallery/Folded_dresses.png'" alt="Wash and Fold">
             </div>
-            <span class="src-badge">Essential</span>
+            <div class="spc-info">
+              <div class="spc-title">Wash &amp; Fold</div>
+              <div class="spc-desc">Boutique folding &bull; Wardrobe ready</div>
+              <span class="spc-badge">Essential</span>
+            </div>
           </div>
 
-          <!-- 3 -->
-          <div class="service-row-card highlight">
-            <div class="src-icon"><i class="fas fa-vest"></i></div>
-            <div class="src-info">
-              <div class="src-title">Premium Dry Cleaning</div>
-              <div class="src-desc">Suits, silks, lehengas &bull; Hydrocarbon</div>
+          <!-- Item 3: Premium Dry Cleaning -->
+          <div class="service-photo-card highlight">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/Dry_Cleaning.png" onerror="this.onerror=null;this.src='dist/gallery/Dry_Cleaning.png'" alt="Dry Cleaning Suits">
             </div>
-            <span class="src-badge">Luxury</span>
+            <div class="spc-info">
+              <div class="spc-title">Premium Dry Cleaning</div>
+              <div class="spc-desc">Suits, silks, lehengas &bull; Hydrocarbon</div>
+              <span class="spc-badge">Luxury</span>
+            </div>
           </div>
 
-          <!-- 4 -->
-          <div class="service-row-card highlight">
-            <div class="src-icon"><i class="fas fa-iron"></i></div>
-            <div class="src-info">
-              <div class="src-title">Steam Ironing</div>
-              <div class="src-desc">Italian vacuum steam tables &bull; Zero shine</div>
+          <!-- Item 4: Steam Ironing -->
+          <div class="service-photo-card highlight">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/Steam_Iron.png" onerror="this.onerror=null;this.src='dist/gallery/Steam_Iron.png'" alt="Steam Ironing Table">
             </div>
-            <span class="src-badge">Crisp</span>
+            <div class="spc-info">
+              <div class="spc-title">Steam Ironing</div>
+              <div class="spc-desc">Italian vacuum steam &bull; Zero shine</div>
+              <span class="spc-badge">Crisp</span>
+            </div>
           </div>
 
-          <!-- 5 -->
-          <div class="service-row-card highlight">
-            <div class="src-icon"><i class="fas fa-bolt"></i></div>
-            <div class="src-info">
-              <div class="src-title">6-Hour Express Laundry</div>
-              <div class="src-desc">Emergency turnaround for tourists &amp; travellers</div>
+          <!-- Item 5: 6-Hour Express -->
+          <div class="service-photo-card highlight">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/6Hour_Express_Service.png" onerror="this.onerror=null;this.src='dist/gallery/6Hour_Express_Service.png'" alt="6-Hour Express Laundry">
             </div>
-            <span class="src-badge">Express</span>
+            <div class="spc-info">
+              <div class="spc-title">6-Hour Express Laundry</div>
+              <div class="spc-desc">Emergency turnaround for tourists</div>
+              <span class="spc-badge">Express</span>
+            </div>
           </div>
 
-          <!-- 6 -->
-          <div class="service-row-card">
-            <div class="src-icon"><i class="fas fa-clock"></i></div>
-            <div class="src-info">
-              <div class="src-title">Same-Day Laundry</div>
-              <div class="src-desc">Morning pickup &bull; Evening delivery</div>
+          <!-- Item 6: Same-Day Laundry -->
+          <div class="service-photo-card">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/front_view_of_store.jpeg" onerror="this.onerror=null;this.src='dist/gallery/front_view_of_store.jpeg'" alt="Same Day Atelier Facility">
             </div>
-            <span class="src-badge">Fast Track</span>
+            <div class="spc-info">
+              <div class="spc-title">Same-Day Laundry</div>
+              <div class="spc-desc">Morning pickup &bull; Evening delivery</div>
+              <span class="spc-badge">Fast Track</span>
+            </div>
           </div>
 
-          <!-- 7 -->
-          <div class="service-row-card">
-            <div class="src-icon"><i class="fas fa-shoe-prints"></i></div>
-            <div class="src-info">
-              <div class="src-title">Shoe Cleaning &amp; Spa</div>
-              <div class="src-desc">Sneakers, sports &amp; leather revival</div>
+          <!-- Item 7: Shoe Cleaning -->
+          <div class="service-photo-card">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/Shoe_Cleaning.png" onerror="this.onerror=null;this.src='dist/gallery/Shoe_Cleaning.png'" alt="Shoe Cleaning Spa">
             </div>
-            <span class="src-badge">Footwear</span>
+            <div class="spc-info">
+              <div class="spc-title">Shoe Cleaning &amp; Spa</div>
+              <div class="spc-desc">Sneakers, sports &amp; leather revival</div>
+              <span class="spc-badge">Footwear</span>
+            </div>
           </div>
 
-          <!-- 8 -->
-          <div class="service-row-card">
-            <div class="src-icon"><i class="fas fa-border-all"></i></div>
-            <div class="src-info">
-              <div class="src-title">Carpet Cleaning</div>
-              <div class="src-desc">Rotary scrubbing &amp; dry extraction</div>
+          <!-- Item 8: Carpet Cleaning -->
+          <div class="service-photo-card">
+            <div class="spc-thumb-wrap">
+              <img src="public/images/catalogue_assets/carpet_curtains_room.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/carpet_curtains_room.jpg'" alt="Carpet Cleaning">
             </div>
-            <span class="src-badge">Deep Clean</span>
+            <div class="spc-info">
+              <div class="spc-title">Carpet Cleaning</div>
+              <div class="spc-desc">Rotary scrubbing &amp; dry extraction</div>
+              <span class="spc-badge">Deep Clean</span>
+            </div>
           </div>
 
-          <!-- 9 -->
-          <div class="service-row-card">
-            <div class="src-icon"><i class="fas fa-couch"></i></div>
-            <div class="src-info">
-              <div class="src-title">Sofa Cleaning</div>
-              <div class="src-desc">On-site injection extraction &bull; Sanitised</div>
+          <!-- Item 9: Sofa Cleaning -->
+          <div class="service-photo-card highlight">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/Sofa_Cleaning.png" onerror="this.onerror=null;this.src='dist/gallery/Sofa_Cleaning.png'" alt="Sofa Cleaning Doorstep">
             </div>
-            <span class="src-badge">Doorstep</span>
+            <div class="spc-info">
+              <div class="spc-title">Sofa Cleaning</div>
+              <div class="spc-desc">On-site injection extraction</div>
+              <span class="spc-badge">Doorstep</span>
+            </div>
           </div>
 
-          <!-- 10 -->
-          <div class="service-row-card">
-            <div class="src-icon"><i class="fas fa-scroll"></i></div>
-            <div class="src-info">
-              <div class="src-title">Curtain Cleaning</div>
-              <div class="src-desc">Dust mite removal &bull; Crease-free finish</div>
+          <!-- Item 10: Blankets & Duvets -->
+          <div class="service-photo-card">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/Folded_Blanket.png" onerror="this.onerror=null;this.src='dist/gallery/Folded_Blanket.png'" alt="Blanket and Duvet Cleaning">
             </div>
-            <span class="src-badge">Drapes</span>
+            <div class="spc-info">
+              <div class="spc-title">Blanket &amp; Duvet Care</div>
+              <div class="spc-desc">Thermal sanitised &bull; Fluffy finish</div>
+              <span class="spc-badge">Bedding</span>
+            </div>
           </div>
 
-          <!-- 11 -->
-          <div class="service-row-card highlight">
-            <div class="src-icon"><i class="fas fa-hotel"></i></div>
-            <div class="src-info">
-              <div class="src-title">Hotel &amp; Commercial</div>
-              <div class="src-desc">Bulk linen &bull; Heritage havelis &amp; resorts</div>
+          <!-- Item 11: Hotel & Commercial -->
+          <div class="service-photo-card highlight">
+            <div class="spc-thumb-wrap">
+              <img src="public/images/catalogue_assets/hotel_luxury_bedroom.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/hotel_luxury_bedroom.jpg'" alt="Hotel Commercial Solutions">
             </div>
-            <span class="src-badge">Bulk Contract</span>
+            <div class="spc-info">
+              <div class="spc-title">Hotel &amp; Commercial</div>
+              <div class="spc-desc">Bulk linen &bull; Heritage havelis &amp; resorts</div>
+              <span class="spc-badge">Bulk Contract</span>
+            </div>
           </div>
 
-          <!-- 12 -->
-          <div class="service-row-card highlight">
-            <div class="src-icon"><i class="fas fa-motorcycle"></i></div>
-            <div class="src-info">
-              <div class="src-title">Pickup &amp; Delivery</div>
-              <div class="src-desc">Complimentary doorstep collection across Jodhpur</div>
+          <!-- Item 12: Pickup & Delivery -->
+          <div class="service-photo-card highlight">
+            <div class="spc-thumb-wrap">
+              <img src="public/gallery/Store_inside_logo_poster.png" onerror="this.onerror=null;this.src='dist/gallery/Store_inside_logo_poster.png'" alt="Free Doorstep Pickup">
             </div>
-            <span class="src-badge">Free Transit</span>
+            <div class="spc-info">
+              <div class="spc-title">Pickup &amp; Delivery</div>
+              <div class="spc-desc">Free collection across Jodhpur city</div>
+              <span class="spc-badge">Free Transit</span>
+            </div>
           </div>
         </div>
 
-        <div class="services-guarantee-ribbon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #071E4A; border: none;">
+        <div class="services-guarantee-ribbon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: var(--navy-900); border: none;">
           <div class="sgr-text">
-            <strong style="color: #071E4A;">PREMIUM CARE. MAXIMUM CONVENIENCE.</strong>
+            <strong style="color: var(--navy-900);">PREMIUM CARE. MAXIMUM CONVENIENCE.</strong>
             <span style="color: #1E293B; font-weight: 600;">Call / WhatsApp: +91 82338 53727 &bull; www.genzlaundry.com &bull; Ratanada, Jodhpur</span>
           </div>
-          <span style="font-size: 0.72rem; font-weight: 800; background: #071E4A; color: #FFFFFF; padding: 4px 10px; border-radius: 9999px;">
+          <span style="font-size: 0.72rem; font-weight: 800; background: var(--navy-900); color: #FFFFFF; padding: 4px 10px; border-radius: 9999px;">
             OPEN 24/7
           </span>
         </div>
@@ -1377,7 +1423,7 @@
           <div class="editorial-hero-overlay">
             <div>
               <div class="eho-title">State-of-the-Art Commercial Washing</div>
-              <div class="eho-sub">Heavy-duty European front-loaders &bull; German biodegradable chemistry &bull; RO water</div>
+              <div class="eho-sub">Heavy-duty European front-loaders &bull; German biodegradable chemistry &bull; Softened RO water</div>
             </div>
           </div>
         </div>
@@ -1400,18 +1446,25 @@
           </div>
         </div>
 
+        <!-- Before & After Comparison Showcase -->
         <div class="ba-section-box">
           <div class="ba-header">
-            <div class="ba-title"><i class="fas fa-check-circle" style="color: #F59E0B;"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
+            <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
             <div class="ba-sub">Official Atelier Garment Case Study</div>
           </div>
-          <div class="ba-image-container">
-            <img src="public/images/catalogue_assets/before_after_shirt.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/before_after_shirt.jpg'" alt="Before and After Dress Shirt">
+          <div class="ba-display-frame">
+            <img src="public/images/catalogue_assets/ba_shirt_clean_hd.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/before_after_shirt.jpg'" alt="Before and After Dress Shirt">
           </div>
-          <div class="ba-footer-tags">
-            <span><strong>Before:</strong> Heavy Curry &amp; Ink Stains</span>
-            <span class="ba-tag-pill">100% Spotless White Restored</span>
-            <span><strong>After:</strong> Crisp, Sanitised &amp; Pressed</span>
+          <div class="ba-labels-strip">
+            <div class="ba-badge-before"><i class="fas fa-times-circle"></i> BEFORE: Heavy Food &amp; Ink Stains</div>
+            <div class="ba-badge-center">&bull; 100% FIBER RESTORATION &bull;</div>
+            <div class="ba-badge-after"><i class="fas fa-check-circle"></i> AFTER: Crisp White &amp; Pressed</div>
+          </div>
+        </div>
+
+        <div class="services-guarantee-ribbon" style="padding: 5px 12px;">
+          <div class="sgr-text">
+            <span><strong>Same-Day &amp; 6h Express Available:</strong> Free doorstep pickup across Ratanada, Shastri Nagar &amp; Jodhpur.</span>
           </div>
         </div>
       </div>
@@ -1472,18 +1525,25 @@
           </div>
         </div>
 
+        <!-- Before & After Comparison Showcase -->
         <div class="ba-section-box">
           <div class="ba-header">
-            <div class="ba-title"><i class="fas fa-check-circle" style="color: #F59E0B;"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
+            <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
             <div class="ba-sub">Executive Formal Suit Case Study</div>
           </div>
-          <div class="ba-image-container">
-            <img src="public/images/catalogue_assets/before_after_suit.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/before_after_suit.jpg'" alt="Before and After Formal Suit">
+          <div class="ba-display-frame">
+            <img src="public/images/catalogue_assets/ba_suit_clean_hd.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/before_after_suit.jpg'" alt="Before and After Formal Suit">
           </div>
-          <div class="ba-footer-tags">
-            <span><strong>Before:</strong> Creased, Derailed Lapel</span>
-            <span class="ba-tag-pill">Sharp Lapel &amp; Color Rejuvenated</span>
-            <span><strong>After:</strong> Pristine Royal Navy Finish</span>
+          <div class="ba-labels-strip">
+            <div class="ba-badge-before"><i class="fas fa-times-circle"></i> BEFORE: Creased &amp; Derailed Lapel</div>
+            <div class="ba-badge-center">&bull; SHARP VACUUM FINISH &bull;</div>
+            <div class="ba-badge-after"><i class="fas fa-check-circle"></i> AFTER: Crisp Royal Navy Finish</div>
+          </div>
+        </div>
+
+        <div class="services-guarantee-ribbon" style="padding: 5px 12px;">
+          <div class="sgr-text">
+            <span><strong>100% Color Lock Guarantee:</strong> Custom packaging &bull; Zero fabric shrinkage &bull; Hand inspection.</span>
           </div>
         </div>
       </div>
@@ -1544,18 +1604,25 @@
           </div>
         </div>
 
+        <!-- Before & After Comparison Showcase -->
         <div class="ba-section-box">
           <div class="ba-header">
-            <div class="ba-title"><i class="fas fa-check-circle" style="color: #F59E0B;"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
+            <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
             <div class="ba-sub">Living Room Sectional Cushion Case Study</div>
           </div>
-          <div class="ba-image-container">
-            <img src="public/images/catalogue_assets/before_after_sofa.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/before_after_sofa.jpg'" alt="Before and After Sofa Cleaning">
+          <div class="ba-display-frame">
+            <img src="public/images/catalogue_assets/ba_sofa_clean_hd.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/before_after_sofa.jpg'" alt="Before and After Sofa Cleaning">
           </div>
-          <div class="ba-footer-tags">
-            <span><strong>Before:</strong> Discolored Liquid Marks</span>
-            <span class="ba-tag-pill">Deep Fabric Texture Restored</span>
-            <span><strong>After:</strong> Pristine Clean &amp; Deodorised</span>
+          <div class="ba-labels-strip">
+            <div class="ba-badge-before"><i class="fas fa-times-circle"></i> BEFORE: Deep Discolored Stains</div>
+            <div class="ba-badge-center">&bull; FABRIC REVIVAL &bull;</div>
+            <div class="ba-badge-after"><i class="fas fa-check-circle"></i> AFTER: Pristine Clean &amp; Odor-Free</div>
+          </div>
+        </div>
+
+        <div class="services-guarantee-ribbon" style="padding: 5px 12px;">
+          <div class="sgr-text">
+            <span><strong>Doorstep Service Across Jodhpur:</strong> Professional technician team arrives with industrial equipment.</span>
           </div>
         </div>
       </div>
@@ -1616,18 +1683,25 @@
           </div>
         </div>
 
+        <!-- Before & After Comparison Showcase -->
         <div class="ba-section-box">
           <div class="ba-header">
-            <div class="ba-title"><i class="fas fa-check-circle" style="color: #F59E0B;"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
+            <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
             <div class="ba-sub">High-Traffic Living Room Rug Case Study</div>
           </div>
-          <div class="ba-image-container">
-            <img src="public/images/catalogue_assets/before_after_carpet.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/before_after_carpet.jpg'" alt="Before and After Carpet Cleaning">
+          <div class="ba-display-frame">
+            <img src="public/images/catalogue_assets/ba_carpet_clean_hd.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/before_after_carpet.jpg'" alt="Before and After Carpet Cleaning">
           </div>
-          <div class="ba-footer-tags">
-            <span><strong>Before:</strong> Ground-In Sand &amp; Soil</span>
-            <span class="ba-tag-pill">Pile Softness &amp; Shine Restored</span>
-            <span><strong>After:</strong> Fluffy Cream Sanitised Carpet</span>
+          <div class="ba-labels-strip">
+            <div class="ba-badge-before"><i class="fas fa-times-circle"></i> BEFORE: Soiled &amp; Embedded Dirt</div>
+            <div class="ba-badge-center">&bull; PILE SOFTNESS RESTORED &bull;</div>
+            <div class="ba-badge-after"><i class="fas fa-check-circle"></i> AFTER: Fluffy Cream Sanitised Rug</div>
+          </div>
+        </div>
+
+        <div class="services-guarantee-ribbon" style="padding: 5px 12px;">
+          <div class="sgr-text">
+            <span><strong>Doorstep Transport:</strong> Free pickup, roll-up and return delivery of large carpets &amp; curtains.</span>
           </div>
         </div>
       </div>
@@ -1688,18 +1762,25 @@
           </div>
         </div>
 
+        <!-- Before & After Comparison Showcase -->
         <div class="ba-section-box">
           <div class="ba-header">
-            <div class="ba-title"><i class="fas fa-check-circle" style="color: #F59E0B;"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
+            <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
             <div class="ba-sub">Sneaker Restoration Case Study</div>
           </div>
-          <div class="ba-image-container">
-            <img src="public/images/catalogue_assets/before_after_shoes.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/before_after_shoes.jpg'" alt="Before and After Shoe Cleaning">
+          <div class="ba-display-frame">
+            <img src="public/images/catalogue_assets/ba_shoes_clean_hd.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/before_after_shoes.jpg'" alt="Before and After Shoe Cleaning">
           </div>
-          <div class="ba-footer-tags">
-            <span><strong>Before:</strong> Muddy &amp; Discolored Soles</span>
-            <span class="ba-tag-pill">Brilliant White Rejuvenation</span>
-            <span><strong>After:</strong> Spotless, Odor-Free Sneakers</span>
+          <div class="ba-labels-strip">
+            <div class="ba-badge-before"><i class="fas fa-times-circle"></i> BEFORE: Weathered &amp; Muddy Soles</div>
+            <div class="ba-badge-center">&bull; MIDSOLE DE-YELLOWING &bull;</div>
+            <div class="ba-badge-after"><i class="fas fa-check-circle"></i> AFTER: Spotless, White Rejuvenation</div>
+          </div>
+        </div>
+
+        <div class="services-guarantee-ribbon" style="padding: 5px 12px;">
+          <div class="sgr-text">
+            <span><strong>Footwear Spa:</strong> Hand cleaned with specialized brushes &bull; Anti-bacterial deodorised insoles.</span>
           </div>
         </div>
       </div>
@@ -1761,8 +1842,8 @@
           </div>
         </div>
 
-        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 14px; flex-shrink: 0;">
-          <div style="font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 800; color: #071E4A; margin-bottom: 6px;">
+        <div style="background: #F8FAFC; border: 1px solid var(--slate-200); border-radius: 10px; padding: 10px 14px; flex-shrink: 0;">
+          <div style="font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 800; color: var(--navy-900); margin-bottom: 6px;">
             Trusted Sectors Across Rajasthan
           </div>
           <div class="hospitality-sectors-grid">
@@ -1830,7 +1911,7 @@
           <!-- Project 3 -->
           <div class="project-card">
             <div class="project-card-img">
-              <img src="public/images/catalogue_assets/sofa_projects_showcase.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/sofa_projects_showcase.jpg'" alt="Sofa Cleaning Projects">
+              <img src="public/images/catalogue_assets/proj_sofa_clean_hd.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/sofa_projects_showcase.jpg'" alt="Sofa Cleaning Projects">
             </div>
             <div class="project-card-body">
               <span class="pcb-badge">COMMERCIAL UPHOLSTERY</span>
@@ -1855,12 +1936,12 @@
           <div class="tds-badge">VERIFIED PARTNER</div>
         </div>
 
-        <div class="services-guarantee-ribbon" style="margin-top: 10px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #071E4A; border: none;">
+        <div class="services-guarantee-ribbon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: var(--navy-900); border: none;">
           <div class="sgr-text">
-            <strong style="color: #071E4A; font-size: 0.85rem;">OUR WORK SPEAKS FOR OUR QUALITY</strong>
+            <strong style="color: var(--navy-900); font-size: 0.85rem;">OUR WORK SPEAKS FOR OUR QUALITY</strong>
             <span style="color: #1E293B; font-weight: 600;">Partnered with Jodhpur's finest heritage hotels, wedding planners &amp; corporate institutions.</span>
           </div>
-          <i class="fas fa-award" style="font-size: 1.4rem; color: #071E4A;"></i>
+          <i class="fas fa-award" style="font-size: 1.4rem; color: var(--navy-900);"></i>
         </div>
       </div>
 
@@ -2010,7 +2091,7 @@
 
     const pageTitles = [
       "Page 1: Luxury Front Cover",
-      "Page 2: Complete Services Matrix",
+      "Page 2: Complete Services Matrix with Item Photos",
       "Page 3: Laundry & Fabric Care",
       "Page 4: Luxury Dry Cleaning",
       "Page 5: Sofa Cleaning",
