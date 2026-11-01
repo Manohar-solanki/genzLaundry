@@ -1,1 +1,4 @@
-/catalogue   /catalogue.html   200
+/catalog      /catalogue.html   200
+/catalogue    /catalogue.html   200
+/catalog/*    /catalogue.html   200
+/catalogue/*  /catalogue.html   200

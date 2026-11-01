@@ -53,7 +53,7 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       STICKY CONTROL BAR (SCREEN ONLY)
+       STICKY DIGITAL VIEWER BAR (SCREEN ONLY)
        ══════════════════════════════════════════════════════════ */
     .catalogue-actions-bar {
       position: fixed;
@@ -69,7 +69,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 20px;
       color: #FFFFFF;
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
     }
@@ -77,14 +77,14 @@
     .cab-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
       color: #FFFFFF;
     }
 
     .cab-logo {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
       background: #FFFFFF;
       padding: 2px;
@@ -98,41 +98,95 @@
 
     .cab-title {
       font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 800;
       letter-spacing: 0.8px;
       color: #FDE68A;
+      line-height: 1.1;
     }
 
     .cab-sub {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       color: #94A3B8;
+    }
+
+    /* Center Nav Carousel Controls */
+    .cab-nav-center {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(11, 42, 98, 0.8);
+      border: 1px solid rgba(217, 119, 6, 0.5);
+      border-radius: 100px;
+      padding: 4px 10px;
+    }
+
+    .cab-nav-btn {
+      background: transparent;
+      border: none;
+      color: #FDE68A;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .cab-nav-btn:hover {
+      background: rgba(245, 158, 11, 0.25);
+      color: #FFFFFF;
+    }
+
+    .cab-page-indicator {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      min-width: 80px;
+      text-align: center;
+      letter-spacing: 0.3px;
     }
 
     .cab-controls {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .cab-btn-wa {
-      display: inline-flex;
+    .cab-zoom-group {
+      display: flex;
       align-items: center;
-      gap: 6px;
-      background: #25D366;
-      color: #FFFFFF;
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 9999px;
-      text-decoration: none;
-      box-shadow: 0 2px 10px rgba(37, 211, 102, 0.35);
-      transition: all 0.2s ease;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 2px 6px;
     }
 
-    .cab-btn-wa:hover {
-      background: #20BD5A;
-      transform: translateY(-1px);
+    .cab-tool-btn {
+      background: transparent;
+      border: none;
+      color: #E2E8F0;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .cab-tool-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+    }
+
+    .cab-zoom-text {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #FDE68A;
+      min-width: 36px;
+      text-align: center;
     }
 
     .cab-btn-print {
@@ -141,19 +195,114 @@
       gap: 8px;
       background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
       color: #071E4A;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 800;
-      padding: 9px 20px;
+      padding: 8px 18px;
       border-radius: 9999px;
       border: none;
       cursor: pointer;
       box-shadow: 0 4px 14px rgba(217, 119, 6, 0.45);
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
 
     .cab-btn-print:hover {
       transform: translateY(-1.5px);
       box-shadow: 0 6px 18px rgba(245, 158, 11, 0.55);
+    }
+
+    /* Floating Dynamic WhatsApp Pill */
+    .floating-wa-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9990;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #FFFFFF;
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 12px 22px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .floating-wa-pill:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 26px rgba(37, 211, 102, 0.55);
+      color: #FFFFFF;
+    }
+
+    .fwa-pulse {
+      width: 10px;
+      height: 10px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+      animation: fwaPulse 1.8s infinite;
+    }
+
+    @keyframes fwaPulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8); }
+      70% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    }
+
+    /* Bottom Quick-Jump Dock */
+    .catalogue-thumbnails-dock {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(7, 30, 74, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(217, 119, 6, 0.6);
+      border-radius: 9999px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 9980;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      max-width: 90vw;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .catalogue-thumbnails-dock::-webkit-scrollbar {
+      display: none;
+    }
+
+    .thumb-pill {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #CBD5E1;
+      font-size: 0.66rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+    }
+
+    .thumb-pill:hover {
+      background: rgba(245, 158, 11, 0.2);
+      color: #FDE68A;
+      border-color: #F59E0B;
+    }
+
+    .thumb-pill.active {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #071E4A;
+      border-color: #F59E0B;
+      font-weight: 800;
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -1020,7 +1169,9 @@
         margin: 0 !important;
       }
 
-      .catalogue-actions-bar {
+      .catalogue-actions-bar,
+      .floating-wa-pill,
+      .catalogue-thumbnails-dock {
         display: none !important;
       }
 
@@ -1137,12 +1288,24 @@
       </div>
     </div>
 
+    <!-- Center Slide / Page Navigator -->
+    <div class="cab-nav-center">
+      <button type="button" class="cab-nav-btn" onclick="prevPage()" title="Previous Page (←)"><i class="fas fa-chevron-left"></i></button>
+      <div class="cab-page-indicator">Page <span id="currentIndicator">1</span> of 8</div>
+      <button type="button" class="cab-nav-btn" onclick="nextPage()" title="Next Page (→)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Right Controls: Zoom, Fullscreen & Print -->
     <div class="cab-controls">
-      <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20am%20reviewing%20your%208-page%20service%20catalogue%20and%20would%20like%20to%20schedule%20a%20pickup." target="_blank" rel="noopener noreferrer" class="cab-btn-wa">
-        <i class="fab fa-whatsapp"></i> Book Pickup (+91 82338 53727)
-      </a>
+      <div class="cab-zoom-group">
+        <button type="button" class="cab-tool-btn" onclick="zoomOut()" title="Zoom Out (-)"><i class="fas fa-search-minus"></i></button>
+        <span id="zoomLevelText" class="cab-zoom-text">100%</span>
+        <button type="button" class="cab-tool-btn" onclick="zoomIn()" title="Zoom In (+)"><i class="fas fa-search-plus"></i></button>
+        <button type="button" class="cab-tool-btn" onclick="resetZoom()" title="Reset Zoom"><i class="fas fa-undo-alt"></i></button>
+      </div>
+      <button type="button" class="cab-tool-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen (F11)"><i class="fas fa-expand"></i></button>
       <button type="button" class="cab-btn-print" onclick="window.print()">
-        <i class="fas fa-print"></i> Print / Save 8-Page PDF (Ctrl + P)
+        <i class="fas fa-print"></i> Save / Print PDF (Ctrl + P)
       </button>
     </div>
   </aside>
@@ -2271,6 +2434,185 @@
     </section>
 
   </main>
+
+  <!-- ═══════════════════════════════════════════
+       INTERACTIVE DUAL-MODE DIGITAL VIEWER SUITE
+       ═══════════════════════════════════════════ -->
+
+  <!-- Floating Dynamic Page-Aware WhatsApp Action -->
+  <a id="floatingWaPill" href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20am%20viewing%20your%20digital%20catalogue%20(Page%201)%20and%20would%20like%20to%20schedule%20a%20pickup." target="_blank" rel="noopener noreferrer" class="floating-wa-pill" aria-label="Book on WhatsApp">
+    <span class="fwa-pulse"></span>
+    <i class="fab fa-whatsapp" style="font-size:1.15rem;"></i>
+    <span id="fwaText">Book Pickup (Page 1)</span>
+  </a>
+
+  <!-- Bottom Quick-Jump Thumbnail Dock -->
+  <nav class="catalogue-thumbnails-dock" aria-label="Page Quick Navigation">
+    <button type="button" class="thumb-pill active" data-page="1" onclick="goToPage(1)">1. Cover</button>
+    <button type="button" class="thumb-pill" data-page="2" onclick="goToPage(2)">2. Profile</button>
+    <button type="button" class="thumb-pill" data-page="3" onclick="goToPage(3)">3. Services</button>
+    <button type="button" class="thumb-pill" data-page="4" onclick="goToPage(4)">4. Pipeline</button>
+    <button type="button" class="thumb-pill" data-page="5" onclick="goToPage(5)">5. Prices 1</button>
+    <button type="button" class="thumb-pill" data-page="6" onclick="goToPage(6)">6. Prices 2</button>
+    <button type="button" class="thumb-pill" data-page="7" onclick="goToPage(7)">7. Tenders</button>
+    <button type="button" class="thumb-pill" data-page="8" onclick="goToPage(8)">8. Booking</button>
+  </nav>
+
+  <script>
+    // ══════════════════════════════════════════════════════════
+    // DIGITAL CATALOGUE READER ENGINE (DUAL-MODE SCREEN / PRINT)
+    // ══════════════════════════════════════════════════════════
+    const pages = document.querySelectorAll('.catalogue-page');
+    const totalPages = pages.length;
+    let currentPage = 1;
+    let currentZoom = 1.0;
+
+    const currentIndicator = document.getElementById('currentIndicator');
+    const zoomLevelText = document.getElementById('zoomLevelText');
+    const container = document.querySelector('.catalogue-container');
+    const floatingWaPill = document.getElementById('floatingWaPill');
+    const fwaText = document.getElementById('fwaText');
+    const thumbPills = document.querySelectorAll('.thumb-pill');
+
+    // Page titles for WhatsApp messages
+    const pageTitles = [
+      'Cover',
+      'Company Profile & Workshop',
+      'Executive Services',
+      '10-Step Care Pipeline',
+      'Daily Garment Price List',
+      'Royal Ethnic & Linens Price List',
+      'Before & After Tenders Showcase',
+      'Facility Tour & Direct Booking'
+    ];
+
+    // Scroll to page
+    function goToPage(pageNum) {
+      if (pageNum < 1 || pageNum > totalPages) return;
+      currentPage = pageNum;
+      pages[pageNum - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      updateActiveState(pageNum);
+    }
+
+    function prevPage() {
+      if (currentPage > 1) goToPage(currentPage - 1);
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) goToPage(currentPage + 1);
+    }
+
+    // Zoom Engine
+    function applyZoom() {
+      container.style.transform = `scale(${currentZoom})`;
+      container.style.transformOrigin = 'top center';
+      container.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
+      zoomLevelText.textContent = `${Math.round(currentZoom * 100)}%`;
+    }
+
+    function zoomIn() {
+      if (currentZoom < 1.4) {
+        currentZoom = Math.min(1.4, Math.round((currentZoom + 0.1) * 10) / 10);
+        applyZoom();
+      }
+    }
+
+    function zoomOut() {
+      if (currentZoom > 0.7) {
+        currentZoom = Math.max(0.7, Math.round((currentZoom - 0.1) * 10) / 10);
+        applyZoom();
+      }
+    }
+
+    function resetZoom() {
+      currentZoom = 1.0;
+      applyZoom();
+    }
+
+    // Fullscreen Toggle
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+
+    // Update active indicators
+    function updateActiveState(pageNum) {
+      currentPage = pageNum;
+      if (currentIndicator) currentIndicator.textContent = pageNum;
+
+      // Update thumb pills
+      thumbPills.forEach((pill, idx) => {
+        if (idx + 1 === pageNum) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+
+      // Update dynamic WhatsApp pre-filled text
+      const pageName = pageTitles[pageNum - 1] || `Page ${pageNum}`;
+      if (fwaText) fwaText.textContent = `Book Pickup (${pageName})`;
+      if (floatingWaPill) {
+        const msg = encodeURIComponent(`Hi Gen-Z Laundry! I am reviewing your 2026 digital catalogue (${pageName}) and would like to schedule a pickup.`);
+        floatingWaPill.href = `https://wa.me/918233853727?text=${msg}`;
+      }
+    }
+
+    // Intersection Observer to track scroll position
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = Array.from(pages).indexOf(entry.target);
+          if (index !== -1) {
+            updateActiveState(index + 1);
+          }
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.45
+    });
+
+    pages.forEach(page => observer.observe(page));
+
+    // Keyboard Hotkey Navigation
+    window.addEventListener('keydown', (e) => {
+      // Don't intercept if user is typing
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextPage();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevPage();
+      } else if (e.key === '+' || e.key === '=') {
+        e.preventDefault();
+        zoomIn();
+      } else if (e.key === '-' || e.key === '_') {
+        e.preventDefault();
+        zoomOut();
+      } else if (e.key === '0') {
+        e.preventDefault();
+        resetZoom();
+      } else if (e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        toggleFullscreen();
+      }
+    });
+
+    // Reset zoom before printing so print engine receives native 100% scale
+    window.addEventListener('beforeprint', () => {
+      container.style.transform = 'none';
+    });
+
+    window.addEventListener('afterprint', () => {
+      applyZoom();
+    });
+  </script>
 
 </body>
 </html>
