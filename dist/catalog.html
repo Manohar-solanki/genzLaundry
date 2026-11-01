@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Official Service Catalogue 2026 | GEN-Z Laundry &amp; Dry Cleaners Jodhpur</title>
-  <meta name="description" content="Official 10-panel luxury service catalogue for Gen-Z Laundry & Dry Cleaners Jodhpur. Complete fabric care, steam pressing, dry cleaning, sofa, carpet, shoe cleaning, hotel tenders and institutional solutions.">
+  <meta name="description" content="Official 2026 Luxury Service Catalogue for Gen-Z Laundry & Dry Cleaners Jodhpur. Complete fabric care, haute couture dry cleaning, steam pressing, sofa & carpet extraction, sneaker spa, and hotel commercial tenders.">
   <link rel="icon" type="image/png" href="public/logo.png">
 
   <!-- Typography & Icons -->
@@ -15,7 +15,7 @@
 
   <style>
     /* ══════════════════════════════════════════════════════════
-       RESET & BASE SYSTEM
+       RESET & BASE DESIGN SYSTEM
        ══════════════════════════════════════════════════════════ */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -30,6 +30,7 @@
       --navy-700: #10377A;
       --gold-bright: #F59E0B;
       --gold-metallic: #D97706;
+      --gold-deep: #B45309;
       --gold-light: #FDE68A;
       --gold-subtle: #FEF3C7;
       --blue-accent: #2563EB;
@@ -126,7 +127,7 @@
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 9999px;
-      padding: 4px 10px;
+      padding: 4px 12px;
       font-size: 0.8rem;
       font-weight: 700;
       color: #FFFFFF;
@@ -302,7 +303,7 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       A4 PAGES CONTAINER (EXACT 210mm x 297mm DIMENSIONS)
+       A4 PAGES CONTAINER (EXACT 210mm x 297mm SPREAD)
        ══════════════════════════════════════════════════════════ */
     .catalogue-container {
       width: 210mm;
@@ -316,7 +317,7 @@
       height: 297mm;
       background: #FFFFFF;
       margin-bottom: 30px;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
       position: relative;
       overflow: hidden;
       page-break-after: always;
@@ -342,12 +343,12 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       GLOBAL EDITORIAL HEADER & FOOTER
+       EDITORIAL HEADER & FOOTER
        ══════════════════════════════════════════════════════════ */
     .page-inner-header {
       background: linear-gradient(135deg, #071E4A 0%, #0B2559 100%);
       color: #FFFFFF;
-      padding: 8mm 12mm 6mm;
+      padding: 7mm 12mm 5mm;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -444,7 +445,7 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       SHARED EDITORIAL COMPONENTS
+       EDITORIAL COMPONENTS
        ══════════════════════════════════════════════════════════ */
     .editorial-hero-banner {
       width: 100%;
@@ -531,7 +532,7 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       ENHANCED BEFORE & AFTER COMPARISON SECTION
+       BEFORE & AFTER COMPARISON SECTION
        ══════════════════════════════════════════════════════════ */
     .ba-section-box {
       background: linear-gradient(135deg, #071E4A 0%, #0F2D6B 100%);
@@ -629,84 +630,113 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       PAGE 2: OUR SERVICES WITH REAL PHOTOS FOR EVERY ITEM
+       PAGE 2: LUXURY ITEM & SERVICE MENU
        ══════════════════════════════════════════════════════════ */
-    .services-photo-grid {
+    .menu-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 7px;
+      gap: 9px;
       flex: 1;
     }
 
-    .service-photo-card {
-      background: #F8FAFC;
-      border: 1px solid var(--slate-200);
+    .menu-service-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--slate-200);
       border-radius: 8px;
-      padding: 6px 8px;
+      overflow: hidden;
       display: flex;
-      align-items: center;
-      gap: 9px;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
       transition: all 0.2s;
     }
 
-    .service-photo-card.highlight {
-      background: #FFFBEB;
-      border-color: #FCD34D;
-      border-left: 3.5px solid var(--gold-metallic);
+    .menu-service-card.highlight {
+      border-color: var(--gold-bright);
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15);
     }
 
-    .spc-thumb-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 7px;
-      overflow: hidden;
-      border: 1.5px solid var(--slate-200);
-      background: #FFFFFF;
-      flex-shrink: 0;
+    .msc-img-header {
+      height: 72px;
       position: relative;
+      overflow: hidden;
+      background: var(--navy-900);
     }
 
-    .spc-thumb-wrap img {
+    .msc-img-header img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .spc-info {
-      flex: 1;
-      min-width: 0;
+    .msc-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 30, 74, 0.1) 0%, rgba(7, 30, 74, 0.75) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 4px 8px;
     }
 
-    .spc-title {
-      font-size: 0.75rem;
+    .msc-pill-tag {
+      background: var(--gold-metallic);
+      color: #FFFFFF;
+      font-size: 0.58rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .msc-price-tag {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--navy-900);
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .msc-body {
+      padding: 6px 8px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #F8FAFC;
+    }
+
+    .msc-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.74rem;
       font-weight: 800;
       color: var(--navy-900);
       line-height: 1.2;
+      margin-bottom: 2px;
     }
 
-    .spc-desc {
+    .msc-features {
       font-size: 0.62rem;
       color: #64748B;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.25;
+      margin-bottom: 4px;
     }
 
-    .spc-badge {
+    .msc-footer-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       font-size: 0.58rem;
-      font-weight: 800;
-      background: #E2E8F0;
-      color: var(--navy-900);
-      padding: 1.5px 6px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-top: 2px;
+      color: var(--slate-600);
+      border-top: 1px dashed var(--slate-200);
+      padding-top: 4px;
     }
 
-    .service-photo-card.highlight .spc-badge {
-      background: var(--gold-metallic);
-      color: #FFFFFF;
+    .msc-footer-strip strong {
+      color: var(--emerald-600);
     }
 
     .services-guarantee-ribbon {
@@ -1204,9 +1234,9 @@
     </section>
 
     <!-- ───────────────────────────────────────────
-         PAGE 2: OUR SERVICES - ATTACHED IMAGE WITH EACH ITEM (PANEL 2)
+         PAGE 2: LUXURY SERVICE & ITEM MENU (PANEL 2)
          ─────────────────────────────────────────── -->
-    <section class="catalogue-page" id="page-2" aria-label="Page 2: Complete Services Matrix with Item Photos">
+    <section class="catalogue-page" id="page-2" aria-label="Page 2: Luxury Service & Item Menu">
       <header class="page-inner-header">
         <div class="pih-left">
           <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1216,167 +1246,139 @@
           </div>
         </div>
         <div class="pih-right">
-          <div class="pih-doc-title">Our Services</div>
-          <div class="pih-doc-sub">Complete Fabric Care Under One Roof</div>
+          <div class="pih-doc-title">Service &amp; Item Directory</div>
+          <div class="pih-doc-sub">2026 Executive Atelier Menu</div>
         </div>
       </header>
 
       <div class="page-body">
         <div class="services-guarantee-ribbon">
           <div class="sgr-text">
-            <strong>YOU LIVE, WE LAUNDRY &bull; PREMIUM FABRIC CARE</strong>
-            <span>World-Class European Processing &bull; Softened RO Water &bull; Zero Color Bleed</span>
+            <strong>YOU LIVE, WE LAUNDRY &bull; ARTISANAL FABRIC CARE</strong>
+            <span>Pure Softened RO Water &bull; German Bio-Enzymes &bull; Zero Shrinkage Guarantee</span>
           </div>
           <div style="font-size: 0.72rem; font-weight: 800; color: var(--gold-light);">
             <i class="fas fa-shield-alt"></i> &nbsp;&starf;&starf;&starf;&starf;&starf;
           </div>
         </div>
 
-        <!-- 12 Service Items with Real Attached Photos -->
-        <div class="services-photo-grid">
-          <!-- Item 1: Professional Laundry -->
-          <div class="service-photo-card">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/folded_clothes.png" onerror="this.onerror=null;this.src='dist/gallery/folded_clothes.png'" alt="Professional Laundry">
+        <!-- 6 Generous Luxury Service & Item Suites -->
+        <div class="menu-cards-grid">
+          
+          <!-- Card 1: Executive Shirts & Daily Wear -->
+          <div class="menu-service-card highlight">
+            <div class="msc-img-header">
+              <img src="public/gallery/folded_clothes.png" onerror="this.onerror=null;this.src='dist/gallery/folded_clothes.png'" alt="Executive Shirts Laundry">
+              <div class="msc-img-overlay">
+                <span class="msc-pill-tag">DAILY EXCELLENCE</span>
+                <span class="msc-price-tag">From &pound; / ₹80/pc</span>
+              </div>
             </div>
-            <div class="spc-info">
-              <div class="spc-title">Professional Laundry</div>
-              <div class="spc-desc">Bio-enzymes &bull; German detergent</div>
-              <span class="spc-badge">Daily Care</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Wash & Fold -->
-          <div class="service-photo-card">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/Folded_dresses.png" onerror="this.onerror=null;this.src='dist/gallery/Folded_dresses.png'" alt="Wash and Fold">
-            </div>
-            <div class="spc-info">
-              <div class="spc-title">Wash &amp; Fold</div>
-              <div class="spc-desc">Boutique folding &bull; Wardrobe ready</div>
-              <span class="spc-badge">Essential</span>
+            <div class="msc-body">
+              <div class="msc-title">Executive Shirts &amp; Tops</div>
+              <div class="msc-features">Collar stiffening &bull; Italian vacuum steam pressing &bull; Crease-free wardrobe hanger.</div>
+              <div class="msc-footer-strip">
+                <span>Turnaround: <strong>Same-Day</strong></span>
+                <span>Bio-Enzyme Wash</span>
+              </div>
             </div>
           </div>
 
-          <!-- Item 3: Premium Dry Cleaning -->
-          <div class="service-photo-card highlight">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/Dry_Cleaning.png" onerror="this.onerror=null;this.src='dist/gallery/Dry_Cleaning.png'" alt="Dry Cleaning Suits">
+          <!-- Card 2: Haute Couture Suits & Sherwanis -->
+          <div class="menu-service-card highlight">
+            <div class="msc-img-header">
+              <img src="public/images/catalogue_assets/ai_haute_couture_atelier.jpg" onerror="this.onerror=null;this.src='public/gallery/Dry_Cleaning.png'" alt="Haute Couture Dry Cleaning">
+              <div class="msc-img-overlay">
+                <span class="msc-pill-tag">HAUTE COUTURE</span>
+                <span class="msc-price-tag">From ₹350/pc</span>
+              </div>
             </div>
-            <div class="spc-info">
-              <div class="spc-title">Premium Dry Cleaning</div>
-              <div class="spc-desc">Suits, silks, lehengas &bull; Hydrocarbon</div>
-              <span class="spc-badge">Luxury</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Steam Ironing -->
-          <div class="service-photo-card highlight">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/Steam_Iron.png" onerror="this.onerror=null;this.src='dist/gallery/Steam_Iron.png'" alt="Steam Ironing Table">
-            </div>
-            <div class="spc-info">
-              <div class="spc-title">Steam Ironing</div>
-              <div class="spc-desc">Italian vacuum steam &bull; Zero shine</div>
-              <span class="spc-badge">Crisp</span>
+            <div class="msc-body">
+              <div class="msc-title">Bespoke Suits &amp; Royal Ethnic</div>
+              <div class="msc-features">Hydrocarbon dry cleaning &bull; Pure wool, silk sarees &amp; bridal lehengas &bull; Zari protection.</div>
+              <div class="msc-footer-strip">
+                <span>Packaging: <strong>Dust Cover</strong></span>
+                <span>Zero Color Bleed</span>
+              </div>
             </div>
           </div>
 
-          <!-- Item 5: 6-Hour Express -->
-          <div class="service-photo-card highlight">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/6Hour_Express_Service.png" onerror="this.onerror=null;this.src='dist/gallery/6Hour_Express_Service.png'" alt="6-Hour Express Laundry">
+          <!-- Card 3: Winter Woolens & Leather Jackets -->
+          <div class="menu-service-card">
+            <div class="msc-img-header">
+              <img src="public/gallery/Dry_Cleaning.png" onerror="this.onerror=null;this.src='dist/gallery/Dry_Cleaning.png'" alt="Winter Woolen Care">
+              <div class="msc-img-overlay">
+                <span class="msc-pill-tag">WINTER WOOLENS</span>
+                <span class="msc-price-tag">From ₹250/pc</span>
+              </div>
             </div>
-            <div class="spc-info">
-              <div class="spc-title">6-Hour Express Laundry</div>
-              <div class="spc-desc">Emergency turnaround for tourists</div>
-              <span class="spc-badge">Express</span>
-            </div>
-          </div>
-
-          <!-- Item 6: Same-Day Laundry -->
-          <div class="service-photo-card">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/front_view_of_store.jpeg" onerror="this.onerror=null;this.src='dist/gallery/front_view_of_store.jpeg'" alt="Same Day Atelier Facility">
-            </div>
-            <div class="spc-info">
-              <div class="spc-title">Same-Day Laundry</div>
-              <div class="spc-desc">Morning pickup &bull; Evening delivery</div>
-              <span class="spc-badge">Fast Track</span>
+            <div class="msc-body">
+              <div class="msc-title">Jackets, Coats &amp; Cashmere</div>
+              <div class="msc-features">Thermal moth-proofing &bull; Tweed overcoats, bomber jackets &amp; pashmina shawls.</div>
+              <div class="msc-footer-strip">
+                <span>Care: <strong>Fiber Conditioning</strong></span>
+                <span>De-Pilling Finish</span>
+              </div>
             </div>
           </div>
 
-          <!-- Item 7: Shoe Cleaning -->
-          <div class="service-photo-card">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/Shoe_Cleaning.png" onerror="this.onerror=null;this.src='dist/gallery/Shoe_Cleaning.png'" alt="Shoe Cleaning Spa">
+          <!-- Card 4: Sneaker Spa & Footwear Revival -->
+          <div class="menu-service-card highlight">
+            <div class="msc-img-header">
+              <img src="public/gallery/Shoe_Cleaning.png" onerror="this.onerror=null;this.src='dist/gallery/Shoe_Cleaning.png'" alt="Sneaker Spa Revival">
+              <div class="msc-img-overlay">
+                <span class="msc-pill-tag">FOOTWEAR SPA</span>
+                <span class="msc-price-tag">From ₹299/pair</span>
+              </div>
             </div>
-            <div class="spc-info">
-              <div class="spc-title">Shoe Cleaning &amp; Spa</div>
-              <div class="spc-desc">Sneakers, sports &amp; leather revival</div>
-              <span class="spc-badge">Footwear</span>
-            </div>
-          </div>
-
-          <!-- Item 8: Carpet Cleaning -->
-          <div class="service-photo-card">
-            <div class="spc-thumb-wrap">
-              <img src="public/images/catalogue_assets/carpet_curtains_room.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/carpet_curtains_room.jpg'" alt="Carpet Cleaning">
-            </div>
-            <div class="spc-info">
-              <div class="spc-title">Carpet Cleaning</div>
-              <div class="spc-desc">Rotary scrubbing &amp; dry extraction</div>
-              <span class="spc-badge">Deep Clean</span>
+            <div class="msc-body">
+              <div class="msc-title">Sneaker &amp; Leather Shoe Spa</div>
+              <div class="msc-features">Multi-density hand brush &bull; Midsole de-yellowing &bull; Hydrophobic nano-shield seal.</div>
+              <div class="msc-footer-strip">
+                <span>UV Sanitised: <strong>Odor Free</strong></span>
+                <span>Nike &bull; Jordans &bull; Suede</span>
+              </div>
             </div>
           </div>
 
-          <!-- Item 9: Sofa Cleaning -->
-          <div class="service-photo-card highlight">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/Sofa_Cleaning.png" onerror="this.onerror=null;this.src='dist/gallery/Sofa_Cleaning.png'" alt="Sofa Cleaning Doorstep">
+          <!-- Card 5: Sofa & Home Upholstery Deep Care -->
+          <div class="menu-service-card highlight">
+            <div class="msc-img-header">
+              <img src="public/images/catalogue_assets/ai_living_room_sofa_carpet.jpg" onerror="this.onerror=null;this.src='public/gallery/Sofa_Cleaning.png'" alt="Sofa and Upholstery Cleaning">
+              <div class="msc-img-overlay">
+                <span class="msc-pill-tag">DOORSTEP UPHOLSTERY</span>
+                <span class="msc-price-tag">From ₹250/seat</span>
+              </div>
             </div>
-            <div class="spc-info">
-              <div class="spc-title">Sofa Cleaning</div>
-              <div class="spc-desc">On-site injection extraction</div>
-              <span class="spc-badge">Doorstep</span>
-            </div>
-          </div>
-
-          <!-- Item 10: Blankets & Duvets -->
-          <div class="service-photo-card">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/Folded_Blanket.png" onerror="this.onerror=null;this.src='dist/gallery/Folded_Blanket.png'" alt="Blanket and Duvet Cleaning">
-            </div>
-            <div class="spc-info">
-              <div class="spc-title">Blanket &amp; Duvet Care</div>
-              <div class="spc-desc">Thermal sanitised &bull; Fluffy finish</div>
-              <span class="spc-badge">Bedding</span>
+            <div class="msc-body">
+              <div class="msc-title">Velvet Sofas &amp; Persian Carpets</div>
+              <div class="msc-features">German high-pressure steam extraction &bull; 99.9% dust mite elimination &bull; Pet stain care.</div>
+              <div class="msc-footer-strip">
+                <span>Service: <strong>At Your Home</strong></span>
+                <span>Fast 3h Dry</span>
+              </div>
             </div>
           </div>
 
-          <!-- Item 11: Hotel & Commercial -->
-          <div class="service-photo-card highlight">
-            <div class="spc-thumb-wrap">
-              <img src="public/images/catalogue_assets/hotel_luxury_bedroom.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/hotel_luxury_bedroom.jpg'" alt="Hotel Commercial Solutions">
+          <!-- Card 6: Hospitality & Hotel Bulk Linen -->
+          <div class="menu-service-card">
+            <div class="msc-img-header">
+              <img src="public/images/catalogue_assets/hotel_luxury_bedroom.jpg" onerror="this.onerror=null;this.src='dist/assets/staying-hotel-jodhpur.jpg'" alt="Hospitality Bulk Linen">
+              <div class="msc-img-overlay">
+                <span class="msc-pill-tag">B2B &bull; HOTELS</span>
+                <span class="msc-price-tag">Custom Contract SLA</span>
+              </div>
             </div>
-            <div class="spc-info">
-              <div class="spc-title">Hotel &amp; Commercial</div>
-              <div class="spc-desc">Bulk linen &bull; Heritage havelis &amp; resorts</div>
-              <span class="spc-badge">Bulk Contract</span>
+            <div class="msc-body">
+              <div class="msc-title">Heritage Havelis &amp; Resorts</div>
+              <div class="msc-features">High-thread-count bedsheets, duvet covers, bath towels &bull; 6-Hour Express guest service.</div>
+              <div class="msc-footer-strip">
+                <span>Capacity: <strong>1,500+ kg/day</strong></span>
+                <span>Spotless Batch Packaging</span>
+              </div>
             </div>
           </div>
 
-          <!-- Item 12: Pickup & Delivery -->
-          <div class="service-photo-card highlight">
-            <div class="spc-thumb-wrap">
-              <img src="public/gallery/Store_inside_logo_poster.png" onerror="this.onerror=null;this.src='dist/gallery/Store_inside_logo_poster.png'" alt="Free Doorstep Pickup">
-            </div>
-            <div class="spc-info">
-              <div class="spc-title">Pickup &amp; Delivery</div>
-              <div class="spc-desc">Free collection across Jodhpur city</div>
-              <span class="spc-badge">Free Transit</span>
-            </div>
-          </div>
         </div>
 
         <div class="services-guarantee-ribbon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: var(--navy-900); border: none;">
@@ -1498,7 +1500,7 @@
 
       <div class="page-body">
         <div class="editorial-hero-banner">
-          <img src="public/images/catalogue_assets/suits_rack.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/suits_rack.jpg'" alt="Luxury Suit Dry Cleaning Rack">
+          <img src="public/images/catalogue_assets/ai_haute_couture_atelier.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/suits_rack.jpg'" alt="Luxury Suit Dry Cleaning Rack">
           <div class="editorial-hero-overlay">
             <div>
               <div class="eho-title">Couture &amp; Formal Wear Preservation</div>
@@ -1577,7 +1579,7 @@
 
       <div class="page-body">
         <div class="editorial-hero-banner">
-          <img src="public/images/catalogue_assets/sofa_luxury_living.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/sofa_luxury_living.jpg'" alt="Luxury Living Room Sofa">
+          <img src="public/images/catalogue_assets/ai_living_room_sofa_carpet.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/sofa_luxury_living.jpg'" alt="Luxury Living Room Sofa">
           <div class="editorial-hero-overlay">
             <div>
               <div class="eho-title">Doorstep Upholstery Deep Sanitisation</div>
@@ -2060,7 +2062,7 @@
   <nav class="catalogue-dock" aria-label="Catalogue Page Quick Jump Dock">
     <ul class="dock-list">
       <li><button type="button" class="dock-pill active" onclick="jumpToPage(1)">1. Cover</button></li>
-      <li><button type="button" class="dock-pill" onclick="jumpToPage(2)">2. Services</button></li>
+      <li><button type="button" class="dock-pill" onclick="jumpToPage(2)">2. Menu</button></li>
       <li><button type="button" class="dock-pill" onclick="jumpToPage(3)">3. Laundry</button></li>
       <li><button type="button" class="dock-pill" onclick="jumpToPage(4)">4. Dry Clean</button></li>
       <li><button type="button" class="dock-pill" onclick="jumpToPage(5)">5. Sofa</button></li>
@@ -2091,7 +2093,7 @@
 
     const pageTitles = [
       "Page 1: Luxury Front Cover",
-      "Page 2: Complete Services Matrix with Item Photos",
+      "Page 2: Executive Service & Item Directory",
       "Page 3: Laundry & Fabric Care",
       "Page 4: Luxury Dry Cleaning",
       "Page 5: Sofa Cleaning",
