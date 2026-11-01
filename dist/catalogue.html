@@ -327,259 +327,81 @@
     }
 
     /* ══════════════════════════════════════════════════════════
-       PAGE 1: GRAND NATIVELY CODED LUXURY FRONT COVER
+       PAGE 1: ULTRA-LUXURIOUS MAGAZINE-GRADE FRONT COVER
        ══════════════════════════════════════════════════════════ */
-    .page-cover-native {
-      background: linear-gradient(180deg, #071E4A 0%, #0B2559 40%, #0A1931 100%);
-      color: #FFFFFF;
-      padding: 16px;
+    .page-cover-masterpiece {
       position: relative;
-      overflow: hidden;
-    }
-
-    .cover-border-frame {
-      width: 100%;
-      height: 100%;
-      border: 2px solid #D97706;
-      border-radius: 16px;
-      padding: 16px 18px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-sizing: border-box;
-      background: radial-gradient(circle at 50% 15%, rgba(29, 78, 216, 0.25) 0%, rgba(7, 30, 74, 0.85) 70%);
-      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Corner filigree accents */
-    .corner-accent {
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      border: 2px solid #F59E0B;
-    }
-    .corner-tl { top: 6px; left: 6px; border-right: none; border-bottom: none; }
-    .corner-tr { top: 6px; right: 6px; border-left: none; border-bottom: none; }
-    .corner-bl { bottom: 6px; left: 6px; border-right: none; border-top: none; }
-    .corner-br { bottom: 6px; right: 6px; border-left: none; border-top: none; }
-
-    /* Top skyline row */
-    .cover-skyline-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 8px;
-    }
-
-    .skyline-tag {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .skyline-tag span {
-      font-family: 'Cinzel', serif;
-      font-size: 0.66rem;
-      font-weight: 700;
-      color: #FDE68A;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .skyline-tag small {
-      font-size: 0.58rem;
-      color: #93C5FD;
-    }
-
-    /* Insignia & Brand Title */
-    .cover-brand-block {
-      text-align: center;
-      margin: 2px 0 10px;
-    }
-
-    .cover-hanger-icon {
-      width: 68px;
-      height: 68px;
-      margin: 0 auto 6px;
-      background: radial-gradient(circle, #FDE68A 0%, #D97706 70%, #92400E 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5), inset 0 0 8px #FFFBEB;
-      border: 2px solid #FFFBEB;
-    }
-
-    .cover-hanger-icon i {
-      font-size: 2rem;
-      color: #071E4A;
-      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
-    }
-
-    .cover-brand-title {
-      font-family: 'Cinzel', serif;
-      font-size: 2.3rem;
-      font-weight: 900;
-      letter-spacing: 3px;
-      background: linear-gradient(135deg, #FFFFFF 0%, #FDE68A 45%, #F59E0B 75%, #D97706 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.1;
-      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-      margin-bottom: 2px;
-    }
-
-    .cover-brand-sub {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #BFDBFE;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .cover-script-tag {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.45rem;
-      color: #FDE68A;
-      margin: 2px 0 6px;
-      letter-spacing: 1px;
-    }
-
-    /* Cover Center Facility Showcase Frame */
-    .cover-facility-frame {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 3px solid #D97706;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-      height: 250px;
       background: #071E4A;
-      margin: 4px 0;
+      overflow: hidden;
+      width: 210mm;
+      height: 297mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
-    .cover-facility-frame img {
+    .cover-master-img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      z-index: 1;
     }
 
-    .cff-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(180deg, rgba(7, 30, 74, 0) 0%, rgba(7, 30, 74, 0.95) 100%);
-      padding: 10px 14px 6px;
-      display: flex;
+    .cover-bottom-overlay {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(7, 26, 68, 0.90) 0%, rgba(4, 15, 40, 0.98) 100%);
+      border-top: 2.5px solid #D97706;
+      padding: 12px 20px 14px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.7);
+    }
+
+    .cbo-content {
+      display: grid;
+      grid-template-columns: 1.1fr 1.3fr 1fr 0.9fr;
+      gap: 12px;
       align-items: center;
-      justify-content: space-between;
-    }
-
-    .cff-label {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #FDE68A;
-    }
-
-    .cff-sub {
-      font-size: 0.64rem;
-      color: #CBD5E1;
-    }
-
-    .cff-badge {
-      background: #10B981;
       color: #FFFFFF;
-      font-size: 0.62rem;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 9999px;
     }
 
-    /* 5 Circular Service Medallions */
-    .cover-services-medallions {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-      margin: 6px 0;
-    }
-
-    .cov-medallion {
-      background: rgba(11, 42, 98, 0.75);
-      border: 1.5px solid #D97706;
-      border-radius: 12px;
-      padding: 8px 4px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .cov-medallion i {
-      font-size: 1.25rem;
-      color: #F59E0B;
-    }
-
-    .cov-medallion span {
-      font-size: 0.63rem;
-      font-weight: 700;
-      color: #F8FAFC;
-      line-height: 1.15;
-    }
-
-    /* Cover Bottom Grand Strip */
-    .cover-bottom-strip {
-      background: rgba(7, 30, 74, 0.95);
-      border: 1.5px solid #D97706;
-      border-radius: 12px;
-      padding: 10px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .cbs-info-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      font-size: 0.64rem;
-      color: #CBD5E1;
-    }
-
-    .cbs-item {
+    .cbo-item {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
-    .cbs-item i {
+    .cbo-item i {
       color: #F59E0B;
-      font-size: 0.9rem;
+      font-size: 1.15rem;
       flex-shrink: 0;
     }
 
-    .cbs-item strong {
+    .cbo-item strong {
       display: block;
-      color: #FFFFFF;
-      font-size: 0.66rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #FDE68A;
+      line-height: 1.2;
     }
 
-    .cbs-tagline-bar {
-      text-align: center;
-      border-top: 1px solid rgba(217, 119, 6, 0.4);
-      padding-top: 5px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #FDE68A;
-      text-transform: uppercase;
+    .cbo-item span {
+      font-size: 0.6rem;
+      color: #CBD5E1;
+      display: block;
+    }
+
+    .cbo-pill-open {
+      background: rgba(217, 119, 6, 0.25);
+      border: 1.5px solid #F59E0B;
+      border-radius: 8px;
+      padding: 4px 8px;
     }
 
     /* ══════════════════════════════════════════════════════════
@@ -1331,113 +1153,43 @@
   <main class="catalogue-container">
 
     <!-- ───────────────────────────────────────────
-         PAGE 1: GRAND NATIVELY-CODED LUXURY FRONT COVER
+         PAGE 1: ULTRA-LUXURIOUS MAGAZINE-GRADE FRONT COVER
          ─────────────────────────────────────────── -->
-    <section class="catalogue-page page-cover-native" aria-label="Catalogue Cover Page">
-      <div class="cover-border-frame">
-        <div class="corner-accent corner-tl"></div>
-        <div class="corner-accent corner-tr"></div>
-        <div class="corner-accent corner-bl"></div>
-        <div class="corner-accent corner-br"></div>
-
-        <!-- Top Skyline Heritage Row -->
-        <div class="cover-skyline-row">
-          <div class="skyline-tag">
-            <span><i class="fas fa-monument"></i> JASWANT THADA</span>
-            <small>MARWAR HERITAGE</small>
-          </div>
-          <div style="font-family:'Cinzel', serif; font-size:0.65rem; color:#F59E0B; letter-spacing:1px; font-weight:800;">
-            THE BLUE CITY ATELIER
-          </div>
-          <div class="skyline-tag">
-            <span><i class="fas fa-fort-awesome"></i> MEHRANGARH FORT</span>
-            <small>JODHPUR SKYLINE</small>
-          </div>
-        </div>
-
-        <!-- Grand Insignia & Brand Title -->
-        <div class="cover-brand-block">
-          <div class="cover-hanger-icon">
-            <i class="fas fa-gem"></i>
-          </div>
-          <h1 class="cover-brand-title">GEN-Z</h1>
-          <div class="cover-brand-sub">LAUNDRY &amp; DRY CLEANERS</div>
-          <div class="cover-script-tag">Fresh Clothes &bull; Clean Life &bull; Always</div>
-        </div>
-
-        <!-- Center Workshop Facility Showcase -->
-        <div class="cover-facility-frame">
-          <img src="public/images/laundry-facility-interior.jpg" onerror="this.onerror=null;this.src='images/laundry-facility-interior.jpg'" alt="Gen-Z Laundry Workshop in Jodhpur">
-          <div class="cff-overlay">
+    <section class="catalogue-page page-cover-masterpiece" aria-label="Catalogue Cover Page">
+      <img src="public/images/catalogue-cover-luxury.jpg" onerror="this.onerror=null;this.src='images/catalogue-cover-luxury.jpg'" alt="Gen-Z Laundry & Dry Cleaners Jodhpur Official Luxury Catalogue Cover with Mehrangarh Fort, Jaswant Thada, and Atelier Showcase" class="cover-master-img">
+      
+      <!-- Verified Real Contact Info Overlay -->
+      <div class="cover-bottom-overlay">
+        <div class="cbo-content">
+          <div class="cbo-item">
+            <i class="fab fa-whatsapp"></i>
             <div>
-              <div class="cff-label"><i class="fas fa-industry"></i> Inside Jodhpur's Most Advanced Garment Care Facility</div>
-              <div class="cff-sub">Front-loader extractors &bull; 6-bar Italian steam tables &bull; Sealed hygienic packing</div>
+              <strong>+91 82338 53727</strong>
+              <span>WhatsApp Direct Booking</span>
             </div>
-            <span class="cff-badge"><i class="fas fa-check-circle"></i> 100% Hygienic</span>
+          </div>
+          <div class="cbo-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Sabji Mandi Circle</strong>
+              <span>Ratanada, Jodhpur 342011</span>
+            </div>
+          </div>
+          <div class="cbo-item">
+            <i class="fas fa-globe"></i>
+            <div>
+              <strong>genzlaundry.com</strong>
+              <span>Official Web Portal</span>
+            </div>
+          </div>
+          <div class="cbo-item cbo-pill-open">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>OPEN 24/7</strong>
+              <span>7 Days a Week</span>
+            </div>
           </div>
         </div>
-
-        <!-- 5 Circular Gold Service Badges -->
-        <div class="cover-services-medallions">
-          <div class="cov-medallion">
-            <i class="fas fa-tshirt"></i>
-            <span>Wash &amp; Fold</span>
-          </div>
-          <div class="cov-medallion">
-            <i class="fas fa-temperature-high"></i>
-            <span>Steam Press</span>
-          </div>
-          <div class="cov-medallion">
-            <i class="fas fa-user-tie"></i>
-            <span>Dry Cleaning</span>
-          </div>
-          <div class="cov-medallion">
-            <i class="fas fa-couch"></i>
-            <span>Sofa Care</span>
-          </div>
-          <div class="cov-medallion">
-            <i class="fas fa-shoe-prints"></i>
-            <span>Shoe Spa</span>
-          </div>
-        </div>
-
-        <!-- Bottom Grand Strip -->
-        <div class="cover-bottom-strip">
-          <div class="cbs-info-row">
-            <div class="cbs-item">
-              <i class="fab fa-whatsapp"></i>
-              <div>
-                <strong>+91 82338 53727</strong>
-                <span>WhatsApp Enabled</span>
-              </div>
-            </div>
-            <div class="cbs-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <strong>Sabji Mandi Circle</strong>
-                <span>Ratanada, Jodhpur 342011</span>
-              </div>
-            </div>
-            <div class="cbs-item">
-              <i class="fas fa-globe"></i>
-              <div>
-                <strong>genzlaundry.com</strong>
-                <span>Instant Online Booking</span>
-              </div>
-            </div>
-            <div class="cbs-item">
-              <i class="fas fa-clock"></i>
-              <div>
-                <strong>Open 24 Hours</strong>
-                <span>7 Days a Week</span>
-              </div>
-            </div>
-          </div>
-          <div class="cbs-tagline-bar">
-            &bull; Premium Care For Your Every Fabric &bull;
-          </div>
-        </div>
-
       </div>
     </section>
 
