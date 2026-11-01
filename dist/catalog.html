@@ -536,7 +536,7 @@
     /* Page Body fills remaining height (1123 - 64 - 40 = 1019px) */
     .page-body {
       height: 1019px;
-      padding: 22px 24px;
+      padding: 20px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -701,11 +701,11 @@
     }
 
     /* ==========================================================================
-       PAGES 3 TO 7: SERVICE SHOWCASES & FULL-WIDTH BEFORE/AFTER SPREADS
+       PAGES 3 TO 7: SERVICE SHOWCASES & 1200x680 ULTRA BEFORE/AFTER GRAPHICS
        ========================================================================== */
     .editorial-hero-banner {
       width: 100%;
-      height: 235px;
+      height: 260px;
       border-radius: 12px;
       overflow: hidden;
       position: relative;
@@ -734,7 +734,7 @@
 
     .eho-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--gold-light);
       line-height: 1.2;
@@ -751,7 +751,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      height: 105px;
+      height: 120px;
       flex-shrink: 0;
     }
 
@@ -760,194 +760,55 @@
       border: 1px solid var(--slate-200);
       border-top: 3.5px solid var(--gold-metallic);
       border-radius: 10px;
-      padding: 10px 12px;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .pillar-card-icon {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 8px;
       background: var(--gold-subtle);
       color: var(--gold-metallic);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin-bottom: 2px;
     }
 
     .pillar-card-title {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 800;
       color: var(--navy-900);
       margin-bottom: 2px;
     }
 
     .pillar-card-desc {
-      font-size: 0.69rem;
+      font-size: 0.7rem;
       color: #64748B;
       line-height: 1.35;
     }
 
-    /* ==========================================================================
-       BEFORE & AFTER FULL-WIDTH DUAL-SPREAD (ZERO EMPTY DARK SPACE!)
-       ========================================================================== */
-    .ba-section-box {
-      background: linear-gradient(135deg, #06183B 0%, #0A2252 100%);
+    /* Ultra-HD Masterpiece Before & After Display Box */
+    .ba-masterpiece-wrapper {
+      width: 100%;
+      height: 425px;
       border-radius: 12px;
-      padding: 16px 18px;
-      color: #FFFFFF;
-      border: 1.5px solid var(--gold-metallic);
-      box-shadow: 0 8px 24px rgba(6, 24, 59, 0.35);
-      height: 520px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      overflow: hidden;
+      border: 2px solid var(--gold-metallic);
+      box-shadow: 0 10px 30px rgba(6, 24, 59, 0.4);
+      background: var(--navy-900);
       flex-shrink: 0;
     }
 
-    .ba-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .ba-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--gold-light);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .ba-sub {
-      font-size: 0.72rem;
-      color: #CBD5E1;
-      font-weight: 600;
-    }
-
-    /* Two Large Side-by-Side Cards Filling 100% of the Width */
-    .ba-dual-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      height: 395px;
-      position: relative;
-    }
-
-    .ba-split-card {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      background: #020814;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .ba-split-card.before {
-      border-color: rgba(244, 63, 94, 0.4);
-    }
-
-    .ba-split-card.after {
-      border-color: rgba(16, 185, 129, 0.5);
-    }
-
-    .ba-split-img-wrap {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-
-    .ba-split-img-wrap img {
+    .ba-master-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    /* Floating Status Badge at Top of Card */
-    .ba-status-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 5px 12px;
-      border-radius: 9999px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      z-index: 2;
-    }
-
-    .ba-status-badge.before {
-      background: rgba(225, 29, 72, 0.92);
-      color: #FFFFFF;
-      border: 1px solid #FECDD3;
-    }
-
-    .ba-status-badge.after {
-      background: rgba(5, 150, 105, 0.92);
-      color: #FFFFFF;
-      border: 1px solid #BBF7D0;
-    }
-
-    /* Floating Caption Bar at Bottom of Card */
-    .ba-bottom-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 8px 12px;
-      background: linear-gradient(180deg, transparent 0%, rgba(3, 12, 28, 0.9) 100%);
-      color: #FFFFFF;
-      font-size: 0.74rem;
-      font-weight: 700;
-      z-index: 2;
-    }
-
-    /* Floating Center Transformation Crest */
-    .ba-floating-arrow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: var(--navy-900);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 900;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-      border: 2.5px solid #FFFFFF;
-      z-index: 10;
-    }
-
-    .ba-bottom-guarantee-strip {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.73rem;
-      color: #E2E8F0;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      padding-top: 8px;
-    }
-
-    .ba-bottom-guarantee-strip strong {
-      color: var(--gold-light);
     }
 
     /* ==========================================================================
@@ -957,7 +818,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      height: 380px;
+      height: 360px;
       flex-shrink: 0;
     }
 
@@ -993,7 +854,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      margin-top: 14px;
+      margin-top: 12px;
       flex-shrink: 0;
     }
 
@@ -1021,7 +882,7 @@
       border-radius: 12px;
       padding: 18px 24px;
       color: #FFFFFF;
-      height: 290px;
+      height: 320px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1043,7 +904,7 @@
     }
 
     .b2b-spec-table td {
-      padding: 7px 10px;
+      padding: 8px 10px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -1153,7 +1014,7 @@
       border-radius: 12px;
       padding: 20px 24px;
       color: #FFFFFF;
-      height: 290px;
+      height: 320px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1755,50 +1616,9 @@
               </div>
             </div>
 
-            <!-- Full-Width Dual-Spread Before & After -->
-            <div class="ba-section-box">
-              <div class="ba-header">
-                <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
-                <div class="ba-sub">Official Atelier Garment Case Study</div>
-              </div>
-              
-              <div class="ba-dual-grid">
-                <!-- BEFORE CARD -->
-                <div class="ba-split-card before">
-                  <div class="ba-status-badge before">
-                    <i class="fas fa-times-circle"></i> BEFORE TREATMENT
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/shirt_clean_before.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ba_shirt_clean_hd.jpg'" alt="Shirt Before Laundry">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Collar grime, coffee marks &amp; deep fabric wrinkles
-                  </div>
-                </div>
-
-                <!-- FLOATING CENTER ARROW -->
-                <div class="ba-floating-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-
-                <!-- AFTER CARD -->
-                <div class="ba-split-card after">
-                  <div class="ba-status-badge after">
-                    <i class="fas fa-check-circle"></i> AFTER ATELIER CARE
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/shirt_clean_after.jpg" onerror="this.onerror=null;this.src='public/gallery/folded_clothes.png'" alt="Shirt After Laundry">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    100% Spotless, bright white &amp; crisp vacuum pressed
-                  </div>
-                </div>
-              </div>
-
-              <div class="ba-bottom-guarantee-strip">
-                <span>Treatment: <strong>Ultrasonic Bio-Enzyme Spotting &bull; 0% Fabric Abrasion</strong></span>
-                <span>Turnaround: <strong>Same-Day / 6h Express</strong></span>
-              </div>
+            <!-- Full-Width Ultra-HD Before & After Masterpiece -->
+            <div class="ba-masterpiece-wrapper">
+              <img src="public/images/catalogue_assets/pro_ba_shirt_ultra.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/pro_ba_shirt_ultra.jpg'" alt="Proven Quality - Dress Shirt Laundry Transformation" class="ba-master-img">
             </div>
           </div>
 
@@ -1858,50 +1678,9 @@
               </div>
             </div>
 
-            <!-- Full-Width Dual-Spread Before & After -->
-            <div class="ba-section-box">
-              <div class="ba-header">
-                <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
-                <div class="ba-sub">Official Bespoke Suit Case Study</div>
-              </div>
-              
-              <div class="ba-dual-grid">
-                <!-- BEFORE CARD -->
-                <div class="ba-split-card before">
-                  <div class="ba-status-badge before">
-                    <i class="fas fa-times-circle"></i> BEFORE TREATMENT
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/suit_clean_before.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ba_suit_clean_hd.jpg'" alt="Suit Before Dry Cleaning">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Dull wool, creased lapels &amp; dust exposure
-                  </div>
-                </div>
-
-                <!-- FLOATING CENTER ARROW -->
-                <div class="ba-floating-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-
-                <!-- AFTER CARD -->
-                <div class="ba-split-card after">
-                  <div class="ba-status-badge after">
-                    <i class="fas fa-check-circle"></i> AFTER ATELIER CARE
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/suit_clean_after.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ai_haute_couture_atelier.jpg'" alt="Suit After Dry Cleaning">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Deep rich navy sheen, razor lapel &amp; dust-sealed
-                  </div>
-                </div>
-              </div>
-
-              <div class="ba-bottom-guarantee-strip">
-                <span>Process: <strong>German Hydrocarbon &bull; Italian Form-Finishing Press</strong></span>
-                <span>Protection: <strong>100% Color &amp; Texture Retained</strong></span>
-              </div>
+            <!-- Full-Width Ultra-HD Before & After Masterpiece -->
+            <div class="ba-masterpiece-wrapper">
+              <img src="public/images/catalogue_assets/pro_ba_suit_ultra.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/pro_ba_suit_ultra.jpg'" alt="Proven Quality - Bespoke Suit Dry Cleaning Transformation" class="ba-master-img">
             </div>
           </div>
 
@@ -1961,50 +1740,9 @@
               </div>
             </div>
 
-            <!-- Full-Width Dual-Spread Before & After -->
-            <div class="ba-section-box">
-              <div class="ba-header">
-                <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
-                <div class="ba-sub">Official Residence Upholstery Case Study</div>
-              </div>
-              
-              <div class="ba-dual-grid">
-                <!-- BEFORE CARD -->
-                <div class="ba-split-card before">
-                  <div class="ba-status-badge before">
-                    <i class="fas fa-times-circle"></i> BEFORE TREATMENT
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/sofa_clean_before.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ba_sofa_clean_hd.jpg'" alt="Sofa Before Cleaning">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Water rings, dust accumulation &amp; embedded stains
-                  </div>
-                </div>
-
-                <!-- FLOATING CENTER ARROW -->
-                <div class="ba-floating-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-
-                <!-- AFTER CARD -->
-                <div class="ba-split-card after">
-                  <div class="ba-status-badge after">
-                    <i class="fas fa-check-circle"></i> AFTER ATELIER CARE
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/sofa_clean_after.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ai_living_room_sofa_carpet.jpg'" alt="Sofa After Cleaning">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Pristine fluffy velvet, sanitized &amp; 100% spotless
-                  </div>
-                </div>
-              </div>
-
-              <div class="ba-bottom-guarantee-strip">
-                <span>Drying Time: <strong>Rapid 3 to 4 Hours</strong></span>
-                <span>Technique: <strong>Industrial High-Vacuum Steam Extraction</strong></span>
-              </div>
+            <!-- Full-Width Ultra-HD Before & After Masterpiece -->
+            <div class="ba-masterpiece-wrapper">
+              <img src="public/images/catalogue_assets/pro_ba_sofa_ultra.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/pro_ba_sofa_ultra.jpg'" alt="Proven Quality - Sofa & Upholstery Deep Cleaning Transformation" class="ba-master-img">
             </div>
           </div>
 
@@ -2064,50 +1802,9 @@
               </div>
             </div>
 
-            <!-- Full-Width Dual-Spread Before & After -->
-            <div class="ba-section-box">
-              <div class="ba-header">
-                <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
-                <div class="ba-sub">Official Persian Rug Case Study</div>
-              </div>
-              
-              <div class="ba-dual-grid">
-                <!-- BEFORE CARD -->
-                <div class="ba-split-card before">
-                  <div class="ba-status-badge before">
-                    <i class="fas fa-times-circle"></i> BEFORE TREATMENT
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/carpet_clean_before.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ba_carpet_clean_hd.jpg'" alt="Carpet Before Cleaning">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Dull grey dust layer, flattened pile &amp; faded colors
-                  </div>
-                </div>
-
-                <!-- FLOATING CENTER ARROW -->
-                <div class="ba-floating-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-
-                <!-- AFTER CARD -->
-                <div class="ba-split-card after">
-                  <div class="ba-status-badge after">
-                    <i class="fas fa-check-circle"></i> AFTER ATELIER CARE
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/carpet_clean_after.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ai_living_room_sofa_carpet.jpg'" alt="Carpet After Cleaning">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Vibrant jewel tones, restored plush pile &amp; fresh
-                  </div>
-                </div>
-              </div>
-
-              <div class="ba-bottom-guarantee-strip">
-                <span>Care Guarantee: <strong>Zero Color Bleed &bull; Fringe Restoration</strong></span>
-                <span>Pickup &amp; Delivery: <strong>Complimentary Roll &amp; Return</strong></span>
-              </div>
+            <!-- Full-Width Ultra-HD Before & After Masterpiece -->
+            <div class="ba-masterpiece-wrapper">
+              <img src="public/images/catalogue_assets/pro_ba_carpet_ultra.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/pro_ba_carpet_ultra.jpg'" alt="Proven Quality - Persian Carpet Restoration Transformation" class="ba-master-img">
             </div>
           </div>
 
@@ -2167,50 +1864,9 @@
               </div>
             </div>
 
-            <!-- Full-Width Dual-Spread Before & After -->
-            <div class="ba-section-box">
-              <div class="ba-header">
-                <div class="ba-title"><i class="fas fa-check-circle" style="color: var(--gold-bright);"></i> PROVEN QUALITY &bull; REAL TRANSFORMATION</div>
-                <div class="ba-sub">Official Designer Sneaker Case Study</div>
-              </div>
-              
-              <div class="ba-dual-grid">
-                <!-- BEFORE CARD -->
-                <div class="ba-split-card before">
-                  <div class="ba-status-badge before">
-                    <i class="fas fa-times-circle"></i> BEFORE TREATMENT
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/shoes_clean_before.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ba_shoes_clean_hd.jpg'" alt="Sneakers Before Cleaning">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Mud splatters, yellowed rubber soles &amp; scuffs
-                  </div>
-                </div>
-
-                <!-- FLOATING CENTER ARROW -->
-                <div class="ba-floating-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-
-                <!-- AFTER CARD -->
-                <div class="ba-split-card after">
-                  <div class="ba-status-badge after">
-                    <i class="fas fa-check-circle"></i> AFTER ATELIER CARE
-                  </div>
-                  <div class="ba-split-img-wrap">
-                    <img src="public/images/catalogue_assets/shoes_clean_after.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/sneakers_splash.jpg'" alt="Sneakers After Cleaning">
-                  </div>
-                  <div class="ba-bottom-caption">
-                    Restored icy white midsoles, spotless &amp; nano sealed
-                  </div>
-                </div>
-              </div>
-
-              <div class="ba-bottom-guarantee-strip">
-                <span>Includes: <strong>Lace Whitening &bull; Deep Insole Sanitization &bull; Shoe Tree Shaping</strong></span>
-                <span>Turnaround: <strong>48 Hours</strong></span>
-              </div>
+            <!-- Full-Width Ultra-HD Before & After Masterpiece -->
+            <div class="ba-masterpiece-wrapper">
+              <img src="public/images/catalogue_assets/pro_ba_shoes_ultra.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/pro_ba_shoes_ultra.jpg'" alt="Proven Quality - Designer Sneaker Spa Transformation" class="ba-master-img">
             </div>
           </div>
 
@@ -2429,7 +2085,7 @@
              PAGE 10: BACK COVER & LOCATION SCANNER (PANEL 10)
              ================================================================== -->
         <section class="catalogue-page" id="page-10" aria-label="Page 10: Back Cover & Concierge Contact">
-          <div class="page-body" style="padding: 22px;">
+          <div class="page-body" style="padding: 20px 24px;">
             <div class="backcover-wrapper">
               
               <!-- Brand Top -->
