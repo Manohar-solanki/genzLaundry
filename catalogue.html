@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Official Service Catalogue 2026 | GEN-Z Laundry &amp; Dry Cleaners Jodhpur</title>
-  <meta name="description" content="Official 2026 Luxury Service Catalogue for Gen-Z Laundry & Dry Cleaners Jodhpur. Artisanal fabric care, haute couture dry cleaning, steam pressing, sofa & carpet extraction, sneaker spa, and commercial hotel contracts.">
-  <link rel="icon" type="image/png" href="public/logo.png">
+  <title>GEN-Z LAUNDRY &bull; Official 2026 Luxury Service Catalogue (Jodhpur)</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👔</text></svg>">
 
-  <!-- Luxury Typography & Icons -->
+  <!-- Google Fonts: Inter & Playfair Display & Cinzel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     /* ==========================================================================
-       RESET & BASE LUXURY THEME
+       RESET & ROOT VARIABLES
        ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
@@ -24,434 +27,269 @@
     }
 
     :root {
-      --navy-950: #030C1C;
-      --navy-900: #06183B;
-      --navy-850: #0A2252;
-      --navy-800: #0F2D6B;
-      --navy-700: #163B8C;
-      --gold-bright: #F59E0B;
-      --gold-metallic: #D97706;
-      --gold-deep: #B45309;
-      --gold-light: #FDE68A;
-      --gold-subtle: #FEF3C7;
-      --slate-50: #F8FAFC;
-      --slate-100: #F1F5F9;
-      --slate-200: #E2E8F0;
-      --slate-300: #CBD5E1;
+      /* Brand Color Palette */
+      --navy-950: #040d1a;
+      --navy-900: #06183b;
+      --navy-850: #0a214d;
+      --navy-800: #0e2b66;
+      --navy-700: #163b8c;
+      --royal-blue: #1e4bb8;
+      --accent-cyan: #00d2ff;
+      --gold-metallic: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa820a 100%);
+      
+      --white: #ffffff;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
       --slate-600: #475569;
       --slate-700: #334155;
-      --slate-800: #1E293B;
-      --emerald-500: #10B981;
-      --emerald-600: #059669;
-      --rose-500: #F43F5E;
-      --rose-600: #E11D48;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+
+      /* UI & Canvas */
+      --canvas-bg: #030814;
+      --card-bg-light: #ffffff;
+      
+      /* Typography */
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-display: 'Cinzel', serif;
     }
 
     html, body {
       width: 100%;
       height: 100%;
-      background: #030B17;
+      background-color: var(--canvas-bg);
       color: var(--slate-800);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.35;
+      font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-
-    body.mode-slide {
-      overflow: hidden;
-    }
-
-    body.mode-scroll {
-      overflow-y: auto;
       overflow-x: hidden;
-      padding-top: 56px;
-      padding-bottom: 50px;
     }
 
     /* ==========================================================================
-       TOP ACTIONS BAR (SCREEN VIEWER CONTROLS)
+       TOP CONTROL TOOLBAR (SCREEN MODE ONLY)
        ========================================================================== */
-    .catalogue-actions-bar {
+    .catalogue-toolbar {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100%;
       height: 56px;
-      background: rgba(6, 24, 59, 0.98);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 2px solid var(--gold-metallic);
-      z-index: 9999;
+      background: rgba(4, 13, 26, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 16px;
-      color: #FFFFFF;
+      z-index: 10000;
+      color: var(--white);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     }
 
-    .cab-brand {
+    .toolbar-left, .toolbar-center, .toolbar-right {
       display: flex;
       align-items: center;
       gap: 10px;
-      text-decoration: none;
-      color: #FFFFFF;
     }
 
-    .cab-logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: #FFFFFF;
-      padding: 2px;
-      border: 1.5px solid var(--gold-metallic);
-      object-fit: contain;
-    }
-
-    .cab-title-wrap {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cab-title {
-      font-family: 'Cinzel', serif;
-      font-size: 0.92rem;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      color: var(--gold-light);
-      line-height: 1.1;
-    }
-
-    .cab-sub {
-      font-size: 0.65rem;
-      color: #94A3B8;
-      letter-spacing: 0.3px;
-    }
-
-    .cab-nav-suite {
+    .brand-pill {
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-
-    .cab-page-counter {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 9999px;
-      padding: 4px 14px;
-      font-size: 0.8rem;
+      text-decoration: none;
+      color: var(--white);
       font-weight: 700;
-      color: #FFFFFF;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
     }
 
-    .cab-nav-btn {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #FFFFFF;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.8rem;
-    }
-
-    .cab-nav-btn:hover:not(:disabled) {
-      background: var(--gold-metallic);
-      transform: scale(1.08);
-      border-color: var(--gold-light);
-    }
-
-    .cab-nav-btn:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .cab-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cab-mode-btn {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      color: #E2E8F0;
-      font-size: 0.76rem;
-      font-weight: 700;
-      padding: 5px 12px;
+    .brand-logo-icon {
+      width: 28px;
+      height: 28px;
       border-radius: 6px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
-
-    .cab-mode-btn:hover,
-    .cab-mode-btn.active {
-      background: rgba(217, 119, 6, 0.3);
-      border-color: var(--gold-bright);
-      color: var(--gold-light);
-    }
-
-    .cab-tool-btn {
-      background: transparent;
-      border: none;
-      color: #CBD5E1;
-      font-size: 0.86rem;
-      cursor: pointer;
-      padding: 5px 8px;
-      border-radius: 4px;
-      transition: all 0.2s;
-    }
-
-    .cab-tool-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-      color: #FFFFFF;
-    }
-
-    .cab-btn-print {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: var(--navy-900);
-      font-size: 0.8rem;
-      font-weight: 800;
-      padding: 7px 15px;
-      border-radius: 9999px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.5);
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .cab-btn-print:hover {
-      transform: translateY(-1.5px);
-      box-shadow: 0 6px 18px rgba(245, 158, 11, 0.65);
-    }
-
-    /* Floating WhatsApp Inquiry Pill */
-    .floating-wa-pill {
-      position: fixed;
-      bottom: 58px;
-      right: 20px;
-      z-index: 9990;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #25D366;
-      color: #FFFFFF;
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 9px 18px;
-      border-radius: 9999px;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
-      transition: all 0.25s ease;
-    }
-
-    .floating-wa-pill:hover {
-      background: #20BD5A;
-      transform: translateY(-2px) scale(1.03);
-      color: #FFFFFF;
-    }
-
-    /* Bottom Quick Page Dock */
-    .catalogue-dock {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 46px;
-      background: rgba(6, 24, 59, 0.98);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-top: 1px solid rgba(217, 119, 6, 0.4);
-      z-index: 9980;
+      background: var(--gold-gradient);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 12px;
-      overflow-x: auto;
-      scrollbar-width: none;
+      color: var(--navy-950);
+      font-weight: 900;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
     }
 
-    .catalogue-dock::-webkit-scrollbar {
-      display: none;
+    .brand-sub {
+      font-size: 0.68rem;
+      color: var(--gold-light);
+      display: block;
+      font-weight: 500;
+      letter-spacing: 0.03em;
     }
 
-    .dock-list {
-      display: flex;
+    .btn-tool {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      list-style: none;
+      transition: all 0.2s ease;
+      font-family: var(--font-sans);
     }
 
-    .dock-pill {
-      background: rgba(255, 255, 255, 0.08);
-      color: #CBD5E1;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s;
-    }
-
-    .dock-pill:hover,
-    .dock-pill.active {
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: var(--navy-900);
-      font-weight: 800;
-      border-color: var(--gold-light);
+    .btn-tool:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: var(--gold-metallic);
+      color: var(--gold-light);
       transform: translateY(-1px);
     }
 
-    /* ==========================================================================
-       VIEWPORT & FIT-TO-SCREEN STAGE ENGINE
-       ========================================================================== */
-    .viewer-viewport {
-      position: fixed;
-      top: 56px;
-      bottom: 46px;
-      left: 0;
-      right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #030B17;
-      overflow: hidden;
-      padding: 10px;
+    .btn-tool.active {
+      background: var(--navy-700);
+      border-color: var(--accent-cyan);
+      color: var(--white);
     }
 
-    /* The visual bounding box matching scaled A4 dimensions exactly */
+    .page-indicator-badge {
+      background: rgba(6, 24, 59, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+    }
+
+    .btn-print-pdf {
+      background: var(--gold-gradient);
+      color: var(--navy-950);
+      border: none;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-print-pdf:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.55);
+      color: var(--navy-950);
+    }
+
+    /* ==========================================================================
+       VIEWPORT & AUTO-SCALE STAGE ENGINE
+       ========================================================================== */
+    .catalogue-viewport {
+      margin-top: 56px;
+      margin-bottom: 58px;
+      width: 100%;
+      min-height: calc(100vh - 114px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
     .catalogue-stage-wrapper {
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
-      border-radius: 4px;
-      background: #FFFFFF;
+      width: 794px;
+      height: 1123px;
+      transform-origin: top center;
+      transition: width 0.2s ease, height 0.2s ease;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
       flex-shrink: 0;
     }
 
-    /* The native A4 container (794px x 1123px) */
     .catalogue-container {
-      width: 794px;
-      height: 1123px;
       position: absolute;
       top: 0;
       left: 0;
+      width: 794px;
+      height: 1123px;
       transform-origin: top left;
+      background: #ffffff;
     }
 
     /* ==========================================================================
-       SLIDE MODE (DEFAULT: 1 ACTIVE FULL PAGE FIT TO SCREEN)
+       STANDARD A4 PAGE FORMAT (794px x 1123px @ 96DPI -> 210mm x 297mm)
        ========================================================================== */
-    body.mode-slide .catalogue-page {
-      display: none;
+    .catalogue-page {
       width: 794px;
       height: 1123px;
-      background: #FFFFFF;
+      background: #ffffff;
       position: absolute;
       top: 0;
       left: 0;
+      display: none;
       flex-direction: column;
       overflow: hidden;
       box-sizing: border-box;
+      padding: 30px 34px;
     }
 
-    body.mode-slide .catalogue-page.active-page {
+    .catalogue-page.active-page {
       display: flex;
-      animation: pageFadeIn 0.22s ease-out;
-    }
-
-    @keyframes pageFadeIn {
-      from { opacity: 0; transform: scale(0.99); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     /* ==========================================================================
-       SCROLL MODE (ALL PAGES STACKED VERTICALLY)
+       CONTINUOUS SCROLL MODE (OVERRIDE FOR MULTI-PAGE STACK)
        ========================================================================== */
-    body.mode-scroll .viewer-viewport {
-      position: static;
+    body.continuous-mode .catalogue-viewport {
       display: block;
-      padding: 24px 0;
-      background: transparent;
-      overflow: visible;
+      padding: 24px 0 80px 0;
+      overflow-y: visible;
     }
 
-    body.mode-scroll .catalogue-stage-wrapper {
-      width: 794px !important;
+    body.continuous-mode .catalogue-stage-wrapper {
+      width: 100% !important;
       height: auto !important;
-      margin: 0 auto;
-      overflow: visible;
-      background: transparent;
+      transform: none !important;
       box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
     }
 
-    body.mode-scroll .catalogue-container {
+    body.continuous-mode .catalogue-container {
       position: static;
       width: 794px;
       height: auto;
       transform: none !important;
-    }
-
-    body.mode-scroll .catalogue-page {
-      display: flex !important;
-      width: 794px;
-      height: 1123px;
-      background: #FFFFFF;
-      margin-bottom: 32px;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
+      background: transparent;
+      display: flex;
       flex-direction: column;
-      box-sizing: border-box;
+      gap: 32px;
     }
 
-    /* ==========================================================================
-       PAGE 1: ROYAL MASTERPIECE COVER
-       ========================================================================== */
-    .page-cover-masterpiece {
-      padding: 0;
-      background: var(--navy-900);
+    body.continuous-mode .catalogue-page {
       position: relative;
-    }
-
-    .cover-master-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      display: flex !important;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
     }
 
     /* ==========================================================================
-       EDITORIAL HEADER & FOOTER SYSTEM
+       PAGE HEADER & FOOTER TEMPLATE (PAGES 2 TO 9)
        ========================================================================== */
     .page-inner-header {
-      background: linear-gradient(135deg, #06183B 0%, #0A2252 100%);
-      color: #FFFFFF;
-      height: 64px;
-      padding: 0 24px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      border-bottom: 2.5px solid var(--gold-metallic);
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--navy-900);
+      margin-bottom: 16px;
       flex-shrink: 0;
     }
 
@@ -462,28 +300,26 @@
     }
 
     .pih-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: #FFFFFF;
-      padding: 2px;
-      border: 1.5px solid var(--gold-bright);
+      height: 38px;
+      width: auto;
       object-fit: contain;
     }
 
     .pih-brand-name {
-      font-family: 'Cinzel', serif;
-      font-size: 1.05rem;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
       font-weight: 800;
-      letter-spacing: 1px;
-      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      color: var(--navy-900);
       line-height: 1.1;
     }
 
     .pih-brand-tag {
       font-size: 0.68rem;
-      color: #CBD5E1;
-      letter-spacing: 0.4px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-metallic);
     }
 
     .pih-right {
@@ -491,317 +327,613 @@
     }
 
     .pih-doc-title {
-      font-family: 'Cinzel', serif;
-      font-size: 0.98rem;
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: 0.5px;
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy-900);
+      letter-spacing: 0.02em;
     }
 
     .pih-doc-sub {
       font-size: 0.68rem;
-      color: #FCD34D;
       font-weight: 600;
+      color: var(--slate-500);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .page-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
     }
 
     .page-inner-footer {
-      background: #F8FAFC;
-      border-top: 1px solid #E2E8F0;
-      height: 40px;
-      padding: 0 24px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid var(--slate-300);
+      margin-top: 14px;
       font-size: 0.72rem;
-      color: #64748B;
+      color: var(--slate-600);
       flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .pif-contact {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
+      white-space: nowrap;
+    }
+
+    .pif-contact span {
+      white-space: nowrap;
     }
 
     .pif-contact strong {
       color: var(--navy-900);
+      white-space: nowrap;
     }
 
     .pif-badge {
-      font-family: 'Cinzel', serif;
+      background: var(--slate-100);
+      padding: 3px 10px;
+      border-radius: 4px;
       font-weight: 700;
-      color: var(--gold-metallic);
-    }
-
-    /* Page Body fills remaining height (1123 - 64 - 40 = 1019px) */
-    .page-body {
-      height: 1019px;
-      padding: 20px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      background: #FFFFFF;
-      box-sizing: border-box;
-    }
-
-    /* ==========================================================================
-       PAGE 2: EXECUTIVE SERVICE & ITEM DIRECTORY (ZERO VOIDS, RICH CONTENT)
-       ========================================================================== */
-    .services-guarantee-ribbon {
-      background: linear-gradient(135deg, #06183B 0%, #0A2252 100%);
-      color: #FFFFFF;
-      border-radius: 8px;
-      height: 46px;
-      padding: 0 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border: 1px solid var(--gold-metallic);
+      color: var(--navy-900);
+      border: 1px solid var(--slate-300);
+      font-size: 0.68rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
       flex-shrink: 0;
     }
 
-    .sgr-text strong {
-      font-family: 'Cinzel', serif;
-      color: var(--gold-light);
-      font-size: 0.82rem;
+    /* ==========================================================================
+       PAGE 1: LUXURY FRONT COVER
+       ========================================================================== */
+    .catalogue-page.page-cover {
+      padding: 0 !important;
+      background: var(--navy-950);
+      position: relative;
+    }
+
+    .cover-poster-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
       display: block;
+    }
+
+    /* ==========================================================================
+       PAGE 2: EXECUTIVE SERVICE & ITEM DIRECTORY
+       ========================================================================== */
+    .services-guarantee-ribbon {
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+      border: 1px solid var(--gold-metallic);
+      border-radius: 8px;
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+
+    .sgr-text strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 0.82rem;
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
     }
 
     .sgr-text span {
       font-size: 0.68rem;
-      color: #CBD5E1;
+      color: var(--slate-300);
     }
 
     .menu-cards-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      height: 840px;
-      flex-shrink: 0;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      flex: 1;
     }
 
     .menu-service-card {
-      background: #FFFFFF;
-      border: 1.5px solid var(--slate-200);
+      background: #ffffff;
+      border: 1.5px solid rgba(14, 43, 102, 0.15);
       border-radius: 10px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-      height: 270px;
+      box-shadow: 0 4px 12px rgba(6, 24, 59, 0.06);
     }
 
-    .menu-service-card.highlight {
-      border-color: var(--gold-bright);
-      box-shadow: 0 6px 18px rgba(217, 119, 6, 0.2);
-    }
-
-    /* Generous Image Header: 125px tall */
     .msc-img-header {
-      height: 125px;
+      height: 160px;
+      width: 100%;
       position: relative;
       overflow: hidden;
-      background: var(--navy-900);
-      flex-shrink: 0;
+      background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .msc-img-header img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
+    }
+
+    .msc-img-header img.img-contain {
+      object-fit: contain;
+      padding: 8px;
+      background: transparent;
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    .msc-img-header img.img-cover {
+      object-fit: cover;
+      object-position: center;
     }
 
     .msc-img-overlay {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(6, 24, 59, 0.1) 0%, rgba(6, 24, 59, 0.85) 100%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
       display: flex;
-      align-items: flex-end;
       justify-content: space-between;
-      padding: 8px 12px;
+      align-items: flex-start;
+      padding: 8px 10px;
+      pointer-events: none;
+      background: transparent;
+      z-index: 2;
     }
 
     .msc-pill-tag {
-      background: var(--gold-metallic);
-      color: #FFFFFF;
-      font-size: 0.65rem;
+      background: rgba(4, 13, 26, 0.88);
+      backdrop-filter: blur(4px);
+      color: var(--gold-light);
+      font-size: 0.62rem;
       font-weight: 800;
       padding: 3px 8px;
       border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
     }
 
     .msc-price-tag {
-      background: #FFFFFF;
-      color: var(--navy-900);
-      font-size: 0.74rem;
-      font-weight: 800;
-      padding: 3px 9px;
+      background: var(--gold-gradient);
+      color: var(--navy-950);
+      font-size: 0.68rem;
+      font-weight: 900;
+      padding: 3px 8px;
       border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      letter-spacing: 0.02em;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
     }
 
     .msc-body {
-      padding: 10px 12px;
-      flex: 1;
+      padding: 8px 10px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: #F8FAFC;
+      flex: 1;
+      background: #ffffff;
     }
 
     .msc-title {
-      font-family: 'Cinzel', serif;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       font-weight: 800;
       color: var(--navy-900);
+      margin-bottom: 2px;
       line-height: 1.2;
     }
 
     .msc-subtitle {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--slate-700);
-      margin-top: 2px;
+      font-size: 0.65rem;
+      color: var(--slate-600);
+      margin-bottom: 4px;
+      line-height: 1.25;
     }
 
     .msc-tags-row {
       display: flex;
-      gap: 5px;
+      gap: 4px;
       flex-wrap: wrap;
-      margin-top: 4px;
+      margin-bottom: 4px;
     }
 
     .msc-spec-pill {
-      background: #FFFFFF;
-      border: 1px solid var(--slate-300);
-      color: var(--slate-600);
-      font-size: 0.64rem;
-      font-weight: 600;
-      padding: 2px 6px;
-      border-radius: 4px;
+      background: #eff6ff;
+      color: var(--navy-700);
+      font-size: 0.58rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      border: 1px solid rgba(30, 75, 184, 0.15);
     }
 
     .msc-footer-strip {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      font-size: 0.68rem;
-      color: var(--slate-600);
+      align-items: center;
+      font-size: 0.62rem;
+      color: var(--slate-500);
       border-top: 1px dashed var(--slate-200);
-      padding-top: 6px;
-      margin-top: 4px;
-    }
-
-    .msc-footer-strip strong {
-      color: var(--emerald-600);
+      padding-top: 4px;
     }
 
     /* ==========================================================================
-       PAGES 3 TO 7: SERVICE SHOWCASES & 1200x680 ULTRA BEFORE/AFTER GRAPHICS
+       PAGE 3: OFFICIAL ITEMIZED GARMENT TARIFF & PRICE DIRECTORY
        ========================================================================== */
-    .editorial-hero-banner {
+    .tariff-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+      flex: 1;
       width: 100%;
-      height: 260px;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      border: 1.5px solid var(--slate-200);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      flex-shrink: 0;
-      background: var(--navy-900);
+      box-sizing: border-box;
     }
 
-    .editorial-hero-banner img {
+    .tariff-column {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      box-sizing: border-box;
+    }
+
+    .tariff-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-300);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .tariff-card-header {
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+      color: #ffffff;
+      padding: 5px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid var(--gold-metallic);
+      box-sizing: border-box;
+    }
+
+    .tariff-card-title {
+      font-size: 0.71rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+    }
+
+    .tariff-card-title i {
+      color: var(--gold-metallic);
+      font-size: 0.70rem;
+    }
+
+    .tariff-card-badge {
+      font-size: 0.58rem;
+      background: rgba(255,255,255,0.12);
+      color: var(--gold-metallic);
+      padding: 1px 6px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      white-space: nowrap;
+    }
+
+    .tariff-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.66rem;
+      table-layout: fixed;
+      box-sizing: border-box;
+    }
+
+    .tariff-table th {
+      background: #f1f5f9;
+      color: var(--navy-900);
+      font-size: 0.59rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 3px 6px;
+      border-bottom: 1px solid var(--slate-300);
+      box-sizing: border-box;
+    }
+
+    .tariff-table tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .tariff-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .tariff-table tr:nth-child(even) {
+      background: #fafcff;
+    }
+
+    .tariff-table td {
+      padding: 4.5px 6px;
+      vertical-align: middle;
+      box-sizing: border-box;
+    }
+
+    .td-item-name {
+      font-weight: 600;
+      color: var(--navy-900);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .td-item-name span.sub {
+      font-size: 0.56rem;
+      color: var(--slate-600);
+      font-weight: 400;
+      margin-left: 2px;
+    }
+
+    .td-rate-val {
+      text-align: center;
+    }
+
+    .td-single-rate {
+      text-align: right;
+      padding-right: 4px !important;
+    }
+
+    .t-pill {
+      font-size: 0.60rem;
+      padding: 1.5px 5px;
+      border-radius: 3px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .t-pill-wash {
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+
+    .t-pill-iron {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+
+    .t-pill-dry {
+      background: #fffbeb;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+
+    .t-pill-spa {
+      background: #f5f3ff;
+      color: #5b21b6;
+      border: 1px solid #ddd6fe;
+    }
+
+    .tariff-bulk-bar {
+      background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+      border: 1px solid var(--slate-300);
+      border-radius: 6px;
+      padding: 7px 10px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+
+    .tbb-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border-right: 1px solid var(--slate-300);
+      padding-right: 6px;
+      box-sizing: border-box;
+    }
+
+    .tbb-item:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .tbb-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 5px;
+      background: var(--navy-900);
+      color: var(--gold-metallic);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.70rem;
+      flex-shrink: 0;
+    }
+
+    .tbb-label {
+      font-size: 0.56rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .tbb-price {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .tbb-price span {
+      font-size: 0.56rem;
+      font-weight: 500;
+      color: var(--slate-600);
+    }
+
+
+    /* ==========================================================================
+       BEFORE & AFTER MASTERPIECE CARDS (PAGES 3, 4, 5, 6, 7)
+       ========================================================================== */
+    .service-editorial-hero {
+      width: 100%;
+      height: 115px;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 12px;
+      background: var(--navy-950);
+    }
+
+    .service-editorial-hero img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .editorial-hero-overlay {
+    .seh-overlay {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(6, 24, 59, 0.15) 0%, rgba(6, 24, 59, 0.92) 100%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(4, 13, 26, 0.95) 0%, rgba(4, 13, 26, 0.75) 55%, rgba(4, 13, 26, 0.3) 100%);
       display: flex;
-      align-items: flex-end;
-      padding: 16px 20px;
-      color: #FFFFFF;
+      align-items: center;
+      padding: 0 18px;
     }
 
-    .eho-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      font-weight: 800;
+    .seh-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
       color: var(--gold-light);
-      line-height: 1.2;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
 
-    .eho-sub {
-      font-size: 0.8rem;
-      color: #E2E8F0;
+    .seh-sub {
+      font-size: 0.72rem;
+      color: var(--slate-200);
+      line-height: 1.35;
+      max-width: 520px;
     }
 
-    /* 3 Pillars Row */
     .pillar-row-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      height: 120px;
-      flex-shrink: 0;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
     .pillar-card {
-      background: #F8FAFC;
-      border: 1px solid var(--slate-200);
-      border-top: 3.5px solid var(--gold-metallic);
-      border-radius: 10px;
-      padding: 12px 14px;
+      background: #ffffff;
+      border: 1px solid rgba(14, 43, 102, 0.12);
+      border-radius: 8px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 3px;
+      box-shadow: 0 2px 8px rgba(6, 24, 59, 0.04);
     }
 
     .pillar-card-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--gold-subtle);
-      color: var(--gold-metallic);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      color: var(--navy-700);
       margin-bottom: 2px;
     }
 
     .pillar-card-title {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 800;
       color: var(--navy-900);
-      margin-bottom: 2px;
     }
 
     .pillar-card-desc {
-      font-size: 0.7rem;
-      color: #64748B;
-      line-height: 1.35;
+      font-size: 0.65rem;
+      color: var(--slate-600);
+      line-height: 1.3;
     }
 
-    /* Ultra-HD Masterpiece Before & After Display Box */
-    .ba-masterpiece-wrapper {
+    /* THE LUXURY BEFORE-AND-AFTER SPLIT CARD (MATCHES CHATGPT EMERALD SOFA SPEC) */
+    .ba-card-luxury {
       width: 100%;
-      height: 425px;
+      background: var(--navy-950);
+      border: 2px solid var(--gold-metallic);
       border-radius: 12px;
       overflow: hidden;
-      border: 2px solid var(--gold-metallic);
-      box-shadow: 0 10px 30px rgba(6, 24, 59, 0.4);
-      background: var(--navy-900);
-      flex-shrink: 0;
+      box-shadow: 0 12px 32px rgba(6, 24, 59, 0.35);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ba-card-topbar {
+      background: linear-gradient(90deg, #071738 0%, #0d275e 100%);
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .bct-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+    }
+
+    .bct-right {
+      font-size: 0.68rem;
+      color: var(--slate-300);
+      letter-spacing: 0.04em;
+    }
+
+    .ba-image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000000;
     }
 
     .ba-master-img {
@@ -811,24 +943,112 @@
       display: block;
     }
 
+    /* Floating Frosted Before & After Badges */
+    .ba-badge-floating {
+      position: absolute;
+      top: 14px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 5;
+    }
+
+    .badg-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .badg-dot-red {
+      background: #ff4757;
+      box-shadow: 0 0 8px #ff4757;
+    }
+
+    .badg-dot-green {
+      background: #2ed573;
+      box-shadow: 0 0 8px #2ed573;
+    }
+
+    .ba-badge-before {
+      left: 14px;
+      background: rgba(185, 28, 28, 0.88);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .ba-badge-after {
+      right: 14px;
+      background: rgba(16, 185, 129, 0.88);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .ba-card-bottombar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 14px;
+      background: #05132d;
+      font-size: 0.72rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .bcb-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .bcb-pill.bcb-before {
+      background: rgba(239, 68, 68, 0.15);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .bcb-pill.bcb-after {
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .bcb-center {
+      color: var(--gold-light);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      font-size: 0.68rem;
+    }
+
     /* ==========================================================================
-       PAGE 8: HOTEL & COMMERCIAL SOLUTIONS
+       PAGE 8: HOTEL & COMMERCIAL SOLUTIONS (USER SPECIFIED IMAGES)
        ========================================================================== */
     .hotel-dual-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      height: 360px;
+      gap: 14px;
+      height: 250px;
+      margin-bottom: 12px;
       flex-shrink: 0;
     }
 
     .hotel-img-card {
       height: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      border: 1.5px solid var(--slate-200);
+      border: 1.5px solid var(--gold-metallic);
       position: relative;
       background: var(--navy-900);
+      box-shadow: 0 4px 14px rgba(6, 24, 59, 0.12);
     }
 
     .hotel-img-card img {
@@ -842,115 +1062,191 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      right: 0;
-      background: linear-gradient(180deg, transparent 0%, rgba(6, 24, 59, 0.95) 100%);
-      padding: 12px 16px;
-      color: #FFFFFF;
-      font-size: 0.88rem;
+      width: 100%;
+      background: linear-gradient(180deg, transparent 0%, rgba(4, 13, 26, 0.92) 65%, rgba(4, 13, 26, 0.98) 100%);
+      padding: 14px 14px 8px 14px;
+      color: #ffffff;
+      font-family: var(--font-serif);
+      font-size: 0.82rem;
       font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hic-overlay i {
+      color: var(--gold-light);
+    }
+
+    /* 4-Pillar Specification & Quality Benchmark Matrix */
+    .hotel-spec-matrix {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .hsm-card {
+      background: #ffffff;
+      border: 1.5px solid rgba(14, 43, 102, 0.14);
+      border-radius: 8px;
+      padding: 9px 10px;
+      box-shadow: 0 2px 8px rgba(6, 24, 59, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hsm-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 3px;
+    }
+
+    .hsm-header i {
+      font-size: 0.85rem;
+      color: var(--navy-700);
+    }
+
+    .hsm-title {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--navy-900);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .hsm-val {
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      margin-bottom: 2px;
+      line-height: 1.2;
+    }
+
+    .hsm-desc {
+      font-size: 0.58rem;
+      color: var(--slate-600);
+      line-height: 1.3;
     }
 
     .hospitality-sectors-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 12px;
+      gap: 10px;
+      margin-bottom: 12px;
       flex-shrink: 0;
     }
 
-    .hsg-item {
-      background: #F1F5F9;
-      border: 1px solid #CBD5E1;
+    .hsg-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--slate-200);
       border-radius: 8px;
-      padding: 12px 10px;
-      text-align: center;
-      font-size: 0.74rem;
-      color: var(--navy-900);
-      font-weight: 700;
-    }
-
-    .hsg-item i {
-      display: block;
-      font-size: 1.3rem;
-      color: var(--gold-metallic);
-      margin-bottom: 5px;
-    }
-
-    .b2b-contract-card {
-      background: linear-gradient(135deg, #06183B 0%, #0A2252 100%);
-      border: 1.5px solid var(--gold-metallic);
-      border-radius: 12px;
-      padding: 18px 24px;
-      color: #FFFFFF;
-      height: 320px;
+      padding: 8px 10px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      flex-shrink: 0;
+      gap: 2px;
     }
 
-    .b2b-header-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.15rem;
+    .hsg-title {
+      font-size: 0.7rem;
       font-weight: 800;
-      color: var(--gold-light);
-    }
-
-    .b2b-spec-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.76rem;
-      margin-top: 10px;
-    }
-
-    .b2b-spec-table td {
-      padding: 8px 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .b2b-spec-table td:first-child {
-      font-weight: 700;
-      color: var(--gold-light);
-      width: 40%;
-    }
-
-    .b2b-cta-bar {
+      color: var(--navy-900);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.08);
+      gap: 6px;
+    }
+
+    .hsg-title i {
+      color: var(--navy-700);
+      font-size: 0.8rem;
+    }
+
+    .hsg-sub {
+      font-size: 0.58rem;
+      color: var(--slate-600);
+      line-height: 1.3;
+    }
+
+    .commercial-capabilities-strip {
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-850) 100%);
+      border: 1.5px solid var(--gold-metallic);
+      border-radius: 10px;
+      padding: 16px 20px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ccs-title {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ccs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .ccs-col {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 8px;
-      padding: 10px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 10px 12px;
+    }
+
+    .ccs-col strong {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      margin-bottom: 3px;
+    }
+
+    .ccs-col span {
+      font-size: 0.68rem;
+      color: var(--slate-300);
+      line-height: 1.35;
+      display: block;
     }
 
     /* ==========================================================================
-       PAGE 9: PROJECTS & ACHIEVEMENTS
+       PAGE 9: PROJECTS & ACHIEVEMENTS / TENDERS (USER SPECIFIED IMAGES)
        ========================================================================== */
     .projects-trio-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      height: 380px;
+      gap: 12px;
+      height: 345px;
+      margin-bottom: 14px;
       flex-shrink: 0;
     }
 
     .project-card {
-      background: #FFFFFF;
-      border: 1.5px solid var(--slate-200);
-      border-radius: 12px;
+      background: #ffffff;
+      border: 1.5px solid rgba(14, 43, 102, 0.14);
+      border-radius: 10px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 14px rgba(6, 24, 59, 0.08);
       height: 100%;
     }
 
     .project-img-wrap {
-      height: 200px;
+      height: 170px;
+      width: 100%;
       position: relative;
       background: var(--navy-900);
-      overflow: hidden;
     }
 
     .project-img-wrap img {
@@ -962,317 +1258,402 @@
 
     .project-badge {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--gold-metallic);
-      color: #FFFFFF;
-      font-size: 0.65rem;
-      font-weight: 800;
+      top: 8px;
+      left: 8px;
+      background: var(--navy-900);
+      color: var(--gold-light);
       padding: 3px 8px;
       border-radius: 4px;
-      letter-spacing: 0.5px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      border: 1px solid var(--gold-metallic);
+      letter-spacing: 0.05em;
     }
 
     .project-info {
-      padding: 14px;
-      flex: 1;
+      padding: 10px 12px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: #F8FAFC;
+      flex: 1;
     }
 
     .project-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 0.85rem;
+      font-weight: 700;
       color: var(--navy-900);
       line-height: 1.25;
+      margin-bottom: 4px;
     }
 
     .project-desc {
-      font-size: 0.72rem;
-      color: #64748B;
-      line-height: 1.4;
-      margin: 6px 0;
-    }
-
-    .project-stat {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--navy-900);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      border-top: 1px dashed var(--slate-200);
-      padding-top: 8px;
-    }
-
-    .tender-docs-box {
-      background: linear-gradient(135deg, #06183B 0%, #0A2252 100%);
-      border: 1.5px solid var(--gold-metallic);
-      border-radius: 12px;
-      padding: 20px 24px;
-      color: #FFFFFF;
-      height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-
-    .tdb-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--gold-light);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .tender-badges-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: 12px 0;
-    }
-
-    .tender-badge-pill {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 8px;
-      padding: 12px 14px;
-      text-align: center;
-    }
-
-    .tender-badge-pill strong {
-      display: block;
-      color: var(--gold-light);
-      font-size: 0.82rem;
-      margin-bottom: 2px;
-    }
-
-    .tender-badge-pill span {
       font-size: 0.68rem;
-      color: #CBD5E1;
-    }
-
-    .tender-notice-banner {
-      background: rgba(217, 119, 6, 0.2);
-      border: 1px solid var(--gold-bright);
-      border-radius: 8px;
-      padding: 10px 16px;
-      font-size: 0.74rem;
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    /* ==========================================================================
-       PAGE 10: BACK COVER & CONCIERGE CONTACT
-       ========================================================================== */
-    .backcover-wrapper {
-      background: linear-gradient(145deg, #030C1C 0%, #06183B 50%, #0A2252 100%);
-      border: 2px solid var(--gold-metallic);
-      border-radius: 14px;
-      height: 975px;
-      padding: 32px 36px;
-      color: #FFFFFF;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
-    }
-
-    .bc-top-brand {
-      text-align: center;
-    }
-
-    .bc-logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 16px;
-      background: #FFFFFF;
-      padding: 6px;
-      border: 2.5px solid var(--gold-bright);
-      margin-bottom: 12px;
-    }
-
-    .bc-brand-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.85rem;
-      font-weight: 900;
-      color: var(--gold-light);
-      letter-spacing: 1.5px;
-      line-height: 1.1;
-    }
-
-    .bc-brand-sub {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: #CBD5E1;
-      margin-top: 4px;
-    }
-
-    .bc-qr-card {
-      background: #FFFFFF;
-      border-radius: 16px;
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      color: var(--navy-900);
-    }
-
-    .bc-qr-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 10px;
-      border: 2px solid var(--gold-metallic);
-      padding: 4px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .bc-qr-info h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--navy-900);
+      color: var(--slate-600);
+      line-height: 1.35;
       margin-bottom: 6px;
     }
 
-    .bc-qr-info p {
-      font-size: 0.8rem;
-      color: var(--slate-600);
-      line-height: 1.45;
-      margin-bottom: 10px;
-    }
-
-    .bc-qr-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--gold-subtle);
-      border: 1px solid var(--gold-metallic);
-      color: var(--gold-deep);
-      font-size: 0.72rem;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 9999px;
-    }
-
-    .bc-contact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .bc-contact-tile {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 10px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .bc-contact-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: var(--navy-900);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.15rem;
-      flex-shrink: 0;
-    }
-
-    .bc-contact-detail strong {
-      display: block;
-      font-size: 0.74rem;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .bc-contact-detail span {
-      font-size: 0.86rem;
-      color: #FFFFFF;
+    .project-stat {
+      font-size: 0.65rem;
       font-weight: 700;
-    }
-
-    .bc-hours-badge {
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: var(--navy-900);
-      border-radius: 10px;
-      padding: 14px 20px;
+      color: var(--navy-700);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      font-weight: 800;
+      gap: 5px;
+      border-top: 1px dashed var(--slate-200);
+      padding-top: 6px;
     }
 
-    .bc-hours-badge span {
+    .tender-docs-box {
+      background: linear-gradient(135deg, #06183b 0%, #0a2252 100%);
+      border: 1.5px solid var(--gold-metallic);
+      border-radius: 10px;
+      padding: 16px 20px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tdb-title {
+      font-family: var(--font-serif);
       font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold-light);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    /* ==========================================================================
-       PRINT-TO-PDF STRICT ENGINE (@media print)
-       ========================================================================== */
-    @media print {
-      @page {
-        size: A4 portrait;
-        margin: 0;
-      }
+    .tender-badges-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
 
+    .tender-badge-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 8px 10px;
+      text-align: center;
+    }
+
+    .tender-badge-pill strong {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      margin-bottom: 2px;
+    }
+
+    .tender-badge-pill span {
+      font-size: 0.62rem;
+      color: var(--slate-300);
+      line-height: 1.3;
+      display: block;
+    }
+
+    /* ==========================================================================
+       PAGE 10: BACK COVER: CONCIERGE & DIRECT CONTACT
+       ========================================================================== */
+    .catalogue-page.page-back-cover {
+      background: radial-gradient(circle at 50% 30%, #0d2861 0%, #06183b 60%, #030a17 100%);
+      color: #ffffff;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .back-cover-header {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .bch-logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 14px auto;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .bch-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .bch-title {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .bch-tagline {
+      font-size: 0.85rem;
+      color: var(--slate-300);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .back-cover-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      background: rgba(4, 13, 26, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 14px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .bcg-info {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .bci-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .bci-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--navy-700);
+      border: 1px solid var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-cyan);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .bci-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .bci-val {
+      font-size: 0.88rem;
+      color: #ffffff;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .bcg-qr-box {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .bcg-qr-img {
+      width: 140px;
+      height: 140px;
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .bcg-qr-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .bcg-qr-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+    }
+
+    .back-cover-editorial-hallmark {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .bceh-col {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bceh-col i {
+      font-size: 1.25rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    .bceh-col strong {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--gold-light);
+      font-family: var(--font-serif);
+      letter-spacing: 0.04em;
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+
+    .bceh-col span {
+      display: block;
+      font-size: 0.58rem;
+      color: var(--slate-300);
+      line-height: 1.25;
+    }
+
+    .bceh-divider {
+      width: 1px;
+      height: 30px;
+      background: rgba(212, 175, 55, 0.25);
+    }
+
+    .back-cover-guarantee-strip {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--slate-300);
+      padding-bottom: 16px;
+    }
+
+    /* ==========================================================================
+       BOTTOM DOCK THUMBNAIL STRIP (10 PILLS)
+       ========================================================================== */
+    .dock-strip {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 52px;
+      background: rgba(4, 13, 26, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 0 12px;
+      z-index: 10000;
+      overflow-x: auto;
+    }
+
+    .dock-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--slate-300);
+      padding: 5px 10px;
+      border-radius: 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .dock-pill:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+    }
+
+    .dock-pill.active {
+      background: var(--gold-gradient);
+      color: var(--navy-950);
+      border-color: var(--gold-metallic);
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+    }
+
+    /* ==========================================================================
+       FLOATING WHATSAPP PILL
+       ========================================================================== */
+    .floating-wa-pill {
+      position: fixed;
+      bottom: 64px;
+      right: 20px;
+      background: #25d366;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+      z-index: 9999;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .floating-wa-pill:hover {
+      transform: scale(1.05);
+      background: #20bd5a;
+    }
+
+    /* ==========================================================================
+       STRICT PRINT ENGINE (@media print -> Standard A4 210mm x 297mm)
+       ========================================================================== */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
       html, body {
         width: 210mm !important;
         height: auto !important;
-        background: #FFFFFF !important;
         margin: 0 !important;
         padding: 0 !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+        background: #ffffff !important;
+        color: #000000 !important;
         overflow: visible !important;
       }
 
-      .catalogue-actions-bar,
-      .catalogue-dock,
+      /* Hide all interactive viewer tools */
+      .catalogue-toolbar,
+      .dock-strip,
       .floating-wa-pill {
         display: none !important;
       }
 
-      .viewer-viewport {
-        position: static !important;
-        display: block !important;
-        padding: 0 !important;
+      .catalogue-viewport {
         margin: 0 !important;
-        background: transparent !important;
-        overflow: visible !important;
+        padding: 0 !important;
+        display: block !important;
+        min-height: auto !important;
       }
 
       .catalogue-stage-wrapper {
         width: 210mm !important;
         height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        transform: none !important;
         box-shadow: none !important;
-        border-radius: 0 !important;
-        overflow: visible !important;
-        background: transparent !important;
+        margin: 0 !important;
       }
 
       .catalogue-container {
@@ -1280,87 +1661,400 @@
         width: 210mm !important;
         height: auto !important;
         transform: none !important;
+        display: block !important;
       }
 
       .catalogue-page {
+        position: relative !important;
         display: flex !important;
         width: 210mm !important;
         height: 297mm !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
         page-break-after: always !important;
         break-after: page !important;
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
+        box-sizing: border-box !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 12mm 14mm !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
 
-      .page-body {
-        height: 1000px !important;
+      .catalogue-page.page-cover {
+        padding: 0 !important;
+      }
+
+      .catalogue-page:last-child {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
       }
     }
+
+    /* ==========================================================================
+       PAGE 11: FLAGSHIP FACILITY & OPERATIONS
+       ========================================================================== */
+    .facility-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 12px;
+      height: 205px;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .fhg-card {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--slate-300);
+      background: #000000;
+    }
+
+    .fhg-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .fhg-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 14px;
+      background: linear-gradient(0deg, rgba(4, 9, 20, 0.92) 0%, rgba(4, 9, 20, 0) 100%);
+      color: #ffffff;
+    }
+
+    .fhg-tag {
+      font-size: 0.60rem;
+      font-weight: 700;
+      color: var(--gold-metallic);
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .fhg-title {
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .facility-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .f-pillar-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-300);
+      border-radius: 7px;
+      padding: 10px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    .fpc-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--navy-900);
+      color: var(--gold-metallic);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      margin-bottom: 6px;
+    }
+
+    .fpc-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--navy-900);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .fpc-desc {
+      font-size: 0.62rem;
+      color: var(--slate-600);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .fpc-badge {
+      align-self: flex-start;
+      font-size: 0.58rem;
+      background: #eff6ff;
+      color: var(--navy-800);
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px solid #bfdbfe;
+      white-space: nowrap;
+    }
+
+    .facility-store-strip {
+      background: #f8fafc;
+      border: 1px solid var(--slate-300);
+      border-radius: 7px;
+      padding: 10px 14px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .fss-col {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .fss-title {
+      font-size: 0.70rem;
+      font-weight: 700;
+      color: var(--navy-900);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .fss-title i {
+      color: var(--gold-600);
+      font-size: 0.70rem;
+    }
+
+    .fss-val {
+      font-size: 0.62rem;
+      color: var(--slate-600);
+      line-height: 1.35;
+    }
+
+    .fss-divider {
+      width: 1px;
+      height: 100%;
+      min-height: 38px;
+      background: var(--slate-300);
+    }
+
+    .facility-contact-box {
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+      border: 1.5px solid var(--gold-metallic);
+      border-radius: 7px;
+      padding: 10px 16px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 16px;
+      color: #ffffff;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .fcb-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .fcb-badge {
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: var(--gold-metallic);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .fcb-address {
+      font-size: 0.72rem;
+      color: #ffffff;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .fcb-hours {
+      font-size: 0.64rem;
+      color: var(--slate-300);
+    }
+
+    .fcb-right {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-left: 1px solid rgba(212, 175, 55, 0.3);
+      padding-left: 16px;
+    }
+
+    .fcb-phone-label {
+      font-size: 0.58rem;
+      color: var(--gold-metallic);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .fcb-phone {
+      font-size: 0.80rem;
+      font-weight: 800;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .fcb-web {
+      font-size: 0.64rem;
+      color: var(--slate-300);
+    }
+
+    /* Page 12 Closing Additions */
+    .closing-page-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .closing-motto {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .closing-manifesto-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 9px;
+      padding: 10px 16px;
+      text-align: center;
+      margin: 6px 0;
+    }
+
+    .cmb-quote {
+      font-family: var(--font-serif);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--gold-metallic);
+      margin-bottom: 4px;
+    }
+
+    .cmb-text {
+      font-size: 0.66rem;
+      color: var(--slate-300);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .closing-hallmarks-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 6px 0;
+    }
+
+    .chr-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 6px;
+      padding: 8px 6px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .chr-item i {
+      color: var(--gold-metallic);
+      font-size: 0.88rem;
+      margin-bottom: 2px;
+    }
+
+    .chr-item strong {
+      font-size: 0.58rem;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .chr-item span {
+      font-size: 0.54rem;
+      color: var(--slate-300);
+      white-space: nowrap;
+    }
+
   </style>
 </head>
-<body class="mode-slide">
+<body>
 
   <!-- ==========================================================================
-       TOP ACTIONS BAR
+       TOP CONTROL TOOLBAR
        ========================================================================== -->
-  <aside class="catalogue-actions-bar" aria-label="Digital Catalogue Reader Controls">
-    <div class="cab-brand">
-      <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="cab-logo">
-      <div class="cab-title-wrap">
-        <span class="cab-title">GEN-Z LAUNDRY &bull; JODHPUR</span>
-        <span class="cab-sub">Official 2026 Luxury Service Catalogue</span>
-      </div>
+  <header class="catalogue-toolbar" id="catalogueToolbar">
+    <div class="toolbar-left">
+      <a href="javascript:void(0)" onclick="jumpToPage(1)" class="brand-pill" title="Gen-Z Laundry Jodhpur">
+        <div class="brand-logo-icon">G</div>
+        <div>
+          <div>GEN-Z LAUNDRY &bull; JODHPUR</div>
+          <span class="brand-sub">Official 2026 12-Panel Luxury Catalogue</span>
+        </div>
+      </a>
     </div>
 
-    <!-- Page Flip Navigation -->
-    <div class="cab-nav-suite">
-      <button type="button" class="cab-nav-btn" id="prevPageBtn" onclick="prevPage()" title="Previous Page (Left Arrow)">
+    <div class="toolbar-center">
+      <button class="btn-tool" id="prevPageBtn" onclick="prevPage()" title="Previous Page (&larr;)">
         <i class="fas fa-chevron-left"></i>
       </button>
-      <div class="cab-page-counter">
-        <i class="far fa-file-alt" style="color: var(--gold-bright);"></i>
-        <span id="pageIndicatorText">Page 1 of 10</span>
+      <div class="page-indicator-badge" id="pageIndicatorText">
+        <i class="fas fa-book-open"></i> Page 1 of 12
       </div>
-      <button type="button" class="cab-nav-btn" id="nextPageBtn" onclick="nextPage()" title="Next Page (Right Arrow)">
+      <button class="btn-tool" id="nextPageBtn" onclick="nextPage()" title="Next Page (&rarr;)">
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>
 
-    <!-- Mode & Print Controls -->
-    <div class="cab-controls">
-      <button type="button" class="cab-mode-btn" id="viewModeBtn" onclick="toggleViewMode()" title="Toggle View Mode (Hotkey: M)">
-        <i class="fas fa-book-open"></i> <span id="viewModeText">Slide Mode</span>
+    <div class="toolbar-right">
+      <button class="btn-tool" id="viewModeBtn" onclick="toggleViewMode()" title="Toggle View Mode (Single Slide vs Continuous Scroll)">
+        <i class="fas fa-clone"></i> <span id="viewModeText">Slide View</span>
       </button>
-      <button type="button" class="cab-tool-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen (F11)"><i class="fas fa-expand"></i></button>
-      <button type="button" class="cab-btn-print" onclick="window.print()">
-        <i class="fas fa-print"></i> Save / Print PDF (Ctrl + P)
+      <button class="btn-tool" onclick="resetZoom()" title="Fit to Screen">
+        <i class="fas fa-compress-arrows-alt"></i> 100%
+      </button>
+      <button class="btn-tool" onclick="toggleFullscreen()" title="Fullscreen (F11)">
+        <i class="fas fa-expand"></i>
+      </button>
+      <button class="btn-tool btn-print-pdf" onclick="saveAsPdf()" title="Save / Print High-Resolution PDF">
+        <i class="fas fa-file-pdf"></i> Save / Print PDF (Ctrl + P)
       </button>
     </div>
-  </aside>
+  </header>
 
   <!-- ==========================================================================
-       FIT-TO-SCREEN VIEWER CANVAS
+       VIEWPORT & AUTO-SCALE STAGE ENGINE
        ========================================================================== -->
-  <main class="viewer-viewport" id="viewerViewport">
+  <main class="catalogue-viewport" id="viewerViewport">
     <div class="catalogue-stage-wrapper" id="catalogueStageWrapper">
       <div class="catalogue-container" id="catalogueContainer">
 
         <!-- ==================================================================
-             PAGE 1: ROYAL LUXURY FRONT COVER (PANEL 1)
+             PAGE 1: LUXURY FRONT COVER
              ================================================================== -->
-        <section class="catalogue-page page-cover-masterpiece active-page" id="page-1" aria-label="Page 1: Front Cover">
-          <img src="public/images/catalogue_assets/catalogue-cover-luxury.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/catalogue-cover-luxury.jpg'" alt="Gen-Z Laundry & Dry Cleaners Jodhpur Official Front Cover" class="cover-master-img">
+        <section class="catalogue-page page-cover active-page" id="page-1" aria-label="Page 1: Luxury Front Cover">
+          <img src="public/images/catalogue_assets/catalogue-cover-luxury.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/catalogue-cover-luxury.jpg'" alt="GEN-Z Laundry Official Luxury 2026 Catalogue Cover" class="cover-poster-img">
         </section>
 
         <!-- ==================================================================
-             PAGE 2: LUXURY SERVICE & ITEM DIRECTORY (PANEL 2)
+             PAGE 2: EXECUTIVE SERVICE & ITEM DIRECTORY
              ================================================================== -->
         <section class="catalogue-page" id="page-2" aria-label="Page 2: Service & Item Directory">
           <header class="page-inner-header">
@@ -1394,7 +2088,7 @@
               <!-- Card 1: Executive Shirts & Daily Wear -->
               <div class="menu-service-card highlight">
                 <div class="msc-img-header">
-                  <img src="public/gallery/folded_clothes.png" onerror="this.onerror=null;this.src='dist/gallery/folded_clothes.png'" alt="Executive Shirts Laundry">
+                  <img src="public/images/catalogue_assets/card_folded_shirts.png" onerror="this.onerror=null;this.src='public/gallery/folded_clothes.png'" alt="Executive Shirts Laundry" class="img-contain">
                   <div class="msc-img-overlay">
                     <span class="msc-pill-tag">DAILY EXCELLENCE</span>
                     <span class="msc-price-tag">From &#8377;80/pc</span>
@@ -1418,9 +2112,9 @@
               </div>
 
               <!-- Card 2: Haute Couture Suits & Sherwanis -->
-              <div class="menu-service-card highlight">
+              <div class="menu-service-card">
                 <div class="msc-img-header">
-                  <img src="public/images/catalogue_assets/ai_haute_couture_atelier.jpg" onerror="this.onerror=null;this.src='public/gallery/Dry_Cleaning.png'" alt="Haute Couture Dry Cleaning">
+                  <img src="public/images/catalogue_assets/ai_haute_couture_atelier.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/suits_rack.jpg'" alt="Bespoke Suits & Bridal Lehengas" class="img-cover">
                   <div class="msc-img-overlay">
                     <span class="msc-pill-tag">HAUTE COUTURE</span>
                     <span class="msc-price-tag">From &#8377;350/pc</span>
@@ -1429,11 +2123,11 @@
                 <div class="msc-body">
                   <div>
                     <div class="msc-title">Bespoke Suits &amp; Royal Ethnic</div>
-                    <div class="msc-subtitle">Pure Wool, Silk Sarees &amp; Bridal Lehengas</div>
+                    <div class="msc-subtitle">Hydrocarbon Dry Clean &bull; Zari &amp; Silk Protection</div>
                     <div class="msc-tags-row">
-                      <span class="msc-spec-pill">Hydrocarbon Dry Clean</span>
-                      <span class="msc-spec-pill">Zari Protection</span>
-                      <span class="msc-spec-pill">Dust Garment Bag</span>
+                      <span class="msc-spec-pill">Pure Wool Suit</span>
+                      <span class="msc-spec-pill">Bridal Lehenga</span>
+                      <span class="msc-spec-pill">Sherwani Spa</span>
                     </div>
                   </div>
                   <div class="msc-footer-strip">
@@ -1443,36 +2137,36 @@
                 </div>
               </div>
 
-              <!-- Card 3: Winter Woolens & Blankets -->
+              <!-- Card 3: Winter Woolens, Blankets & Quilts -->
               <div class="menu-service-card">
                 <div class="msc-img-header">
-                  <img src="public/gallery/Folded_Blanket.png" onerror="this.onerror=null;this.src='public/gallery/Dry_Cleaning.png'" alt="Winter Woolen Care">
+                  <img src="public/images/catalogue_assets/card_folded_blanket.png" onerror="this.onerror=null;this.src='public/gallery/Folded_Blanket.png'" alt="Winter Blankets & Cashmere Quilts" class="img-contain">
                   <div class="msc-img-overlay">
-                    <span class="msc-pill-tag">WINTER LUXURY</span>
+                    <span class="msc-pill-tag">WINTER WOOLENS</span>
                     <span class="msc-price-tag">From &#8377;250/pc</span>
                   </div>
                 </div>
                 <div class="msc-body">
                   <div>
-                    <div class="msc-title">Overcoats, Jackets &amp; Quilts</div>
-                    <div class="msc-subtitle">Cashmere, Tweed Blazers &amp; Mink Blankets</div>
+                    <div class="msc-title">Jackets, Coats &amp; Cashmere</div>
+                    <div class="msc-subtitle">Thermal Moth-Proofing &bull; Heavy Comforter Clean</div>
                     <div class="msc-tags-row">
-                      <span class="msc-spec-pill">Thermal Moth-Proofing</span>
-                      <span class="msc-spec-pill">Fiber Conditioning</span>
-                      <span class="msc-spec-pill">De-Pilling Finish</span>
+                      <span class="msc-spec-pill">Down Jackets</span>
+                      <span class="msc-spec-pill">Tweed Overcoats</span>
+                      <span class="msc-spec-pill">Double Quilts</span>
                     </div>
                   </div>
                   <div class="msc-footer-strip">
-                    <span>Care: <strong>Plush Softening</strong></span>
-                    <span>100% Odor-Free</span>
+                    <span>Care: <strong>Hypoallergenic</strong></span>
+                    <span>Air Fluff Finish</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Card 4: Sneaker Spa & Footwear Revival -->
-              <div class="menu-service-card highlight">
+              <!-- Card 4: Sneaker Spa & Leather Restoration -->
+              <div class="menu-service-card">
                 <div class="msc-img-header">
-                  <img src="public/gallery/Shoe_Cleaning.png" onerror="this.onerror=null;this.src='public/images/catalogue_assets/sneakers_splash.jpg'" alt="Sneaker Spa Revival">
+                  <img src="public/images/catalogue_assets/card_shoe_spa.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/card_shoe_spa.jpg'" alt="Designer Sneaker & Leather Shoe Spa" class="img-cover">
                   <div class="msc-img-overlay">
                     <span class="msc-pill-tag">FOOTWEAR SPA</span>
                     <span class="msc-price-tag">From &#8377;299/pair</span>
@@ -1481,88 +2175,78 @@
                 <div class="msc-body">
                   <div>
                     <div class="msc-title">Sneaker &amp; Leather Shoe Spa</div>
-                    <div class="msc-subtitle">Midsole De-Yellowing &bull; Suede &amp; Leather Care</div>
+                    <div class="msc-subtitle">Midsole De-Yellowing &bull; Hydrophobic Shield</div>
                     <div class="msc-tags-row">
-                      <span class="msc-spec-pill">Multi-Density Brushing</span>
-                      <span class="msc-spec-pill">UV Sanitization</span>
-                      <span class="msc-spec-pill">Nano Waterproof Seal</span>
+                      <span class="msc-spec-pill">White Leather</span>
+                      <span class="msc-spec-pill">Suede Revive</span>
+                      <span class="msc-spec-pill">Deodorizing</span>
                     </div>
                   </div>
                   <div class="msc-footer-strip">
-                    <span>Delivery: <strong>Dust Pouch</strong></span>
-                    <span>Nike &bull; Jordan &bull; Formal</span>
+                    <span>Delivery: <strong>Shoe Tree / Box</strong></span>
+                    <span>Anti-Fungal</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Card 5: Sofa & Home Upholstery Deep Care -->
-              <div class="menu-service-card highlight">
-                <div class="msc-img-header">
-                  <img src="public/images/catalogue_assets/ai_living_room_sofa_carpet.jpg" onerror="this.onerror=null;this.src='public/gallery/Sofa_Cleaning.png'" alt="Sofa and Upholstery Cleaning">
-                  <div class="msc-img-overlay">
-                    <span class="msc-pill-tag">DOORSTEP SPA</span>
-                    <span class="msc-price-tag">From &#8377;250/seat</span>
-                  </div>
-                </div>
-                <div class="msc-body">
-                  <div>
-                    <div class="msc-title">Velvet Sofas &amp; Persian Carpets</div>
-                    <div class="msc-subtitle">German Steam Extraction at Your Residence</div>
-                    <div class="msc-tags-row">
-                      <span class="msc-spec-pill">99.9% Dust Mite Cut</span>
-                      <span class="msc-spec-pill">Pet Odor Removal</span>
-                      <span class="msc-spec-pill">Fast 3-Hour Dry</span>
-                    </div>
-                  </div>
-                  <div class="msc-footer-strip">
-                    <span>Service: <strong>At Your Doorstep</strong></span>
-                    <span>Deep Extraction</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 6: Hospitality & Hotel Bulk Linen -->
+              <!-- Card 5: Deep Sofa & Living Space Upholstery -->
               <div class="menu-service-card">
                 <div class="msc-img-header">
-                  <img src="public/images/catalogue_assets/hotel_luxury_bedroom.jpg" onerror="this.onerror=null;this.src='dist/assets/staying-hotel-jodhpur.jpg'" alt="Hospitality Bulk Linen">
+                  <img src="public/images/catalogue_assets/villa_sofa_restoration_luxury.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/sofa_luxury_living.jpg'" alt="Sofa & Living Upholstery" class="img-cover">
                   <div class="msc-img-overlay">
-                    <span class="msc-pill-tag">B2B &bull; HOTELS</span>
-                    <span class="msc-price-tag">Custom Contract SLA</span>
+                    <span class="msc-pill-tag">DOORSTEP SPA</span>
+                    <span class="msc-price-tag">From &#8377;249/seat</span>
                   </div>
                 </div>
                 <div class="msc-body">
                   <div>
-                    <div class="msc-title">Heritage Havelis &amp; Resorts</div>
-                    <div class="msc-subtitle">High-Thread-Count Linen, Duvets &amp; Terry Towels</div>
+                    <div class="msc-title">Deep Sofa &amp; Living Upholstery</div>
+                    <div class="msc-subtitle">German Injection-Extraction &bull; Sanitization</div>
                     <div class="msc-tags-row">
-                      <span class="msc-spec-pill">1,500+ kg/day Batch</span>
-                      <span class="msc-spec-pill">RFID/Barcode Track</span>
-                      <span class="msc-spec-pill">6h Guest SLA</span>
+                      <span class="msc-spec-pill">Velvet &amp; Fabric</span>
+                      <span class="msc-spec-pill">Carpet / Rugs</span>
+                      <span class="msc-spec-pill">Mattress Spa</span>
                     </div>
                   </div>
                   <div class="msc-footer-strip">
-                    <span>Institutional SLA: <strong>Active</strong></span>
-                    <span>99.8% Whiteness Standard</span>
+                    <span>Process: <strong>Dry in 3-4h</strong></span>
+                    <span>Germ Eradication</span>
                   </div>
                 </div>
               </div>
 
-            </div>
-
-            <div class="services-guarantee-ribbon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: var(--navy-900); border: none;">
-              <div class="sgr-text">
-                <strong style="color: var(--navy-900);">PREMIUM CARE. MAXIMUM CONVENIENCE.</strong>
-                <span style="color: #1E293B; font-weight: 700;">Call / WhatsApp: +91 82338 53727 &bull; www.genzlaundry.com &bull; Ratanada, Jodhpur</span>
+              <!-- Card 6: Hotel & Commercial Linen Contracts -->
+              <div class="menu-service-card">
+                <div class="msc-img-header">
+                  <img src="public/images/catalogue_assets/hotel_bed_linen_400tc.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/hotel_luxury_bedroom.jpg'" alt="Hotel & Resort Commercial Laundry" class="img-cover">
+                  <div class="msc-img-overlay">
+                    <span class="msc-pill-tag">B2B HOSPITALITY</span>
+                    <span class="msc-price-tag">From &#8377;45/kg</span>
+                  </div>
+                </div>
+                <div class="msc-body">
+                  <div>
+                    <div class="msc-title">Hotel &amp; Resort Bulk Linen</div>
+                    <div class="msc-subtitle">Daily Scheduled Pickup &bull; High-Volume Ironing</div>
+                    <div class="msc-tags-row">
+                      <span class="msc-spec-pill">Bed Sheets</span>
+                      <span class="msc-spec-pill">Bath Towels</span>
+                      <span class="msc-spec-pill">Banquet Linen</span>
+                    </div>
+                  </div>
+                  <div class="msc-footer-strip">
+                    <span>Contracts: <strong>Monthly Invoicing</strong></span>
+                    <span>100% Sterile</span>
+                  </div>
+                </div>
               </div>
-              <span style="font-size: 0.74rem; font-weight: 800; background: var(--navy-900); color: #FFFFFF; padding: 4px 12px; border-radius: 9999px;">
-                OPEN 24/7
-              </span>
+
             </div>
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>Booking: <strong>+91 82338 53727</strong></span>
+              <span>Booking Hotline: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
               <span>Web: <strong>genzlaundry.com</strong></span>
             </div>
             <div class="pif-badge">Page 2 &bull; Comprehensive Services</div>
@@ -1570,9 +2254,438 @@
         </section>
 
         <!-- ==================================================================
-             PAGE 3: LAUNDRY & FABRIC CARE (PANEL 3)
+             PAGE 3: OFFICIAL ITEMIZED GARMENT TARIFF & PRICE DIRECTORY
              ================================================================== -->
-        <section class="catalogue-page" id="page-3" aria-label="Page 3: Laundry & Fabric Care">
+        <section class="catalogue-page" id="page-3" aria-label="Page 3: Complete Itemized Garment Tariff & Price Menu">
+          <header class="page-inner-header">
+            <div class="pih-left">
+              <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
+              <div>
+                <div class="pih-brand-name">GEN-Z LAUNDRY</div>
+                <div class="pih-brand-tag">Dry Cleaners &bull; Jodhpur</div>
+              </div>
+            </div>
+            <div class="pih-right">
+              <div class="pih-doc-title">Official Garment Tariff</div>
+              <div class="pih-doc-sub">2026 Transparent Rate Card &bull; All Services</div>
+            </div>
+          </header>
+
+          <div class="page-body">
+            <div class="services-guarantee-ribbon">
+              <div class="sgr-text">
+                <strong>100% TRANSPARENT TARIFF &bull; ARTISANAL CARE</strong>
+                <span>Pure Softened RO Water &bull; German Bio-Enzymes &bull; Zero Color Bleed</span>
+              </div>
+              <div class="sgr-badges">
+                <i class="fas fa-shield-alt"></i>
+                <span>Crease-Free Guarantee</span>
+              </div>
+            </div>
+
+            <div class="tariff-grid">
+              <!-- COLUMN 1: Daily Wear, Tops, Bottoms & Linens (23 Items) -->
+              <div class="tariff-column">
+
+                <!-- Card 1: Tops & Daily Basics (8 items) -->
+                <div class="tariff-card">
+                  <div class="tariff-card-header">
+                    <span class="tariff-card-title"><i class="fas fa-tshirt"></i> Tops &amp; Everyday Basics</span>
+                    <span class="tariff-card-badge">24h Express</span>
+                  </div>
+                  <table class="tariff-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 44%; text-align: left; padding-left: 8px;">Garment Item</th>
+                        <th style="width: 18%;">Wash &amp; Fold</th>
+                        <th style="width: 18%;">Steam Iron</th>
+                        <th style="width: 20%;">Dry Clean</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Formal / Casual Shirt</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;80</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">T-Shirt <span class="sub">(Polo / Crew)</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;80</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Executive White Shirt <span class="sub">(Bright Care)</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;60</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;100</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Designer Kurti / Tunic</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;60</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;100</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Women's Top / Blouse</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;70</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Vest / Banyan / Inners</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;30</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;50</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Silk / Linen Shirt</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;65</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;100</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Cotton Undergarments</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;30</span></td>
+                        <td class="td-rate-val"><span style="color:#94a3b8;">&mdash;</span></td>
+                        <td class="td-rate-val"><span style="color:#94a3b8;">&mdash;</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Card 2: Bottoms & Trousers (8 items) -->
+                <div class="tariff-card">
+                  <div class="tariff-card-header">
+                    <span class="tariff-card-title"><i class="fas fa-socks"></i> Bottoms, Denims &amp; Trousers</span>
+                    <span class="tariff-card-badge">Sharp Crease</span>
+                  </div>
+                  <table class="tariff-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 44%; text-align: left; padding-left: 8px;">Garment Item</th>
+                        <th style="width: 18%;">Wash &amp; Fold</th>
+                        <th style="width: 18%;">Steam Iron</th>
+                        <th style="width: 20%;">Dry Clean</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Jeans / Heavy Denim</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;80</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Formal Office Trousers</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;80</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Chinos &amp; Khakis</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;80</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Track Pants &amp; Joggers</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;80</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Shorts / Bermudas</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;30</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;60</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Cotton Pyjama / Salwar</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;30</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;60</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Leggings &amp; Tights</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;40</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;80</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Heavy Cargo Pants</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;60</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;90</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Card 3: Bedding & Household Linens (7 items) -->
+                <div class="tariff-card">
+                  <div class="tariff-card-header">
+                    <span class="tariff-card-title"><i class="fas fa-bed"></i> Bedding &amp; Home Linens</span>
+                    <span class="tariff-card-badge">100% Sanitized</span>
+                  </div>
+                  <table class="tariff-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 44%; text-align: left; padding-left: 8px;">Linen Item</th>
+                        <th style="width: 18%;">Wash &amp; Fold</th>
+                        <th style="width: 18%;">Steam Iron</th>
+                        <th style="width: 20%;">Dry Clean</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Single Bedsheet</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;30</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;100</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Double Bed Linen</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;50</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;80</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;120</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">King Size Bedsheet</td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;70</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;100</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;150</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Pillow Covers <span class="sub">(Pair)</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-wash">&#8377;20</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;30</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;50</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Blanket <span class="sub">(Single / Dbl)</span></td>
+                        <td class="td-rate-val"><span style="color:#94a3b8;">&mdash;</span></td>
+                        <td class="td-rate-val"><span style="color:#94a3b8;">&mdash;</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;200-300</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Heavy Razai / Comforter</td>
+                        <td class="td-rate-val"><span style="color:#94a3b8;">&mdash;</span></td>
+                        <td class="td-rate-val"><span style="color:#94a3b8;">&mdash;</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;400</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Curtains <span class="sub">(Per Panel)</span></td>
+                        <td class="td-rate-val"><span style="color:#94a3b8;">&mdash;</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-iron">&#8377;80+</span></td>
+                        <td class="td-rate-val"><span class="t-pill t-pill-dry">&#8377;150+</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+
+              <!-- COLUMN 2: Couture, Royal Ethnic, Winter & Deep Spa (23 Items) -->
+              <div class="tariff-column">
+
+                <!-- Card 4: Suits, Blazers & Royal Ethnic (9 items) -->
+                <div class="tariff-card">
+                  <div class="tariff-card-header">
+                    <span class="tariff-card-title"><i class="fas fa-gem"></i> Suits, Blazers &amp; Royal Ethnic</span>
+                    <span class="tariff-card-badge">Hydrocarbon Spa</span>
+                  </div>
+                  <table class="tariff-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 53%; text-align: left; padding-left: 8px;">Atelier Garment</th>
+                        <th style="width: 47%; text-align: right; padding-right: 8px;">Premium Dry Clean</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">2-Piece Executive Suit <span class="sub">(Coat + Pant)</span></td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;400</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">3-Piece Bespoke Suit <span class="sub">(Coat + Pant + Vest)</span></td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;500</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Blazer / Tuxedo Coat</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;250</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Nehru Jacket / Bandhgala</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;150</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Royal Groom Sherwani / Achkan</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Artisan &#8377;550 - &#8377;600</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Bridal Heavy Lehenga <span class="sub">(Zari / Stone)</span></td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Couture Spa &#8377;500</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Silk / Banarasi / Chiffon Saree</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;250 - &#8377;300</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Kurta Pajama <span class="sub">(Cotton / Silk)</span></td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;150 - &#8377;200</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Designer Dupatta &amp; Stole</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;60 - &#8377;80</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Card 5: Winter Woolens & Outerwear (8 items) -->
+                <div class="tariff-card">
+                  <div class="tariff-card-header">
+                    <span class="tariff-card-title"><i class="fas fa-snowflake"></i> Winter Woolens &amp; Warm Wear</span>
+                    <span class="tariff-card-badge">Anti-Felt Care</span>
+                  </div>
+                  <table class="tariff-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 53%; text-align: left; padding-left: 8px;">Winter Item</th>
+                        <th style="width: 47%; text-align: right; padding-right: 8px;">Thermal Clean</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Woolen Sweater / Pullover</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;180 - &#8377;200</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Hoodie / Winter Sweatshirt</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;100 - &#8377;150</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Pure Wool Shawl / Stole</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;80 - &#8377;220</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Pashmina Shawl <span class="sub">(Hand-Spun)</span></td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Delicate Spa &#8377;250</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Heavy Winter Jacket / Parka</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Thermal Spa &#8377;380 - &#8377;420</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Quilted Puffer Overcoat</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Thermal Spa &#8377;350</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Thermal Inners <span class="sub">(Set)</span></td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;120</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Woolen Muffler &amp; Wool Cap</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-dry">Dry Clean &#8377;60</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Card 6: Footwear Spa & Deep Extraction (6 items) -->
+                <div class="tariff-card">
+                  <div class="tariff-card-header">
+                    <span class="tariff-card-title"><i class="fas fa-couch"></i> Footwear Spa &amp; On-Site Deep Care</span>
+                    <span class="tariff-card-badge">German Extraction</span>
+                  </div>
+                  <table class="tariff-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 53%; text-align: left; padding-left: 8px;">Specialized Spa</th>
+                        <th style="width: 47%; text-align: right; padding-right: 8px;">Treatment Rate</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Designer Sneaker Spa <span class="sub">(De-Yellow)</span></td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-spa">&#8377;249 - &#8377;299/pair</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Leather Shoe Buff &amp; Shine</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-spa">&#8377;299/pair</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Suede &amp; Nubuck Revive</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-spa">&#8377;349/pair</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Sofa Deep Extraction <span class="sub">(Home)</span></td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-spa">&#8377;249 - &#8377;250 / seat</span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Carpet &amp; Rug Shampoo Spa</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-spa">&#8377;25/sq.ft <span style="font-weight:400;">(&#8377;600+)</span></span></td>
+                      </tr>
+                      <tr>
+                        <td class="td-item-name" style="padding-left: 8px;">Mattress Sanitization Spa</td>
+                        <td class="td-single-rate"><span class="t-pill t-pill-spa">Steam &#8377;499 - &#8377;799</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Bottom Weight & Speed Ribbon -->
+            <div class="tariff-bulk-bar">
+              <div class="tbb-item">
+                <div class="tbb-icon"><i class="fas fa-weight-hanging"></i></div>
+                <div>
+                  <div class="tbb-label">KILO WASH &amp; FOLD</div>
+                  <div class="tbb-price">&#8377;100<span>/ kg (Min. 4 kg)</span></div>
+                </div>
+              </div>
+              <div class="tbb-item">
+                <div class="tbb-icon"><i class="fas fa-tshirt"></i></div>
+                <div>
+                  <div class="tbb-label">KILO WASH &amp; STEAM PRESS</div>
+                  <div class="tbb-price">&#8377;120<span>/ kg (Hanger finish)</span></div>
+                </div>
+              </div>
+              <div class="tbb-item">
+                <div class="tbb-icon"><i class="fas fa-bolt"></i></div>
+                <div>
+                  <div class="tbb-label">6-HOUR EXPRESS RUSH</div>
+                  <div class="tbb-price">Same-Day <span>(+50% Priority)</span></div>
+                </div>
+              </div>
+              <div class="tbb-item">
+                <div class="tbb-icon"><i class="fas fa-truck"></i></div>
+                <div>
+                  <div class="tbb-label">FREE DOORSTEP PICKUP</div>
+                  <div class="tbb-price">All Jodhpur <span>(Zero Delivery Fee)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="page-inner-footer">
+            <div class="pif-contact">
+              <span>Tariff Concierge: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
+              <span>Digital Menu: <strong>genzlaundry.com/pricing</strong></span>
+            </div>
+            <div class="pif-badge">Page 3 &bull; Complete Itemized Tariff Menu</div>
+          </footer>
+        </section>
+
+
+        <!-- ==================================================================
+             PAGE 3: LAUNDRY & DAILY WEAR (SAME-ITEM SHIRT BEFORE & AFTER)
+             ================================================================== -->
+        <section class="catalogue-page" id="page-4" aria-label="Page 4: Laundry & Fabric Care">
           <header class="page-inner-header">
             <div class="pih-left">
               <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1588,12 +2701,12 @@
           </header>
 
           <div class="page-body">
-            <div class="editorial-hero-banner">
-              <img src="public/images/catalogue_assets/laundry_machines_row.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/laundry_machines_row.jpg'" alt="Commercial Laundry Facility">
-              <div class="editorial-hero-overlay">
+            <div class="service-editorial-hero">
+              <img src="public/images/catalogue_assets/facility_store_banner.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/facility_store_banner.jpg'" alt="Inside Gen-Z Laundry Processing Facility in Jodhpur">
+              <div class="seh-overlay">
                 <div>
-                  <div class="eho-title">State-of-the-Art Commercial Washing</div>
-                  <div class="eho-sub">Heavy-duty European front-loaders &bull; German biodegradable chemistry &bull; Softened RO water</div>
+                  <div class="seh-title">Inside Our Jodhpur Garment Care Facility</div>
+                  <div class="seh-sub">Equipped with European front-loaders, Italian steam tables &amp; 3-stage softened RO water plant</div>
                 </div>
               </div>
             </div>
@@ -1606,7 +2719,7 @@
               </div>
               <div class="pillar-card">
                 <div class="pillar-card-icon"><i class="fas fa-magic"></i></div>
-                <div class="pillar-card-title">Stain Removal</div>
+                <div class="pillar-card-title">Ultrasonic Stain Removal</div>
                 <div class="pillar-card-desc">Ultrasonic spotting table lifts grease, collar grime, turmeric, coffee, and wine gently.</div>
               </div>
               <div class="pillar-card">
@@ -1616,25 +2729,45 @@
               </div>
             </div>
 
-            <!-- Full-Width Ultra-HD Before & After Masterpiece (Same-Item Before Wash vs After Wash) -->
-            <div class="ba-masterpiece-wrapper">
-              <img src="public/images/catalogue_assets/ai_ba_shirt_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_shirt_same_item.jpg'" alt="Proven Quality - Dress Shirt Laundry Transformation" class="ba-master-img">
+            <!-- Full-Width Ultra-HD Before & After Masterpiece -->
+            <div class="ba-card-luxury">
+              <div class="ba-card-topbar">
+                <div class="bct-left">
+                  <i class="fas fa-check-circle" style="color: var(--accent-cyan);"></i>
+                  <span>PROVEN QUALITY &bull; REAL TRANSFORMATION</span>
+                </div>
+                <div class="bct-right">Official Garment Care Case Study</div>
+              </div>
+              <div class="ba-image-container">
+                <img src="public/images/catalogue_assets/ai_ba_shirt_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_shirt_same_item.jpg'" alt="Proven Quality - Dress Shirt Laundry Transformation" class="ba-master-img">
+                <div class="ba-badge-floating ba-badge-before">
+                  <span class="badg-dot badg-dot-red"></span> BEFORE WASH
+                </div>
+                <div class="ba-badge-floating ba-badge-after">
+                  <span class="badg-dot badg-dot-green"></span> AFTER WASH
+                </div>
+              </div>
+              <div class="ba-card-bottombar">
+                <span class="bcb-pill bcb-before"><i class="fas fa-times-circle"></i> BEFORE: Turmeric &amp; Coffee Stains</span>
+                <span class="bcb-center">&bull; 100% COLLAR &amp; FABRIC SPOTLESS &bull;</span>
+                <span class="bcb-pill bcb-after"><i class="fas fa-check-circle"></i> AFTER: Crisp White Steam-Pressed</span>
+              </div>
             </div>
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>WhatsApp Pickup: <strong>+91 82338 53727</strong></span>
+              <span>WhatsApp Pickup: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
               <span>Delivery: <strong>Same-Day &amp; 6h Express</strong></span>
             </div>
-            <div class="pif-badge">Page 3 &bull; Fabric Care Excellence</div>
+            <div class="pif-badge">Page 4 &bull; Fabric Care Excellence</div>
           </footer>
         </section>
 
         <!-- ==================================================================
-             PAGE 4: PREMIUM DRY CLEANING (PANEL 4)
+             PAGE 4: HAUTE COUTURE DRY CLEANING (SAME-ITEM SUIT BEFORE & AFTER)
              ================================================================== -->
-        <section class="catalogue-page" id="page-4" aria-label="Page 4: Premium Dry Cleaning">
+        <section class="catalogue-page" id="page-5" aria-label="Page 5: Premium Dry Cleaning">
           <header class="page-inner-header">
             <div class="pih-left">
               <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1650,12 +2783,12 @@
           </header>
 
           <div class="page-body">
-            <div class="editorial-hero-banner">
+            <div class="service-editorial-hero">
               <img src="public/images/catalogue_assets/suits_rack.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ai_haute_couture_atelier.jpg'" alt="Luxury Suit Dry Cleaning Rack">
-              <div class="editorial-hero-overlay">
+              <div class="seh-overlay">
                 <div>
-                  <div class="eho-title">Couture &amp; Formal Wear Preservation</div>
-                  <div class="eho-sub">Pure wool suits &bull; Silk sarees &bull; Bridal lehengas &bull; Sherwanis &bull; Velvet blazers</div>
+                  <div class="seh-title">Couture &amp; Formal Wear Preservation</div>
+                  <div class="seh-sub">Pure wool suits &bull; Silk sarees &bull; Bridal lehengas &bull; Sherwanis &bull; Velvet blazers</div>
                 </div>
               </div>
             </div>
@@ -1678,25 +2811,45 @@
               </div>
             </div>
 
-            <!-- Full-Width Ultra-HD Before & After Masterpiece (Same-Item Before Wash vs After Wash) -->
-            <div class="ba-masterpiece-wrapper">
-              <img src="public/images/catalogue_assets/ai_ba_suit_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_suit_same_item.jpg'" alt="Proven Quality - Bespoke Suit Dry Cleaning Transformation" class="ba-master-img">
+            <!-- Full-Width Ultra-HD Before & After Masterpiece -->
+            <div class="ba-card-luxury">
+              <div class="ba-card-topbar">
+                <div class="bct-left">
+                  <i class="fas fa-check-circle" style="color: var(--accent-cyan);"></i>
+                  <span>PROVEN QUALITY &bull; REAL TRANSFORMATION</span>
+                </div>
+                <div class="bct-right">Official Atelier Garment Case Study</div>
+              </div>
+              <div class="ba-image-container">
+                <img src="public/images/catalogue_assets/ai_ba_suit_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_suit_same_item.jpg'" alt="Proven Quality - Bespoke Suit Dry Cleaning Transformation" class="ba-master-img">
+                <div class="ba-badge-floating ba-badge-before">
+                  <span class="badg-dot badg-dot-red"></span> BEFORE CLEANING
+                </div>
+                <div class="ba-badge-floating ba-badge-after">
+                  <span class="badg-dot badg-dot-green"></span> AFTER CLEANING
+                </div>
+              </div>
+              <div class="ba-card-bottombar">
+                <span class="bcb-pill bcb-before"><i class="fas fa-times-circle"></i> BEFORE: Creased &amp; Dust-Laden Lapels</span>
+                <span class="bcb-center">&bull; BESPOKE WOOL STRUCTURE REVIVED &bull;</span>
+                <span class="bcb-pill bcb-after"><i class="fas fa-check-circle"></i> AFTER: Showroom-Sharp Silhouette</span>
+              </div>
             </div>
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>Haute Couture Desk: <strong>+91 82338 53727</strong></span>
+              <span>Haute Couture Desk: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
               <span>Turnaround: <strong>24-48 Hours Standard</strong></span>
             </div>
-            <div class="pif-badge">Page 4 &bull; Haute Couture Dry Cleaning</div>
+            <div class="pif-badge">Page 5 &bull; Haute Couture Dry Cleaning</div>
           </footer>
         </section>
 
         <!-- ==================================================================
-             PAGE 5: SOFA & LIVING SPACE UPHOLSTERY (PANEL 5)
+             PAGE 5: SOFA & LIVING SPACE UPHOLSTERY (USER'S CHATGPT GREEN SOFA)
              ================================================================== -->
-        <section class="catalogue-page" id="page-5" aria-label="Page 5: Sofa Cleaning">
+        <section class="catalogue-page" id="page-6" aria-label="Page 6: Sofa Cleaning">
           <header class="page-inner-header">
             <div class="pih-left">
               <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1712,12 +2865,12 @@
           </header>
 
           <div class="page-body">
-            <div class="editorial-hero-banner">
+            <div class="service-editorial-hero">
               <img src="public/images/catalogue_assets/sofa_luxury_living.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ai_living_room_sofa_carpet.jpg'" alt="Luxury Living Room Sofa">
-              <div class="editorial-hero-overlay">
+              <div class="seh-overlay">
                 <div>
-                  <div class="eho-title">Doorstep Upholstery Deep Extraction</div>
-                  <div class="eho-sub">Velvet sectionals &bull; Italian leather &bull; Fabric recliners &bull; Dining chairs &bull; Headboards</div>
+                  <div class="seh-title">Doorstep Upholstery Deep Extraction</div>
+                  <div class="seh-sub">Velvet sectionals &bull; Italian leather &bull; Fabric recliners &bull; Dining chairs &bull; Headboards</div>
                 </div>
               </div>
             </div>
@@ -1729,36 +2882,56 @@
                 <div class="pillar-card-desc">German hot-water extraction penetrates 4 inches into foam to remove trapped allergens.</div>
               </div>
               <div class="pillar-card">
-                <div class="pillar-card-icon"><i class="fas fa-tint-slash"></i></div>
-                <div class="pillar-card-title">Stain Removal</div>
-                <div class="pillar-card-desc">Lifts stubborn food stains, pet dander, tea/coffee spills, and body oils without discoloration.</div>
+                <div class="pillar-card-icon"><i class="fas fa-palette"></i></div>
+                <div class="pillar-card-title">Fabric Revival</div>
+                <div class="pillar-card-desc">pH-neutral bio-solvents gently restore vibrant original dye colors without stiffness.</div>
               </div>
               <div class="pillar-card">
-                <div class="pillar-card-icon"><i class="fas fa-pump-soap"></i></div>
+                <div class="pillar-card-icon"><i class="fas fa-shield-virus"></i></div>
                 <div class="pillar-card-title">Hygienic &amp; Fresh</div>
-                <div class="pillar-card-desc">Eco-friendly anti-microbial sanitization leaves a subtle fresh fragrance and fast drying.</div>
+                <div class="pillar-card-desc">99.9% dust-mite, bacteria, and pet odor eradication with rapid 3-4 hour dry time.</div>
               </div>
             </div>
 
-            <!-- Full-Width Ultra-HD Before & After Masterpiece (Same-Item Before Wash vs After Wash) -->
-            <div class="ba-masterpiece-wrapper">
-              <img src="public/images/catalogue_assets/ai_ba_sofa_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_sofa_same_item.jpg'" alt="Proven Quality - Sofa & Upholstery Deep Cleaning Transformation" class="ba-master-img">
+            <!-- Full-Width Ultra-HD Before & After Masterpiece (ChatGPT Emerald Sofa with Custom Frosted Badges) -->
+            <div class="ba-card-luxury">
+              <div class="ba-card-topbar">
+                <div class="bct-left">
+                  <i class="fas fa-check-circle" style="color: var(--accent-cyan);"></i>
+                  <span>PROVEN QUALITY &bull; REAL TRANSFORMATION</span>
+                </div>
+                <div class="bct-right">Living Room Sectional Case Study</div>
+              </div>
+              <div class="ba-image-container">
+                <img src="public/images/catalogue_assets/ai_ba_sofa_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_sofa_same_item.jpg'" alt="Proven Quality - Sofa & Upholstery Deep Cleaning Transformation" class="ba-master-img">
+                <div class="ba-badge-floating ba-badge-before">
+                  <span class="badg-dot badg-dot-red"></span> BEFORE WASH
+                </div>
+                <div class="ba-badge-floating ba-badge-after">
+                  <span class="badg-dot badg-dot-green"></span> AFTER WASH
+                </div>
+              </div>
+              <div class="ba-card-bottombar">
+                <span class="bcb-pill bcb-before"><i class="fas fa-times-circle"></i> BEFORE: Deep Discolored Stains &amp; Grime</span>
+                <span class="bcb-center">&bull; 4-INCH FOAM EXTRACTION &bull;</span>
+                <span class="bcb-pill bcb-after"><i class="fas fa-check-circle"></i> AFTER: Emerald Velvet Restored &amp; Sanitized</span>
+              </div>
             </div>
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>Home Service Hotline: <strong>+91 82338 53727</strong></span>
+              <span>Home Service Hotline: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
               <span>Service Area: <strong>All Jodhpur City</strong></span>
             </div>
-            <div class="pif-badge">Page 5 &bull; Upholstery Care</div>
+            <div class="pif-badge">Page 6 &bull; Upholstery Care</div>
           </footer>
         </section>
 
         <!-- ==================================================================
-             PAGE 6: CARPET & CURTAIN CLEANING (PANEL 6)
+             PAGE 6: CARPET & FINE RUG SPA (USER SPECIFIED BEFORE & AFTER)
              ================================================================== -->
-        <section class="catalogue-page" id="page-6" aria-label="Page 6: Carpet & Curtain Cleaning">
+        <section class="catalogue-page" id="page-7" aria-label="Page 7: Carpet Cleaning">
           <header class="page-inner-header">
             <div class="pih-left">
               <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1768,59 +2941,79 @@
               </div>
             </div>
             <div class="pih-right">
-              <div class="pih-doc-title">Carpet &amp; Curtains</div>
-              <div class="pih-doc-sub">Cleaner Home, Healthier Life</div>
+              <div class="pih-doc-title">Carpet Cleaning</div>
+              <div class="pih-doc-sub">For Dust-Free Interiors</div>
             </div>
           </header>
 
           <div class="page-body">
-            <div class="editorial-hero-banner">
-              <img src="public/images/catalogue_assets/carpet_curtains_room.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ai_living_room_sofa_carpet.jpg'" alt="Luxury Curtains and Carpet Interior">
-              <div class="editorial-hero-overlay">
+            <div class="service-editorial-hero">
+              <img src="public/images/catalogue_assets/carpet_curtains_room.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/hotel_luxury_bedroom.jpg'" alt="Luxury Carpet & Rugs">
+              <div class="seh-overlay">
                 <div>
-                  <div class="eho-title">Fine Rug &amp; Drapery Restoration</div>
-                  <div class="eho-sub">Persian silk rugs &bull; Kashmiri wool carpets &bull; Velvet drapes &bull; Blackout curtains</div>
+                  <div class="seh-title">Specialized Rug &amp; Carpet Rejuvenation</div>
+                  <div class="seh-sub">Hand-knotted Persian &bull; Kashmiri silk &bull; Tufted wool &bull; Dhurries &bull; Wall-to-wall carpeting</div>
                 </div>
               </div>
             </div>
 
             <div class="pillar-row-3">
               <div class="pillar-card">
-                <div class="pillar-card-icon"><i class="fas fa-brush"></i></div>
-                <div class="pillar-card-title">Deep Cleaning</div>
-                <div class="pillar-card-desc">Beating and high-suction immersion washes eliminate deep desert sand trapped in backing.</div>
+                <div class="pillar-card-icon"><i class="fas fa-broom"></i></div>
+                <div class="pillar-card-title">Sand &amp; Dust Extraction</div>
+                <div class="pillar-card-desc">Harmonic vibration dusting releases kilos of desert sand trapped deep inside warp and weft.</div>
               </div>
               <div class="pillar-card">
-                <div class="pillar-card-icon"><i class="fas fa-wind"></i></div>
-                <div class="pillar-card-title">Odor Removal</div>
-                <div class="pillar-card-desc">Enzymatic treatment neutralizes dampness, pet odors, and mold spores permanently.</div>
+                <div class="pillar-card-icon"><i class="fas fa-hands"></i></div>
+                <div class="pillar-card-title">Color-Safe Hand Wash</div>
+                <div class="pillar-card-desc">Submersion pool bath with soft badger-hair rotary buffers preserves natural vegetable dyes.</div>
               </div>
               <div class="pillar-card">
-                <div class="pillar-card-icon"><i class="fas fa-spray-can"></i></div>
-                <div class="pillar-card-title">Drapery Steaming</div>
-                <div class="pillar-card-desc">On-site curtain steam pressing removes heavy creases without taking draperies down.</div>
+                <div class="pillar-card-icon"><i class="fas fa-sun"></i></div>
+                <div class="pillar-card-title">Controlled Chamber Dry</div>
+                <div class="pillar-card-desc">Dehumidified thermal chamber prevents mildew, fringe browning, and maintains silk sheen.</div>
               </div>
             </div>
 
-            <!-- Full-Width Ultra-HD Before & After Masterpiece (Same-Item Before Wash vs After Wash) -->
-            <div class="ba-masterpiece-wrapper">
-              <img src="public/images/catalogue_assets/ai_ba_carpet_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_carpet_same_item.jpg'" alt="Proven Quality - Persian Carpet Restoration Transformation" class="ba-master-img">
+            <!-- Full-Width Ultra-HD Before & After Masterpiece (User Uploaded Living Room Rug) -->
+            <div class="ba-card-luxury">
+              <div class="ba-card-topbar">
+                <div class="bct-left">
+                  <i class="fas fa-check-circle" style="color: var(--accent-cyan);"></i>
+                  <span>PROVEN QUALITY &bull; REAL TRANSFORMATION</span>
+                </div>
+                <div class="bct-right">Living Room Shag Rug Case Study</div>
+              </div>
+              <div class="ba-image-container">
+                <img src="public/images/catalogue_assets/ai_ba_carpet_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_carpet_same_item.jpg'" alt="Proven Quality - Carpet Restoration Transformation" class="ba-master-img">
+                <div class="ba-badge-floating ba-badge-before">
+                  <span class="badg-dot badg-dot-red"></span> BEFORE WASH
+                </div>
+                <div class="ba-badge-floating ba-badge-after">
+                  <span class="badg-dot badg-dot-green"></span> AFTER WASH
+                </div>
+              </div>
+              <div class="ba-card-bottombar">
+                <span class="bcb-pill bcb-before"><i class="fas fa-times-circle"></i> BEFORE: Muddy Footprints &amp; Dark Soil</span>
+                <span class="bcb-center">&bull; DIRT EXTRACTED &bull; FLUFFY PILE RESTORED &bull;</span>
+                <span class="bcb-pill bcb-after"><i class="fas fa-check-circle"></i> AFTER: Pristine Ivory &amp; Sanitized</span>
+              </div>
             </div>
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>Carpet Concierge: <strong>+91 82338 53727</strong></span>
+              <span>Carpet Concierge: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
               <span>Pickup &amp; Re-installation: <strong>Free Across Jodhpur</strong></span>
             </div>
-            <div class="pif-badge">Page 6 &bull; Fine Carpet Restoration</div>
+            <div class="pif-badge">Page 7 &bull; Fine Carpet Restoration</div>
           </footer>
         </section>
 
         <!-- ==================================================================
-             PAGE 7: SNEAKER & SHOE SPA (PANEL 7)
+             PAGE 7: FOOTWEAR SPA & SNEAKER CARE (USER SPECIFIED BEFORE & AFTER)
              ================================================================== -->
-        <section class="catalogue-page" id="page-7" aria-label="Page 7: Shoe Cleaning">
+        <section class="catalogue-page" id="page-8" aria-label="Page 8: Footwear Spa & Sneaker Care">
           <header class="page-inner-header">
             <div class="pih-left">
               <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1830,18 +3023,18 @@
               </div>
             </div>
             <div class="pih-right">
-              <div class="pih-doc-title">Shoe Cleaning</div>
-              <div class="pih-doc-sub">Step into Freshness</div>
+              <div class="pih-doc-title">Footwear Spa</div>
+              <div class="pih-doc-sub">Step Out in Confidence</div>
             </div>
           </header>
 
           <div class="page-body">
-            <div class="editorial-hero-banner">
-              <img src="public/images/catalogue_assets/sneakers_splash.jpg" onerror="this.onerror=null;this.src='public/gallery/Shoe_Cleaning.png'" alt="Sneaker Cleaning Water Splash">
-              <div class="editorial-hero-overlay">
+            <div class="service-editorial-hero">
+              <img src="public/images/catalogue_assets/sneakers_splash.jpg" onerror="this.onerror=null;this.src='public/gallery/Shoe_Cleaning.png'" alt="Designer Sneaker Care">
+              <div class="seh-overlay">
                 <div>
-                  <div class="eho-title">Bespoke Footwear &amp; Sneaker Laundry</div>
-                  <div class="eho-sub">Air Jordans &bull; Yeezys &bull; Luxury leather loafers &bull; Suede brogues &bull; Designer heels</div>
+                  <div class="seh-title">Artisanal Footwear Restoration</div>
+                  <div class="seh-sub">Luxury sneakers &bull; Italian leather brogues &bull; Suede boots &bull; Golf shoes &bull; Athletic trainers</div>
                 </div>
               </div>
             </div>
@@ -1849,40 +3042,60 @@
             <div class="pillar-row-3">
               <div class="pillar-card">
                 <div class="pillar-card-icon"><i class="fas fa-shoe-prints"></i></div>
-                <div class="pillar-card-title">Sneaker Cleaning</div>
-                <div class="pillar-card-desc">Multi-density hog-hair brushes tailored for primeknit, canvas, leather, and mesh uppers.</div>
+                <div class="pillar-card-title">Multi-Density Brushing</div>
+                <div class="pillar-card-desc">Boar bristle for leather, horsehair for delicate suede, and brass stiffeners for treads.</div>
               </div>
               <div class="pillar-card">
-                <div class="pillar-card-icon"><i class="fas fa-sun"></i></div>
-                <div class="pillar-card-title">Shoe Restoration</div>
-                <div class="pillar-card-desc">Chemical-free hydrogen midsole de-yellowing un-oxidizes yellow rubber back to icy white.</div>
+                <div class="pillar-card-icon"><i class="fas fa-sparkles"></i></div>
+                <div class="pillar-card-title">Midsole De-Yellowing</div>
+                <div class="pillar-card-desc">UV-activated peroxide treatment reverses rubber oxidation, restoring crisp icy white soles.</div>
               </div>
               <div class="pillar-card">
                 <div class="pillar-card-icon"><i class="fas fa-shield-alt"></i></div>
-                <div class="pillar-card-title">Premium Care</div>
-                <div class="pillar-card-desc">Finished with nano hydrophobic liquid-repellent shield and anti-bacterial cedar treatment.</div>
+                <div class="pillar-card-title">Nano Hydrophobic Seal</div>
+                <div class="pillar-card-desc">Invisible water and stain repelling barrier shields footwear against future mud and spills.</div>
               </div>
             </div>
 
-            <!-- Full-Width Ultra-HD Before & After Masterpiece (Same-Item Before Wash vs After Wash) -->
-            <div class="ba-masterpiece-wrapper">
-              <img src="public/images/catalogue_assets/ai_ba_shoes_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_shoes_same_item.jpg'" alt="Proven Quality - Designer Sneaker Spa Transformation" class="ba-master-img">
+            <!-- Full-Width Ultra-HD Before & After Masterpiece (User Uploaded Nike AF1 Split) -->
+            <div class="ba-card-luxury">
+              <div class="ba-card-topbar">
+                <div class="bct-left">
+                  <i class="fas fa-check-circle" style="color: var(--accent-cyan);"></i>
+                  <span>PROVEN QUALITY &bull; REAL TRANSFORMATION</span>
+                </div>
+                <div class="bct-right">Designer Footwear Case Study</div>
+              </div>
+              <div class="ba-image-container">
+                <img src="public/images/catalogue_assets/ai_ba_shoes_same_item.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ai_ba_shoes_same_item.jpg'" alt="Proven Quality - Designer Sneaker Spa Transformation" class="ba-master-img">
+                <div class="ba-badge-floating ba-badge-before">
+                  <span class="badg-dot badg-dot-red"></span> BEFORE SPA
+                </div>
+                <div class="ba-badge-floating ba-badge-after">
+                  <span class="badg-dot badg-dot-green"></span> AFTER SPA
+                </div>
+              </div>
+              <div class="ba-card-bottombar">
+                <span class="bcb-pill bcb-before"><i class="fas fa-times-circle"></i> BEFORE: Weathered &amp; Muddy Soles</span>
+                <span class="bcb-center">&bull; MIDSOLE DE-YELLOWING &bull;</span>
+                <span class="bcb-pill bcb-after"><i class="fas fa-check-circle"></i> AFTER: Spotless Optic-White Rejuvenation</span>
+              </div>
             </div>
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>Footwear Spa Desk: <strong>+91 82338 53727</strong></span>
+              <span>Footwear Spa Desk: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
               <span>Packaging: <strong>Individual Breathable Shoe Bags</strong></span>
             </div>
-            <div class="pif-badge">Page 7 &bull; Footwear Restoration</div>
+            <div class="pif-badge">Page 8 &bull; Footwear Restoration</div>
           </footer>
         </section>
 
         <!-- ==================================================================
-             PAGE 8: HOTEL & COMMERCIAL SOLUTIONS (PANEL 8)
+             PAGE 8: HOTEL & COMMERCIAL SOLUTIONS (USER SPECIFIED IMAGES)
              ================================================================== -->
-        <section class="catalogue-page" id="page-8" aria-label="Page 8: Hotel & Commercial Solutions">
+        <section class="catalogue-page" id="page-9" aria-label="Page 9: Hotel & Commercial Solutions">
           <header class="page-inner-header">
             <div class="pih-left">
               <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1898,84 +3111,130 @@
           </header>
 
           <div class="page-body">
+            <!-- Hospitality Editorial Hero Banner -->
+            <div class="service-editorial-hero" style="height: 110px; margin-bottom: 12px;">
+              <img src="public/images/catalogue_assets/facility_store_banner.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/facility_store_banner.jpg'" alt="Inside Gen-Z Commercial Processing Facility">
+              <div class="seh-overlay">
+                <div>
+                  <div class="seh-title">Hospitality &amp; Institutional Bulk Linen Operations</div>
+                  <div class="seh-sub">Automated industrial batch processing delivering sanitized, ironed, and crisp bed &amp; bath linen for 5-star hotels, luxury desert resorts &amp; heritage banquet properties across Rajasthan.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hotel Dual Grid with User's Uploaded 5-Star Bed Linen & 650 GSM Terry Towels -->
             <div class="hotel-dual-grid">
+              <!-- Card 1: 5-Star Hotel Bed Linen • 400+ Thread Count -->
               <div class="hotel-img-card">
-                <img src="public/images/catalogue_assets/hotel_luxury_bedroom.jpg" onerror="this.onerror=null;this.src='dist/assets/staying-hotel-jodhpur.jpg'" alt="Luxury Hotel Bedroom Linen">
+                <img src="public/images/catalogue_assets/hotel_bed_linen_400tc.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/hotel_luxury_bedroom.jpg'" alt="5-Star Hotel Bed Linen • 400+ Thread Count">
                 <div class="hic-overlay">
                   <i class="fas fa-bed"></i> 5-Star Hotel Bed Linen &bull; 400+ Thread Count
                 </div>
               </div>
+
+              <!-- Card 2: Ultra-Soft Terry Bath Towels • 650 GSM -->
               <div class="hotel-img-card">
-                <img src="public/images/catalogue_assets/hotel_towels_stack.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/hotel_towels_stack.jpg'" alt="Plush White Hotel Towels">
+                <img src="public/images/catalogue_assets/hotel_bath_towels_650gsm.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/hotel_towels_stack.jpg'" alt="Ultra-Soft Terry Bath Towels • 650 GSM">
                 <div class="hic-overlay">
                   <i class="fas fa-layer-group"></i> Ultra-Soft Terry Bath Towels &bull; 650 GSM
                 </div>
               </div>
             </div>
 
-            <div class="hospitality-sectors-grid">
-              <div class="hsg-item">
-                <i class="fas fa-hotel"></i>
-                Heritage Hotels
+            <!-- 4-Pillar Specification & Quality Benchmark Matrix (Fills the previous blank space) -->
+            <div class="hotel-spec-matrix">
+              <div class="hsm-card">
+                <div class="hsm-header">
+                  <i class="fas fa-temperature-high"></i>
+                  <span class="hsm-title">Thermal Hygiene</span>
+                </div>
+                <div class="hsm-val">70&deg;C Disinfection</div>
+                <div class="hsm-desc">Eliminates 99.9% of pathogens meeting 5-star international audit standards.</div>
               </div>
-              <div class="hsg-item">
-                <i class="fas fa-utensils"></i>
-                Fine Dining
+
+              <div class="hsm-card">
+                <div class="hsm-header">
+                  <i class="fas fa-scroll"></i>
+                  <span class="hsm-title">Rotary Calendering</span>
+                </div>
+                <div class="hsm-val">Mirror-Smooth Finish</div>
+                <div class="hsm-desc">180&deg;C steam cylinder rolls deliver wrinkle-free, hotel-grade sheets.</div>
               </div>
-              <div class="hsg-item">
-                <i class="fas fa-hospital"></i>
-                Healthcare
+
+              <div class="hsm-card">
+                <div class="hsm-header">
+                  <i class="fas fa-barcode"></i>
+                  <span class="hsm-title">Inventory Tagging</span>
+                </div>
+                <div class="hsm-val">Zero Item Loss SLA</div>
+                <div class="hsm-desc">Segregated lot tracking guarantees 100% accurate count return.</div>
               </div>
-              <div class="hsg-item">
-                <i class="fas fa-glass-cheers"></i>
-                Event Venues
+
+              <div class="hsm-card">
+                <div class="hsm-header">
+                  <i class="fas fa-truck-moving"></i>
+                  <span class="hsm-title">Fleet Logistics</span>
+                </div>
+                <div class="hsm-val">Daily Scheduled Routes</div>
+                <div class="hsm-desc">Dedicated sealed transport vans for sanitary collection &amp; delivery.</div>
               </div>
             </div>
 
-            <div class="b2b-contract-card">
-              <div class="b2b-header-title">
-                <i class="fas fa-handshake" style="color: var(--gold-bright);"></i> Institutional &amp; Commercial SLA Specifications
+            <!-- Hospitality Sectors Grid (Rich & Informative Cards) -->
+            <div class="hospitality-sectors-grid">
+              <div class="hsg-card">
+                <div class="hsg-title"><i class="fas fa-hotel"></i> Heritage Hotels</div>
+                <div class="hsg-sub">Palaces, havelis &amp; luxury suites</div>
               </div>
-              <table class="b2b-spec-table">
-                <tr>
-                  <td>Daily Processing Capacity:</td>
-                  <td>1,500+ Kilograms / 2,500 Garments per 24-hour cycle</td>
-                </tr>
-                <tr>
-                  <td>Guest Express Turnaround:</td>
-                  <td>Guaranteed 4 to 6-hour express turnaround for VIP check-ins</td>
-                </tr>
-                <tr>
-                  <td>Logistics &amp; Scheduling:</td>
-                  <td>Dedicated electric delivery vans &bull; Twice-daily scheduled dock pickups</td>
-                </tr>
-                <tr>
-                  <td>Hygiene &amp; Tracking:</td>
-                  <td>Barcode batch sorting &bull; German biodegradable thermal disinfection</td>
-                </tr>
-              </table>
-              <div class="b2b-cta-bar">
-                <span style="font-size: 0.82rem; font-weight: 700;">Ready to elevate your property's linen standards?</span>
-                <span style="background: var(--gold-metallic); color: #FFFFFF; font-size: 0.76rem; font-weight: 800; padding: 6px 14px; border-radius: 9999px;">
-                  Request B2B Rate Card
-                </span>
+              <div class="hsg-card">
+                <div class="hsg-title"><i class="fas fa-campground"></i> Desert Resorts</div>
+                <div class="hsg-sub">Jaisalmer &amp; Osian luxury camp canopies</div>
+              </div>
+              <div class="hsg-card">
+                <div class="hsg-title"><i class="fas fa-home"></i> Boutique Homestays</div>
+                <div class="hsg-sub">Premium villas, Airbnbs &amp; guest suites</div>
+              </div>
+              <div class="hsg-card">
+                <div class="hsg-title"><i class="fas fa-glass-cheers"></i> Royal Banquets</div>
+                <div class="hsg-sub">Table linens, napkins &amp; banquet covers</div>
+              </div>
+            </div>
+
+            <!-- Commercial Capabilities Strip -->
+            <div class="commercial-capabilities-strip">
+              <div class="ccs-title">
+                <i class="fas fa-check-double"></i> Industrial Hospitality Capabilities &amp; SLA Guarantees
+              </div>
+              <div class="ccs-grid">
+                <div class="ccs-col">
+                  <strong>500+ kg Daily Laundromat</strong>
+                  <span>Continuous batch washers with automated chemical dosing and steam ironing roll lines.</span>
+                </div>
+                <div class="ccs-col">
+                  <strong>Barcode Linen Tracking</strong>
+                  <span>Every hotel's inventory is color-coded and barcode tagged to guarantee zero item loss.</span>
+                </div>
+                <div class="ccs-col">
+                  <strong>Net-30 Corporate Invoicing</strong>
+                  <span>Centralized monthly billing, delivery challans, and 100% GST input tax credit compliance.</span>
+                </div>
               </div>
             </div>
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>B2B Contract Desk: <strong>+91 82338 53727</strong></span>
-              <span>Billing: <strong>Monthly Invoicing Available</strong></span>
+              <span>Corporate Desk: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
+              <span>Contracts: <strong>Net-30 Invoicing Available</strong></span>
             </div>
-            <div class="pif-badge">Page 8 &bull; Commercial Solutions</div>
+            <div class="pif-badge">Page 9 &bull; Hotel &amp; Commercial Solutions</div>
           </footer>
         </section>
 
         <!-- ==================================================================
-             PAGE 9: PROJECTS & ACHIEVEMENTS (PANEL 9)
+             PAGE 9: PROJECTS & ACHIEVEMENTS / TENDERS (USER SPECIFIED IMAGES)
              ================================================================== -->
-        <section class="catalogue-page" id="page-9" aria-label="Page 9: Projects & Achievements">
+        <section class="catalogue-page" id="page-10" aria-label="Page 10: Projects & Achievements">
           <header class="page-inner-header">
             <div class="pih-left">
               <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
@@ -1991,44 +3250,56 @@
           </header>
 
           <div class="page-body">
+            <!-- Landmark Heritage Projects Hero Banner (User's Jaisalmer Heritage Hotel Venue) -->
+            <div class="service-editorial-hero" style="height: 125px; margin-bottom: 14px;">
+              <img src="public/images/catalogue_assets/jaisalmer_tender_lawn_fountain.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/jaisalmer_tender_lawn_fountain.jpg'" alt="Jaisalmer Heritage Hotel Resort Lawn & Marquee Venue">
+              <div class="seh-overlay">
+                <div>
+                  <div class="seh-title">Landmark Heritage Venue &amp; Institutional Tenders</div>
+                  <div class="seh-sub">Proven institutional execution: royal canopy sterilization, antique upholstery restoration, and grand outdoor banquet logistics across Rajasthan.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Projects Trio Grid (Includes User's Luxury Villa Sofa Restorations) -->
             <div class="projects-trio-grid">
               
-              <!-- Project 1: Jaisalmer Tender -->
+              <!-- Project 1: Jaisalmer Heritage Hotel Contract -->
               <div class="project-card">
                 <div class="project-img-wrap">
-                  <img src="public/images/catalogue_assets/jaisalmer_tender_fort.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/jaisalmer_tender_fort.jpg'" alt="Jaisalmer Heritage Tender">
-                  <span class="project-badge">TENDER SLA</span>
+                  <img src="public/images/catalogue_assets/jaisalmer_tender_tent_chairs.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/jaisalmer_tender_tent_chairs.jpg'" alt="Jaisalmer Heritage Hotel Contract - Royal Pavilion & Heritage Fabric Restoration">
+                  <span class="project-badge">HERITAGE CONTRACT</span>
                 </div>
                 <div class="project-info">
                   <div class="project-name">Jaisalmer Heritage Hotel Contract</div>
-                  <div class="project-desc">Comprehensive commercial laundry and linen preservation SLA for desert heritage resort properties.</div>
-                  <div class="project-stat"><i class="fas fa-check-circle" style="color: var(--emerald-600);"></i> 100% On-Time Delivery</div>
+                  <div class="project-desc">Specialized on-site royal canopy sterilization, antique damask jacquard upholstery deep extraction, and luxury lawn banquet setup SLAs.</div>
+                  <div class="project-stat"><i class="fas fa-check-circle" style="color: #10b981;"></i> 100% SLA Fulfillment &bull; 200+ Heritage Seats</div>
                 </div>
               </div>
 
-              <!-- Project 2: Ajit Bhawan Marries Venue -->
+              <!-- Project 2: Ajit Bhawan Wedding Venue -->
               <div class="project-card">
                 <div class="project-img-wrap">
-                  <img src="public/images/catalogue_assets/ajit_bhawan_wedding_hd.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ajit_bhawan_wedding.jpg'" alt="Ajit Bhawan Wedding Venue Project">
+                  <img src="public/images/catalogue_assets/ajit_bhawan_wedding_hd.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/ajit_bhawan_wedding.jpg'" alt="Ajit Bhawan Heritage Wedding Venue">
                   <span class="project-badge">ROYAL VENUE</span>
                 </div>
                 <div class="project-info">
-                  <div class="project-name">Ajit Bhawan Royal Wedding SLA</div>
-                  <div class="project-desc">Prestigious high-volume fabric care partner for marquee destination weddings and palace events.</div>
-                  <div class="project-stat"><i class="fas fa-crown" style="color: var(--gold-metallic);"></i> High-Volume Event Partner</div>
+                  <div class="project-name">Ajit Bhawan Wedding Venue</div>
+                  <div class="project-desc">Banquet linen, royal bridal canopies, heavy upholstery and guest laundry during royal wedding seasons.</div>
+                  <div class="project-stat"><i class="fas fa-crown" style="color: var(--gold-metallic);"></i> Royal Hospitality Partner</div>
                 </div>
               </div>
 
-              <!-- Project 3: Luxury Sofa Restorations -->
+              <!-- Project 3: Luxury Villa Sofa Restorations (User Uploaded Image) -->
               <div class="project-card">
                 <div class="project-img-wrap">
-                  <img src="public/images/catalogue_assets/sofa_luxury_living.jpg" onerror="this.onerror=null;this.src='public/images/catalogue_assets/ai_living_room_sofa_carpet.jpg'" alt="Luxury Villa Upholstery Projects">
+                  <img src="public/images/catalogue_assets/villa_sofa_restoration_luxury.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/sofa_luxury_living.jpg'" alt="Luxury Villa Sofa Restorations">
                   <span class="project-badge">RESIDENTIAL</span>
                 </div>
                 <div class="project-info">
                   <div class="project-name">Luxury Villa Sofa Restorations</div>
-                  <div class="project-desc">Over 500+ heritage haveli and luxury villa living room upholstery extraction projects completed.</div>
-                  <div class="project-stat"><i class="fas fa-star" style="color: var(--gold-bright);"></i> 4.9/5 Rating across 1,200+ Homes</div>
+                  <div class="project-desc">Over 500+ heritage haveli and luxury villa living room upholstery extraction projects completed across Jodhpur.</div>
+                  <div class="project-stat"><i class="fas fa-star" style="color: var(--gold-metallic);"></i> 4.9/5 Rating across 1,200+ Homes</div>
                 </div>
               </div>
 
@@ -2040,8 +3311,8 @@
                 <div class="tdb-title">
                   <i class="fas fa-file-contract"></i> Institutional Tender Credentials &amp; Certifications
                 </div>
-                <div style="font-size: 0.74rem; color: #CBD5E1; margin-top: 4px;">
-                  Fully compliant with Government of Rajasthan and private hospitality procurement standards.
+                <div style="font-size: 0.72rem; color: #cbd5e1; margin-top: 3px;">
+                  Fully compliant with Government of Rajasthan and private corporate hospitality procurement standards.
                 </div>
               </div>
 
@@ -2056,118 +3327,281 @@
                 </div>
                 <div class="tender-badge-pill">
                   <strong>SLA GUARANTEE</strong>
-                  <span>Zero-Disruption Logistics</span>
+                  <span>Contractual Penalty Backed</span>
                 </div>
-              </div>
-
-              <div class="tender-notice-banner">
-                <div>
-                  <strong>Official Tender Documentation Available Upon Request</strong>
-                  <div style="font-size: 0.68rem; color: #E2E8F0;">Audited financials, commercial rate schedules, and machine capacity certificates.</div>
+                <div class="tender-badge-pill">
+                  <strong>CREDIT TERMS</strong>
+                  <span>Monthly Invoicing Available</span>
                 </div>
-                <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry,%20please%20share%20your%20institutional%20tender%20and%20compliance%20dossier." target="_blank" style="background: var(--navy-900); color: var(--gold-light); text-decoration: none; font-size: 0.74rem; font-weight: 800; padding: 6px 14px; border-radius: 9999px; border: 1px solid var(--gold-bright);">
-                  Request Dossier
-                </a>
               </div>
             </div>
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>Tender Support: <strong>genzlaundry.in@gmail.com</strong></span>
-              <span>Verification: <strong>GST Registered MSME</strong></span>
+              <span>Contracts Desk: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
+              <span>B2B Portal: <strong>genzlaundry.com/corporate</strong></span>
             </div>
-            <div class="pif-badge">Page 9 &bull; Tenders &amp; Projects</div>
+            <div class="pif-badge">Page 10 &bull; Projects &amp; Tender Credentials</div>
           </footer>
         </section>
 
         <!-- ==================================================================
-             PAGE 10: BACK COVER & LOCATION SCANNER (PANEL 10)
+             PAGE 11: FLAGSHIP FACILITY, OPERATIONS & CUSTOMER EXPERIENCE
              ================================================================== -->
-        <section class="catalogue-page" id="page-10" aria-label="Page 10: Back Cover & Concierge Contact">
-          <div class="page-body" style="padding: 20px 24px;">
-            <div class="backcover-wrapper">
-              
-              <!-- Brand Top -->
-              <div class="bc-top-brand">
-                <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="bc-logo">
-                <div class="bc-brand-title">GEN-Z LAUNDRY</div>
-                <div style="font-family: 'Cinzel', serif; font-size: 0.95rem; letter-spacing: 2px; color: var(--gold-bright); margin-top: 2px;">
-                  DRY CLEANERS &bull; JODHPUR
-                </div>
-                <div class="bc-brand-sub">You Live, We Laundry</div>
+        <section class="catalogue-page" id="page-11" aria-label="Page 11: Flagship Facility & Operations">
+          <header class="page-inner-header">
+            <div class="pih-left">
+              <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo" class="pih-logo">
+              <div>
+                <div class="pih-brand-name">GEN-Z LAUNDRY</div>
+                <div class="pih-brand-tag">Dry Cleaners &bull; Jodhpur</div>
               </div>
-
-              <!-- Official Google Maps QR Card -->
-              <div class="bc-qr-card">
-                <img src="public/gallery/Location_qr.png" onerror="this.onerror=null;this.src='images/catalogue_assets/official_location_qr.jpg'" alt="Official Location QR Scanner" class="bc-qr-img">
-                <div class="bc-qr-info">
-                  <h3>SCAN FOR INSTANT LOCATION</h3>
-                  <p>Point your smartphone camera at this QR code to instantly open Google Maps directions directly to our flagship Jodhpur facility.</p>
-                  <span class="bc-qr-pill"><i class="fas fa-map-marker-alt"></i> Verified Google Business Listing</span>
-                </div>
-              </div>
-
-              <!-- Contact Matrix -->
-              <div class="bc-contact-grid">
-                <div class="bc-contact-tile">
-                  <div class="bc-contact-icon"><i class="fas fa-phone-alt"></i></div>
-                  <div class="bc-contact-detail">
-                    <strong>Telephone Helpline</strong>
-                    <span>+91 82338 53727</span>
-                  </div>
-                </div>
-                <div class="bc-contact-tile">
-                  <div class="bc-contact-icon"><i class="fab fa-whatsapp"></i></div>
-                  <div class="bc-contact-detail">
-                    <strong>Instant WhatsApp</strong>
-                    <span>+91 88549 35727</span>
-                  </div>
-                </div>
-                <div class="bc-contact-tile">
-                  <div class="bc-contact-icon"><i class="fas fa-globe"></i></div>
-                  <div class="bc-contact-detail">
-                    <strong>Official Web Portal</strong>
-                    <span>www.genzlaundry.com</span>
-                  </div>
-                </div>
-                <div class="bc-contact-tile">
-                  <div class="bc-contact-icon"><i class="fas fa-envelope"></i></div>
-                  <div class="bc-contact-detail">
-                    <strong>Official Email</strong>
-                    <span>genzlaundry.in@gmail.com</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Facility Address -->
-              <div style="background: rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 14px 18px; border: 1px solid rgba(255, 255, 255, 0.15);">
-                <div style="font-size: 0.72rem; color: var(--gold-light); font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 2px;">
-                  <i class="fas fa-store-alt"></i> Central Atelier &amp; Processing Hub
-                </div>
-                <div style="font-size: 0.84rem; color: #FFFFFF; font-weight: 600; line-height: 1.4;">
-                  2nd Floor, Sabji Mandi Circle, Above Mahadev Ice Factory, Ratanada, Jodhpur, Rajasthan &ndash; 342011
-                </div>
-              </div>
-
-              <!-- 24/7 Hours Badge -->
-              <div class="bc-hours-badge">
-                <span><i class="fas fa-clock"></i> OPEN 24 HOURS &bull; 7 DAYS A WEEK</span>
-                <span style="font-size: 0.78rem; background: var(--navy-900); color: #FFFFFF; padding: 4px 12px; border-radius: 9999px;">
-                  365 Days Uninterrupted
-                </span>
-              </div>
-
             </div>
+            <div class="pih-right">
+              <div class="pih-doc-title">Flagship Facility &amp; Operations</div>
+              <div class="pih-doc-sub">State-of-the-Art Processing Center &bull; Ratanada</div>
+            </div>
+          </header>
+
+          <div class="page-body">
+            <div class="services-guarantee-ribbon">
+              <div class="sgr-text">
+                <strong>VISIT OUR RATANADA CENTRAL FACILITY &bull; OPEN 24 HOURS / 7 DAYS A WEEK</strong>
+                <span>Walk-In Customer Drop-Off &bull; Express 6-Hour Turnaround &bull; Transparent Operations</span>
+              </div>
+              <div class="sgr-badges">
+                <i class="fas fa-industry"></i>
+                <span>High-Capacity Hub</span>
+              </div>
+            </div>
+
+            <!-- Dual Photo Showcase: Storefront & Industrial Laundry Line -->
+            <div class="facility-hero-grid">
+              <div class="fhg-card">
+                <img src="public/images/catalogue_assets/facility_store_banner.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/facility_store_banner.jpg'" alt="Gen-Z Laundry Flagship Processing Facility Ratanada">
+                <div class="fhg-overlay">
+                  <div class="fhg-tag"><i class="fas fa-store-alt"></i> FLAGSHIP RETAIL ATELIER &bull; RATANADA</div>
+                  <div class="fhg-title">Customer Experience Center, Spotting Station &amp; Rapid Drop-Off Counter</div>
+                </div>
+              </div>
+              <div class="fhg-card">
+                <img src="public/images/catalogue_assets/laundry_machines_row.jpg" onerror="this.onerror=null;this.src='images/catalogue_assets/laundry_machines_row.jpg'" alt="Commercial Laundry Machine Line">
+                <div class="fhg-overlay">
+                  <div class="fhg-tag"><i class="fas fa-cogs"></i> HIGH-TECH WASH TUNNEL</div>
+                  <div class="fhg-title">Commercial Washer-Extractors with German Bio-Enzyme Calibration</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 Operational Pillars -->
+            <div class="facility-pillars-grid">
+              <div class="f-pillar-card">
+                <div class="fpc-icon"><i class="fas fa-water"></i></div>
+                <div class="fpc-title">Pure RO Soft Water Plant</div>
+                <div class="fpc-desc">Dedicated industrial RO softening system filtering water to &lt;10 TDS, eliminating hard-water mineral scaling, color yellowing, and fabric stiffness.</div>
+                <div class="fpc-badge">Mineral-Free Wash</div>
+              </div>
+
+              <div class="f-pillar-card">
+                <div class="fpc-icon"><i class="fas fa-flask"></i></div>
+                <div class="fpc-title">German Bio-Enzymes</div>
+                <div class="fpc-desc">Imported non-toxic hydrocarbon formulations engineered to target oil, wine, and food stains without weakening delicate natural fibers. Zero shrinkage.</div>
+                <div class="fpc-badge">Zero Color Bleed</div>
+              </div>
+
+              <div class="f-pillar-card">
+                <div class="fpc-icon"><i class="fas fa-wind"></i></div>
+                <div class="fpc-title">Italian Vacuum Steam Press</div>
+                <div class="fpc-desc">High-pressure utility steam tables and form finishers inject dry steam through garments, sanitizing fabrics while setting sharp creases without surface shine.</div>
+                <div class="fpc-badge">Crease-Memory Finish</div>
+              </div>
+
+              <div class="f-pillar-card">
+                <div class="fpc-icon"><i class="fas fa-microscope"></i></div>
+                <div class="fpc-title">Micro-Fabric Diagnostics</div>
+                <div class="fpc-desc">Every piece undergoes 3-stage QA: pre-inspection barcode tagging, targeted cold-spotting by fabric type, and final light-table inspection before sealing.</div>
+                <div class="fpc-badge">100% Quality Checked</div>
+              </div>
+            </div>
+
+            <!-- Store Experience & Logistics Strip -->
+            <div class="facility-store-strip">
+              <div class="fss-col">
+                <div class="fss-title"><i class="fas fa-store"></i> Walk-In Retail Atelier</div>
+                <div class="fss-val">Air-conditioned customer lounge, transparent packaging inspection, and on-the-spot spot diagnostics with master fabric artisans.</div>
+              </div>
+              <div class="fss-divider"></div>
+              <div class="fss-col">
+                <div class="fss-title"><i class="fas fa-truck"></i> City-Wide Express Fleet</div>
+                <div class="fss-val">Dedicated fleet of weather-proof vans and riders servicing all Jodhpur zones—from Shastri Nagar to Pal Road—with scheduled doorstep pickup.</div>
+              </div>
+              <div class="fss-divider"></div>
+              <div class="fss-col">
+                <div class="fss-title"><i class="fas fa-history"></i> Round-the-Clock Logistics</div>
+                <div class="fss-val">Operating 24 hours a day, 7 days a week. Night-shift processing ensures early morning deliveries for urgent corporate and travel wardrobes.</div>
+              </div>
+            </div>
+
+            <!-- Direct Contact & Operating Hours Box -->
+            <div class="facility-contact-box">
+              <div class="fcb-left">
+                <div class="fcb-badge"><i class="fas fa-map-marker-alt"></i> CENTRAL OPERATIONAL ADDRESS</div>
+                <div class="fcb-address">Ratanada Main Road, Opposite Air Force Station, Jodhpur, Rajasthan &ndash; 342011</div>
+                <div class="fcb-hours"><i class="fas fa-clock"></i> Open 24 Hours / 7 Days a Week &bull; 365 Days Uninterrupted Service</div>
+              </div>
+              <div class="fcb-right">
+                <div class="fcb-phone-label"><i class="fab fa-whatsapp"></i> DIRECT BOOKING DESK</div>
+                <div class="fcb-phone">+91&nbsp;82338&nbsp;53727 / +91&nbsp;88549&nbsp;35727</div>
+                <div class="fcb-web"><i class="fas fa-globe"></i> www.genzlaundry.com &bull; care@genzlaundry.com</div>
+              </div>
+            </div>
+
           </div>
 
           <footer class="page-inner-footer">
             <div class="pif-contact">
-              <span>GEN-Z Laundry &bull; Jodhpur</span>
-              <span>All Rights Reserved &copy; 2026</span>
+              <span>Facility Desk: <strong>+91&nbsp;82338&nbsp;53727</strong></span>
+              <span>Location: <strong>Opp. Air Force Station, Ratanada</strong></span>
             </div>
-            <div class="pif-badge">Page 10 &bull; Back Cover</div>
+            <div class="pif-badge">Page 11 &bull; Flagship Facility &amp; Operations</div>
           </footer>
+        </section>
+
+        <!-- ==================================================================
+             PAGE 12: THE OFFICIAL LUXURY CLOSING PAGE (12TH NUMBER CLOSING PAGE)
+             ================================================================== -->
+        <section class="catalogue-page page-back-cover" id="page-12" aria-label="Page 12: Official Luxury Closing Page">
+          <div class="closing-page-inner">
+            <!-- Brand Crest & Header -->
+            <div class="back-cover-header">
+              <div class="bch-logo">
+                <img src="public/logo.png" onerror="this.onerror=null;this.src='logo.png'" alt="Gen-Z Logo">
+              </div>
+              <div class="bch-title">GEN-Z LAUNDRY</div>
+              <div class="bch-tagline">Dry Cleaners &bull; Fabric Artisans &bull; Jodhpur</div>
+              <div class="closing-motto">You Live, We Laundry</div>
+            </div>
+
+            <!-- Closing Brand Manifesto -->
+            <div class="closing-manifesto-box">
+              <div class="cmb-quote">&ldquo;Delivering Fabric Perfection to the Royal City of Jodhpur&rdquo;</div>
+              <p class="cmb-text">
+                Thank you for reviewing the 2026 Executive Atelier Catalogue of Gen-Z Laundry. We combine imported German bio-enzyme science, pure softened RO water, and Italian steam finishing with master fabric craftsmanship. From everyday executive cottons to heirloom wedding lehengas and 5-star hotel linens, we treat every single fiber with uncompromising purity, freshness, and respect.
+              </p>
+            </div>
+
+            <!-- 4 Gold Hallmark Medallions -->
+            <div class="closing-hallmarks-row">
+              <div class="chr-item">
+                <i class="fas fa-tint"></i>
+                <strong>100% SOFTENED RO WATER</strong>
+                <span>Zero mineral scaling</span>
+              </div>
+              <div class="chr-item">
+                <i class="fas fa-shield-virus"></i>
+                <strong>GERMAN BIO-ENZYMES</strong>
+                <span>Zero shrinkage guarantee</span>
+              </div>
+              <div class="chr-item">
+                <i class="fas fa-wind"></i>
+                <strong>ITALIAN STEAM FINISH</strong>
+                <span>Crease-memory retention</span>
+              </div>
+              <div class="chr-item">
+                <i class="fas fa-bolt"></i>
+                <strong>6-HOUR EXPRESS RUSH</strong>
+                <span>Open 24/7 across Jodhpur</span>
+              </div>
+            </div>
+
+            <!-- Central VIP Concierge & QR Code Box -->
+            <div class="back-cover-grid">
+              <div class="bcg-info">
+                <div class="bci-item">
+                  <div class="bci-icon"><i class="fas fa-map-marker-alt"></i></div>
+                  <div>
+                    <div class="bci-title">Flagship Processing Facility &amp; Retail Store</div>
+                    <div class="bci-val">Ratanada Main Road, Opposite Air Force Station, Jodhpur, Rajasthan &ndash; 342011</div>
+                  </div>
+                </div>
+
+                <div class="bci-item">
+                  <div class="bci-icon"><i class="fab fa-whatsapp"></i></div>
+                  <div>
+                    <div class="bci-title">VIP Concierge &amp; Direct WhatsApp Pickup</div>
+                    <div class="bci-val">+91&nbsp;82338&nbsp;53727 / +91&nbsp;88549&nbsp;35727</div>
+                  </div>
+                </div>
+
+                <div class="bci-item">
+                  <div class="bci-icon"><i class="fas fa-clock"></i></div>
+                  <div>
+                    <div class="bci-title">Operating Hours &bull; Always At Your Service</div>
+                    <div class="bci-val">Open 24 Hours / 7 Days a Week &bull; 365 Days Uninterrupted</div>
+                  </div>
+                </div>
+
+                <div class="bci-item">
+                  <div class="bci-icon"><i class="fas fa-globe"></i></div>
+                  <div>
+                    <div class="bci-title">Online Booking Portal &bull; Corporate Desk</div>
+                    <div class="bci-val">www.genzlaundry.com &bull; care@genzlaundry.com</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bcg-qr-box">
+                <div class="bcg-qr-img">
+                  <img src="public/gallery/Location_qr.png" onerror="this.onerror=null;this.src='images/catalogue_assets/official_location_qr.jpg'" alt="Scan QR for Google Maps & WhatsApp">
+                </div>
+                <div class="bcg-qr-label"><i class="fas fa-camera"></i> Scan with Phone Camera</div>
+                <div style="font-size: 0.60rem; color: var(--navy-900); margin-top: 2px; font-weight: 600;">Instant WhatsApp Booking &bull; GPS Map</div>
+              </div>
+            </div>
+
+            <!-- Editorial Print Hallmark Strip (Zero Clickable Web Elements) -->
+            <div style="padding: 0 4px;">
+              <div class="back-cover-editorial-hallmark">
+                <div class="bceh-col">
+                  <i class="fas fa-truck-loading"></i>
+                  <div>
+                    <strong>FREE DOORSTEP PICKUP &amp; DELIVERY</strong>
+                    <span>Scheduled daily collection &amp; drop-off across all Jodhpur locations</span>
+                  </div>
+                </div>
+                <div class="bceh-divider"></div>
+                <div class="bceh-col">
+                  <i class="fas fa-bolt"></i>
+                  <div>
+                    <strong>6-HOUR EXPRESS SERVICE AVAILABLE</strong>
+                    <span>Rapid same-day turnaround for executive &amp; occasion garments</span>
+                  </div>
+                </div>
+                <div class="bceh-divider"></div>
+                <div class="bceh-col">
+                  <i class="fas fa-shield-alt"></i>
+                  <div>
+                    <strong>100% ARTISANAL FABRIC CARE</strong>
+                    <span>Pure RO softened water &bull; Zero shrinkage bio-chemistry</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Satisfaction Guarantee & Legal Hallmark Footer -->
+            <div class="back-cover-guarantee-strip">
+              <div style="font-size: 0.74rem; font-weight: 700; color: #ffffff;">
+                &starf;&starf;&starf;&starf;&starf; <strong>100% Satisfaction Guarantee:</strong> If you are not delighted with your garments, we re-wash or re-press them at zero charge.
+              </div>
+              <div style="font-size: 0.63rem; color: var(--gold-light); margin-top: 4px; opacity: 0.9;">
+                Government &amp; Corporate Registered Enterprise &bull; GSTIN &amp; MSME Certified &bull; Official 2026 12-Panel Luxury Edition
+              </div>
+              <div style="font-size: 0.56rem; color: var(--slate-400); margin-top: 2px; letter-spacing: 0.05em;">
+                &copy; 2026 GEN-Z LAUNDRY &amp; DRY CLEANERS &bull; ALL RIGHTS RESERVED &bull; JODHPUR, RAJASTHAN, INDIA
+              </div>
+            </div>
+          </div>
         </section>
 
       </div>
@@ -2175,36 +3609,36 @@
   </main>
 
   <!-- ==========================================================================
-       FLOATING WHATSAPP PILL
+       BOTTOM DOCK THUMBNAIL STRIP (10 PILLS)
        ========================================================================== -->
-  <a href="https://wa.me/918233853727?text=Hi%20GEN-Z%20Laundry,%20I%20am%20viewing%20your%20Official%202026%20Luxury%20Catalogue%20and%20would%20like%20to%20book%20a%20pickup." target="_blank" class="floating-wa-pill" id="floatingWaPill">
-    <i class="fab fa-whatsapp" style="font-size: 1.1rem;"></i>
-    <span id="fwaText">Book Pickup via WhatsApp</span>
-  </a>
-
-  <!-- ==========================================================================
-       BOTTOM DOCK PAGE QUICK-NAV
-       ========================================================================== -->
-  <nav class="catalogue-dock" aria-label="Quick Page Selector">
-    <ul class="dock-list">
-      <li class="dock-pill active" onclick="jumpToPage(1)">1. Cover</li>
-      <li class="dock-pill" onclick="jumpToPage(2)">2. Menu</li>
-      <li class="dock-pill" onclick="jumpToPage(3)">3. Laundry</li>
-      <li class="dock-pill" onclick="jumpToPage(4)">4. Dry Clean</li>
-      <li class="dock-pill" onclick="jumpToPage(5)">5. Sofa</li>
-      <li class="dock-pill" onclick="jumpToPage(6)">6. Carpet</li>
-      <li class="dock-pill" onclick="jumpToPage(7)">7. Shoes</li>
-      <li class="dock-pill" onclick="jumpToPage(8)">8. Hotels</li>
-      <li class="dock-pill" onclick="jumpToPage(9)">9. Tenders</li>
-      <li class="dock-pill" onclick="jumpToPage(10)">10. Contact</li>
-    </ul>
+  <nav class="dock-strip" id="catalogueDockStrip" aria-label="Page navigation dock">
+    <button class="dock-pill active" onclick="jumpToPage(1)">1. Cover</button>
+    <button class="dock-pill" onclick="jumpToPage(2)">2. Overview</button>
+    <button class="dock-pill" onclick="jumpToPage(3)">3. Tariff</button>
+    <button class="dock-pill" onclick="jumpToPage(4)">4. Laundry</button>
+    <button class="dock-pill" onclick="jumpToPage(5)">5. Dry Clean</button>
+    <button class="dock-pill" onclick="jumpToPage(6)">6. Sofa</button>
+    <button class="dock-pill" onclick="jumpToPage(7)">7. Carpet</button>
+    <button class="dock-pill" onclick="jumpToPage(8)">8. Shoes</button>
+    <button class="dock-pill" onclick="jumpToPage(9)">9. Hotels</button>
+    <button class="dock-pill" onclick="jumpToPage(10)">10. Projects</button>
+    <button class="dock-pill" onclick="jumpToPage(11)">11. Facility</button>
+    <button class="dock-pill" onclick="jumpToPage(12)">12. Closing</button>
   </nav>
 
   <!-- ==========================================================================
-       FLIPBOOK & AUTO-SCALE ENGINE SCRIPT
+       FLOATING WHATSAPP PILL
+       ========================================================================== -->
+  <a href="https://api.whatsapp.com/send?phone=918233853727&text=Hi%20Gen-Z%20Laundry,%20I%20am%20viewing%20your%202026%20Digital%20Catalogue%20(Page%201)%20and%20would%20like%20a%20quote." target="_blank" class="floating-wa-pill" id="floatingWaPill">
+    <i class="fab fa-whatsapp" style="font-size: 1.15rem;"></i>
+    <span id="fwaText">Book Pickup (Page 1: Luxury Front Cover)</span>
+  </a>
+
+  <!-- ==========================================================================
+       CLIENT SCRIPT ENGINE (VIEWER MODES, SCALING, KEYBOARD & NAVIGATION)
        ========================================================================== -->
   <script>
-    const totalPages = 10;
+    const totalPages = 12;
     let currentPage = 1;
     let isSlideMode = true;
 
@@ -2224,15 +3658,17 @@
 
     const pageTopics = [
       "Luxury Front Cover",
-      "Executive Service & Item Directory",
-      "Laundry & Fabric Care",
-      "Haute Couture Dry Cleaning",
-      "Sofa & Upholstery Extraction",
+      "Executive Service Directory",
+      "Official Garment Tariff Menu",
+      "Laundry & Fabric Care (Daily Wear)",
+      "Haute Couture Dry Cleaning (Bespoke Suits)",
+      "Sofa & Upholstery Deep Cleaning",
       "Carpet & Fine Rug Spa",
       "Footwear Spa & Sneaker Care",
       "Hotel & Commercial Solutions",
       "Projects & Tender Credentials",
-      "Concierge Contact & Location"
+      "Flagship Facility & Operations",
+      "Official Closing & Concierge"
     ];
 
     // Compute exact auto-scale so the 794x1123 page fits 100% on the screen with zero clipping or scrollbars
@@ -2298,89 +3734,126 @@
       if (currentPage > 1) jumpToPage(currentPage - 1);
     }
 
-    function toggleViewMode() {
-      isSlideMode = !isSlideMode;
-      if (isSlideMode) {
-        body.classList.remove('mode-scroll');
-        body.classList.add('mode-slide');
-        viewModeText.textContent = 'Slide Mode';
-        jumpToPage(currentPage);
-        autoScalePage();
-      } else {
-        body.classList.remove('mode-slide');
-        body.classList.add('mode-scroll');
-        viewModeText.textContent = 'Scroll Mode';
-        stageWrapper.style.width = '794px';
-        stageWrapper.style.height = 'auto';
-        container.style.transform = 'none';
-        jumpToPage(currentPage);
-      }
-    }
-
-    function toggleFullscreen() {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => console.log(err));
-      } else {
-        document.exitFullscreen().catch(err => console.log(err));
-      }
-    }
-
     function updateUI() {
-      if (pageIndicator) pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+      // Update page indicator badge
+      if (pageIndicator) {
+        pageIndicator.innerHTML = `<i class="fas fa-book-open"></i> Page ${currentPage} of ${totalPages}`;
+      }
+
+      // Update Prev / Next button states
       if (prevBtn) prevBtn.disabled = (currentPage === 1);
       if (nextBtn) nextBtn.disabled = (currentPage === totalPages);
 
+      // Update bottom dock pills
       dockPills.forEach((pill, idx) => {
         if (idx + 1 === currentPage) {
           pill.classList.add('active');
-          pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         } else {
           pill.classList.remove('active');
         }
       });
 
-      // Update dynamic WhatsApp pre-fill message with current page context
-      const topic = pageTopics[currentPage - 1] || 'Services';
-      const msg = encodeURIComponent(`Hi GEN-Z Laundry, I am viewing Page ${currentPage} (${topic}) of your 2026 Luxury Catalogue and would like to inquire/book.`);
-      floatingWaPill.href = `https://wa.me/918233853727?text=${msg}`;
-      fwaText.textContent = `Book Pickup (${topic.split('&')[0].trim()})`;
+      // Update WhatsApp floating pill
+      const topic = pageTopics[currentPage - 1] || "Garment Care";
+      if (fwaText) {
+        fwaText.innerText = `Book Pickup (${topic})`;
+      }
+      if (floatingWaPill) {
+        const msg = encodeURIComponent(`Hi Gen-Z Laundry, I am viewing your 2026 Digital Catalogue (Page ${currentPage}: ${topic}) and would like a quote.`);
+        floatingWaPill.href = `https://api.whatsapp.com/send?phone=918233853727&text=${msg}`;
+      }
     }
 
-    // Keyboard Arrow Navigation & Hotkeys
+    function toggleViewMode() {
+      isSlideMode = !isSlideMode;
+      if (isSlideMode) {
+        body.classList.remove('continuous-mode');
+        viewModeText.innerText = 'Slide View';
+        jumpToPage(currentPage);
+        autoScalePage();
+      } else {
+        body.classList.add('continuous-mode');
+        viewModeText.innerText = 'Continuous Scroll';
+        pages.forEach(p => p.classList.add('active-page'));
+        autoScalePage();
+        const target = document.getElementById(`page-${currentPage}`);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function resetZoom() {
+      autoScalePage();
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.warn(`Fullscreen error: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function saveAsPdf() {
+      window.print();
+    }
+
+    // Keyboard navigation (Left, Right, Home, End, Escape)
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
         nextPage();
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
         prevPage();
-      } else if (e.key === 'm' || e.key === 'M') {
-        toggleViewMode();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        jumpToPage(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        jumpToPage(totalPages);
+      } else if (e.key === 'p' && (e.ctrlKey || e.metaKey)) {
+        // Let natural print work
       }
     });
 
-    // Touch Swipe Navigation for Tablets & Mobile
+    // Mobile touch gestures (Swipe Left / Swipe Right)
     let touchStartX = 0;
     let touchEndX = 0;
+
     viewport.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
+
     viewport.addEventListener('touchend', (e) => {
       touchEndX = e.changedTouches[0].screenX;
       handleSwipe();
     }, { passive: true });
 
     function handleSwipe() {
-      if (touchEndX < touchStartX - 50) nextPage();
-      if (touchEndX > touchStartX + 50) prevPage();
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 50) {
+        if (diff < 0) {
+          nextPage(); // Swiped left -> Next page
+        } else {
+          prevPage(); // Swiped right -> Previous page
+        }
+      }
     }
 
-    // Initialize Auto-Scale and Reader State on Load
-    window.addEventListener('DOMContentLoaded', () => {
+    // Initialize auto-scale and UI on DOM load
+    document.addEventListener('DOMContentLoaded', () => {
       autoScalePage();
-      jumpToPage(1);
+      updateUI();
     });
 
-    // Fallback ensure auto-scale runs after full asset load
-    window.addEventListener('load', autoScalePage);
+    // Also run on window load to ensure images and fonts are loaded
+    window.addEventListener('load', () => {
+      autoScalePage();
+    });
   </script>
 </body>
 </html>
