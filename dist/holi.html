@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Holi - GenZ Laundry & Drycleaners</title>
+  <style>
+    /* CSS Custom Properties - Holi Color Palette */
+    :root {
+      --holi-red: #FF6B6B;
+      --holi-yellow: #FFD93D;
+      --holi-green: #6BCB77;
+      --holi-blue: #4D96FF;
+      --holi-pink: #FF6AC2;
+    }
+
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Page container with full viewport height and gradient background */
+    .holi-container {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, 
+        var(--holi-pink) 0%, 
+        var(--holi-red) 20%, 
+        var(--holi-yellow) 40%, 
+        var(--holi-green) 60%, 
+        var(--holi-blue) 80%, 
+        var(--holi-pink) 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Background layer for particles */
+    .holi-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Content layer - centered */
+    .holi-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Keyframes for page load fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Greeting text styling */
+    .greeting-text {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: bold;
+      color: #FFFFFF;
+      /* Enhanced text shadow for better contrast and depth */
+      text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.6),
+        4px 4px 8px rgba(0, 0, 0, 0.4),
+        -1px -1px 2px rgba(0, 0, 0, 0.3);
+      margin: 0;
+      text-align: center;
+      /* Ensure text remains focal point */
+      position: relative;
+      /* Prevent text from causing horizontal overflow */
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      /* Page load animation */
+      animation: fadeIn 0.8s ease-out forwards;
+      animation-fill-mode: backwards;
+      opacity: 0;
+    }
+
+    /* Brand text styling */
+    .brand-text {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      margin: 1rem 0 0 0;
+      text-align: center;
+      position: relative;
+      /* Prevent text from causing horizontal overflow */
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .brand-text span {
+      display: inline-block;
+      /* Strong text shadow for multicolor text to ensure readability */
+      text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.7),
+        3px 3px 6px rgba(0, 0, 0, 0.5),
+        -1px -1px 2px rgba(0, 0, 0, 0.4);
+      /* Staggered fade-in animation for each character */
+      animation: fadeIn 0.6s ease-out forwards;
+      animation-fill-mode: backwards;
+      opacity: 0;
+    }
+
+    /* Staggered animation delays for brand text characters */
+    .brand-text span:nth-child(1) { animation-delay: 0.3s; }
+    .brand-text span:nth-child(2) { animation-delay: 0.35s; }
+    .brand-text span:nth-child(3) { animation-delay: 0.4s; }
+    .brand-text span:nth-child(4) { animation-delay: 0.45s; }
+    .brand-text span:nth-child(5) { animation-delay: 0.5s; }
+    .brand-text span:nth-child(6) { animation-delay: 0.55s; }
+    .brand-text span:nth-child(7) { animation-delay: 0.6s; }
+    .brand-text span:nth-child(8) { animation-delay: 0.65s; }
+    .brand-text span:nth-child(9) { animation-delay: 0.7s; }
+    .brand-text span:nth-child(10) { animation-delay: 0.75s; }
+    .brand-text span:nth-child(11) { animation-delay: 0.8s; }
+    .brand-text span:nth-child(12) { animation-delay: 0.85s; }
+    .brand-text span:nth-child(13) { animation-delay: 0.9s; }
+    .brand-text span:nth-child(14) { animation-delay: 0.95s; }
+    .brand-text span:nth-child(15) { animation-delay: 1s; }
+    .brand-text span:nth-child(16) { animation-delay: 1.05s; }
+    .brand-text span:nth-child(17) { animation-delay: 1.1s; }
+    .brand-text span:nth-child(18) { animation-delay: 1.15s; }
+    .brand-text span:nth-child(19) { animation-delay: 1.2s; }
+    .brand-text span:nth-child(20) { animation-delay: 1.25s; }
+    .brand-text span:nth-child(21) { animation-delay: 1.3s; }
+    .brand-text span:nth-child(22) { animation-delay: 1.35s; }
+    .brand-text span:nth-child(23) { animation-delay: 1.4s; }
+    .brand-text span:nth-child(24) { animation-delay: 1.45s; }
+    .brand-text span:nth-child(25) { animation-delay: 1.5s; }
+    .brand-text span:nth-child(26) { animation-delay: 1.55s; }
+    .brand-text span:nth-child(27) { animation-delay: 1.6s; }
+
+    /* Particle styling and animation */
+    .powder-particle {
+      position: absolute;
+      width: var(--size, 20px);
+      height: var(--size, 20px);
+      border-radius: 50%;
+      background-color: var(--color, #FF6B6B);
+      pointer-events: none;
+      z-index: 5;
+      left: var(--x, 50%);
+      top: var(--y, 50%);
+      opacity: 0;
+      will-change: transform, opacity;
+      animation: particleFloat var(--duration, 2.5s) ease-out forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    /* Keyframes for particle float animation with upward movement, horizontal drift, and fade effects */
+    @keyframes particleFloat {
+      0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+        transform: translate(var(--drift-x, 20px), -100px) scale(1);
+      }
+      70% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translate(var(--drift-x, 20px), -200px) scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    /* Fallback for browsers without animation support */
+    .no-animations .powder-particle {
+      display: none;
+    }
+
+    .no-animations .holi-container {
+      animation: none;
+      background-position: 50% 50%;
+    }
+
+    .no-animations .greeting-text,
+    .no-animations .brand-text span {
+      animation: none;
+      opacity: 1;
+    }
+
+    /* Respect user preference for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .powder-particle {
+        animation: none;
+        display: none;
+      }
+      
+      .holi-container {
+        animation: none;
+        background-position: 50% 50%;
+      }
+      
+      /* Disable page load animations for reduced motion */
+      .greeting-text,
+      .brand-text span {
+        animation: none;
+        opacity: 1;
+      }
+    }
+
+    /* Mobile-specific optimizations */
+    @media (max-width: 767px) {
+      .holi-content {
+        padding: 1.5rem;
+      }
+      
+      /* Ensure greeting text is at least 2rem on mobile */
+      .greeting-text {
+        font-size: clamp(2rem, 10vw, 4rem);
+        line-height: 1.2;
+      }
+      
+      /* Adjust brand text for mobile */
+      .brand-text {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+        letter-spacing: 0.05em;
+      }
+    }
+
+    /* Extra small mobile devices */
+    @media (max-width: 374px) {
+      .holi-content {
+        padding: 1rem;
+      }
+      
+      .greeting-text {
+        font-size: clamp(2rem, 12vw, 3rem);
+      }
+      
+      .brand-text {
+        font-size: clamp(1rem, 6vw, 1.5rem);
+      }
+    }
+
+    /* Large desktop optimization */
+    @media (min-width: 1921px) {
+      .greeting-text {
+        font-size: 6rem;
+      }
+      
+      .brand-text {
+        font-size: 3rem;
+      }
+    }
+
+    /* CTA Button Styling */
+    .holi-cta {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: bold;
+      text-decoration: none;
+      color: #FFFFFF;
+      background: linear-gradient(135deg, var(--holi-pink), var(--holi-red));
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 15;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .holi-cta:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .holi-cta:focus {
+      outline: 3px solid #FFFFFF;
+      outline-offset: 4px;
+    }
+
+    .holi-cta:active {
+      transform: scale(1.05);
+    }
+
+    /* Respect reduced motion for CTA animations */
+    @media (prefers-reduced-motion: reduce) {
+      .holi-cta {
+        transition: none;
+      }
+      
+      .holi-cta:hover {
+        transform: none;
+      }
+    }
+
+    /* Mobile CTA adjustments */
+    @media (max-width: 767px) {
+      .holi-cta {
+        margin-top: 1.5rem;
+        padding: 0.875rem 2rem;
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+      }
+    }
+  </style>
+  <!-- Noscript fallback for JavaScript-disabled browsers -->
+  <noscript>
+    <style>
+      /* Ensure greeting and brand text are fully visible without JavaScript */
+      .greeting-text,
+      .brand-text {
+        opacity: 1 !important;
+        animation: none !important;
+      }
+      
+      /* Hide the extra scrollable content since particles won't work */
+      body > div[style*="height: 200vh"] {
+        display: none;
+      }
+    </style>
+  </noscript>
+</head>
+<body>
+  <div class="holi-container">
+    <div class="holi-background"></div>
+    <div class="holi-content">
+      <h1 class="greeting-text">HAPPY HOLI JODHPUR WALO</h1>
+      <h2 class="brand-text">
+        <span style="color: #FF6B6B;">G</span><span style="color: #FFD93D;">e</span><span style="color: #6BCB77;">n</span><span style="color: #4D96FF;">Z</span><span style="color: #FF6AC2;"> </span><span style="color: #FF6B6B;">L</span><span style="color: #FFD93D;">a</span><span style="color: #6BCB77;">u</span><span style="color: #4D96FF;">n</span><span style="color: #FF6AC2;">d</span><span style="color: #FF6B6B;">r</span><span style="color: #FFD93D;">y</span><span style="color: #6BCB77;"> </span><span style="color: #4D96FF;">&</span><span style="color: #FF6AC2;"> </span><span style="color: #FF6B6B;">D</span><span style="color: #FFD93D;">r</span><span style="color: #6BCB77;">y</span><span style="color: #4D96FF;">c</span><span style="color: #FF6AC2;">l</span><span style="color: #FF6B6B;">e</span><span style="color: #FFD93D;">a</span><span style="color: #6BCB77;">n</span><span style="color: #4D96FF;">e</span><span style="color: #FF6AC2;">r</span><span style="color: #FF6B6B;">s</span>
+      </h2>
+      <a href="index.html" class="holi-cta">Visit Our Website</a>
+    </div>
+  </div>
+  <!-- Extra content to make page scrollable for testing scroll events -->
+  <div style="height: 200vh;"></div>
+
+  <script>
+    // Feature detection for CSS animations
+    (function() {
+      const supportsAnimations = 'animation' in document.body.style || 
+                                 'webkitAnimation' in document.body.style ||
+                                 'MozAnimation' in document.body.style;
+      
+      if (!supportsAnimations) {
+        document.body.classList.add('no-animations');
+      }
+    })();
+
+    // Particle Configuration
+    const ParticleConfig = {
+      colors: ['#FF6B6B', '#FFD93D', '#6BCB77', '#4D96FF', '#FF6AC2'],
+      maxParticles: 25,
+      spawnRate: 3, // particles per scroll event
+      lifetime: 2500, // milliseconds
+      size: { min: 10, max: 30 }, // pixels
+      velocity: { x: [-20, 20], y: [-100, -200] } // pixels
+    };
+
+    // Expose ParticleConfig to window for testing
+    window.ParticleConfig = ParticleConfig;
+
+    // Scroll State Management
+    const ScrollState = {
+      lastScrollY: 0,
+      scrollThreshold: 50, // pixels before triggering
+      isThrottled: false,
+      throttleDelay: 100 // milliseconds
+    };
+
+    // Active Particles Tracking
+    const activeParticles = new Set();
+
+    // Particle Generation Function
+    function generateParticles() {
+      // Skip particle generation if animations are not supported
+      if (document.body.classList.contains('no-animations')) {
+        return;
+      }
+      
+      // Skip particle generation if user prefers reduced motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+      
+      // Detect mobile devices based on viewport width
+      const isMobile = window.innerWidth < 768;
+      const maxParticles = isMobile ? 15 : 25;
+      
+      // Check if we're at the particle limit
+      if (activeParticles.size >= maxParticles) {
+        return; // Skip generation if at limit
+      }
+      
+      // Determine spawn rate (reduce on mobile for performance)
+      const spawnRate = isMobile ? 2 : ParticleConfig.spawnRate;
+      
+      // Generate multiple particles per call
+      for (let i = 0; i < spawnRate; i++) {
+        // Check limit again in case we're close to the max
+        if (activeParticles.size >= maxParticles) {
+          break;
+        }
+        
+        // Create particle element
+        const particle = document.createElement('div');
+        particle.className = 'powder-particle';
+        
+        // Random position (x: 0-100%, y: 0-100%)
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        // Random color from Holi palette
+        const color = ParticleConfig.colors[Math.floor(Math.random() * ParticleConfig.colors.length)];
+        
+        // Random size within range
+        const size = ParticleConfig.size.min + Math.random() * (ParticleConfig.size.max - ParticleConfig.size.min);
+        
+        // Random horizontal drift
+        const driftX = ParticleConfig.velocity.x[0] + Math.random() * (ParticleConfig.velocity.x[1] - ParticleConfig.velocity.x[0]);
+        
+        // Random animation duration (2-3 seconds)
+        const duration = 2 + Math.random();
+        
+        // Random delay for staggered effect
+        const delay = Math.random() * 0.3;
+        
+        // Set CSS custom properties
+        particle.style.setProperty('--x', `${x}%`);
+        particle.style.setProperty('--y', `${y}%`);
+        particle.style.setProperty('--color', color);
+        particle.style.setProperty('--size', `${size}px`);
+        particle.style.setProperty('--drift-x', `${driftX}px`);
+        particle.style.setProperty('--duration', `${duration}s`);
+        particle.style.setProperty('--delay', `${delay}s`);
+        
+        // Add to tracking set
+        activeParticles.add(particle);
+        
+        // Add animationend event listener to remove particle from DOM
+        particle.addEventListener('animationend', () => {
+          particle.remove();
+          activeParticles.delete(particle);
+        });
+        
+        // Append to background layer
+        const background = document.querySelector('.holi-background');
+        background.appendChild(particle);
+      }
+    }
+
+    // Scroll Event Handler with Throttling
+    function handleScroll() {
+      // Check if throttled
+      if (ScrollState.isThrottled) {
+        return;
+      }
+      
+      // Get current scroll position
+      const currentScrollY = window.scrollY;
+      
+      // Check if scroll threshold is exceeded
+      const scrollDelta = Math.abs(currentScrollY - ScrollState.lastScrollY);
+      if (scrollDelta >= ScrollState.scrollThreshold) {
+        // Generate particles
+        generateParticles();
+        
+        // Update last scroll position
+        ScrollState.lastScrollY = currentScrollY;
+      }
+      
+      // Set throttle flag
+      ScrollState.isThrottled = true;
+      
+      // Clear throttle after delay
+      setTimeout(() => {
+        ScrollState.isThrottled = false;
+      }, ScrollState.throttleDelay);
+    }
+
+    // Add scroll event listener with passive flag for performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  </script>
+</body>
+</html>

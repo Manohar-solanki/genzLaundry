@@ -2573,6 +2573,189 @@ section[id] {
     padding: 7px 12px !important;
     font-size: 0.75rem !important;
   }
+  .hero-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+    max-width: min(238px, 64vw);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 14px rgba(11, 58, 143, 0.09);
+    color: #0B3A8F;
+    border-radius: 22px;
+    padding: 8px 14px 8px 10px;
+    white-space: normal;
+  }
+  .hero-chip .chip-icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  .hero-chip .chip-text-wrap {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .hero-chip .chip-title {
+    font-size: 0.79rem;
+    font-weight: 800;
+    color: #0B3A8F;
+    line-height: 1.2;
+    white-space: normal;
+  }
+  .hero-chip .hero-chip-sub {
+    display: block !important;
+    font-size: 0.68rem;
+    color: #475569;
+    font-weight: 600;
+    margin-top: 1px;
+    line-height: 1.2;
+  }
+  .hero-chip-eco {
+    display: none !important; /* Top 3 cards only on mobile to match inspired mockup */
+  }
+  .hero-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  .hero-actions .hero-btn-book,
+  .hero-actions .hero-btn-wa {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 9999px;
+    box-shadow: 0 3px 10px rgba(11, 58, 143, 0.18);
+  }
+  .hero-actions .hero-btn-wa {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 3px 12px rgba(37, 211, 102, 0.35) !important;
+    font-weight: 700 !important;
+  }
+  .hero-actions .hero-btn-wa i {
+    color: #FFFFFF !important;
+    font-size: 1.1rem !important;
+  }
+  .hero-actions .hero-btn-wa:hover,
+  .hero-actions .hero-btn-wa:active {
+    background: linear-gradient(135deg, #28E06D 0%, #0E7569 100%) !important;
+    color: #FFFFFF !important;
+  }
+  .hero-actions .hero-btn-wa:hover i,
+  .hero-actions .hero-btn-wa:active i {
+    color: #FFFFFF !important;
+  }
+  .hero-mobile-extras .hero-social-proof {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    padding: 8px 14px;
+    border-radius: 9999px;
+    box-shadow: 0 6px 20px rgba(11, 58, 143, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    margin-top: 0;
+  }
+  .hero-mobile-call-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #1D4ED8;
+    color: #FFFFFF !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(29, 78, 216, 0.35);
+    flex-shrink: 0;
+  }
+  .hero-mobile-extras .hero-trust-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #0B3A8F;
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 10px 12px;
+    box-shadow: 0 6px 18px rgba(11, 58, 143, 0.22);
+    margin-top: 4px;
+  }
+  .hero-mobile-extras .hero-trust-bar .htb-item {
+    font-size: 0.72rem;
+    gap: 6px;
+  }
+  .hero-mobile-extras .hero-trust-bar .htb-item i {
+    font-size: 0.85rem;
+    color: #60A5FA;
+  }
+  .floating-call {
+    display: none !important;
+  }
+  
+  .hiw-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing-notes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .floating-wa {
+    position: fixed;
+    bottom: 20px;
+    right: 16px;
+    left: auto !important;
+    width: 50px;
+    height: 50px;
+    font-size: 1.55rem;
+    display: none !important; /* Overrides desktop flex !important; appears via JS on scroll */
+  }
+  .floating-wa.scrolled-visible {
+    display: flex !important;
+  }
+  .floating-call {
+    display: none !important;
+  }
+}
 
 /* ══════════════════════════════════════════════════════════
    PIXEL-ACCURATE MOCKUP EXTENSIONS (Matches Reference Design)
@@ -6481,13 +6664,27 @@ html {
 
 
 
-/* Diwali Hero Chips */
-.hero-chips-diwali {
+/* Diwali Hero Action & Feature Rows (Desktop) */
+.hero-diwali-actions-row {
   display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  flex-wrap: nowrap !important;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.hero-diwali-actions-row .hero-chip-pill {
+  white-space: nowrap !important;
+}
+
+.hero-diwali-features-row {
+  display: flex !important;
+  flex-direction: row !important;
   align-items: center;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 14px;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .hero-chip-pill {
@@ -6524,28 +6721,4 @@ html {
 .chip-pill-icon {
   color: #1D4ED8;
   font-size: 1rem;
-}
-
-
-/* Diwali Hero Action & Feature Rows */
-.hero-diwali-actions-row {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center;
-  flex-wrap: nowrap !important;
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.hero-diwali-actions-row .hero-chip-pill {
-  white-space: nowrap !important;
-}
-
-.hero-diwali-features-row {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
 }

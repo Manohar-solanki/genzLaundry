@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Allow all CSS and JS (important for Google rendering)
+Allow: /css/
+Allow: /js/
+Allow: /public/
+
+# Sitemap
+Sitemap: https://genzlaundry.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
