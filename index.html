@@ -206,7 +206,7 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════
        1. STICKY NAVBAR (Luxury Studio Header)
        ═══════════════════════════════════════════ -->
   <header class="site-header" id="siteHeader">
@@ -220,22 +220,35 @@
           </div>
         </a>
 
+        <!-- Navigation Menu (Desktop inline pills / Mobile slide-down drawer) -->
         <ul class="nav-menu" id="navMenu">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#process" class="nav-link">10-Step Care</a></li>
-          <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-          <li><a href="#about" class="nav-link">About Us</a></li>
-          <li><a href="#reviews" class="nav-link">Reviews</a></li>
-          <li><a href="#booking" class="nav-link">Contact</a></li>
+          <li><a href="#home" class="nav-link active" onclick="closeMobileNav()">Home</a></li>
+          <li><a href="#services" class="nav-link" onclick="closeMobileNav()">Services <i class="fas fa-chevron-down nav-chevron-desktop"></i></a></li>
+          <li><a href="#process" class="nav-link" onclick="closeMobileNav()">10-Step Care</a></li>
+          <li><a href="pricing.html" class="nav-link" onclick="closeMobileNav()">Pricing</a></li>
+          <li><a href="#about" class="nav-link" onclick="closeMobileNav()">About Us</a></li>
+          <li><a href="#reviews" class="nav-link" onclick="closeMobileNav()">Reviews</a></li>
+          <li><a href="#booking" class="nav-link" onclick="closeMobileNav()">Contact</a></li>
+          <li class="mobile-menu-cta-wrap mobile-only-block">
+            <a href="#booking" class="mobile-menu-cta-btn" onclick="closeMobileNav()">
+              <i class="fas fa-calendar-check"></i> Book a Pickup &rarr;
+            </a>
+          </li>
         </ul>
 
         <div class="nav-actions">
-          <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20would%20like%20to%20book%20a%20pickup." target="_blank" rel="nofollow noopener noreferrer" class="nav-wa-btn" aria-label="Chat with Gen-Z Laundry on WhatsApp">
+          <!-- Mobile Green WhatsApp Button -->
+          <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20would%20like%20to%20book%20a%20pickup." target="_blank" rel="nofollow noopener noreferrer" class="nav-wa-btn mobile-only-inline" aria-label="Chat with Gen-Z Laundry on WhatsApp">
             <span class="nav-wa-dot"></span>
             <i class="fab fa-whatsapp"></i> <span class="nav-wa-text">Book Pickup</span>
           </a>
-          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation menu" aria-expanded="false">
+          <!-- Desktop Divider and Book Pickup Button -->
+          <span class="nav-header-divider desktop-only">|</span>
+          <a href="#booking" class="nav-book-btn desktop-only" aria-label="Book a Pickup">
+            <i class="fas fa-calendar-check"></i> <span>Book Pickup &rarr;</span>
+          </a>
+          <!-- Mobile Hamburger Toggle Button -->
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation menu" aria-expanded="false" onclick="toggleMobileNav(event)">
             <i class="fas fa-bars"></i>
           </button>
         </div>
@@ -245,13 +258,23 @@
 
   <main id="main-content">
     <!-- ═══════════════════════════════════════════
-         2. HERO SECTION (Full Panoramic Background with Interactive Video Pill)
+         2. HERO SECTION (Full-Bleed Panoramic Background)
          ═══════════════════════════════════════════ -->
-    <section class="hero-section hero-section-diwali" id="home">
+    <section class="hero-section" id="home">
       <div class="hero-backdrop-scrim"></div>
+
+      <!-- Handwritten Flight Doodle Accent (Top Right in Sky) -->
+      <div class="hero-flight-doodle">
+        <span class="doodle-text">Explore Jodhpur</span>
+        <svg class="flight-trail-svg" width="96" height="28" viewBox="0 0 96 28" fill="none">
+          <path d="M5 20 C 32 4, 62 26, 88 10" stroke="#1D4ED8" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+        </svg>
+        <i class="fas fa-plane doodle-plane"></i>
+      </div>
 
       <div class="container hero-container" style="position:relative; z-index:2;">
         <div class="hero-content-wrap">
+          <!-- Top Location & Live Status Badges -->
           <div class="hero-badges-row">
             <div class="hero-location-tag">
               <i class="fas fa-map-marker-alt text-danger"></i> Jodhpur's #1 Laundry &amp; Dry Cleaners
@@ -261,40 +284,143 @@
             </div>
           </div>
 
+          <!-- Main Hero Title with Yellow Swoop Underline -->
           <h1 class="hero-title">
-            This Diwali,<br>
-            Celebrate More.<br>
-            <span class="highlight-diwali-gold">Worry About<br>Laundry Less.</span>
+            Travel Light,<br>
+            We'll Keep Your<br>
+            <span class="highlight-blue-sweep">Clothes Fresh &amp; Clean!</span>
           </h1>
 
-          <div class="hero-subtitle">
-            <strong>GEN-Z Laundry</strong> takes care of your festive outfits &amp; home linen with professional cleaning and <strong>doorstep pickup</strong> in Jodhpur.
-          </div>
+          <!-- Crisp Professional Subtitle -->
+          <p class="hero-subtitle">
+            Professional Laundry &amp; Dry Cleaning Services<br class="desktop-only">
+            for Travelers, Families &amp; Locals in Jodhpur.
+          </p>
 
-          <!-- Action Buttons Row (Always side-by-side in same line) -->
-          <div class="hero-diwali-actions-row">
-            <a href="#booking" class="hero-chip-pill hero-chip-action" aria-label="Book a Pickup">
-              <span class="chip-pill-icon"><i class="fas fa-calendar-check"></i></span>
-              <span>Book a Pickup &rarr;</span>
-            </a>
-            <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20pickup%20in%20Jodhpur." target="_blank" rel="nofollow noopener noreferrer" class="hero-chip-pill hero-chip-action" aria-label="WhatsApp Us">
-              <span class="chip-pill-icon" style="color:#16A34A;"><i class="fab fa-whatsapp"></i></span>
-              <span>WhatsApp Us</span>
-            </a>
-          </div>
-
-          <!-- Feature Highlights Row -->
-          <div class="hero-diwali-features-row">
-            <div class="hero-chip-pill">
-              <span class="chip-pill-icon"><i class="fas fa-plane"></i></span>
-              <span>6-Hour Express Service</span>
+          <!-- 4 Feature Pills Row -->
+          <div class="hero-feature-pills">
+            <div class="hero-feat-pill">
+              <span class="feat-pill-icon feat-icon-express"><i class="fas fa-bolt"></i></span>
+              <span class="feat-pill-text">6-Hour Express Service</span>
             </div>
-            <div class="hero-chip-pill">
-              <span class="chip-pill-icon"><i class="fas fa-truck-fast"></i></span>
-              <span>Free Pickup &amp; Delivery</span>
+            <div class="hero-feat-pill">
+              <span class="feat-pill-icon feat-icon-delivery"><i class="fas fa-truck-fast"></i></span>
+              <span class="feat-pill-text">Free Pickup &amp; Delivery Across Jodhpur</span>
+            </div>
+            <div class="hero-feat-pill">
+              <span class="feat-pill-icon feat-icon-care"><i class="fas fa-shield-alt"></i></span>
+              <span class="feat-pill-text">Premium Care for Your Clothes</span>
+            </div>
+            <div class="hero-feat-pill">
+              <span class="feat-pill-icon feat-icon-eco"><i class="fas fa-leaf"></i></span>
+              <span class="feat-pill-text">Eco-Friendly Cleaning</span>
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <a href="#booking" class="hero-btn-book" aria-label="Book a Pickup">
+              <i class="fas fa-calendar-check"></i> <span>Book a Pickup &rarr;</span>
+            </a>
+            <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20pickup%20in%20Jodhpur." target="_blank" rel="nofollow noopener noreferrer" class="hero-btn-wa" aria-label="WhatsApp Us">
+              <i class="fab fa-whatsapp"></i> <span>WhatsApp Us</span>
+            </a>
+          </div>
+
+          <!-- Desktop Bottom-Left Trust Bar (Docked on Ledge) -->
+          <div class="hero-desktop-trust-bar">
+            <div class="hdtb-item">
+              <div class="hdtb-google-wrap">
+                <svg class="hdtb-google-icon" width="22" height="22" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                <div class="hdtb-google-text">
+                  <div class="hdtb-stars"><span class="hdtb-score">4.9</span> <span class="hdtb-star-icons">★★★★★</span></div>
+                  <span class="hdtb-sub">Google Reviews</span>
+                </div>
+              </div>
+            </div>
+            <div class="hdtb-divider"></div>
+            <div class="hdtb-item">
+              <i class="fas fa-users hdtb-icon-gold"></i>
+              <div class="hdtb-metric">
+                <span class="hdtb-val">10,000+</span>
+                <span class="hdtb-sub">Happy Clients</span>
+              </div>
+            </div>
+            <div class="hdtb-divider"></div>
+            <div class="hdtb-item">
+              <i class="fas fa-shield-alt hdtb-icon-gold"></i>
+              <div class="hdtb-metric">
+                <span class="hdtb-val">Trusted by</span>
+                <span class="hdtb-sub">Travelers &amp; Locals</span>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Mobile Floating Extras (Social Proof Card + Navy 4-Pillars Bar) -->
+        <div class="hero-mobile-extras">
+          <!-- Mobile Social Proof White Card -->
+          <div class="hero-mobile-social-card">
+            <div class="hmsc-item hmsc-rating">
+              <span class="hmsc-laurel"><i class="fas fa-award"></i></span>
+              <div class="hmsc-text">
+                <div class="hmsc-stars">★★★★★ <strong style="color:#0F172A;">4.9/5</strong></div>
+                <span class="hmsc-sub">Google Reviews</span>
+              </div>
+            </div>
+            <div class="hmsc-divider"></div>
+            <div class="hmsc-item">
+              <i class="fas fa-users hmsc-icon-navy"></i>
+              <div class="hmsc-text">
+                <strong class="hmsc-val">10,000+</strong>
+                <span class="hmsc-sub">Happy Clients</span>
+              </div>
+            </div>
+            <div class="hmsc-divider"></div>
+            <div class="hmsc-item">
+              <i class="fas fa-shield-alt hmsc-icon-navy"></i>
+              <div class="hmsc-text">
+                <strong class="hmsc-val">Trusted by</strong>
+                <span class="hmsc-sub">Travelers &amp; Locals</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Bottom Arched Navy Bar with 4 Value Propositions -->
+          <div class="hero-mobile-navy-bar">
+            <div class="hmnb-item">
+              <i class="fas fa-tshirt"></i>
+              <span>100% Clean Clothes</span>
+            </div>
+            <div class="hmnb-divider"></div>
+            <div class="hmnb-item">
+              <i class="fas fa-bolt"></i>
+              <span>On-Time Delivery</span>
+            </div>
+            <div class="hmnb-divider"></div>
+            <div class="hmnb-item">
+              <i class="fas fa-handshake"></i>
+              <span>Reliable Service</span>
+            </div>
+            <div class="hmnb-divider"></div>
+            <div class="hmnb-item">
+              <i class="fas fa-heart"></i>
+              <span>Customer First</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smooth Organic Wave Transition at Bottom of Hero -->
+      <div class="hero-bottom-wave-wrap">
+        <svg class="hero-bottom-wave-svg" viewBox="0 0 1440 70" preserveAspectRatio="none" fill="#FFFFFF">
+          <path d="M0,32 C380,75 860,-5 1440,42 L1440,70 L0,70 Z"></path>
+        </svg>
       </div>
     </section>
 
