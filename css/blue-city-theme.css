@@ -7720,3 +7720,114 @@ html, body {
     font-size: 0.72rem !important;
   }
 }
+
+/* ══════════════════════════════════════════════════════════
+   HEADER FIT & NO-WRAP FIX
+   ══════════════════════════════════════════════════════════ */
+
+/* Header container widened for comfortable navbar layout */
+.site-header .container {
+  width: 100% !important;
+  max-width: 1320px !important;
+  padding-left: clamp(12px, 2vw, 24px) !important;
+  padding-right: clamp(12px, 2vw, 24px) !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+}
+
+@media (min-width: 992px) {
+
+  .nav-menu {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(10px, 1.4vw, 22px) !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    position: static !important;
+    height: auto !important;
+    box-shadow: none !important;
+    border: none !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .nav-menu li {
+    list-style: none !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-link {
+    font-family: var(--font-heading, 'Outfit', sans-serif) !important;
+    font-size: clamp(0.84rem, 0.95vw, 0.92rem) !important;
+    font-weight: 600 !important;
+    color: #1E293B !important;
+    text-decoration: none !important;
+    padding: 6px clamp(4px, 0.5vw, 8px) !important;
+    transition: color 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    background: transparent !important;
+    border: none !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+  }
+
+  .nav-link:hover {
+    color: #0B3A8F !important;
+  }
+
+  .nav-link.active {
+    background: #0B3A8F !important;
+    color: #FFFFFF !important;
+    padding: 6px clamp(12px, 1.2vw, 18px) !important;
+    border-radius: 9999px !important;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(11, 58, 143, 0.25) !important;
+    text-shadow: none !important;
+    white-space: nowrap !important;
+  }
+
+  .nav-chevron-desktop {
+    font-size: 0.70rem !important;
+    color: #64748B !important;
+    margin-left: 2px !important;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    gap: 10px !important;
+  }
+
+  .nav-header-divider {
+    color: #94A3B8 !important;
+    font-size: 1.15rem !important;
+    font-weight: 300 !important;
+    margin: 0 4px !important;
+    user-select: none !important;
+    display: inline-block !important;
+  }
+
+  .nav-book-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    background: #0B3A8F !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    padding: 8px clamp(14px, 1.3vw, 22px) !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    font-size: clamp(0.82rem, 0.9vw, 0.88rem) !important;
+    box-shadow: 0 3px 12px rgba(11, 58, 143, 0.22) !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+}
