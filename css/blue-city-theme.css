@@ -7831,3 +7831,137 @@ html, body {
   }
 
 }
+
+
+/* ══════════════════════════════════════════════════════════
+   DARK HERO HEADER STYLING (Pricing & Dark Background Pages)
+   ══════════════════════════════════════════════════════════ */
+.pricing-page .site-header,
+.header-dark-hero,
+body:has(.pricing-hero-wrap) .site-header {
+  background: transparent !important;
+}
+
+/* Brand Name in Crisp High-Contrast Pure White */
+.pricing-page .site-header .nav-brand-name,
+.header-dark-hero .nav-brand-name,
+body:has(.pricing-hero-wrap) .site-header .nav-brand-name {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Brand Subtitle in Radiant Sky Blue */
+.pricing-page .site-header .nav-brand-sub,
+.header-dark-hero .nav-brand-sub,
+body:has(.pricing-hero-wrap) .site-header .nav-brand-sub {
+  color: #93C5FD !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Nav Links: Crystal Clear Bright White with Soft Drop Shadow */
+.pricing-page .site-header .nav-link,
+.header-dark-hero .nav-link,
+body:has(.pricing-hero-wrap) .site-header .nav-link {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+}
+
+.pricing-page .site-header .nav-link:hover,
+.header-dark-hero .nav-link:hover,
+body:has(.pricing-hero-wrap) .site-header .nav-link:hover {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-radius: 9999px !important;
+}
+
+/* Active Link ("Pricing") as a Radiant High-Contrast White Pill with Navy Text */
+.pricing-page .site-header .nav-link.active,
+.header-dark-hero .nav-link.active,
+body:has(.pricing-hero-wrap) .site-header .nav-link.active {
+  background: #FFFFFF !important;
+  color: #0B3A8F !important;
+  font-weight: 800 !important;
+  padding: 6px 18px !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+  text-shadow: none !important;
+  white-space: nowrap !important;
+}
+
+/* Nav Chevron in Light Cyan */
+.pricing-page .site-header .nav-chevron-desktop,
+.header-dark-hero .nav-chevron-desktop,
+body:has(.pricing-hero-wrap) .site-header .nav-chevron-desktop {
+  color: #BFDBFE !important;
+}
+
+/* Header Divider */
+.pricing-page .site-header .nav-header-divider,
+.header-dark-hero .nav-header-divider,
+body:has(.pricing-hero-wrap) .site-header .nav-header-divider {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Primary Book Your Laundry Button on Dark Hero */
+.pricing-page .site-header .nav-book-btn,
+.header-dark-hero .nav-book-btn,
+body:has(.pricing-hero-wrap) .site-header .nav-book-btn {
+  background: #2563EB !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+.pricing-page .site-header .nav-book-btn:hover,
+.header-dark-hero .nav-book-btn:hover,
+body:has(.pricing-hero-wrap) .site-header .nav-book-btn:hover {
+  background: #1D4ED8 !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5) !important;
+}
+
+/* Mobile Hamburger in White */
+.pricing-page .site-header .hamburger,
+.header-dark-hero .hamburger,
+body:has(.pricing-hero-wrap) .site-header .hamburger {
+  color: #FFFFFF !important;
+}
+
+.pricing-page .site-header .hamburger i,
+.header-dark-hero .hamburger i,
+body:has(.pricing-hero-wrap) .site-header .hamburger i {
+  color: #FFFFFF !important;
+}
+
+/* Mobile Drawer open: ensure menu has solid clean background */
+@media (max-width: 991px) {
+  .pricing-page .site-header .nav-menu.active,
+  .header-dark-hero .nav-menu.active {
+    background: #0C2B64 !important;
+    border-bottom: 2px solid #2563EB !important;
+  }
+  .pricing-page .site-header .nav-menu.active .nav-link,
+  .header-dark-hero .nav-menu.active .nav-link {
+    color: #FFFFFF !important;
+  }
+}
+
+/* Pricing Hero Top Padding to accommodate the floating header */
+.pricing-hero-wrap {
+  padding-top: 110px !important;
+}
+
+/* Screen reader only utility for SEO & accessibility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

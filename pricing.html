@@ -113,13 +113,13 @@
   <!-- Blue City Theme Styles -->
   <link rel="stylesheet" href="css/blue-city-theme.css?v=3.6">
 </head>
-<body>
+<body class="pricing-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ═══════════════════════════════════════════
        1. STICKY NAVBAR (Luxury Studio Header)
        ═══════════════════════════════════════════ -->
-  <header class="site-header" id="siteHeader">
+  <header class="site-header header-dark-hero" id="siteHeader">
     <div class="container">
       <nav class="navbar" aria-label="Main Navigation">
         <a href="index.html" class="nav-brand" aria-label="Gen-Z Laundry Home">
@@ -141,12 +141,18 @@
         </ul>
 
         <div class="nav-actions">
-          <a href="https://booking.genzlaundry.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm desktop-only" style="background:#1B57C4; color:#fff; font-weight:700; border-radius:9999px; padding:8px 18px; text-decoration:none; margin-right:8px;"><i class="fas fa-calendar-check"></i> Book Your Laundry</a>
-          <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20have%20a%20pricing%20question%20and%20want%20to%20book%20a%20pickup." target="_blank" rel="noopener noreferrer" class="nav-wa-btn" aria-label="Chat with Gen-Z Laundry on WhatsApp">
+          <!-- Desktop Divider and Book Laundry Button -->
+          <span class="nav-header-divider desktop-only">|</span>
+          <a href="https://booking.genzlaundry.com" target="_blank" rel="noopener noreferrer" class="nav-book-btn desktop-only" aria-label="Book Your Laundry">
+            <i class="fas fa-calendar-check"></i> <span>Book Your Laundry &rarr;</span>
+          </a>
+          <!-- Mobile Green WhatsApp Button -->
+          <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20have%20a%20pricing%20question%20and%20want%20to%20book%20a%20pickup." target="_blank" rel="nofollow noopener noreferrer" class="nav-wa-btn mobile-only-inline" aria-label="Chat with Gen-Z Laundry on WhatsApp">
             <span class="nav-wa-dot"></span>
             <i class="fab fa-whatsapp"></i> <span class="nav-wa-text">Book Pickup</span>
           </a>
-          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation menu" aria-expanded="false">
+          <!-- Mobile Hamburger Toggle Button -->
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation menu" aria-expanded="false" onclick="toggleMobileNav(event)">
             <i class="fas fa-bars"></i>
           </button>
         </div>
@@ -167,7 +173,7 @@
           Transparent Garment Care <span class="highlight-blue">Pricing in Jodhpur</span>
         </h1>
         <p class="pricing-hero-sub">
-          No hidden fees, no surge charges. Real market rates with complimentary doorstep pickup across all Jodhpur neighborhoods, hostels &amp; heritage hotels. Garments fully insured up to ₹20,000.
+          No hidden fees, no surge charges. Real market rates with complimentary doorstep pickup across all Jodhpur neighborhoods, hostels &amp; heritage hotels. Garments fully backed by our 100% Fabric Care Guarantee.
         </p>
 
         <div style="margin: 20px 0 24px;">
@@ -188,8 +194,8 @@
           <div class="pricing-hero-trust-item">
             <i class="fas fa-shield-alt" style="color:#10B981;"></i>
             <div>
-              <strong>₹20,000 Insured</strong>
-              <div style="font-size:0.76rem; color:#BFDBFE;">Total protection on every order</div>
+              <strong>100% Care Guaranteed</strong>
+              <div style="font-size:0.76rem; color:#BFDBFE;">Gentle & fabric-safe handling</div>
             </div>
           </div>
           <div class="pricing-hero-trust-item">
@@ -218,7 +224,13 @@
         <div style="text-align:center; max-width:700px; margin:0 auto;">
           <span class="section-tag" style="display:inline-block; margin-bottom:10px;"><i class="fas fa-layer-group"></i> OUR SERVICE TIERS</span>
           <h2 class="section-title" style="font-size:clamp(1.8rem, 3vw, 2.4rem); margin-bottom:10px;">Simple, Transparent Rates for Every Wardrobe</h2>
-          <p style="color:#64748B; font-size:0.96rem;">Choose the exact level of garment care your clothes need — from everyday casuals to couture royal wedding lehengas.</p>
+          <p style="color:#64748B; font-size:0.96rem; margin-bottom:12px;">Choose the exact level of garment care your clothes need — from everyday casuals to couture royal wedding lehengas.</p>
+          
+          <!-- Highlighted Student & Domestic Tariff Notice -->
+          <div style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%); border:1px solid #BFDBFE; color:#1E40AF; padding:8px 20px; border-radius:9999px; font-size:0.86rem; box-shadow:0 2px 8px rgba(37,99,235,0.08); margin-top:4px; margin-bottom:28px; text-align:left;">
+            <i class="fas fa-graduation-cap" style="color:#2563EB; font-size:1.05rem; flex-shrink:0;"></i>
+            <span><strong>Student &amp; Domestic Tariff:</strong> All prices shown reflect our subsidized community rates for Indian students and local residents. Professional hotel concierge &amp; express travel services are warmly accommodated!</span>
+          </div>
         </div>
 
         <div class="pricing-tiers-grid">
@@ -288,7 +300,7 @@
               <li><i class="fas fa-check-circle"></i> <span>Fabric color &amp; texture preservation</span></li>
               <li><i class="fas fa-check-circle"></i> <span>Delicate form reshaping &amp; hand finish</span></li>
               <li><i class="fas fa-check-circle"></i> <span>Moth-proof breathable suit / saree cover</span></li>
-              <li><i class="fas fa-shield-alt" style="color:#10B981;"></i> <span>Fully insured up to ₹20,000 per garment</span></li>
+              <li><i class="fas fa-shield-alt" style="color:#10B981;"></i> <span>Fully backed by our 100% Fabric Care Guarantee. per garment</span></li>
             </ul>
             <a href="https://wa.me/918233853727?text=Hi%20Gen-Z%20Laundry!%20I%20want%20to%20book%20a%20Dry%20Cleaning%20pickup." target="_blank" rel="noopener noreferrer" class="pricing-tier-cta secondary">
               <i class="fab fa-whatsapp"></i> Book Dry Cleaning
@@ -327,7 +339,11 @@
         <div style="text-align:center; max-width:720px; margin:0 auto;">
           <span class="section-tag"><i class="fas fa-th-large"></i> COMPREHENSIVE RATE DIRECTORY</span>
           <h2 class="section-title" style="font-size:clamp(1.8rem, 3vw, 2.3rem); margin-bottom:8px;">Official Garment Rate Cards</h2>
-          <p style="color:#64748B; font-size:0.95rem;">Explore our organized category cards below. All rates in Indian Rupees (₹) with zero hidden fees and free doorstep pickup across Jodhpur.</p>
+          <p style="color:#64748B; font-size:0.95rem; margin-bottom:10px;">Explore our organized category cards below. All rates in Indian Rupees (₹) with zero hidden fees and free doorstep pickup across Jodhpur.</p>
+          <div style="display:inline-flex; align-items:center; gap:8px; background:#F8FAFC; border:1px solid #E2E8F0; color:#475569; padding:6px 16px; border-radius:9999px; font-size:0.82rem; margin-bottom:18px;">
+            <i class="fas fa-graduation-cap" style="color:#2563EB;"></i>
+            <span><strong>Note:</strong> Standard catalog prices reflect everyday student &amp; domestic tariffs • Hotel concierge &amp; express traveler care gladly provided</span>
+          </div>
         </div>
 
         <!-- Category Filter Tabs -->
@@ -1099,7 +1115,7 @@
           <div class="guarantee-item">
             <div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
             <div class="guarantee-text">
-              <strong>₹20,000 Garment Insurance</strong>
+              <strong>100% Fabric Care Guarantee</strong>
               <span>Every garment covered against loss or damage</span>
             </div>
           </div>
