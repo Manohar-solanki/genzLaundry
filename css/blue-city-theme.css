@@ -3192,6 +3192,8 @@ section[id] {
   background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FF 100%);
   position: relative;
   overflow: hidden;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 .process-step-nav-wrap {
@@ -3230,7 +3232,9 @@ section[id] {
   font-family: var(--font-heading);
   font-size: 0.84rem;
   font-weight: 700;
-  cursor: pointer;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  user-select: none;
   transition: all 0.22s ease;
   white-space: nowrap;
 }
@@ -3267,6 +3271,7 @@ section[id] {
   position: relative;
   display: flex;
   align-items: center;
+  z-index: 5;
 }
 
 .carousel-control {
@@ -3283,8 +3288,10 @@ section[id] {
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  cursor: pointer;
-  z-index: 10;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  user-select: none;
+  z-index: 25 !important;
   box-shadow: 0 8px 24px rgba(11, 58, 143, 0.16);
   transition: all 0.2s ease;
 }
@@ -3295,10 +3302,10 @@ section[id] {
   transform: translateY(-50%) scale(1.08);
 }
 .carousel-control.prev {
-  left: -20px;
+  left: -12px;
 }
 .carousel-control.next {
-  right: -20px;
+  right: -12px;
 }
 @media (max-width: 900px) {
   .carousel-control {
@@ -3334,7 +3341,10 @@ section[id] {
   display: flex;
   flex-direction: column;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative;
+  user-select: none;
 }
 .video-step-card:hover {
   transform: translateY(-6px);
@@ -3348,6 +3358,8 @@ section[id] {
   aspect-ratio: 9 / 12;
   background: #0A1F4D;
   overflow: hidden;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 
 .process-card-video {
@@ -3355,6 +3367,7 @@ section[id] {
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none !important;
   transition: transform 0.4s ease;
 }
 .video-step-card:hover .process-card-video {
@@ -3376,6 +3389,7 @@ section[id] {
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   z-index: 2;
+  pointer-events: none;
 }
 
 .video-play-overlay {
@@ -3389,6 +3403,8 @@ section[id] {
   background: rgba(10, 31, 77, 0.25);
   transition: background 0.25s ease;
   z-index: 2;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 .video-step-card:hover .video-play-overlay {
   background: rgba(10, 31, 77, 0.15);
@@ -3406,6 +3422,8 @@ section[id] {
   font-size: 1.25rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   transition: all 0.25s ease;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 .video-step-card:hover .play-circle {
   transform: scale(1.12);
@@ -3422,6 +3440,9 @@ section[id] {
   padding: 4px 10px;
   border-radius: 9999px;
   backdrop-filter: blur(6px);
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  user-select: none;
 }
 
 .card-video-info {
@@ -3430,6 +3451,8 @@ section[id] {
   flex-direction: column;
   flex: 1;
   background: #FFFFFF;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 
 .step-tag-pill {
@@ -3476,7 +3499,8 @@ section[id] {
   font-family: var(--font-heading);
   font-size: 0.84rem;
   font-weight: 700;
-  cursor: pointer;
+  cursor: pointer !important;
+  pointer-events: auto !important;
   transition: all 0.2s ease;
 }
 .video-step-card:hover .btn-card-expand {
@@ -3507,17 +3531,20 @@ section[id] {
   position: fixed;
   inset: 0;
   z-index: 10000;
-  display: flex;
+  display: none !important;
+  visibility: hidden !important;
   align-items: center;
   justify-content: center;
   padding: 20px;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .video-lightbox-modal.active {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .lightbox-backdrop {
@@ -3525,6 +3552,7 @@ section[id] {
   inset: 0;
   background: rgba(10, 31, 77, 0.92);
   backdrop-filter: blur(16px);
+  cursor: pointer !important;
 }
 
 .lightbox-dialog {

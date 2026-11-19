@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function initBlueCityTheme() {
     // ── 1. Announcement Bar Dismissal ──
     const annBar = document.getElementById('announcementBar');
     const annDismiss = document.getElementById('annDismiss');
@@ -45,15 +45,18 @@
     const hamburger = document.getElementById('hamburgerBtn');
     const navMenu = document.getElementById('navMenu');
     const siteHeader = document.getElementById('siteHeader');
-    if (hamburger && navMenu) {
-      function closeMobileNav() {
-        navMenu.classList.remove('active');
-        if (siteHeader) siteHeader.classList.remove('menu-open');
+    function closeMobileNav() {
+      if (navMenu) navMenu.classList.remove('active');
+      if (siteHeader) siteHeader.classList.remove('menu-open');
+      if (hamburger) {
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-        document.body.style.overflow = '';
       }
+      document.body.style.overflow = '';
+    }
+    window.closeMobileNav = closeMobileNav;
 
+    if (hamburger && navMenu) {
       hamburger.addEventListener('click', function (e) {
         e.stopPropagation();
         const isActive = navMenu.classList.toggle('active');
@@ -270,46 +273,73 @@
     }
 
     function openModalForStep(stepNum) {
-      const data = getCardData(stepNum);
+      const step = parseInt(stepNum, 10) || 1;
+      const data = getCardData(step);
       if (!data || !modal || !modalPlayer) return;
-      currentStepIndex = stepNum;
+      currentStepIndex = step;
       
-      modalStepBadge.textContent = `STEP ${String(stepNum).padStart(2, '0')} OF ${String(totalSteps).padStart(2, '0')}`;
-      modalTitle.textContent = data.title;
-      modalDesc.textContent = data.desc;
+      if (modalStepBadge) modalStepBadge.textContent = `STEP ${String(step).padStart(2, '0')} OF ${String(totalSteps).padStart(2, '0')}`;
+      if (modalTitle) modalTitle.textContent = data.title;
+      if (modalDesc) modalDesc.textContent = data.desc;
       
-      modalPlayer.pause();
-      modalPlayer.innerHTML = `
-        <source src="${data.video}" type="video/mp4">
-        <source src="public/${data.video}" type="video/mp4">
-      `;
-      modalPlayer.load();
-      modalPlayer.currentTime = 0;
-      modalPlayer.muted = true;
-      modalPlayer.volume = 0;
+      try {
+        modalPlayer.pause();
+        modalPlayer.innerHTML = `
+          <source src="${data.video}" type="video/mp4">
+          <source src="public/${data.video}" type="video/mp4">
+        `;
+        modalPlayer.load();
+        modalPlayer.currentTime = 0;
+        modalPlayer.muted = true;
+        modalPlayer.volume = 0;
+      } catch (err) {
+        console.warn('Modal video source load:', err);
+      }
       
       modal.classList.add('active');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       
-      const playPromise = modalPlayer.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(function () {
-          // Autoplay policy fallback with muted state
-          modalPlayer.muted = true;
-          modalPlayer.play();
-        });
-      }
+      try {
+        const playPromise = modalPlayer.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(function () {
+            modalPlayer.muted = true;
+            modalPlayer.play().catch(function () {});
+          });
+        }
+      } catch (err) {}
     }
 
     function closeModal() {
-      if (!modal || !modalPlayer) return;
+      if (!modal) return;
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
-      modalPlayer.pause();
-      modalPlayer.muted = true;
+      if (modalPlayer) {
+        try {
+          modalPlayer.pause();
+          modalPlayer.muted = true;
+        } catch (err) {}
+      }
       document.body.style.overflow = '';
     }
+
+    // Expose global methods for inline HTML onclick handlers
+    window.openProcessLightbox = openModalForStep;
+    window.closeProcessLightbox = closeModal;
+    window.scrollToProcessStep = function (stepNum) {
+      const step = String(stepNum);
+      const targetCard = document.querySelector(`.video-step-card[data-step="${step}"]`);
+      if (targetCard && processTrack) {
+        stepPills.forEach(function (p) {
+          const isTarget = p.getAttribute('data-step') === step;
+          p.classList.toggle('active', isTarget);
+          p.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+        });
+        const cardOffset = targetCard.offsetLeft - processTrack.offsetLeft - 10;
+        processTrack.scrollTo({ left: cardOffset, behavior: 'smooth' });
+      }
+    };
 
     if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
     if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
@@ -333,12 +363,28 @@
       });
     }
 
-    // Connect cards to modal
+    // Connect cards & inner buttons to modal
     videoCards.forEach(function (card) {
+      const step = parseInt(card.getAttribute('data-step'), 10);
       card.addEventListener('click', function () {
-        const step = parseInt(card.getAttribute('data-step'), 10);
         openModalForStep(step);
       });
+
+      const expandBtn = card.querySelector('.btn-card-expand');
+      if (expandBtn) {
+        expandBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openModalForStep(step);
+        });
+      }
+
+      const overlay = card.querySelector('.video-play-overlay');
+      if (overlay) {
+        overlay.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openModalForStep(step);
+        });
+      }
     });
 
     // Hero Video Action Button click
@@ -357,28 +403,23 @@
 
     // Step Nav Pills smooth scroll
     stepPills.forEach(function (pill) {
-      pill.addEventListener('click', function () {
+      pill.addEventListener('click', function (e) {
+        e.preventDefault();
         const step = pill.getAttribute('data-step');
-        const targetCard = document.querySelector(`.video-step-card[data-step="${step}"]`);
-        if (targetCard && processTrack) {
-          stepPills.forEach(function (p) { p.classList.remove('active'); p.setAttribute('aria-selected', 'false'); });
-          pill.classList.add('active');
-          pill.setAttribute('aria-selected', 'true');
-          
-          const cardOffset = targetCard.offsetLeft - processTrack.offsetLeft - 10;
-          processTrack.scrollTo({ left: cardOffset, behavior: 'smooth' });
-        }
+        window.scrollToProcessStep(step);
       });
     });
 
     // Carousel arrows
     if (prevBtn && processTrack) {
-      prevBtn.addEventListener('click', function () {
+      prevBtn.addEventListener('click', function (e) {
+        e.preventDefault();
         processTrack.scrollBy({ left: -320, behavior: 'smooth' });
       });
     }
     if (nextBtn && processTrack) {
-      nextBtn.addEventListener('click', function () {
+      nextBtn.addEventListener('click', function (e) {
+        e.preventDefault();
         processTrack.scrollBy({ left: 320, behavior: 'smooth' });
       });
     }
@@ -751,5 +792,11 @@
     }
 
     console.log('🏰 Gen-Z Laundry Blue City Theme & 10-Step Video Showcase initialized.');
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBlueCityTheme);
+  } else {
+    initBlueCityTheme();
+  }
 })();

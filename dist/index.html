@@ -200,8 +200,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- BLUE CITY THEME STYLES -->
-  <script type="module" crossorigin src="/assets/index-DzzYAr6F.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-D0nXdw4t.css">
+  <script type="module" crossorigin src="/assets/index-CxcIG_cQ.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-ClsjrWkd.css">
 </head>
 
 <body>
@@ -859,35 +859,35 @@
         <!-- 10 Interactive Step Pills (Swipeable on Mobile) -->
         <div class="process-step-nav-wrap">
           <div class="process-step-nav" id="processStepNav" role="tablist" aria-label="Process Step Navigation">
-            <button class="step-nav-pill active" data-step="1" role="tab" aria-selected="true"><span class="pill-num">01</span> Inspection</button>
-            <button class="step-nav-pill" data-step="2" role="tab" aria-selected="false"><span class="pill-num">02</span> Tagging</button>
-            <button class="step-nav-pill" data-step="3" role="tab" aria-selected="false"><span class="pill-num">03</span> Stain Care</button>
-            <button class="step-nav-pill" data-step="4" role="tab" aria-selected="false"><span class="pill-num">04</span> Soaking</button>
-            <button class="step-nav-pill" data-step="5" role="tab" aria-selected="false"><span class="pill-num">05</span> Pre-Process</button>
-            <button class="step-nav-pill" data-step="6" role="tab" aria-selected="false"><span class="pill-num">06</span> Machine Wash</button>
-            <button class="step-nav-pill" data-step="7" role="tab" aria-selected="false"><span class="pill-num">07</span> Steam Iron</button>
-            <button class="step-nav-pill" data-step="8" role="tab" aria-selected="false"><span class="pill-num">08</span> Packing</button>
-            <button class="step-nav-pill" data-step="9" role="tab" aria-selected="false"><span class="pill-num">09</span> Final Check</button>
-            <button class="step-nav-pill" data-step="10" role="tab" aria-selected="false"><span class="pill-num">10</span> Delivery</button>
+            <button class="step-nav-pill active" data-step="1" role="tab" aria-selected="true" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(1) : null"><span class="pill-num">01</span> Inspection</button>
+            <button class="step-nav-pill" data-step="2" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(2) : null"><span class="pill-num">02</span> Tagging</button>
+            <button class="step-nav-pill" data-step="3" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(3) : null"><span class="pill-num">03</span> Stain Care</button>
+            <button class="step-nav-pill" data-step="4" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(4) : null"><span class="pill-num">04</span> Soaking</button>
+            <button class="step-nav-pill" data-step="5" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(5) : null"><span class="pill-num">05</span> Pre-Process</button>
+            <button class="step-nav-pill" data-step="6" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(6) : null"><span class="pill-num">06</span> Machine Wash</button>
+            <button class="step-nav-pill" data-step="7" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(7) : null"><span class="pill-num">07</span> Steam Iron</button>
+            <button class="step-nav-pill" data-step="8" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(8) : null"><span class="pill-num">08</span> Packing</button>
+            <button class="step-nav-pill" data-step="9" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(9) : null"><span class="pill-num">09</span> Final Check</button>
+            <button class="step-nav-pill" data-step="10" role="tab" aria-selected="false" onclick="window.scrollToProcessStep ? window.scrollToProcessStep(10) : null"><span class="pill-num">10</span> Delivery</button>
           </div>
         </div>
 
         <!-- Carousel Navigation Controls -->
         <div class="process-carousel-wrapper">
-          <button class="carousel-control prev" id="processPrevBtn" aria-label="Previous step">
+          <button class="carousel-control prev" id="processPrevBtn" aria-label="Previous step" onclick="document.getElementById('processVideoTrack')?.scrollBy({ left: -320, behavior: 'smooth' })">
             <i class="fas fa-chevron-left"></i>
           </button>
 
           <div class="process-video-track" id="processVideoTrack">
             <!-- Step 01 -->
-            <div class="video-step-card" data-step="1" data-video="process/step-01-inspection.mp4" data-title="Step 01: Garment Inspection" data-desc="Every garment is individually checked under high-CRI lighting for fabric sensitivity, colorfastness, cuff/collar wear, and pocket contents.">
+            <div class="video-step-card" data-step="1" onclick="window.openProcessLightbox ? window.openProcessLightbox(1) : null" data-video="process/step-01-inspection.mp4" data-title="Step 01: Garment Inspection" data-desc="Every garment is individually checked under high-CRI lighting for fabric sensitivity, colorfastness, cuff/collar wear, and pocket contents.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-01-inspection-fiDCt5dk.mp4" type="video/mp4">
                   <source src="/assets/step-01-inspection-fiDCt5dk.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 01 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(1) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -896,21 +896,21 @@
                 <div class="step-tag-pill"><i class="fas fa-search"></i> Stage 01</div>
                 <div class="step-card-title">Garment Inspection</div>
                 <p class="step-card-desc">Thorough fabric check, stain mapping &amp; pocket inspection.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 01 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 01 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(1) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 02 -->
-            <div class="video-step-card" data-step="2" data-video="process/step-02-tagging.mp4" data-title="Step 02: Tagging &amp; Sorting" data-desc="Clothes are assigned unique barcode tags to guarantee zero garment mix-ups, then separated by color shade, fabric weight, and water temperature.">
+            <div class="video-step-card" data-step="2" onclick="window.openProcessLightbox ? window.openProcessLightbox(2) : null" data-video="process/step-02-tagging.mp4" data-title="Step 02: Tagging &amp; Sorting" data-desc="Clothes are assigned unique barcode tags to guarantee zero garment mix-ups, then separated by color shade, fabric weight, and water temperature.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-02-tagging-CknnHXT2.mp4" type="video/mp4">
                   <source src="/assets/step-02-tagging-CknnHXT2.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 02 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(2) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -919,21 +919,21 @@
                 <div class="step-tag-pill"><i class="fas fa-tags"></i> Stage 02</div>
                 <div class="step-card-title">Tagging &amp; Sorting</div>
                 <p class="step-card-desc">Individual barcode tagging &amp; garment segregation.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 02 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 02 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(2) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 03 -->
-            <div class="video-step-card" data-step="3" data-video="process/step-03-stain-treatment.mp4" data-title="Step 03: Stain Pre-Treatment" data-desc="Targeted chemical spotting and ultrasonic stain lifters dissolve grease, curry, ink, sweat, and beverage stains before water wash begins.">
+            <div class="video-step-card" data-step="3" onclick="window.openProcessLightbox ? window.openProcessLightbox(3) : null" data-video="process/step-03-stain-treatment.mp4" data-title="Step 03: Stain Pre-Treatment" data-desc="Targeted chemical spotting and ultrasonic stain lifters dissolve grease, curry, ink, sweat, and beverage stains before water wash begins.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-03-stain-treatment-LW0r1mil.mp4" type="video/mp4">
                   <source src="/assets/step-03-stain-treatment-LW0r1mil.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 03 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(3) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -942,21 +942,21 @@
                 <div class="step-tag-pill"><i class="fas fa-magic"></i> Stage 03</div>
                 <div class="step-card-title">Stain Pre-Treatment</div>
                 <p class="step-card-desc">Ultrasonic &amp; specialized eco-solvent spot lifting.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 03 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 03 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(3) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 04 -->
-            <div class="video-step-card" data-step="4" data-video="process/step-04-soaking.mp4" data-title="Step 04: Deep Conditioning Soaking" data-desc="Immersed in softened, mineral-free water enriched with gentle fabric conditioners to loosen embedded desert dust without fiber friction.">
+            <div class="video-step-card" data-step="4" onclick="window.openProcessLightbox ? window.openProcessLightbox(4) : null" data-video="process/step-04-soaking.mp4" data-title="Step 04: Deep Conditioning Soaking" data-desc="Immersed in softened, mineral-free water enriched with gentle fabric conditioners to loosen embedded desert dust without fiber friction.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-04-soaking-CQnO8i7o.mp4" type="video/mp4">
                   <source src="/assets/step-04-soaking-CQnO8i7o.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 04 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(4) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -965,21 +965,21 @@
                 <div class="step-tag-pill"><i class="fas fa-water"></i> Stage 04</div>
                 <div class="step-card-title">Deep Conditioning Soak</div>
                 <p class="step-card-desc">Soft mineral-free water soak to loosen embedded dust.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 04 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 04 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(4) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 05 -->
-            <div class="video-step-card" data-step="5" data-video="process/step-05-pre-processing.mp4" data-title="Step 05: Pre-Processing &amp; Collar Care" data-desc="Collar bands, cuffs, and hem pockets receive gentle precision brushing with specialized horsehair and microfiber tools to restore crispness.">
+            <div class="video-step-card" data-step="5" onclick="window.openProcessLightbox ? window.openProcessLightbox(5) : null" data-video="process/step-05-pre-processing.mp4" data-title="Step 05: Pre-Processing &amp; Collar Care" data-desc="Collar bands, cuffs, and hem pockets receive gentle precision brushing with specialized horsehair and microfiber tools to restore crispness.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-05-pre-processing-CxySdtYW.mp4" type="video/mp4">
                   <source src="/assets/step-05-pre-processing-CxySdtYW.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 05 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(5) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -988,21 +988,21 @@
                 <div class="step-tag-pill"><i class="fas fa-hand-sparkles"></i> Stage 05</div>
                 <div class="step-card-title">Pre-Processing &amp; Collars</div>
                 <p class="step-card-desc">Hand-scrubbing cuffs &amp; collars with soft brushes.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 05 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 05 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(5) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 06 -->
-            <div class="video-step-card" data-step="6" data-video="process/step-06-machine-processing.mp4" data-title="Step 06: German Machine Processing" data-desc="Microprocessor-controlled drum rotation with imported German bio-enzymes washes garments with calibrated gentle agitation and temperature control.">
+            <div class="video-step-card" data-step="6" onclick="window.openProcessLightbox ? window.openProcessLightbox(6) : null" data-video="process/step-06-machine-processing.mp4" data-title="Step 06: German Machine Processing" data-desc="Microprocessor-controlled drum rotation with imported German bio-enzymes washes garments with calibrated gentle agitation and temperature control.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-06-machine-processing-DPuQJyu4.mp4" type="video/mp4">
                   <source src="/assets/step-06-machine-processing-DPuQJyu4.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 06 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(6) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -1011,21 +1011,21 @@
                 <div class="step-tag-pill"><i class="fas fa-cogs"></i> Stage 06</div>
                 <div class="step-card-title">Machine Processing</div>
                 <p class="step-card-desc">German microprocessor wash with pH-neutral eco agents.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 06 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 06 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(6) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 07 -->
-            <div class="video-step-card" data-step="7" data-video="process/step-07-steam-ironing.mp4" data-title="Step 07: Italian Vacuum Steam Ironing" data-desc="3D ergonomic Italian vacuum steam tables draw pure steam through the fabric, relaxing wrinkles without scorching delicate wool, silk, or linen.">
+            <div class="video-step-card" data-step="7" onclick="window.openProcessLightbox ? window.openProcessLightbox(7) : null" data-video="process/step-07-steam-ironing.mp4" data-title="Step 07: Italian Vacuum Steam Ironing" data-desc="3D ergonomic Italian vacuum steam tables draw pure steam through the fabric, relaxing wrinkles without scorching delicate wool, silk, or linen.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-07-steam-ironing-BIef4chQ.mp4" type="video/mp4">
                   <source src="/assets/step-07-steam-ironing-BIef4chQ.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 07 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(7) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -1034,21 +1034,21 @@
                 <div class="step-tag-pill"><i class="fas fa-fire"></i> Stage 07</div>
                 <div class="step-card-title">Italian Vacuum Steam</div>
                 <p class="step-card-desc">High-pressure vacuum steam ironing for crisp finish.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 07 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 07 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(7) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 08 -->
-            <div class="video-step-card" data-step="8" data-video="process/step-08-packing.mp4" data-title="Step 08: Hygienic Protective Packing" data-desc="Garments are sealed in breathable, dust-resistant transparent protective covers on custom luxury hangers or in crisp traveler-fold packaging.">
+            <div class="video-step-card" data-step="8" onclick="window.openProcessLightbox ? window.openProcessLightbox(8) : null" data-video="process/step-08-packing.mp4" data-title="Step 08: Hygienic Protective Packing" data-desc="Garments are sealed in breathable, dust-resistant transparent protective covers on custom luxury hangers or in crisp traveler-fold packaging.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-08-packing-DNxl0QIQ.mp4" type="video/mp4">
                   <source src="/assets/step-08-packing-DNxl0QIQ.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 08 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(8) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -1057,21 +1057,21 @@
                 <div class="step-tag-pill"><i class="fas fa-box-open"></i> Stage 08</div>
                 <div class="step-card-title">Protective Packing</div>
                 <p class="step-card-desc">Anti-microbial breathable film packing for freshness.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 08 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 08 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(8) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 09 -->
-            <div class="video-step-card" data-step="9" data-video="process/step-09-final-inspection.mp4" data-title="Step 09: Final Quality Inspection" data-desc="Our senior quality supervisor performs a 5-point audit checking button integrity, hem sharpness, aroma, and complete stain removal.">
+            <div class="video-step-card" data-step="9" onclick="window.openProcessLightbox ? window.openProcessLightbox(9) : null" data-video="process/step-09-final-inspection.mp4" data-title="Step 09: Final Quality Inspection" data-desc="Our senior quality supervisor performs a 5-point audit checking button integrity, hem sharpness, aroma, and complete stain removal.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-09-final-inspection-BpIgby5p.mp4" type="video/mp4">
                   <source src="/assets/step-09-final-inspection-BpIgby5p.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 09 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(9) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -1080,21 +1080,21 @@
                 <div class="step-tag-pill"><i class="fas fa-clipboard-check"></i> Stage 09</div>
                 <div class="step-card-title">Final Quality Inspection</div>
                 <p class="step-card-desc">Multi-point checklist audit to ensure flawless care.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 09 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 09 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(9) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
 
             <!-- Step 10 -->
-            <div class="video-step-card" data-step="10" data-video="process/step-10-doorstep-delivery.mp4" data-title="Step 10: Express Doorstep Delivery" data-desc="Dispatched via our sanitized fleet directly to your hotel concierge, hostel desk, Airbnb, or residence anywhere in Jodhpur right on schedule.">
+            <div class="video-step-card" data-step="10" onclick="window.openProcessLightbox ? window.openProcessLightbox(10) : null" data-video="process/step-10-doorstep-delivery.mp4" data-title="Step 10: Express Doorstep Delivery" data-desc="Dispatched via our sanitized fleet directly to your hotel concierge, hostel desk, Airbnb, or residence anywhere in Jodhpur right on schedule.">
               <div class="card-video-media">
                 <video class="process-card-video" muted loop playsinline preload="metadata">
                   <source src="/assets/step-10-doorstep-delivery-H-fREfsA.mp4" type="video/mp4">
                   <source src="/assets/step-10-doorstep-delivery-H-fREfsA.mp4" type="video/mp4">
                 </video>
                 <div class="video-card-badge">STEP 10 / 10</div>
-                <div class="video-play-overlay">
+                <div class="video-play-overlay" onclick="window.openProcessLightbox ? window.openProcessLightbox(10) : null; event.stopPropagation();">
                   <div class="play-circle"><i class="fas fa-play"></i></div>
                   <span class="play-label">Tap for Full HD</span>
                 </div>
@@ -1103,14 +1103,14 @@
                 <div class="step-tag-pill"><i class="fas fa-truck"></i> Stage 10</div>
                 <div class="step-card-title">Express Delivery</div>
                 <p class="step-card-desc">On-time doorstep return to your hotel or home.</p>
-                <button class="btn-card-expand" aria-label="Watch Step 10 Video">
+                <button class="btn-card-expand" aria-label="Watch Step 10 Video" onclick="window.openProcessLightbox ? window.openProcessLightbox(10) : null; event.stopPropagation();">
                   <span>Watch Video</span> <i class="fas fa-arrow-right"></i>
                 </button>
               </div>
             </div>
           </div>
 
-          <button class="carousel-control next" id="processNextBtn" aria-label="Next step">
+          <button class="carousel-control next" id="processNextBtn" aria-label="Next step" onclick="document.getElementById('processVideoTrack')?.scrollBy({ left: 320, behavior: 'smooth' })">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>

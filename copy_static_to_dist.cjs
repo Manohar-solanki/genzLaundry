@@ -15,12 +15,12 @@ rootFiles.forEach(file => {
   }
 });
 
-// Copy root folders like catalog/, catalogue/
-['catalog', 'catalogue'].forEach(folder => {
+// Copy root folders like catalog/, catalogue/, js/, css/, data/
+['catalog', 'catalogue', 'js', 'css', 'data'].forEach(folder => {
   const srcDir = path.join(__dirname, folder);
   const destDir = path.join(__dirname, 'dist', folder);
   if (fs.existsSync(srcDir)) {
-    fs.cpSync(srcDir, destDir, { recursive: true });
+    fs.cpSync(srcDir, destDir, { recursive: true, force: true });
     console.log(`Copied ${folder}/ -> dist/${folder}/`);
   }
 });
